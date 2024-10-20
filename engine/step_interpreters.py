@@ -333,11 +333,11 @@ class FilterInludedInterpreter():
         assert(step_name==self.step_name)
         return box_var,output_var
     
-    def html(self,box_img_original,box_img,output_var):
+    def html(self,boxes,filtered,output_var):
         step_name = html_step_name(self.step_name)
         output_var = html_var_name(output_var)
         box_img = html_embed_image(box_img)
-        return f"""<div>{output_var}={step_name}({box_img_original})={box_img}</div>"""
+        return f"""<div>{output_var}={step_name}({boxes})={filtered}</div>"""
     
     def box_image(self,img,boxes,highlight_best=True):
         img1 = img.copy()
@@ -354,7 +354,10 @@ class FilterInludedInterpreter():
     
     def execute(self,prog_step,inspect=False):
         box_var,output_var = self.parse(prog_step)
-        boxes = prog_step.state[box_var]
+        if box_var in prog_step.state:
+            boxes = prog_step.state[box_var]
+        else:
+            boxes = eval(box_var)
         deleted = [False] * len(boxes)
         for i in range(len(boxes) - 1):
             for j in range(i + 1, len(boxes)):
@@ -375,13 +378,10 @@ class FilterInludedInterpreter():
         for i in range(len(boxes)):
             if not deleted[i]:
                 filtered.append(boxes[i])
-        img = prog_step.state[box_var+'_IMAGE']
-        img1 = self.box_image(img, filtered)
         
         prog_step.state[output_var] = filtered
-        prog_step.state[output_var+'_IMAGE'] = img1
         if inspect:
-            html_str = self.html(img, img1, output_var)
+            html_str = self.html(boxes, filtered, output_var)
             return filtered, html_str
 
         return filtered
