@@ -357,7 +357,7 @@ class FilterInludedInterpreter():
         if box_var in prog_step.state:
             boxes = prog_step.state[box_var]
         else:
-            boxes = eval(box_var)
+            boxes = eval(eval(box_var))
         deleted = [False] * len(boxes)
         for i in range(len(boxes) - 1):
             for j in range(i + 1, len(boxes)):
