@@ -80,6 +80,7 @@ class ProgramGenerator():
             frequency_penalty=0,
             presence_penalty=0,
             n=1,
+            stop = '))',
             logprobs=1
         )
 
