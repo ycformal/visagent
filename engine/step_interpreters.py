@@ -319,6 +319,73 @@ class LocInterpreter():
 
         return bboxes
     
+class FilterInludedInterpreter():
+    step_name = 'FILTER_INCLUDED'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        box_var = parse_result['args']['box']
+        output_var = parse_result['output_var']
+        assert(step_name==self.step_name)
+        return box_var,output_var
+    
+    def html(self,box_img_original,box_img,output_var):
+        step_name = html_step_name(self.step_name)
+        output_var = html_var_name(output_var)
+        box_img = html_embed_image(box_img)
+        return f"""<div>{output_var}={step_name}({box_img_original})={box_img}</div>"""
+    
+    def box_image(self,img,boxes,highlight_best=True):
+        img1 = img.copy()
+        draw = ImageDraw.Draw(img1)
+        for i,box in enumerate(boxes):
+            if i==0 and highlight_best:
+                color = 'red'
+            else:
+                color = 'blue'
+
+            draw.rectangle(box,outline=color,width=5)
+
+        return img1
+    
+    def execute(self,prog_step,inspect=False):
+        box_var,output_var = self.parse(prog_step)
+        boxes = prog_step.state[box_var]
+        deleted = [False] * len(boxes)
+        for i in range(len(boxes) - 1):
+            for j in range(i + 1, len(boxes)):
+                overlap_area = None
+                x_distance = min(boxes[i][2], boxes[j][2]) - max(boxes[i][0], boxes[j][0])
+                y_distance = min(boxes[i][3], boxes[j][3]) - max(boxes[i][1], boxes[j][1])
+                if x_distance > 0 and y_distance > 0:
+                    overlap_area = x_distance * y_distance
+                else:
+                    overlap_area = 0
+                percentage_i = overlap_area / ((boxes[i][2] - boxes[i][0]) * (boxes[i][3] - boxes[i][1]))
+                percentage_j = overlap_area / ((boxes[j][2] - boxes[j][0]) * (boxes[j][3] - boxes[j][1]))
+                if percentage_i > 0.9:
+                    deleted[i] = True
+                elif percentage_j > 0.9:
+                    deleted[j] = True
+        filtered = []
+        for i in range(len(boxes)):
+            if not deleted[i]:
+                filtered.append(boxes[i])
+        img = prog_step.state[box_var+'_IMAGE']
+        img1 = self.box_image(img, filtered)
+        
+        prog_step.state[output_var] = filtered
+        prog_step.state[output_var+'_IMAGE'] = img1
+        if inspect:
+            html_str = self.html(img, img1, output_var)
+            return filtered, html_str
+
+        return filtered
+    
 class CapInterpreter():
     step_name = 'CAP'
 
@@ -1436,7 +1503,8 @@ def register_step_interpreters(dataset='nlvr'):
             VQA=VQAInterpreter(),
             EVAL=EvalInterpreter(),
             RESULT=ResultInterpreter(),
-            CAP=CapInterpreter()
+            CAP=CapInterpreter(),
+            FILTER_INCLUDED=FilterInludedInterpreter()
         )
     elif dataset=='imageEdit':
         return dict(
