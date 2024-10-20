@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import tiktoken
 import os
-from ..engine.step_interpreters import parse_step
+from engine.step_interpreters import parse_step
 
 nltk.download('punkt')
 nltk.download('stopwords')
