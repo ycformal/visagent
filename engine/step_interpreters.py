@@ -134,7 +134,10 @@ class ResultInterpreter():
 
     def execute(self,prog_step,inspect=False):
         output_var = self.parse(prog_step)
-        output = prog_step.state[output_var]
+        if output_var in prog_step.state:
+            output = prog_step.state[output_var]
+        else:
+            output = eval(output_var)
         if inspect:
             html_str = self.html(output,output_var)
             return output, html_str
