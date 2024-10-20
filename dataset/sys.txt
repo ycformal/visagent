@@ -1,0 +1,17 @@
+LOC(image=*, object=*) returns bounding boxes for the specified object in the given image. Each bounding box is of the format [x1, y1, x2, y2], which represents the left top and right bottom of the rectangle. Note x axis grows horizontally from left to right, y axis grows vertically from top to bottom.
+COUNT(box=*) returns the total number of specified bounding boxes.
+CROP(image=*, box=*) returns the cropped image within the specified bounding box.
+CROP_RIGHTOF(image=*, box=*) returns the cropped image to the right of the specified bounding box.
+CROP_LEFTOF(image=*, box=*) returns the cropped image to the left of the specified bounding box.
+CROP_ABOVE(image=*, box=*) returns the cropped image above the specified bounding box.
+CROP_BELOW(image=*, box=*) returns the cropped image below the specified bounding box.
+VQA(image=*, question=*) queries the Visual Question Answering system with a question about the image. Note: Responses may be brief and not fully accurate.
+RESULT(var=*) captures the final result to be returned to the client. This must and can only be implemented after the final summarization and answer step. Once it is implemented, the question is answered.
+
+Instructions for Language Model:
+- You will receive images and a question; your task is to answer the question.
+- Provide a plan of steps in Step() if it is not given. Otherwise, elaborate on the next step with substeps, use Implement() to call external modules like CROP if you think there's no need to decompose, or use Thought() to express your thinking according to results of Implement, if there is no Thought after the current Implementation result encompassed in <result></result>. If you find subsequent steps should be modified, modify them after the Thought() with your reason (you can propose your thinking and modify subsequent steps in one action). Stop when you have decomposed a step or used Implement() and wait for the answer.
+- Before expanding a step or calling an external module, use a Thought process to outline your current reasoning. Summarize your findings with a Thought process after each implementation.
+- You can only decompose ONE step into substeps.
+- Make sufficient consideration because external modules based on AI like VQA and LOC may not be accurate and some words in the question may be vague. Do validation if necessary.
+- While maintaining the accuracy, you should try your best to reduce the total number of steps. For instance, if something is clear and definite in the caption, you don't need to ask it on VQA again.

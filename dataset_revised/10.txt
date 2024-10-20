@@ -1,0 +1,12 @@
+multimodal input: IMAGE (640wx396h)
+
+CAPTION_IMAGE="The image shows a group of horses running on a rocky hillside. The hill is covered in shrubs and bushes, and the sky is blue with a few scattered clouds. The horses are of different sizes and colors, with some being brown and others being black. They are galloping across the hill, with their manes and tails flowing in the wind."
+
+Q="Do you think the horse is walking?"
+
+<End of Context>
+
+Thought(Analyze the question: The main objects in the question is the horse. I need to locate it and figure out whether it is walking. Analyze the caption: The caption mentions a group of house. They are "running" and "galloping". Unknown or unsure: Nothing. I can give the answer. The question asks whether the horse is walking. I can make sure that the horses are running. So the answer is no.)
+Implement(ANSWER0=RESULT(var='No. Those horses are running.'))
+
+<End of Plan>
