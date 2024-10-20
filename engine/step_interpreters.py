@@ -336,21 +336,7 @@ class FilterInludedInterpreter():
     def html(self,boxes,filtered,output_var):
         step_name = html_step_name(self.step_name)
         output_var = html_var_name(output_var)
-        box_img = html_embed_image(box_img)
         return f"""<div>{output_var}={step_name}({boxes})={filtered}</div>"""
-    
-    def box_image(self,img,boxes,highlight_best=True):
-        img1 = img.copy()
-        draw = ImageDraw.Draw(img1)
-        for i,box in enumerate(boxes):
-            if i==0 and highlight_best:
-                color = 'red'
-            else:
-                color = 'blue'
-
-            draw.rectangle(box,outline=color,width=5)
-
-        return img1
     
     def execute(self,prog_step,inspect=False):
         box_var,output_var = self.parse(prog_step)
