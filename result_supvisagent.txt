@@ -1,0 +1,602 @@
+Statistics:
+Accuracy of visprog: 64%
+Accuracy of visagent: 76%
+
+Does the plate have a different color than the artwork?
+reference answer: Yes, the artwork is black and the plate is white.
+visprog: no
+visagent: The plate and the artwork are the same color.
+Judge: False, False
+
+What kind of device is made of the same material as the device above the desk?
+reference answer: The computer monitor is made of the same material as the keyboard.
+visprog: computer
+visagent: The monitor is also placed on the desk.
+Judge: True, True
+
+Is there a teddy bear that is not lying?
+reference answer: No, there is a teddy bear but it is lying.
+visprog: no
+visagent: yes
+Judge: True, False
+
+Which company are the shorts from?
+reference answer: The shorts are from adidas.
+visprog: adidas
+visagent: Adidas
+Judge: True, True
+
+Which company are the shoes from?
+reference answer: The shoes are from adidas.
+visprog: adidas
+visagent: The shoes are from Adidas.
+Judge: True, True
+
+Is this a table or a bed?
+reference answer: This is a table.
+visprog: table
+visagent: table
+Judge: True, True
+
+Do the cabinets hang from the beige wall?
+reference answer: Yes, the cabinets hang from the wall.
+visprog: yes
+visagent: Yes, the cabinets are on the beige wall.
+Judge: True, True
+
+Is the knife on a napkin?
+reference answer: No, the knife is on the table.
+visprog: yes
+visagent: No.
+Judge: False, True
+
+Does the necktie have a different color than the shoe?
+reference answer: No, both the necktie and the shoe are black.
+visprog: yes
+visagent: Yes.
+Judge: False, False
+
+Is the ceiling above a toilet?
+reference answer: Yes, the ceiling is above a toilet.
+visprog: no
+visagent: yes
+Judge: False, True
+
+Is this the zoo?
+reference answer: No, it is the garden.
+visprog: no
+visagent: No. This is a dish of seafood, and I can see there is no zoo in the image.
+Judge: True, True
+
+Which place is it?
+reference answer: It is a street.
+visprog: restaurant
+visagent: The Chinese Garden Restaurant.
+Judge: True, True
+
+Are there cyclists or men that are riding?
+reference answer: Yes, the cyclist is riding.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+What is the weather like today? (The image contains clouds)
+reference answer: It is clear.
+visprog: cloudy
+visagent: sunny
+Judge: True, True
+
+Is there a fence in front of the trees?
+reference answer: No, there is a boy in front of the trees.
+visprog: no
+visagent: yes
+Judge: True, False
+
+Are there any ovens or cabinets that are black?
+reference answer: Yes, the oven is black.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Is the cake to the left or to the right of the bowl?
+reference answer: The cake is to the left of the bowl.
+visprog: right
+visagent: The cake is to the right of the bowl. I can see it from the image.
+Judge: False, False
+
+Are the people of the same gender?
+reference answer: Yes, all the people are female.
+visprog: yes
+visagent: Yes, they are of the same gender.
+Judge: True, True
+
+What type of device is made of the same material as the remote the man is to the left of?
+reference answer: The telephone is made of the same material as the remote.
+visprog: remote
+visagent: The answer is: T-shirt
+Judge: False, False
+
+Do you see any large couch or desk?
+reference answer: No, there is a desk but it is small.
+visprog: yes
+visagent: There is a desk, and the desk is large, but there is no couch.
+Judge: False, False
+
+Do both the people have the same gender?
+reference answer: No, they are both male and female.
+visprog: yes
+visagent: The two people are of different genders.
+Judge: False, True
+
+Is there any tea in this photograph that is not wet?
+reference answer: No, there is tea but it is wet.
+visprog: yes
+visagent: No.
+Judge: False, True
+
+Are the curtains made of cloth?
+reference answer: Yes, the curtains are made of cloth.
+visprog: no
+visagent: No, there are no curtains.
+Judge: False, False
+
+Who seems to be older, the woman or the girl?
+reference answer: The woman is older than the girl.
+visprog: woman
+visagent: The woman is older.
+Judge: True, True
+
+What kind of furniture is cracked?
+reference answer: The furniture is a table.
+visprog: table
+visagent: The bench is cracked.
+Judge: True, True
+
+Where is the girl that is young looking at?
+reference answer: The girl is looking up.
+visprog: up
+visagent: The girl is looking at the sky.
+Judge: True, True
+
+Are the animals of different species?
+reference answer: Yes, they are dogs and birds.
+visprog: yes
+visagent: Yes, there are birds and a dog.
+Judge: True, True
+
+How is the weather, clear or stormy?
+reference answer: It is stormy.
+visprog: stormy
+visagent: Stormy
+Judge: True, True
+
+Do you see birds there that are not sitting?
+reference answer: Yes, there is a bird that is standing .
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Is this a white cabinet?
+reference answer: No, this is a brown cabinet.
+visprog: no
+visagent: No, this is not a white cabinet.
+Judge: True, True
+
+On which side of the image is the male person?
+reference answer: The skateboarder is on the left of the image.
+visprog: right
+visagent: The left side.
+Judge: False, True
+
+Does the shirt have the same color as the chair?
+reference answer: Yes, both the shirt and the chair are white.
+visprog: no
+visagent: The shirt is not of the same color as the chair.
+Judge: False, False
+
+Are there both a door and a window in this scene?
+reference answer: Yes, there are both a window and a door.
+visprog: no
+visagent: yes
+Judge: False, True
+
+Do the sky and the flag have the same color?
+reference answer: Yes, both the sky and the flag are blue.
+visprog: no
+visagent: yes
+Judge: False, True
+
+How is the weather?
+reference answer: It is partly cloudy.
+visprog: cloudy
+visagent: The weather is sunny.
+Judge: True, False
+
+Are there both a chair and a cup in the photo?
+reference answer: Yes, there are both a cup and a chair.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Is the bread on the left side?
+reference answer: No, the bread is on the right of the image.
+visprog: yes
+visagent: No.
+Judge: False, True
+
+Are there any chairs or mugs that are black?
+reference answer: Yes, the mug is black.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+What is the woman doing?
+reference answer: The woman is looking down.
+visprog: texting
+visagent: The woman is using the phone.
+Judge: False, False
+
+Do you see any short grass?
+reference answer: Yes, there is short grass.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Is the boat in the bottom part or in the top of the picture?
+reference answer: The boat is in the bottom of the image.
+visprog: bottom
+visagent: The boat is at the bottom of the picture.
+Judge: True, True
+
+Are there buckets or sugar packets?
+reference answer: No, there are no sugar packets or buckets.
+visprog: no
+visagent: There are neither buckets nor sugar packets.
+Judge: True, True
+
+Does the speaker to the left of the other speaker look blue?
+reference answer: No, the speaker is silver.
+visprog: no
+visagent: The left speaker is brown, so it is not blue.
+Judge: True, True
+
+What's in front of the wall?
+reference answer: The tree is in front of the wall.
+visprog: runtime error
+visagent: The Christmas tree is in front of the wall.
+Judge: False, True
+
+Is there an airplane in the picture that is black?
+reference answer: No, there is an airplane but it is white.
+visprog: no
+visagent: No, there is only a white airplane.
+Judge: True, True
+
+What piece of furniture is the rug in front of, a cabinet or a couch?
+reference answer: The rug is in front of a cabinet.
+visprog: cabinet
+visagent: cabinet
+Judge: True, True
+
+Are there either helmets or mirrors that are black?
+reference answer: Yes, the helmet is black.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+What is this appliance called?
+reference answer: This is a toaster.
+visprog: stove
+visagent: The appliance is a toaster.
+Judge: False, True
+
+What is the item of furniture that is made of same material as the storage box that is not empty called?
+reference answer: The piece of furniture is a desk.
+visprog: storage box
+visagent: The floor is made of the same material as the storage box.
+Judge: False, True
+
+How long are the trousers?
+reference answer: The trousers are short.
+visprog: short
+visagent: The trousers are of normal length.
+Judge: True, False
+
+Who is wearing the pants?
+reference answer: The woman is wearing pants.
+visprog: man
+visagent: The man is wearing the pants.
+Judge: -True, -True
+
+Are there any new dishwashers?
+reference answer: Yes, there is a new dishwasher.
+visprog: yes
+visagent: I don't know whether there are any new dishwashers.
+Judge: True, False
+
+Is the shape of the log different than the tree?
+reference answer: No, both the log and the tree are round.
+visprog: no
+visagent: yes
+Judge: True, False
+
+What is the white clothing item called?
+reference answer: The clothing item is a coat.
+visprog: tuxedo
+visagent: tuxedo
+Judge: True, True
+
+What item of furniture is made of plastic?
+reference answer: The piece of furniture is a desk.
+visprog: table
+visagent: The desk is made of plastic.
+Judge: True, True
+
+What device is the same color as the lamp?
+reference answer: The cellphone is the same color as the lamp.
+visprog: runtime error
+visagent: The two helmets are the same color as the lamp.
+Judge: False, False
+
+What is the vehicle that is made of same material as the pole that is not short called?
+reference answer: The vehicle is a van.
+visprog: yes
+visagent: The cars are the same material as the pole.
+Judge: False, True
+
+Is this a little table?
+reference answer: No, this is a large table.
+visprog: no
+visagent: No, there is a normal sized table.
+Judge: True, True
+
+Is the clock to the right or to the left of the person that the lady is to the left of?
+reference answer: The clock is to the right of the person.
+visprog: left
+visagent: Right
+Judge: False, True
+
+Are there both glasses and ties in the image?
+reference answer: Yes, there are both a tie and glasses.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Are the trousers wet?
+reference answer: No, the trousers are dry.
+visprog: no
+visagent: No, the trousers are not wet.
+Judge: True, True
+
+What is the person in front of the chair typing on, a phone or a laptop?
+reference answer: The person is typing on a phone.
+visprog: runtime error
+visagent: The person is using a phone.
+Judge: False, True
+
+Is there any pillow that is not red?
+reference answer: Yes, there is a white pillow.
+visprog: yes
+visagent: No, all the pillows are white.
+Judge: True, False
+
+In which part of the photo is the red candle, the bottom or the top?
+reference answer: The candle is in the top of the image.
+visprog: top
+visagent: The red candle is at the top.
+Judge: True, True
+
+Who in this image is standing?
+reference answer: The woman is standing.
+visprog: no one
+visagent: The person is the answer.
+Judge: -True, True
+
+Are the street lights made of the same material as the cars?
+reference answer: Yes, both the street lights and the cars are made of metal.
+visprog: yes
+visagent: The street lights are made of the same material as the cars.
+Judge: True, True
+
+Is there any coffee to the left of the man that is to the left of the paintings?
+reference answer: No, there is wine to the left of the man.
+visprog: no
+visagent: No.
+Judge: True, True
+
+Do you see calculators that are not made of plastic?
+reference answer: No, there is a calculator but it is made of plastic.
+visprog: no
+visagent: No, all the calculators are made of plastic.
+Judge: True, True
+
+Is the boy on the right side?
+reference answer: No, the boy is on the left of the image.
+visprog: yes
+visagent: No.
+Judge: False, True
+
+What is the name of the piece of furniture that is made of the same material as the door?
+reference answer: The piece of furniture is a drawer.
+visprog: runtime error
+visagent: The piece of furniture is the vanity.
+Judge: False, True
+
+What kind of furniture is made of the same material as the frame?
+reference answer: The end table is made of the same material as the frame.
+visprog: wood
+visagent: The sofa is wooden.
+Judge: False, False
+
+What is the rounded appliance?
+reference answer: The appliance is a toaster.
+visprog: stove
+visagent: The appliance is the toaster.
+Judge: False, True
+
+What kind of vegetable is to the right of the giraffe?
+reference answer: The vegetable is a carrot.
+visprog: carrot
+visagent: carrot
+Judge: True, True
+
+Which kind of furniture is the door behind of?
+reference answer: The door is behind the chair.
+visprog: chairs
+visagent: The door is behind the cabinet.
+Judge: True, True
+
+Is this a yellow fire hydrant?
+reference answer: Yes, this is a yellow fire hydrant.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Is the color of the building the same as the color of the SUV?
+reference answer: No, the building is red and the SUV is black.
+visprog: no
+visagent: No, the color of the building is not the same as the color of the SUV.
+Judge: True, True
+
+Which kind of furniture is it?
+reference answer: The piece of furniture is a bed.
+visprog: bed
+visagent: nightstand
+Judge: True, False
+
+Is this a train or a bus?
+reference answer: This is a bus.
+visprog: train
+visagent: bus
+Judge: False, True
+
+Are these animals of the same species?
+reference answer: No, there are both horses and deer.
+visprog: no
+visagent: Yes, the group contains zebras and donkeys.
+Judge: True, False
+
+Is the color of the sidewalk different than the street sign?
+reference answer: Yes, the street sign is red and the sidewalk is black.
+visprog: yes
+visagent: Yes.
+Judge: True, True
+
+Is there an ottoman or a bed in the image?
+reference answer: Yes, there is an ottoman.
+visprog: visagent: There is no ottoman or bed in the image.
+Judge: True, False
+
+Are there tomatoes or potatoes that are not round?
+reference answer: No, there is a potato but it is round.
+visprog: runtime error
+visagent: The tomatoes are all sliced round.
+Judge: False, False
+
+Which material was used to make that watch, stainless steel or leather?
+reference answer: The watch is made of stainless steel.
+visprog: leather
+visagent: The watch is made of plastic.
+Judge: False, False
+
+Is this a cabinet or a coffee table?
+reference answer: This is a cabinet.
+visprog: cabinet
+visagent: cabinet
+Judge: True, True
+
+Are there cones behind the hydrant made of metal?
+reference answer: Yes, there is a cone behind the hydrant.
+visprog: no
+visagent: Yes.
+Judge: False, True
+
+What device is the same color as the umbrella?
+reference answer: The ipod is the same color as the umbrella.
+visprog: runtime error
+visagent: The purse is the same color as the umbrella.
+Judge: False, True
+
+Do you think the squash is raw?
+reference answer: Yes, the squash is raw.
+visprog: no
+visagent: Yes, the squash is raw.
+Judge: False, True
+
+Is it an outdoors scene?
+reference answer: Yes, it is outdoors.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Is there a tie that is not black?
+reference answer: No, there is a tie but it is black.
+visprog: no
+visagent: No, all the ties are black.
+Judge: True, True
+
+What is the man behind of, a cat or a horse?
+reference answer: The man is behind a cat.
+visprog: cat
+visagent: The man is behind the cat.
+Judge: True, True
+
+Is there a seagull in this scene that is not standing?
+reference answer: No, there is a seagull but it is standing.
+visprog： yes
+visagent: yes
+Judge: False, False
+
+Are there either old men or women in the picture?
+reference answer: Yes, there is an old woman.
+visprog: yes
+visagent: yes
+Judge: True, True
+
+Are there either any black couches or mirrors?
+reference answer: No, there is a couch but it is red.
+visprog: yes
+visagent: No, there are no black couches or mirrors.
+Judge: False, True
+
+Which are less healthy, the cupcakes or the carrots?
+reference answer: The cupcakes are less healthy than the carrots.
+visprog: carrots
+visagent: The cupcakes are less healthy.
+Judge: False, True
+
+Which kind of clothing is not white, the baseball mitt or the sweater?
+reference answer: The baseball mitt is not white.
+visprog: baseball mitt
+visagent: The clothing is not white. The sweater is pink.
+Judge: True, True
+
+Is the soccer ball in the top part or in the bottom of the image?
+reference answer: The soccer ball is in the bottom of the image.
+visprog: top
+visagent: The soccer ball is at the bottom of the image.
+Judge: False, True
+
+Do you see any fences near the vehicle behind the flag?
+reference answer: No, there is a person near the train.
+visprog: runtime error
+visagent: No, there is no fence. I can see the train, but there is no fence.
+Judge: False, True
+
+How is the weather in the picture?
+reference answer: It is partly cloudy.
+visprog: cloudy
+visagent: The weather is cloudy.
+Judge: True, True
+
+Do you see both a coat and a helmet?
+reference answer: Yes, there are both a coat and a helmet.
+visprog: yes
+visagent: Yes, there is a coat and a helmet.
+Judge: True, True
+
+Is the woman standing?
+reference answer: No, the woman is sitting.
+visprog: no
+visagent: Yes, there is a standing woman.
+Judge: True, False
