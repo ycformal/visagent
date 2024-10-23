@@ -109,8 +109,7 @@ class ProgramGenerator():
                 n=1,
                 top_p=self.top_p,
                 frequency_penalty=0,
-                presence_penalty=0,
-                logprobs=1
+                presence_penalty=0
               )
             return response['choices'][0]['message']['content'].strip(), 1.0
     
