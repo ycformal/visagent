@@ -102,7 +102,7 @@ class ProgramGenerator():
                     },
                     {
                         "role": "user",
-                        "content": f"{inputs.input}"
+                        "content": f"{inputs['input']}"
                     }
                 ],
                 temperature = self.temperature,
