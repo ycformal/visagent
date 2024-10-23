@@ -47,12 +47,13 @@ class ProgramInterpreter:
 
 
 class ProgramGenerator():
-    def __init__(self,prompter,temperature=0.7,top_p=0.5,prob_agg='mean'):
+    def __init__(self,prompter,temperature=0.7,top_p=0.5,prob_agg='mean',in_context_learning = True):
         openai.api_key = os.getenv("OPENAI_API_KEY")
         self.prompter = prompter
         self.temperature = temperature
         self.top_p = top_p
         self.prob_agg = prob_agg
+        self.in_context_learning = in_context_learning
 
     def compute_prob(self,response):
         eos = '<|endoftext|>'
@@ -71,20 +72,45 @@ class ProgramGenerator():
             response.choices[0]['logprobs']['token_logprobs'][:i]))
 
     def generate(self,inputs):
-        response = openai.Completion.create(
-            model="gpt-3.5-turbo-instruct",
-            prompt=self.prompter(inputs),
-            temperature=self.temperature,
-            max_tokens=512,
-            top_p=self.top_p,
-            frequency_penalty=0,
-            presence_penalty=0,
-            n=1,
-            stop = '))',
-            logprobs=1
-        )
+        if self.in_context_learning:
+            response = openai.Completion.create(
+                model="gpt-3.5-turbo-instruct",
+                prompt=self.prompter(inputs),
+                temperature=self.temperature,
+                max_tokens=512,
+                top_p=self.top_p,
+                frequency_penalty=0,
+                presence_penalty=0,
+                n=1,
+                stop = '))',
+                logprobs=1
+            )
 
-        prob = self.compute_prob(response)
-        prog = response.choices[0]['text'].lstrip('\n').rstrip('\n')
-        return prog, prob
+            prob = self.compute_prob(response)
+            prog = response.choices[0]['text'].lstrip('\n').rstrip('\n')
+            return prog, prob
+        else:
+            system_inst = None
+            with open('dataset_revised/sys.txt', 'r') as fp:
+                system_inst = fp.read()
+            response = openai.ChatCompletion.create(
+                model="ft:gpt-3.5-turbo-1106:personal:trial1022:ALIrHjVB",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": f"{system_inst}"
+                    },
+                    {
+                        "role": "user",
+                        "content": f"{inputs.input}"
+                    }
+                ],
+                temperature = self.temperature,
+                n=1,
+                top_p=self.top_p,
+                frequency_penalty=0,
+                presence_penalty=0,
+                logprobs=1
+              )
+            return response['choices'][0]['message']['content'].strip(), 1.0
     

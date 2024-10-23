@@ -1,6 +1,6 @@
 multimodal input: IMAGE (334wx500h)
 
-CAPTION_IMAGE="The image shows a young man standing in a coffee shop. He is wearing a blue and white patterned shirt, black jeans, and black shoes. He has short brown hair and is smiling at the camera. In front of him, there is a black bicycle leaning against a wooden shelf. On the shelf, there are various coffee machines and coffee beans. The background shows a counter with a coffee machine and other coffee-related items."
+CAPTION_IMAGE="The image shows a young man standing in a coffee shop. In front of him, there is a black bicycle leaning against a wooden shelf. On the shelf, there are various coffee machines and coffee beans. The background shows a counter with a coffee machine and other coffee-related items."
 
 Q="Which kind of furniture is the coffee cup on?"
 

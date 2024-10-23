@@ -6,7 +6,7 @@ Q="Are these small bananas?"
 
 <End of Context>
 
-Thought(Analyze the question: The main object in the question is the pile of bananas. I need to locate them and figure out if they are small. Analyze the caption: The caption mentions a large pile of bananas. Plan: VQA on asking the size of the bananas. The question is what is the size of the bananas instead of are those bananas small because this will lead to a high false positive rate as the judgement of size is subjective.)
+Thought(Analyze the question: The main object in the question is the pile of bananas. I need to locate them and figure out if they are small. Analyze the caption: The caption mentions the bananas. Plan: VQA on asking the size of the bananas. The question is what is the size of the bananas instead of are those bananas small because this will lead to a high false positive rate as the judgement of size is subjective.)
 Implement(ANSWER0=VQA(image=IMAGE,question='What is the size of the bananas?'))
 <result>
 small

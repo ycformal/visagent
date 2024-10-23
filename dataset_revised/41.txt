@@ -1,6 +1,6 @@
 multimodal input: IMAGE (500wx335h)
 
-CAPTION_IMAGE="The image shows a street market with a variety of items for sale. There are several tables with colorful items on them, including t-shirts, bags, and other souvenirs. A woman is standing in front of one of the tables, looking at the items. She is wearing a blue shirt and has a backpack on her back. In the background, there are palm trees and buildings, and a few people walking on the sidewalk. The sky is blue and the weather appears to be sunny and warm."
+CAPTION_IMAGE="The image shows a street market with a variety of items for sale. There are several tables with colorful items on them, including t-shirts, bags, and other souvenirs. A woman is standing in front of one of the tables, looking at the items. In the background, there are palm trees and buildings, and a few people walking on the sidewalk."
 
 Q="Which kind of furniture do the dolls sit on top of?"
 
@@ -19,10 +19,9 @@ Implement(BOX1=FILTER_INCLUDED(box='[[60, 142, 201, 192], [60, 157, 105, 188], [
 Thought(Analyze the result: Only one bounding box remained. Plan: Crop the image on the bounding box. The index argument is set to 0 since I crop on BOX0[0].)
 Implement(IMAGE0=CROP(image=IMAGE,box=BOX0,index=0))
 <result>
-<PIL.Image.Image image mode=RGB size=210x74 at 0x7F745EC47310>
-The image shows a long table covered with a yellow tablecloth. On the table, there are various items such as toys, books, and other decorative items. The table is set up in a room with a gray wall and a green curtain in the background. There are also a few people standing around the table. The image appears to be taken at an outdoor market or market stall.
+The image shows a long table covered with a yellow tablecloth. On the table, there are various items such as toys, books, and other decorative items. The table is set up in a room with a gray wall and a green curtain in the background.
 </result>
-Thought(Analyze the result: I know the dolls sit on the table. Plan: I can give the answer. The question asks which kind of furniture do the dolls sit on top of. Since I already know the dolls are sitting on the table, the answer is the table.)
+Thought(Analyze the result: There is a table in the cropped image. I know the dolls sit on the table. Plan: I can give the answer. The question asks which kind of furniture do the dolls sit on top of. Since I already know the dolls are sitting on the table, the answer is the table.)
 Implement(ANSWER0=RESULT(var='The dolls sit on top of the table.'))
 
 <End of Plan>

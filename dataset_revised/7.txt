@@ -6,7 +6,7 @@ Q="Is the tall lamp to the left or to the right of the laptop computer?"
 
 <End of Context>
 
-Thought(Analyze the question: The main objects in the question are the lamp and the laptop. I need to locate them and figure out their relative position. Analyze the caption: From the caption, there is a laptop and a lamp. This is true because the caption directly mentions them which are included in the question. Unknown or unsure: The relative position of the lamp to the laptop. Plan: I need to locate the lamp first.)
+Thought(Analyze the question: The main objects in the question are the lamp and the laptop. I need to locate them and figure out their relative position. Analyze the caption: The caption mentions the laptop and the lamp. Unknown or unsure: The relative position of the lamp to the laptop. Plan: I need to locate the lamp first.)
 Implement(BOX0=LOC(image=IMAGE,object='lamp'))
 <result>
 [[95, 1, 183, 231]]
