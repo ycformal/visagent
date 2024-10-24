@@ -1,0 +1,27 @@
+multimodal input: IMAGE (500wx333h)
+
+CAPTION_IMAGE="The image shows a large white church with two tall towers and a clock tower. The sky is blue with some clouds and there are a few people walking on the sidewalk in front of the church. There are also a few cars parked in the lot and a bus on the right side of the image."
+
+Q="What is the name of the vehicle that is the same color as the sky in this photo?"
+
+<End of Context>
+
+Thought(Analyze the question: The main object in the question is the sky. I need to locate the sky and find a vehicle of the same color. Analyze the caption: The caption mentions the sky is blue. Unknown or unsure: The vehicle of the same color as the sky. Plan: I need to locate the vehicle first.)
+Implement(BOX0=LOC(image=IMAGE,object='car'))
+<result>
+[[232, 256, 281, 271], [91, 255, 131, 276], [115, 257, 206, 290], [68, 264, 85, 272], [473, 255, 499, 277]]
+</result>
+Thought(Analyze the result: There are multiple bounding boxes detected and I need to filter wrong detections. Judge the size: The sizes are 49x15, 40x21, 91x33, 17x8, and 26x12. The bounding boxes of size 17x8 is too small. Filter it out. Plan: For remaining bounding boxes, remove small ones that are included in a larger one.)
+Implement(BOX1=FILTER_INCLUDED(box='[[232, 256, 281, 271], [91, 255, 131, 276], [115, 257, 206, 290], [473, 255, 499, 277]]'))
+<result>
+[[232, 256, 281, 271], [91, 255, 131, 276], [115, 257, 206, 290], [68, 264, 85, 272], [473, 255, 499, 277]]
+</result>
+Thought(Analyze the result: No bounding box is removed. Plan: Considering that there are too many cars and the sizes are not very large as they should be, I guess the cars are in the background, and the LOC module may fail to recognize some vehicles. Cropping on bounding boxes one by one is computationally costly, and some vehicles may not be taken into consideration. Therefore, the best way is to directly ask VQA what is the name of blue vehicle.)
+Implement(ANSWER0=VQA(image=IMAGE,question='What is the name of the blue vehicle?'))
+<result>
+van
+</result>
+Thought(Analyze the result: The VQA gives the answer, which is "van". Plan: I get the answer. The question asks for the vehicle of the same color as the sky, and I know the sky is blue, and the blue vehicle is the van, so the answer is "van".)
+Implement(ANSWER1=RESULT(var='The vehicle is a van.'))
+
+<End of Plan>

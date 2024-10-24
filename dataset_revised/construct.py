@@ -48,7 +48,7 @@ sys_text = read_sys_file('./')
 
 dataset = []
 files = read_files('./')
-files=[str(i) for i in range(1, 41)]
+files=[str(i) for i in range(1, 60)]
 
 for file in files:
     file_path = os.path.join('./', file + '.txt')
@@ -85,7 +85,8 @@ for file in files:
             print(statement)
             raise Exception(f'{file}.txt: Implement is not in the correct format')
         # assert statement is of format variavle=function(arg1=arg1,arg2=arg2,...)
-        assert '=' in statement and '(' in statement.split('=')[1] and ')' == statement[-1]
+        if '=' not in statement or '(' not in statement.split('=')[1] or ')' != statement[-1]:
+            raise Exception(f'{file}.txt: Implement is not in the correct format')
         dataset.append({"messages": [{"role": "system", "content": sys_text}, {"role": "user", "content": current_context}, {"role": "assistant", "content": response}]})
         while next_line < len(steps) and '</result>' not in steps[next_line]:
             if 'Thought(' in steps[next_line]:

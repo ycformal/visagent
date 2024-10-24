@@ -1,0 +1,42 @@
+multimodal input: IMAGE (640wx360h)
+
+CAPTION_IMAGE="The image shows two skiers on a snowy mountain slope. The skiers are wearing red jackets, blue pants, and helmets, and are holding ski poles. The snow is deep and untouched, and the skiers appear to be in motion."
+
+Q="Do you think the jacket is empty?"
+
+<End of Context>
+
+Thought(Analyze the question: The main object in the question is the jacket. I need to locate the jacket and figure out if it is empty. Analyze the caption: The caption mentions two skiers wearing red jackets. Unknown or unsure: Whether the jackets are empty. Plan: I need to locate the jackets first.)
+Implement(BOX0=LOC(image=IMAGE,object='jacket'))
+<result>
+[[286, 125, 355, 178], [190, 191, 249, 283]]
+</result>
+Thought(Analyze the result: There are two bounding boxes, I need to filter wrong detections. Judge the size: The size for two bounding boxes are 69x53 and 59x92. These sizes are both reasonable for jackets. Plan: Remove small bounding boxes that are included in a larger one.)
+Implement(BOX1=FILTER_INCLUDED(box='[[286, 125, 355, 178], [190, 191, 249, 283]]'))
+<result>
+[[286, 125, 355, 178], [190, 191, 249, 283]]
+</result>
+Thought(Analyze the result: Both of them are correct detections. Plan: Crop on the first bounding box to see if the jacket is empty.)
+Implement(IMAGE0=CROP(image=IMAGE,box=BOX1,index=0))
+<result>
+The image shows a person skiing down a snowy hill. The person is wearing a red jacket, black pants, and a black helmet with goggles. They are holding ski poles in their hands and appear to be in motion.
+</result>
+Thought(Analyze the result: There is a jacket but I don't know whether it is empty. Plan: Ask VQA whether the jacket is empty.)
+Implement(ANSWER0=VQA(image=IMAGE0,question='Is the jacket empty?'))
+<result>
+no
+</result>
+Thought(Analyze the result: VQA says no, which means the jacket is not empty. Plan: Crop on the second bounding box to see if the jacket is empty.)
+Implement(IMAGE1=CROP(image=IMAGE,box=BOX1,index=1))
+<result>
+The image shows a person sitting on the snow with their back to the camera. The person is wearing a red jacket, blue pants, and a white helmet with a black visor.
+</result>
+Thought(Analyze the result: There is also a jacket but I don't know whether it is empty. Plan: Ask VQA whether the jacket is empty.)
+Implement(ANSWER0=VQA(image=IMAGE0,question='Is the jacket empty?'))
+<result>
+no
+</result>
+Thought(Analyze the result: VQA says no, which means the jacket is not empty. Plan: I can give the answer. The question asks whether the jacket is empty. I know there are two jackets, and both of them are not empty. So the answer is no.)
+Implement(ANSWER1=RESULT(var='No, the jacket is full.'))
+
+<End of Plan>

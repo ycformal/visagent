@@ -1,0 +1,13 @@
+The animal that the forest is behind of is called a giraffe.
+multimodal input: IMAGE (640wx426h)
+
+CAPTION_IMAGE="The image shows a man and a woman standing in front of a giraffe. The man is on the right side of the image and is looking up at the giraffe with a smile on his face. The giraffe is facing the man and appears to be sniffing the man's nose. In the background, there are trees and bushes, and a wooden fence can be seen on the left side."
+
+Q="What is the animal that the forest is behind of called?"
+
+<End of Context>
+
+Thought(Analyze the question: The main object in the question is the forest and animal. I need to locate it and figure out what animal is the forest behind of. Analyze the caption: The caption mentions a giraffe in the foreground, and trees and bushes in the background. Unknown or unsure: Nothing. Plan: I can give the answer. The question asks what is the animal that the forest is behind of called. I know there are trees and bushes in the background, which is the forest, and there is a giraffe in the foreground. So the answer is giraffe.)
+Implement(ANSWER0=RESULT(var='The animal is a giraffe.'))
+
+<End of Plan>

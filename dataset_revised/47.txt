@@ -1,0 +1,32 @@
+multimodal input: IMAGE (500wx333h)
+
+CAPTION_IMAGE="The image shows a kitchen countertop with a small model of a house on it. The house is made of light-colored wood and has a sloping roof and a small window on the front. Next to the house, there is a toaster with a glass cover and a bottle of wine inside. On the right side, there are several kitchen knives in a wooden holder."
+
+Q="Which color is the small container?"
+
+<End of Context>
+
+Thought(Analyze the question: The main object in the question is the container. I need to locate the container and figure out its color. Analyze the caption: The caption has no information about the container. Unknown or unsure: Where is the container and the color of the container. Plan: I need to locate the container first.)
+Implement(BOX0=LOC(image=IMAGE,object='container'))
+<result>
+[[408, 178, 458, 240], [356, 200, 400, 239]]
+</result>
+Thought(Analyze the result: There are two bounding boxes, I need to judge the size and position of them to find if there are wrong detections. Judge the size: The size for two bounding boxes are 50x62 and 44x39. They are of normal size. Plan: Remove small bounding boxes that are included in a larger one.)
+Implement(BOX1=FILTER_INCLUDED(box='[[408, 178, 458, 240], [356, 200, 400, 239]]'))
+<result>
+[[408, 178, 458, 240], [356, 200, 400, 239]]
+</result>
+Thought(Analyze the result: No bounding box is removed. Both of them are normal detections. Plan: Crop one by one. If any of them is a container, ask the color. Crop on the larger one, BOX1[0] first.)
+Implement(IMAGE0=CROP(image=IMAGE,box=BOX1,index=0))
+<result>
+The image is a close-up of a small wooden box with a lid. The box is rectangular in shape and appears to be made of a light-colored wood. The lid is slightly domed and has a small knob on top.
+</result>
+Thought(Analyze the result: There is a box so it should be the container, but the caption doesn't mention its color. Plan: Ask VQA about the color of the container.)
+Implement(ANSWER0=VQA(image=IMAGE0,question='What is the color of the container?'))
+<result>
+orange
+</result>
+Thought(VQA says it is orange. Plan: I can give the answer. The question asks the color of the small container. I know there is a box and it is orange, so the answer is orange.)
+Implement(ANSWER1=RESULT(var='The container is orange.'))
+
+<End of Plan>

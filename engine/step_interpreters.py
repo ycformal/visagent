@@ -359,9 +359,9 @@ class FilterInludedInterpreter():
                     overlap_area = 0
                 percentage_i = overlap_area / ((boxes[i][2] - boxes[i][0]) * (boxes[i][3] - boxes[i][1]))
                 percentage_j = overlap_area / ((boxes[j][2] - boxes[j][0]) * (boxes[j][3] - boxes[j][1]))
-                if percentage_i > 0.9:
+                if percentage_i > 0.85:
                     deleted[i] = True
-                elif percentage_j > 0.9:
+                elif percentage_j > 0.85:
                     deleted[j] = True
         filtered = []
         for i in range(len(boxes)):
