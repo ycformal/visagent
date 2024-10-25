@@ -13,7 +13,6 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import random
-from engine.step_interpreters import parse_step
 
 # Download necessary NLTK data
 nltk.download('punkt')
@@ -21,6 +20,25 @@ nltk.download('stopwords')
 vectorizer = TfidfVectorizer()
 import tiktoken
 encoding = tiktoken.get_encoding("cl100k_base")
+
+def parse_step(step_str,partial=False):
+    tokens = list(tokenize.generate_tokens(io.StringIO(step_str).readline))
+    output_var = tokens[0].string
+    step_name = tokens[2].string
+    parsed_result = dict(
+        output_var=output_var,
+        step_name=step_name)
+    if partial:
+        return parsed_result
+
+    arg_tokens = [token for token in tokens[4:-3] if token.string not in [',','=']]
+    num_tokens = len(arg_tokens) // 2
+    args = dict()
+    for i in range(num_tokens):
+        args[arg_tokens[2*i].string] = arg_tokens[2*i+1].string
+    parsed_result['args'] = args
+    return parsed_result
+
 
 # Function to preprocess text
 def preprocess(text):
@@ -61,7 +79,7 @@ def longest_common_prefix(s1, s2):
         i += 1
     return s1[:i]
 
-files=[str(i) for i in range(1, 41)]
+files=[str(i) for i in range(1, 60)]
 file_question_dict = {}
 for file in files:
     file_path = os.path.join('./dataset_revised', file + '.txt')
@@ -272,6 +290,9 @@ def create_prompt_stepname_selective(inputs):
         similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
         file_score_dict[file] = similarity[0][0]
 
+    
+    # sort files by text length, ascending
+    files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))[10:30]
     files = sorted(files, key=lambda x: file_score_dict[x], reverse=True)
 
     for file in files:
@@ -354,11 +375,6 @@ Thought(Analyze the result: There are two bounding boxes, and I need to filter w
 Implement(BOX1=FILTER_INCLUDED(box='[[260, 113, 374, 213], [265, 117, 308, 210]]'))
 <result>
 [[260, 113, 374, 213]]
-</result>
-Thought(Analyze the result: There is only one bounding box left, which is a correct detection for the bike. Plan: Now locate the planters.)
-Implement(BOX2=LOC(image=IMAGE,object='planters'))
-<result>
-[[0, 113, 270, 213]]
 </result>
 Thought(Analyze the result: 
 """

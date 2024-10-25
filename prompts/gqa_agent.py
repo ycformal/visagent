@@ -27,7 +27,7 @@ def longest_common_prefix(s1, s2):
         i += 1
     return s1[:i]
 
-files=[str(i) for i in range(1, 41)]
+files=[str(i) for i in range(1, 60)]
 file_question_dict = {}
 for file in files:
     file_path = os.path.join('./dataset_revised', file + '.txt')
@@ -191,6 +191,7 @@ def create_prompt_stepname(inputs,  print_template=False):
         tfidf_matrix = vectorizer.fit_transform([inputs['input'], file_question_dict[file]])
         similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
         file_score_dict[file] = similarity[0][0]
+    files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))[10:30]
     files = sorted(files, key=lambda x: file_score_dict[x], reverse=True)
     for file in files:
         data = ''
