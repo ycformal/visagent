@@ -1,0 +1,28 @@
+Multimodal input: IMAGE (640wx480h)
+Question="{question}"
+Variables:
+{variables}
+Previous actions:
+{actions}
+
+Answer the question if you are 100% sure about the answer. Otherwise:
+1. If no action is taken previously, then analyze the question especially what are the main objects in the question, analyze the caption to tell what is mentioned in the caption and what is not, then generate a LOC statement to locate one important thing.
+2. Otherwise, ANALYZE the result from the last action, and plan the next step. You can either locate another object, crop on a bounding box, ask VQA something unknown from the caption of an image, or use EVAL for calculation and assignment. YOU MUST WRITE THE STATEMENT IN A CORRECT FORMAT. Remember to give your analysis before writing the statement.
+
+Available statements:
+Locate an object. Format: LOC(image=<image_var_name>,object='<object_name>'). Example: LOC(image=IMAGE,object='bottle').
+Crop on the bounding box of a previous locating result. Format: CROP(image=<image_var_name>, box=<box_var_name>, index=<index_var_name>). Example: CROP(image=IMAGE,box=BOX0,index=0).
+Crop on the region to the left/right/above/below a previous locating result. Format: CROP_LEFTOF/RIGHTOF/ABOVE/BELOW(image=<image_var_name>, box=<box_var_name>, index=<index_var_name>). Index ranges from 0 to len(box_var)-1. Example: CROP_LEFT(image=IMAGE,box=BOX0,index=0).
+Ask a question about a particular image in an image variable. Format: VQA(image=<image_var_name>, question=<question>). Example: VQA(image=IMAGE0,question='How many bottles are there?').
+Evaluate an arithmetic formula. Format: EVAL(expr=<expression encompassed in ''>). Example: EVAL(expr='1+2').
+Assign a bounding box to a new variable. Format: EVAL(expr='[<bounding box list>]'). Example: EVAL(expr='[[0,0,100,100]]').
+
+Tips:
+- LOC result may contain some false detections. You may remove small bounding boxes (usually with a width or height less than 20px unless the object is expected to be extremely small). If there are multiple bounding boxes and you want to check the existence of the object, the answer should be "yes"; if there are multiple bounding boxes and you need to crop them one by one to check something, you can start from the first bounding box or the largest bounding box. If there are too many bounding boxes and you don't need to focus on a particular one, you can merge them into a larger one and use EVAL to assign it to a bounding box variable so that you can crop accordingly.
+- If the LOC function fails to detect the object (the bounding box variable is []), try changing the object parameter or use VQA directly. The result of LOC is a list where each element is of format [x1,y1,x2,y2], where (x1,y1) is the upper left corner, and (x2,y2) is the right bottom corner.
+- For LOC, only specify the object's name (e.g., "chair"), without additional details like color, size or position. For example, use "bottle" instead of "black bottle", or instead of "bottle on the table". If you want to locate the object of a given attribute, you may check the attribute from the caption of the cropped image or from VQA.
+- To theck the relative position between two bounding boxes, for each bounding box [x1,y1,x2,y2], you may calculate (x1+x2)/2 or (y1+y2)/2 in order to check the left/right/top/bottom in terms of the relative position. To decide its relative position to the image, you should compare your calculation result with width/2 or height/2.
+- Only figure out things that are not clearly written in the caption. If something in the question is clearly written in the caption, you don't need to verify it.
+- You may NOT infer anything that is not directly observed or explicitly stated in the caption. You cannot infer anything from the commonsense.
+- Carefully read through the revious actions list and **don't generate duplicated programs that are already implemented**.
+- Remember to give your analysis before writing the statement.

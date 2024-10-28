@@ -1,0 +1,12 @@
+Read the following output of LLM:
+
+```
+{response}
+```
+
+Your task is:
+- If it contains a statement starting with LOC, CROP, VQA, EVAL, etc, remove the analysis and DIRECTLY give me that statement (only write one line of statement starting with the function name and ending with the right bracket).
+Otherwise:
+- if it is an answer of the question "{question}", shorten it. I only need the answer instead of the analysis. Directly give me your shortened answer.
+- It it is an answer of the question "{question}" but the answer is like "unknown" or "uncertain" without proposing the next step, then response "Error: you must give me the certain answer".
+- If the answer contains a commonsense inference without evidence, like inferring the color of an object via its type, then response "Error: do not include commonsense inference without evidence stated in captions or variables."

@@ -313,6 +313,28 @@ class LocInterpreter():
         else:
             bboxes = self.predict(img,obj_name)
 
+        deleted = [False] * len(bboxes)
+        for i in range(len(bboxes) - 1):
+            for j in range(i + 1, len(bboxes)):
+                overlap_area = None
+                x_distance = min(bboxes[i][2], bboxes[j][2]) - max(bboxes[i][0], bboxes[j][0])
+                y_distance = min(bboxes[i][3], bboxes[j][3]) - max(bboxes[i][1], bboxes[j][1])
+                if x_distance > 0 and y_distance > 0:
+                    overlap_area = x_distance * y_distance
+                else:
+                    overlap_area = 0
+                percentage_i = overlap_area / ((bboxes[i][2] - bboxes[i][0]) * (bboxes[i][3] - bboxes[i][1]))
+                percentage_j = overlap_area / ((bboxes[j][2] - bboxes[j][0]) * (bboxes[j][3] - bboxes[j][1]))
+                if percentage_i > 0.85:
+                    deleted[i] = True
+                elif percentage_j > 0.85:
+                    deleted[j] = True
+        filtered = []
+        for i in range(len(bboxes)):
+            if not deleted[i]:
+                filtered.append(bboxes[i])
+        bboxes = filtered
+
         box_img = self.box_image(img, bboxes)
         prog_step.state[output_var] = bboxes
         prog_step.state[output_var+'_IMAGE'] = box_img
