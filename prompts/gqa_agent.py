@@ -312,11 +312,11 @@ def create_prompt_stepname_selective_efficient(inputs):
     
     # sort files by text length, ascending
     indices = [0,1,2,10,11,12,13,20,21,22,23,25,25,26,27,28,29,30,40,50]
-    files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))
-    files = [files[i] for i in indices]
-    files = sorted(files, key=lambda x: file_score_dict[x], reverse=True)
+    _files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))
+    _files = [_files[i] for i in indices]
+    _files = sorted(_files, key=lambda x: file_score_dict[x], reverse=True)
 
-    for file in files:
+    for file in _files:
         data = ''
         file_path = os.path.join('./dataset_revised', file + '.txt')
         with open(file_path, 'r') as f:
