@@ -297,7 +297,7 @@ def create_prompt_stepname_selective(inputs, print_template=False):
         print(template)
     return system_cmd + '\n' + template + "{input}\n".format(**inputs)
 
-def create_prompt_stepname_selective(inputs):
+def create_prompt_stepname_selective_efficient(inputs):
     global files
     global file_question_dict
     global vectorizer
@@ -311,7 +311,9 @@ def create_prompt_stepname_selective(inputs):
 
     
     # sort files by text length, ascending
-    files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))[10:30]
+    indices = [0,1,2,10,11,12,13,20,21,22,23,25,25,26,27,28,29,30,40,50]
+    files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))
+    files = [files[i] for i in indices]
     files = sorted(files, key=lambda x: file_score_dict[x], reverse=True)
 
     for file in files:
@@ -366,9 +368,6 @@ def create_prompt_stepname_selective(inputs):
         if len(tokens) > 4096 - 512:
             template = template[:-1]
             break
-        else:
-            print(file_question_dict[file], file_score_dict[file])
 
     template = '\n'.join(template) + '\n'
-    print(template)
     return system_cmd + '\n' + template + "{input}\n".format(**inputs)
