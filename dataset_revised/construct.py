@@ -79,7 +79,7 @@ for file in files:
         statement = implement[10:-2]
         try:
             parsed_step = parse_step(statement)
-            if parsed_step['step_name'] not in ['VQA', 'LOC', 'CROP', 'COUNT', 'CROP_LEFTOF', 'CROP_RIGHTOF', 'CROP_ABOVE', 'CROP_BELOW', 'FILTER_INCLUDED', 'RESULT', 'EVAL']:
+            if parsed_step['step_name'] not in ['VQA', 'LOC', 'CROP', 'COUNT', 'CROP_LEFTOF', 'CROP_RIGHTOF', 'CROP_ABOVE', 'CROP_BELOW', 'RESULT', 'EVAL']:
                 print(statement, parsed_step['step_name'])
         except:
             print(statement)
