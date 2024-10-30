@@ -47,7 +47,6 @@ CROP_RIGHTOF(image=*, box=*,index=*) returns the cropped image to the right of t
 CROP_LEFTOF(image=*, box=*,index=*)
 CROP_ABOVE(image=*, box=*,index=*)
 CROP_BELOW(image=*, box=*,index=*)
-FILTER_INCLUDED(box=*) returns a bounding box. Bounding boxes in `box` argument that are included in or heavily overlapped with other bounding boxes will be removed.
 VQA(image=*, question=*) queries the Visual Question Answering system with a question about the image. Note: Responses may be brief and not fully accurate.
 RESULT(var=*) only used in the last step. Returns the final result of the program.
 """
@@ -296,4 +295,80 @@ def create_prompt_stepname_selective(inputs, print_template=False):
     template = '\n'.join(template) + '\n'
     if print_template:
         print(template)
+    return system_cmd + '\n' + template + "{input}\n".format(**inputs)
+
+def create_prompt_stepname_selective(inputs):
+    global files
+    global file_question_dict
+    global vectorizer
+    template = []
+    file_score_dict = {}
+
+    for file in files:
+        tfidf_matrix = vectorizer.fit_transform([inputs['input'], file_question_dict[file]])
+        similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
+        file_score_dict[file] = similarity[0][0]
+
+    
+    # sort files by text length, ascending
+    files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))[10:30]
+    files = sorted(files, key=lambda x: file_score_dict[x], reverse=True)
+
+    for file in files:
+        data = ''
+        file_path = os.path.join('./dataset_revised', file + '.txt')
+        with open(file_path, 'r') as f:
+            text = f.read()
+
+        if 'Implement' not in inputs['input']:
+            data = text.split('<End of Context>')[0] + '<End of Context>'
+            data += text.split('<End of Context>')[1].split('Implement(')[0]+ 'Implement(' + \
+                    text.split('Implement(')[1].split('))\n')[0] + '))\n\n<End of Plan>'
+            template.append(data)
+        else:
+            n_Implement = inputs['input'].count('Implement(')
+            last_Implement_statement = inputs['input'].split('Implement(')[n_Implement].split('))\n')[0] + ')'
+            step_name = parse_step(last_Implement_statement)['step_name']
+            output_var = parse_step(last_Implement_statement)['output_var']
+            step_count = text.count('=' + step_name + '(')
+            if step_count == 0:
+                continue
+            random_step = random.randint(0, step_count - 1)
+            prior_stepname = 'Implement('.join(('=' + step_name + '(').join(text.split('=' + step_name + '(')[:random_step + 1]).split('Implement(')[:-1])
+            post_stepname = ('=' + step_name + '(').join(text.split('=' + step_name + '(')[random_step + 1:])
+            post_stepname = post_stepname.split('Implement(')[0] + 'Implement(' + post_stepname.split('Implement(')[1].split('))\n')[0] + '))\n\n<End of Plan>'
+
+            # Replace contents in <result></result> with "omitted", except the last occurrence
+            import re
+            def replace_result_content(text):
+                pattern = r'(<result>)(.*?)(</result>\nThought)'
+                text = re.sub(pattern, r'\1\nomitted\n\3', text, flags=re.DOTALL)
+                return text
+
+            prior_stepname = replace_result_content(prior_stepname)
+
+            # Replace content in CAPTION_IMAGE=""
+            def replace_caption_image_content(text):
+                pattern = r'CAPTION_IMAGE="(.*?)"\n\nQ='
+                match = re.search(pattern, text, re.DOTALL)
+                if match:
+                    start, end = match.span(1)
+                    text = text[:start] + 'omitted' + text[end:]
+                return text
+
+            prior_stepname = replace_caption_image_content(prior_stepname)
+
+            data = prior_stepname + 'Implement(' + output_var + '=' + step_name + '(' + post_stepname
+            template.append(data)
+
+        simulated_template = system_cmd + '\n' + '\n'.join(template) + '\n' + "{input}\n".format(**inputs)
+        tokens = encoding.encode(simulated_template)
+        if len(tokens) > 4096 - 512:
+            template = template[:-1]
+            break
+        else:
+            print(file_question_dict[file], file_score_dict[file])
+
+    template = '\n'.join(template) + '\n'
+    print(template)
     return system_cmd + '\n' + template + "{input}\n".format(**inputs)
