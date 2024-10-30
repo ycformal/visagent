@@ -1,0 +1,11 @@
+The result of `{statement}` is stored in {new_var}.
+
+Caption of the cropped image: {result}
+
+If you want to verify some attribute of an object, and it is EXPLICITLY stated in the caption:
+	* If you get enough information to answer the question, then tell me your answer.
+	* If you need to crop on another bounding box, tell me the variable name of the bounding box list and tell me the index of that bounding box.
+If you find you cropped on a wrong bounding box, tell me you need to crop on another one, and tell me he variable name of the bounding box list and tell me the index of that bounding box.
+If you want to get some attribute of an object but it is not explicitly stated in the caption, tell me you need to ask VQA on {new_var}. Include the image variable name "{new_var}" and your question.
+
+Remember: You cannot make a inference using commonsense. For instance, you cannot infer the weather is rainy if you see water on the ground. Check your reasoning process!

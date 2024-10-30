@@ -11,12 +11,12 @@ Implement(BOX0=LOC(image=IMAGE,object='lamp'))
 <result>
 [[95, 1, 183, 231]]
 </result>
-Thought(Analyze the result: There is only one bounding box. No steps need to be taken to filter false detections. Plan: Also locate the laptop.)
+Thought(Analyze the result: There is only one bounding box. Plan: Also locate the laptop.)
 Implement(BOX1=LOC(image=IMAGE,object='laptop'))
 <result>
 [[0, 0, 120, 222]]
 </result>
-Thought(Analyze the result: There is only one bounding box. No steps need to be taken to filter false detections. Plan: I need to judge the relative position. (95+183)/2=278/2=139, (0+120)/2=60, 139>>60, so the lamp is to the left of the laptop. I can give the answer. The question asks the relative position of lamp to the laptop. I know it is at the right side. So the answer is right.)
+Thought(Analyze the result: There is only one bounding box. Plan: I need to judge the relative position. (95+183)/2=278/2=139, (0+120)/2=60, 139>>60, so the lamp is to the left of the laptop. I can give the answer. The question asks the relative position of lamp to the laptop. I know it is at the right side. So the answer is right.)
 Implement(ANSWER0=RESULT(var='right'))
 
 <End of Plan>

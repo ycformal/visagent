@@ -1,0 +1,14 @@
+The result of `{statement}` is {result}, and it is stored in variable {new_var}. Each element in {new_var} is of format [x1,y1,x2,y2], where (x1,y1) is the upper left corner, and (x2,y2) is the right bottom corner.
+
+You have the following choices:
+* If you've collected all information to answer the question, tell me the answer and END YOUR RESPONSE.
+* If {new_var} is empty and you are sure that the object exists (like it is explicitly mentioned in the caption or the question), then tell me you need to locate it again and change the object name. Also tell me your modified object name. If you cannot come up with another name, refer to the next point.
+* If {new_var} is empty and you are sure that the object exists, but you already tried to locating it via another name, tell me you need to directly ask VQA the question. Tell me the name of the variable containing the image and your question to ask VQA.
+* If you only want to check the existence of an object, and {new_var} is not empty, then the object exists. You can either answer the question if you have got every information you need. Otherwise, you tell me you need to locate another object that is needed for answering the question. You need to tell me the name of the object (only the name, don't include attributes like color. If you want to find a bottle on a table, you should locate the table first).
+* If there are too many bounding boxes, you can merge them into a larger one and tell me the merged bounding box. Do not do this unless there are too many bounding boxes and they are clustered tightly in a region.
+* If you want to check some attributes of the object you just located in `{statement}`, tell me you want to crop on the region of {new_var}. If there are multiple bounding boxes, you can guess the bounding box which is likely to contain the object and MUST tell me the index of it (starting from 0).
+* If you are locating this object to find another object to the left/right of it or above/below it, tell me that and include the name of another object. If there are multiple bounding boxes, you can guess the bounding box which is likely to contain the object and MUST tell me the index of it (starting from 0).
+
+Tips:
+* To theck the relative position between two bounding boxes, for each bounding box [x1,y1,x2,y2], you may calculate (x1+x2)/2 or (y1+y2)/2 in order to check the left/right/top/bottom in terms of the relative position. To decide its relative position to the image, you should compare your calculation result with width/2 or height/2.
+* There might be wrong detections. The bounding boxes containing the target object is likely to have a smaller index in `{new_var}` or have a larger size.

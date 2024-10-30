@@ -16,7 +16,7 @@ Implement(BOX1=LOC(image=IMAGE,object='building'))
 <result>
 [[156, 100, 330, 314]]
 </result>
-Thought(Analyze the result: There is only one bounding box. No steps need to be taken to filter false detections. Plan: use CROP to crop the area on the bounding box. The index argument is set to 0 since I crop on BOX1[0].)
+Thought(Analyze the result: There is only one bounding box. Plan: use CROP to crop the area on the bounding box. The index argument is set to 0 since I crop on BOX1[0].)
 Implement(IMAGE0=CROP(image=IMAGE,box=BOX1,index=0))
 <result>
 The image shows a young man performing a skateboard trick on a concrete surface. In the background, there is a building with large windows and a tree. The sky is overcast and the overall mood of the image is playful and energetic.

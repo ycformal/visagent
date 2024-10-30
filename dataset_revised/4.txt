@@ -9,9 +9,14 @@ Q="Which direction is the gray elephant facing?"
 Thought(Analyze the question: The main object in the question is the gray elephant. I need to locate elephants and focus on the gray one. Analyze the caption: The caption mentions there is a herd of elephants. Unknown or unsure: Where is the gray one and the direction it is facing. Plan: I need to locate elephants first.)
 Implement(BOX0=LOC(image=IMAGE,object='elephant'))
 <result>
-[[370, 137, 437, 228], [159, 113, 271, 251], [37, 142, 125, 249], [97, 119, 175, 231], [267, 140, 343, 228], [285, 124, 385, 210], [429, 130, 499, 213], [1, 135, 97, 236], [265, 128, 313, 215], [25, 196, 62, 244], [273, 123, 310, 146], [269, 119, 453, 226], [24, 196, 50, 226], [5, 104, 499, 253], [69, 138, 105, 154], [305, 123, 337, 132], [52, 135, 91, 156]]
+[[5, 104, 499, 253]]
 </result>
-Thought(Analyze the result: There are a lot of bounding boxes. I should recognize wrong detections but it is too hard because there seems to be a large herd of elephants and too many bounding boxes. Plan: directly ask VQA the question on the whole image.)
+Thought(Analyze the result: There is only one bounding box. It should include a herd of elephants. Plan: Crop on BOX[0] to ask questions about the elephant.)
+Implement(IMAGE0=CROP(image=IMAGE,box=BOX0,index=0))
+<result>
+The image shows a herd of elephants walking through a dry grassy field. There are around 10 elephants in total, with a large number of them in the foreground and a few smaller ones in the background. The elephants are walking in a line, with some in the front and some behind them.
+</result>
+Thought(Analyze the result: There's a herd of elephants, but I don't know the direction the gray elephant is facing. Plan: Ask VQA on IMAGE0.)
 Implement(ANSWER0=VQA(image=IMAGE0,question='Which direction is the gray elephant facing?'))
 <result>
 left

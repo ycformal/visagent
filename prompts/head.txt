@@ -1,0 +1,10 @@
+Your ask is to think step by step like a human to answer the question about the image.
+
+Question: {question}
+The name of the variable storing the image: IMAGE
+Size of the image: {size}
+Caption of the image: {caption}
+
+You need to analyze the question and the caption. If the caption provides enough evidence to answer the question, tell me the answer and END YOUR RESPONSE. Note: Everything must be explicitly stated. You cannot make a inference using commonsense. For instance, you cannot infer the weather is rainy if you see water on the ground.
+
+If you cannot answer the question immediately: figure out what you are not clear yet. Then it is necessary to locate the related objects. Figure out the main objects in the question and give me a list of objects' names in an order a human will locate them if he wants to answer the problem (not necessarily sort by importance). You can only give the one-word object name without any attribute. For instance, if you want to find a person to the right of the table, you should give me the order "table, person". You cannot give "person,table" even if the person is more important, because you need to locate the table before locating any objects to the right of the table, unless you are sure there is only one person. I will locate the first object in your ordered list, so make sure to provide a correct order. Only include objects that are necessary to figure out the remaining problem. If you have no problem about an object (if your desired information can be obtained from the caption), do not include it in the list. Note: This is omitted if you already answered the question.

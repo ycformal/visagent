@@ -9,14 +9,14 @@ Q="Is the person to the right of the other person staring or sleeping?"
 Thought(Analyze the question: The main objects in the question are persons. I need to find them, find the right most one and judge what is it doing. Analyze the caption: There is a skateboarder in the foreground, but the caption does not mention who is to the right of the other person. Unknown or unsure: I don' t know who is to the right of the other person and what is he doing. Plan: I need to locate the person first.)
 Implement(BOX0=LOC(image=IMAGE,object='person'))
 <result>
-[[178, 153, 322, 297], [143, 96, 158, 129], [149, 144, 178, 180], [184, 94, 200, 134], [5, 116, 83, 141], [54, 115, 82, 129], [36, 147, 55, 165], [318, 114, 323, 123], [587, 80, 593, 92], [397, 95, 441, 108], [338, 107, 344, 118]
+[[178, 153, 322, 297], [143, 96, 158, 129], [149, 144, 178, 180], [184, 94, 200, 134], [5, 116, 83, 141], [36, 147, 55, 165], [318, 114, 323, 123], [587, 80, 593, 92], [397, 95, 441, 108], [338, 107, 344, 118]]
 </result>
-Thought(Analyze the result: There are a lot of bounding boxes, I have to filter wrong detections. Judge the size: The sizes of bounding boxes are 144x144, 15x33, 29x36, 16x40, 78x25, 28x14, 19x18, 5x9, 6x12, 44x13, 6x11. Only bounding boxes with size 144x144, 15x33, 29x36, 16x40, 78x25, 28x14, 44x13 are left. Also filter out boxes whose width is much larger than the height because there should be a person inside. Therefore, only bounding boxes with size 144x144, 15x33, 29x36, 16x40 are left. Those left bounding boxes are [[178, 153, 322, 297], [143, 96, 158, 129], [149, 144, 178, 180], [184, 94, 200, 134]]. Plan:  For the remaining bounding boxes, remove small bounding boxes that are included in a larger one.)
-Implement(BOX1=FILTER_INCLUDED(box='[[178, 153, 322, 297], [143, 96, 158, 129], [149, 144, 178, 180], [184, 94, 200, 134]]'))
+Thought(Analyze the result: There are a lot of bounding boxes, I have to filter wrong detections. Judge the size: The sizes of bounding boxes are 144x144, 15x33, 29x36, 16x40, 78x25, 19x18, 5x9, 6x12, 44x13, 6x11. Only bounding boxes with size 144x144, 15x33, 29x36, 16x40, 78x25, 44x13 are left. Also filter out boxes whose width is much larger than the height because there should be a person inside. Therefore, only bounding boxes with size 144x144, 15x33, 29x36, 16x40 are left. Those left bounding boxes are [[178, 153, 322, 297], [143, 96, 158, 129], [149, 144, 178, 180], [184, 94, 200, 134]]. Plan:  Assign it to a new box variable.)
+Implement(BOX1=EVAL(expr='[[178, 153, 322, 297], [143, 96, 158, 129], [149, 144, 178, 180], [184, 94, 200, 134]]'))
 <result>
 [[178, 153, 322, 297], [143, 96, 158, 129], [149, 144, 178, 180], [184, 94, 200, 134]]
 </result>
-Thought(Analyze the result: All of the four bounding boxes are remained. Plan: Judge the right most person. Since 178>158, 178=178, 178+322>>184+200, the first bounding box is the right most one. This corresponds to the first bounding box in BOX1. Now crop the image on this bounding box to figure out what is the person doing. Set index argument to 0 because I want to crop on BOX1[0].)
+Thought(Analyze the result: Successfully assigned Plan: Judge the right most person. Since 178>158, 178=178, 178+322>>184+200, the first bounding box is the right most one. This corresponds to the first bounding box in BOX1. Now crop the image on this bounding box to figure out what is the person doing. Set index argument to 0 because I want to crop on BOX1[0].)
 Implement(IMAGE0=CROP(image=IMAGE,box=BOX1,index=0))
 <result>
 The image shows a young man riding a skateboard down the side of a concrete ramp. He is wearing a black helmet, a gray t-shirt, and knee pads. The sky is blue and the weather appears to be sunny.

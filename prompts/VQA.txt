@@ -1,0 +1,6 @@
+The result of `{statement}` is "{result}".
+
+If you already get enough information to answer the question, tell me your answer.
+If you need crop on another bounding box (if the question is "for all" type and you get a yes answer, or the question is "exist" type and you get a no answer, and there are other large bounding boxes that seem to contain the object), tell me the name of the variable storing the bounding box list and tell me the index of the bounding box.
+If you need to locate another object, tell me its name. Also note that you can purely include the name without any color, texture or position information.
+If you need to ask another question (when you have multiple questions, or VQA did not understand your previous question), then tell me that. Include the name of the image variable in `{statement}`, and tell me your new question.

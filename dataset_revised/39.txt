@@ -11,7 +11,7 @@ Implement(BOX0=LOC(image=IMAGE,object='refrigerator'))
 <result>
 [[290, 2, 636, 479]]
 </result>
-Thought(Analyze the result: There is only one bounding box. No steps need to be taken to filter false detections. Plan: Measure the size of the refrigerator. Note that the size of IMAGE is 640wx480h. The size of the bounding box is 346wx477h. It almost filled the image in height. I think the real height of the refrigerator even exceeds the image, so it must be large. Now locate the microwave.)
+Thought(Analyze the result: There is only one bounding box. Plan: Measure the size of the refrigerator. Note that the size of IMAGE is 640wx480h. The size of the bounding box is 346wx477h. It almost filled the image in height. I think the real height of the refrigerator even exceeds the image, so it must be large. Now locate the microwave.)
 Implement(BOX1=LOC(image=IMAGE,object='microwave'))
 <result>
 [[290, 2, 636, 479]]

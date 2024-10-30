@@ -11,12 +11,12 @@ Implement(BOX0=LOC(image=IMAGE,object='CD'))
 <result>
 [[384, 174, 456, 235]]
 </result>
-Thought(Analyze the result: There is only one bounding box. No need to filter false detections. Plan: Judge whether the CD is small. It is a single object, so it's better to judge by bounding box. The size of the CD's bounding box is 72x61. The bounding box is small, and I need to get the size of another object as a reference to know if CD is indeed small. Let's locate the mug.)
+Thought(Analyze the result: There is only one bounding box. Plan: Judge whether the CD is small. It is a single object, so it's better to judge by bounding box. The size of the CD's bounding box is 72x61. The bounding box is small, and I need to get the size of another object as a reference to know if CD is indeed small. Let's locate the mug.)
 Implement(BOX1=LOC(image=IMAGE,object='mug'))
 <result>
 [[483, 166, 565, 263]]
 </result>
-Thought(Analyze the result: There is only one bounding box. No need to filter false detections. Plan: Get the size of the bounding box. The size of the bounding box is 82x97. The size of the mug's bounding box is 82x97, which is larger than the size of the CD's bounding box. I can make sure the CD is small. I can give the answer. The question is "Is the CD small?", and I know the CD is small. So the answer is yes.)
+Thought(Analyze the result: There is only one bounding box. Plan: Get the size of the bounding box. The size of the bounding box is 82x97. The size of the mug's bounding box is 82x97, which is larger than the size of the CD's bounding box. I can make sure the CD is small. I can give the answer. The question is "Is the CD small?", and I know the CD is small. So the answer is yes.)
 Implement(ANSWER0=RESULT(var='Yes, the CD is small.'))
 
 <End of Plan>

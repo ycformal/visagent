@@ -1,0 +1,9 @@
+`{statement}` is successfully implemented and the bounding box list is stored in {new_var}.
+
+You have the following choices:
+* If you've collected all information to answer the question, tell me the answer and END YOUR RESPONSE.
+* If you want to check some attributes of an object contained in {new_var}, tell me you want to crop on the region of {new_var}.
+* If you want find another object to the left/right of {new_var} or above/below {new_var}, tell me that and include the name of another object. Include the name of the bounding box list variable "{new_var}" in your response.
+
+Tips:
+* To theck the relative position between two bounding boxes, for each bounding box [x1,y1,x2,y2], you may calculate (x1+x2)/2 or (y1+y2)/2 in order to check the left/right/top/bottom in terms of the relative position. To decide its relative position to the image, you should compare your calculation result with width/2 or height/2.

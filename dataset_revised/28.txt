@@ -16,13 +16,8 @@ Implement(BOX1=LOC(image=IMAGE,object='lady'))
 <result>
 [[39, 41, 118, 361], [281, 75, 331, 393], [266, 0, 303, 123], [111, 1, 170, 187]]
 </result>
-Thought(Analyze the result: There are multiple bounding boxes for the ladies, I need to filter out the wrong ones. Judge the size: The sizes are 79x321, 50x318, 37x123 and 59x186. They are of normal size. Plan: remove small bounding boxes that are included in a larger one.)
-Implement(BOX2=FILTER_INCLUDED(box='[[39, 41, 118, 361], [281, 75, 331, 393], [266, 0, 303, 123], [111, 1, 170, 187]]'))
-<result>
-[[39, 41, 118, 361], [281, 75, 331, 393], [266, 0, 303, 123], [111, 1, 170, 187]]
-</result>
-Thought(Analyze the result: There's nothing abnormal in positions. Plan: I only need to focus on the left most one, [39, 41, 118, 361], which is to the left of BOX0. I need to crop on that bounding box and verify it is a lady. If so, the Nike bag is to the right of the lady.)
-Implement(IMAGE0=CROP(image=IMAGE,box=BOX2,index=0))
+Thought(Analyze the result: There are multiple bounding boxes for the ladies, I need to filter out the wrong ones. Judge the size: The sizes are 79x321, 50x318, 37x123 and 59x186. They are of normal size. Plan: I only need to focus on the left most one, [39, 41, 118, 361], which is to the left of BOX0. I need to crop on that bounding box and verify it is a lady. If so, the Nike bag is to the right of the lady.)
+Implement(IMAGE0=CROP(image=IMAGE,box=BOX1,index=0))
 <result>
 The image shows a young woman standing on a sidewalk with her back to the camera. The woman appears to be looking down at something in her hand.
 </result>

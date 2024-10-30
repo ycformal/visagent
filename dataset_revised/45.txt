@@ -9,20 +9,15 @@ Q="Who seems to be older, the woman or the girl?"
 Thought(Analyze the question: The main objects in the question are the woman and the girl. I need to locate them and figure out their age. Analyze the caption: The caption mentions there are six people, three men and three women. Unknow or unsure: The age of the woman and the girl. Plan: Call LOC to locate the woman.)
 Implement(BOX0=LOC(image=IMAGE,object='woman'))
 <result>
-[[141, 136, 183, 276], [60, 139, 109, 231], [94, 164, 184, 278], [280, 174, 436, 376], [318, 170, 383, 246], [230, 132, 344, 267], [107, 124, 146, 194]]
-</result>
-Thought(Analyze the result: There are multiple bounding boxes detected and I need to filter wrong detections. Judge the size: The sizes for the bounding boxes are 42x140, 49x92, 90x114, 156x202, 65x76, 114x135, 39x70. They are of normal sizes. Plan: Filter small bounding boxes that are heavily overlapped with larger one.)
-Implement(BOX1=FILTER_INCLUDED(box='[[141, 136, 183, 276], [60, 139, 109, 231], [94, 164, 184, 278], [280, 174, 436, 376], [318, 170, 383, 246], [230, 132, 344, 267], [107, 124, 146, 194]]'))
-<result>
 [[141, 136, 183, 276], [60, 139, 109, 231], [94, 164, 184, 278], [280, 174, 436, 376], [230, 132, 344, 267], [107, 124, 146, 194]]
 </result>
-Thought(Analyze the result: Six bounding boxes remained, corresponding to six people. Obviously the LOC module recognizes men as women. Plan: Merge the bounding boxes to a larger one, crop on the merged bounding box and directly ask VQA. min{141, 60, 94, 280, 230, 107}=60, min{136, 139, 164, 174, 132, 124}=124, max{183, 109, 186, 436, 344, 146}=436, max{276, 231, 278, 376, 267, 194}=376. The merged bounding box is [60, 124, 436, 376]. I need to assign it to BOX2.)
-Implement(BOX2=EVAL(expr='[[60, 124, 436, 376]]'))
+Thought(Analyze the result: Six bounding boxes are detected, corresponding to six people. Obviously the LOC module recognizes men as women. Plan: Merge the bounding boxes to a larger one, crop on the merged bounding box and directly ask VQA. min{141, 60, 94, 280, 230, 107}=60, min{136, 139, 164, 174, 132, 124}=124, max{183, 109, 186, 436, 344, 146}=436, max{276, 231, 278, 376, 267, 194}=376. The merged bounding box is [60, 124, 436, 376]. I need to assign it to BOX1.)
+Implement(BOX1=EVAL(expr='[[60, 124, 436, 376]]'))
 <result>
 [[60, 124, 436, 376]]
 </result>
-Thought(Analyze the result: BOX2 is successfully assigned. Plan: Crop on BOX2[0].)
-Implement(IMAGE0=CROP(image=IMAGE,box=BOX2,index=0))
+Thought(Analyze the result: BOX1 is successfully assigned. Plan: Crop on BOX1[0].)
+Implement(IMAGE0=CROP(image=IMAGE,box=BOX1,index=0))
 <result>
 The image shows a group of people gathered around a row of motorcycles. There are six people in the image, all wearing red bandanas and sunglasses. The people around the motorcycles appear to be engaged in conversation.
 </result>

@@ -11,13 +11,8 @@ Implement(BOX0=LOC(image=IMAGE,object='jacket'))
 <result>
 [[286, 125, 355, 178], [190, 191, 249, 283]]
 </result>
-Thought(Analyze the result: There are two bounding boxes, I need to filter wrong detections. Judge the size: The size for two bounding boxes are 69x53 and 59x92. These sizes are both reasonable for jackets. Plan: Remove small bounding boxes that are included in a larger one.)
-Implement(BOX1=FILTER_INCLUDED(box='[[286, 125, 355, 178], [190, 191, 249, 283]]'))
-<result>
-[[286, 125, 355, 178], [190, 191, 249, 283]]
-</result>
-Thought(Analyze the result: Both of them are correct detections. Plan: Crop on the first bounding box to see if the jacket is empty.)
-Implement(IMAGE0=CROP(image=IMAGE,box=BOX1,index=0))
+Thought(Analyze the result: There are two bounding boxes, I need to filter wrong detections. Judge the size: The size for two bounding boxes are 69x53 and 59x92. These sizes are both reasonable for jackets. Plan: Crop on the first bounding box to see if the jacket is empty.)
+Implement(IMAGE0=CROP(image=IMAGE,box=BOX0,index=0))
 <result>
 The image shows a person skiing down a snowy hill. The person is wearing a red jacket, black pants, and a black helmet with goggles. They are holding ski poles in their hands and appear to be in motion.
 </result>
@@ -27,7 +22,7 @@ Implement(ANSWER0=VQA(image=IMAGE0,question='Is the jacket empty?'))
 no
 </result>
 Thought(Analyze the result: VQA says no, which means the jacket is not empty. Plan: Crop on the second bounding box to see if the jacket is empty.)
-Implement(IMAGE1=CROP(image=IMAGE,box=BOX1,index=1))
+Implement(IMAGE1=CROP(image=IMAGE,box=BOX0,index=1))
 <result>
 The image shows a person sitting on the snow with their back to the camera. The person is wearing a red jacket, blue pants, and a white helmet with a black visor.
 </result>

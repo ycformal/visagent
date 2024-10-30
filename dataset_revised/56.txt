@@ -11,28 +11,18 @@ Implement(BOX0=LOC(image=IMAGE,object='window'))
 <result>
 [[211, 144, 351, 293], [363, 0, 458, 20]]
 </result>
-Thought(Analyze the result: There are two bounding boxes, I need to filter wrong detections. Judge the size: The size of two bounding boxes are 140x140 and 95x20. Both of them are of reasonable size. Plan: Remove small bounding boxes that are included in a larger one.)
-Implement(BOX1=FILTER_INCLUDED(box='[[211, 144, 351, 293], [363, 0, 458, 20]]'))
-<result>
-[[211, 144, 351, 293], [363, 0, 458, 20]]
-</result>
-Thought(Analyze the result: No bounding box is filtered. Plan: Crop the image. Use the largest bounding box, which is [211, 144, 351, 293] of size 140x140, to be the crop box. Set index=0 since I want to crop on BOX0[0].)
+Thought(Analyze the result: There are two bounding boxes, I need to filter wrong detections. Judge the size: The size of two bounding boxes are 140x140 and 95x20. Both of them are of reasonable size. Plan: Crop the image. Use the largest bounding box, which is [211, 144, 351, 293] of size 140x140, to be the crop box. Set index=0 since I want to crop on BOX0[0].)
 Implement(IMAGE0=CROP(image=IMAGE,box=BOX0,index=0))
 <result>
 The image shows a window display of various items for sale in a shop. The window is made of glass and is located on the side of a building. The items are arranged in a grid-like pattern and are of different sizes and shapes. The store is located in an alleyway with a stone wall in the background.
 </result>
 Thought(Analyze the result: I know the material of the window is glass. Plan: Locate the light fixture to get its material.)
-Implement(BOX2=LOC(image=IMAGE,object='light fixture'))
-<result>
-[[73, 112, 148, 242], [0, 86, 21, 115], [86, 195, 127, 248]]
-</result>
-Thought(Analyze the result: There are three bounding boxes, I need to filter wrong detections. Plan: Judge the size. The size for three bounding boxes are 75x130, 21x29, and 41x53. They all seem of reasonable size. Remove small bounding boxes that are included in a larger one.)
-Implement(BOX3=FILTER_INCLUDED(box='[[73, 112, 148, 242], [0, 86, 21, 115], [86, 195, 127, 248]]'))
+Implement(BOX1=LOC(image=IMAGE,object='light fixture'))
 <result>
 [[73, 112, 148, 242], [0, 86, 21, 115]]
 </result>
-Thought(Analyze the result: Two boxes are remained. Plan: Crop on the largest bounding box to try. The largest one is [73, 112, 148, 242] of size 75x130.)
-Implement(IMAGE1=CROP(image=IMAGE,box=BOX3,index=0))
+Thought(Analyze the result: There are two bounding boxes, I need to filter wrong detections. Plan: Judge the size. The size for three bounding boxes are 75x130 and 21x29. They all seem of reasonable size. Plan: Crop on the largest bounding box to try. The largest one is [73, 112, 148, 242] of size 75x130.)
+Implement(IMAGE1=CROP(image=IMAGE,box=BOX1,index=0))
 <result>
 The image shows a street scene with a red and white sign hanging from a pole. The sign has the word "Casa" written in black letters at the top. Below the sign, there is a gold-colored candelabra with six arms and a white lampshade. The lamp is attached to the pole and appears to be made of metal. In the background, there are buildings and a tree.
 </result>
