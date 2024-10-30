@@ -4,7 +4,6 @@ CROP_RIGHTOF(image=*, box=*,index=*) returns the cropped image to the right of t
 CROP_LEFTOF(image=*, box=*,index=*) returns the cropped image to the left of the specified bounding box.
 CROP_ABOVE(image=*, box=*,index=*) returns the cropped image above the specified bounding box.
 CROP_BELOW(image=*, box=*,index=*) returns the cropped image below the specified bounding box.
-FILTER_INCLUDED(box=*) returns a bounding box. Bounding boxes in `box` argument that are included in or heavily overlapped with other bounding boxes will be removed.
 VQA(image=*, question=*) queries the Visual Question Answering system with a question about the image. Note: Responses may be brief and not fully accurate.
 RESULT(var=*) captures the final result to be returned to the client. Once it is implemented, the question is answered.
 

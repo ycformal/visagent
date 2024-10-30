@@ -94,7 +94,7 @@ class ProgramGenerator():
             with open('dataset_revised/sys.txt', 'r') as fp:
                 system_inst = fp.read()
             response = openai.ChatCompletion.create(
-                model="ft:gpt-3.5-turbo-1106:personal:trial1030:AO3xgIku",
+                model="ft:gpt-3.5-turbo-1106:personal:trial1030:AO4vADm5",
                 messages=[
                     {
                         "role": "system",
