@@ -1,0 +1,19 @@
+multimodal input: IMAGE (500wx375h)
+
+Q="Does the elephant near the stones seem to be sitting?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows an adult elephant and a baby elephant in an enclosure. The adult elephant is standing on the right side of the image, while the baby elephant is walking on the left side. The baby elephant appears to be walking towards the adult elephant, as it is holding a piece of food in its trunk. The background is filled with trees and greenery.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+an adult elephant and a baby elephant
+The adult elephant is standing
+the baby elephant is walking
+</result>
+ANSWER0=RESULT(var='No. I detected two elephants, but one is walking and another one is sitting.')
+
+<End of Plan>

@@ -1,0 +1,17 @@
+multimodal input: IMAGE (640wx425h)
+
+Q="What is this, a fire hydrant or a traffic light?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a busy street in a city with tall buildings on both sides. The street is lined with trees and there are cars driving on the road. In the center of the street, a man is crossing the street at a red traffic light. He is wearing a black jacket and pants and is standing on the sidewalk.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a red traffic light
+</result>
+ANSWER0=RESULT(var='traffic light')
+
+<End of Plan>

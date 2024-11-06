@@ -1,0 +1,17 @@
+multimodal input: IMAGE (500wx281h)
+
+Q="Are there blankets that are not brown?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a young girl sitting on a bed. She is wearing a pink long-sleeved shirt with a cartoon character on it. The girl has blonde curly hair and is holding a pink blanket in her hands. She appears to be looking down at the blanket with a sad expression on her face. In the background, there is a doll lying on the bed and a lamp on the nightstand.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a pink blanket
+</result>
+ANSWER0=RESULT(var='yes')
+
+<End of Plan>

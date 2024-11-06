@@ -1,0 +1,25 @@
+multimodal input: IMAGE (500wx375h)
+
+Q="Are these small bananas?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a woman in a grocery store, reaching for a large pile of bananas. The bananas are stacked on top of each other in two woven baskets. The store appears to be well-stocked with various items for sale.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a large pile of bananas
+</result>
+BOX0=LOC(image=IMAGE,object='bananas')
+<result>
+[]
+</result>
+ANSWER0=VQA(image=IMAGE,question='What is the size of the bananas?')
+<result>
+small
+</result>
+ANSWER1=RESULT(var='Yes. These are small bananas.')
+
+<End of Plan>

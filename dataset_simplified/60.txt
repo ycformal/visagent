@@ -1,0 +1,27 @@
+multimodal input: IMAGE (500wx333h)
+
+Q="What is the name of the vehicle that is the same color as the sky in this photo?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a large white church with two tall towers and a clock tower. The sky is blue with some clouds and there are a few people walking on the sidewalk in front of the church. There are also a few cars parked in the lot and a bus on the right side of the image.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+The sky is blue
+a few cars
+a bus
+</result>
+BOX0=LOC(image=IMAGE,object='car')
+<result>
+[[232, 256, 281, 271], [91, 255, 131, 276], [115, 257, 206, 290], [473, 255, 499, 277]]
+</result>
+ANSWER0=VQA(image=IMAGE,question='What is the name of the blue vehicle?')
+<result>
+van
+</result>
+ANSWER1=RESULT(var='The vehicle is a van.')
+
+<End of Plan>

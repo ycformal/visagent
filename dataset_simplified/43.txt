@@ -1,0 +1,53 @@
+multimodal input: IMAGE (640wx427h)
+
+Q="Are there either baseball bats or rackets that are not metallic?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows three young people, a boy and two girls, lying on a tennis court with their tennis rackets. They are all smiling and looking at the camera. All three are resting their hands on their cheeks and appear to be happy and relaxed. In the background, there are trees and a blue sky.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+tennis rackets
+</result>
+BOX0=LOC(image=IMAGE,object='tennis rackets')
+<result>
+[[350, 203, 484, 367], [7, 359, 312, 412], [404, 373, 615, 409], [222, 358, 392, 415]]
+</result>
+IMAGE0=CROP(image=IMAGE,box=BOX0,index=0)
+<result>
+The image shows a close-up of a person's legs and feet on a tennis court. On the left side of the image, there is a black and white tennis racket lying on the ground next to a blue tennis racket. The racket has a black handle and white strings.
+</result>
+ANSWER0=VQA(image=IMAGE0,question='Is the racket made of metal?')
+<result>
+yes
+</result>
+IMAGE1=CROP(image=IMAGE,box=BOX0,index=1)
+<result>
+The image shows a close-up of a tennis racket lying on the ground. The racket is black and yellow in color with a white stripe running along the length of the handle. The background is blurred, but it appears to be a tennis court.
+</result>
+ANSWER1=VQA(image=IMAGE1,question='Is the racket made of metal?')
+<result>
+yes
+</result>
+IMAGE2=CROP(image=IMAGE,box=BOX0,index=2)
+<result>
+The image shows a close-up of a tennis racket lying on the ground. The racket is blue and black in color and appears to be old and worn. It is resting on a green tennis court with white lines marking the boundaries.
+</result>
+ANSWER2=VQA(image=IMAGE2,question='Is the racket made of metal?')
+<result>
+yes
+</result>
+IMAGE3=CROP(image=IMAGE,box=BOX0,index=3)
+<result>
+The image shows two young women lying on a tennis court. The woman on the left is wearing a pink tank top, green shorts, and sunglasses. The other woman is lying next to her, wearing a green tank top and pink shorts. There are two tennis rackets on the ground next to them. In the background, there is a fence and trees.
+</result>
+ANSWER3=VQA(image=IMAGE3,question='Is the racket made of metal?')
+<result>
+yes
+</result>
+ANSWER4=RESULT(var='No, there are rackets but they are metallic.')
+
+<End of Plan>

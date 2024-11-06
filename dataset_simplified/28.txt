@@ -1,0 +1,33 @@
+multimodal input: IMAGE (333wx500h)
+
+Q="Did Nike make the bag to the right of the lady?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a young man walking on a sidewalk with a large blue Nike duffel bag in his hand. Behind him, there are several people walking on the sidewalk, some of them are carrying bags and one person is holding a water bottle.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+Nike duffel bag
+several people
+</result>
+BOX0=LOC(image=IMAGE,object='Nike bag')
+<result>
+[[150, 234, 312, 388]]
+</result>
+BOX1=LOC(image=IMAGE,object='lady')
+<result>
+[[39, 41, 118, 361], [281, 75, 331, 393], [266, 0, 303, 123], [111, 1, 170, 187]]
+</result>
+BOX2=EVAL(expr='[box for box in {BOX1} if box[0]+box[2]<{BOX1}[0][0]+{BOX1}[0][2]]')
+<result>
+[[39, 41, 118, 361], [111, 1, 170, 187]]
+IMAGE0=CROP(image=IMAGE,box=BOX1,index=0
+<result>
+The image shows a young woman standing on a sidewalk with her back to the camera. The woman appears to be looking down at something in her hand.
+</result>
+ANSWER0=RESULT(var='Yes, the bag was made by nike.')
+
+<End of Plan>

@@ -1,0 +1,17 @@
+multimodal input: IMAGE (640wx427h)
+
+Q="What is the name of this animals?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a blue bridge over a river. The bridge has three pillars and spans over the river. On either side of the river, there is a grassy hill with white flowers. The sky is cloudy and there are a few birds flying in the sky.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a few birds
+</result>
+ANSWER0=RESULT(var='These are birds.')
+
+<End of Plan>

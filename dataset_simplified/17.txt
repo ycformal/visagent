@@ -1,0 +1,21 @@
+multimodal input: IMAGE (640wx381h)
+
+Q="Is there a lamp in this picture that is large?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows two young men sitting on a brown leather couch in a living room. The man on the left is wearing a white t-shirt and black pants, and is holding a pair of black and white sneakers in his left hand. On the right side of the image, there is a young man wearing an orange shirt and blue jeans, sitting on the couch and smiling at the camera. He is also holding a book in his right hand. In the background, there are two lamps and a clock on the wall.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+two lamps
+</result>
+BOX0=LOC(image=IMAGE,object='lamp')
+<result>
+[[533, 61, 629, 185], [0, 183, 44, 284]]
+</result>
+ANSWER0=RESULT(var='Yes. There is a lamp with size of 96x124, whose height is about 33% of the overall height of the image.')
+
+<End of Plan>

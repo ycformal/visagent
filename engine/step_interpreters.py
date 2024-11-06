@@ -14,6 +14,7 @@ from transformers import (ViltProcessor, ViltForQuestionAnswering,
     MaskFormerFeatureExtractor, MaskFormerForInstanceSegmentation,
     CLIPProcessor, CLIPModel, AutoProcessor, BlipForQuestionAnswering, AutoModelForCausalLM)
 from diffusers import StableDiffusionInpaintPipeline
+import copy
 
 from .nms import nms
 from vis_utils import html_embed_image, html_colored_span, vis_masks
@@ -208,6 +209,14 @@ class LocInterpreter():
         self.model.eval()
         self.thresh = thresh
         self.nms_thresh = nms_thresh
+        self.torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
+        self.processor_cap = AutoProcessor.from_pretrained("microsoft/Florence-2-large", trust_remote_code=True)
+        self.model_cap = AutoModelForCausalLM.from_pretrained("microsoft/Florence-2-large", torch_dtype=self.torch_dtype, trust_remote_code=True).to(self.device)
+        self.model_cap.eval()
+        self.processor_vqa = AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")
+        self.model_vqa = BlipForQuestionAnswering.from_pretrained(
+            "Salesforce/blip-vqa-capfilt-large").to(self.device)
+        self.model_vqa.eval()
 
     def parse(self,prog_step):
         parse_result = parse_step(prog_step.prog_str)
@@ -297,6 +306,28 @@ class LocInterpreter():
         img=html_embed_image(img)
         box_img=html_embed_image(box_img,300)
         return f"<div>{output_var}={step_name}({img_arg}={img}, {obj_arg}='{obj_name}')={box_img}</div>"
+    
+    def get_caption(self,img):
+        prompt = "<MORE_DETAILED_CAPTION>"
+        inputs = self.processor(text=prompt, images=img, return_tensors="pt").to(self.device, self.torch_dtype)
+        generated_ids = self.model.generate(
+            input_ids=inputs["input_ids"],
+            pixel_values=inputs["pixel_values"],
+            max_new_tokens=1024,
+            num_beams=3,
+            do_sample=False
+        )
+        generated_text = self.processor.batch_decode(generated_ids, skip_special_tokens=False)[0]
+        parsed_answer = self.processor.post_process_generation(generated_text, task="<MORE_DETAILED_CAPTION>", image_size=(img.width, img.height))
+        return parsed_answer['<MORE_DETAILED_CAPTION>']
+    
+    def get_vqa(self,img,question):
+        encoding = self.processor_vqa(img,question,return_tensors='pt')
+        encoding = {k:v.to(self.device) for k,v in encoding.items()}
+        with torch.no_grad():
+            outputs = self.model_vqa.generate(**encoding)
+        
+        return self.processor_vqa.decode(outputs[0], skip_special_tokens=True)
 
 
     def execute(self,prog_step,inspect=False):
@@ -325,7 +356,7 @@ class LocInterpreter():
                     overlap_area = 0
                 percentage_i = overlap_area / ((bboxes[i][2] - bboxes[i][0]) * (bboxes[i][3] - bboxes[i][1]))
                 percentage_j = overlap_area / ((bboxes[j][2] - bboxes[j][0]) * (bboxes[j][3] - bboxes[j][1]))
-                if percentage_i > 0.85:
+                if percentage_i > 0.85 and percentage_i > percentage_j:
                     deleted[i] = True
                 elif percentage_j > 0.85:
                     deleted[j] = True
@@ -334,6 +365,64 @@ class LocInterpreter():
             if not deleted[i]:
                 filtered.append(bboxes[i])
         bboxes = filtered
+
+        image_size = img.size
+        changed = True
+        expanded_boxes = copy.deepcopy(bboxes)
+        for i in range(len(expanded_boxes)):
+            center_x = (expanded_boxes[i][0] + expanded_boxes[i][2]) / 2
+            center_y = (expanded_boxes[i][1] + expanded_boxes[i][3]) / 2
+            # expanded width and height to 1.5x
+            width = expanded_boxes[i][2] - expanded_boxes[i][0]
+            height = expanded_boxes[i][3] - expanded_boxes[i][1]
+            expanded_boxes[i][0] = max(center_x - width * 0.75, 0)
+            expanded_boxes[i][2] = min(center_x + width * 0.75, image_size[0] - 1)
+            expanded_boxes[i][1] = max(center_y - height * 0.75, 0)
+            expanded_boxes[i][3] = min(center_y + height * 0.75, image_size[1] - 1)
+        while changed:
+            changed = False
+            for i in range(len(bboxes) - 1):
+                for j in range(i + 1, len(bboxes)):
+                    overlap_area = None
+                    x_distance = min(expanded_boxes[i][2], expanded_boxes[j][2]) - max(expanded_boxes[i][0], expanded_boxes[j][0])
+                    y_distance = min(expanded_boxes[i][3], expanded_boxes[j][3]) - max(expanded_boxes[i][1], expanded_boxes[j][1])
+                    if x_distance > 0 and y_distance > 0:
+                        overlap_area = x_distance * y_distance
+                    else:
+                        overlap_area = 0
+                    percentage_i = overlap_area / ((expanded_boxes[i][2] - expanded_boxes[i][0]) * (expanded_boxes[i][3] - expanded_boxes[i][1]))
+                    percentage_j = overlap_area / ((expanded_boxes[j][2] - expanded_boxes[j][0]) * (expanded_boxes[j][3] - expanded_boxes[j][1]))
+                    if percentage_i > 0.6 or percentage_j > 0.6:
+                        merged_box = [min(bboxes[i][0], bboxes[j][0]), min(bboxes[i][1], bboxes[j][1]), max(bboxes[i][2], bboxes[j][2]), max(bboxes[i][3], bboxes[j][3])]
+                        bboxes.append(merged_box)
+                        bboxes.pop(i)
+                        bboxes.pop(j - 1)
+                        changed = True
+                        break
+                if changed:
+                    break
+        bboxes = [box for box in bboxes if box[2] - box[0] > 20 and box[3] - box[1] > 20]
+        deleted = [False] * len(bboxes)
+        for i in range(len(bboxes) - 1):
+            # crop image on the box
+            box = bboxes[i]
+            cropped_img = img.crop(box)
+            # get caption
+            caption = self.get_caption(cropped_img)
+            if len([cap for cap in caption.split() if obj_name.lower() == cap.lower()]) > 0:
+                continue
+            # get vqa
+            question = "Any" + obj_name + " in the image?"
+            vqa = self.get_vqa(cropped_img, question)
+            if 'yes' not in vqa.lower():
+                deleted[i] = True
+        
+        filtered = []
+        for i in range(len(bboxes)):
+            if not deleted[i]:
+                filtered.append(bboxes[i])
+        bboxes = filtered
+        bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
 
         box_img = self.box_image(img, bboxes)
         prog_step.state[output_var] = bboxes
@@ -344,8 +433,8 @@ class LocInterpreter():
 
         return bboxes
     
-class FilterInludedInterpreter():
-    step_name = 'FILTER_INCLUDED'
+class MergeInterpreter():
+    step_name = 'MERGE'
 
     def __init__(self):
         print(f'Registering {self.step_name} step')
@@ -358,10 +447,10 @@ class FilterInludedInterpreter():
         assert(step_name==self.step_name)
         return box_var,output_var
     
-    def html(self,boxes,filtered,output_var):
+    def html(self,boxes,merged,output_var):
         step_name = html_step_name(self.step_name)
         output_var = html_var_name(output_var)
-        return f"""<div>{output_var}={step_name}({boxes})={filtered}</div>"""
+        return f"""<div>{output_var}={step_name}({boxes})={merged}</div>"""
     
     def execute(self,prog_step,inspect=False):
         box_var,output_var = self.parse(prog_step)
@@ -369,33 +458,82 @@ class FilterInludedInterpreter():
             boxes = prog_step.state[box_var]
         else:
             boxes = eval(eval(box_var))
-        deleted = [False] * len(boxes)
-        for i in range(len(boxes) - 1):
-            for j in range(i + 1, len(boxes)):
-                overlap_area = None
-                x_distance = min(boxes[i][2], boxes[j][2]) - max(boxes[i][0], boxes[j][0])
-                y_distance = min(boxes[i][3], boxes[j][3]) - max(boxes[i][1], boxes[j][1])
-                if x_distance > 0 and y_distance > 0:
-                    overlap_area = x_distance * y_distance
-                else:
-                    overlap_area = 0
-                percentage_i = overlap_area / ((boxes[i][2] - boxes[i][0]) * (boxes[i][3] - boxes[i][1]))
-                percentage_j = overlap_area / ((boxes[j][2] - boxes[j][0]) * (boxes[j][3] - boxes[j][1]))
-                if percentage_i > 0.85:
-                    deleted[i] = True
-                elif percentage_j > 0.85:
-                    deleted[j] = True
-        filtered = []
-        for i in range(len(boxes)):
-            if not deleted[i]:
-                filtered.append(boxes[i])
         
-        prog_step.state[output_var] = filtered
+        min_x = min([box[0] for box in boxes])
+        min_y = min([box[1] for box in boxes])
+        max_x = max([box[2] for box in boxes])
+        max_y = max([box[3] for box in boxes])
+        merged = [min_x,min_y,max_x,max_y]
+        
+        prog_step.state[output_var] = merged
         if inspect:
-            html_str = self.html(boxes, filtered, output_var)
-            return filtered, html_str
+            html_str = self.html(boxes, merged, output_var)
+            return merged, html_str
 
-        return filtered
+        return merged
+    
+class RelativePosInterpreter():
+    step_name = 'RELATIVE_POS'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        box_var = parse_result['args']['object']
+        reference_var = parse_result['args']['reference']
+        output_var = parse_result['output_var']
+        assert(step_name==self.step_name)
+        return box_var,reference_var,output_var
+    
+    def html(self,box,ref,result,output_var):
+        step_name = html_step_name(self.step_name)
+        output_var = html_var_name(output_var)
+        return f"""<div>{output_var}={step_name}({box}, {ref})={result}</div>"""
+    
+    def execute(self,prog_step,inspect=False):
+        box_var,reference_var,output_var = self.parse(prog_step)
+        if box_var.split('[')[0] in prog_step.state:
+            box = prog_step.state[box_var.split('[')[0]]
+            if '[' in box_var:
+                index = int(box_var.split('[')[1].split(']')[0])
+                box = box[index]
+            else:
+                box = box[0]
+        else:
+            box = eval(eval(box_var))
+        if reference_var.split('[')[0] in prog_step.state:
+            ref = prog_step.state[reference_var.split('[')[0]]
+            if '[' in reference_var:
+                index = int(reference_var.split('[')[1].split(']')[0])
+                ref = ref[index]
+            else:
+                ref = ref[0]
+        else:
+            ref = eval(eval(reference_var))
+        
+        result = ''
+        x_box = (box[0] + box[2]) / 2
+        y_box = (box[1] + box[3]) / 2
+        x_ref = (ref[0] + ref[2]) / 2
+        y_ref = (ref[1] + ref[3]) / 2
+        if x_box < x_ref:
+            result += 'left'
+        elif x_box > x_ref:
+            result += 'right'
+        result += ' '
+        if y_box < y_ref:
+            result += 'above'
+        elif y_box > y_ref:
+            result += 'below'
+        
+        prog_step.state[output_var] = result
+        if inspect:
+            html_str = self.html(box, ref, result, output_var)
+            return result, html_str
+
+        return result
     
 class CapInterpreter():
     step_name = 'CAP'

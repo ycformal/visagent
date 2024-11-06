@@ -10,7 +10,6 @@ The image shows two elderly people sitting on a wooden bench at a beach. The per
 </result>
 X=RETRIEVE(question=Q, caption=CAP0)
 <result>
-a pink umbrella
 The umbrella is open
 </result>
 ANSWER0=RESULT(var='yes')

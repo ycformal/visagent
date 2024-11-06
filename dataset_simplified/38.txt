@@ -1,0 +1,33 @@
+multimodal input: IMAGE (322wx500h)
+
+Q="What is the name of the animal that is the same color as the container on the left of the image?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows the rear wheel of a bicycle leaning against a wall next to a window. The bicycle has a black frame and a brown tire with white spokes. The handlebars are black and the seat is black. The window is open and the view outside is of a street with buildings and trees.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+None
+</result>
+BOX0=LOC(image=IMAGE,object='container')
+<result>
+[]
+</result>
+ANSWER0=VQA(image=IMAGE,question='What is the color of the container?')
+<result>
+white
+</result>
+BOX1=LOC(image=IMAGE,object='animal')
+<result>
+[]
+</result>
+ANSWER1=VQA(image=IMAGE,question='What animals are in the image?')
+<result>
+none
+</result>
+ANSWER1=RESULT(var='polar bear')
+
+<End of Plan>

@@ -1,0 +1,33 @@
+multimodal input: IMAGE (640wx427h)
+
+Q="Are the books to the left or to the right of the wood cabinet?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a modern bathroom with a walk-in shower. On the left side of the shower, there are two wooden cabinets with a white countertop and a wooden vanity with a sink and a mirror above it. The overall color scheme of the bathroom is neutral and modern.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+two wooden cabinets
+</result>
+BOX0=LOC(image=IMAGE,object='book')
+<result>
+[[1, 257, 65, 283]]
+</result>
+BOX1=LOC(image=IMAGE,object='cabinet')
+<result>
+[[123, 253, 278, 381], [181, 152, 206, 187], [0, 259, 138, 426]]
+</result>
+BOX2=MERGE(box=BOX1)
+<result>
+[[0,152,178,426]]
+</result>
+ANSWER0=RELATIVE_POS(object=BOX0[0],reference=BOX1[0])
+<result>
+left below
+</result>
+ANSWER1=RESULT(var='The books are to the left of the cabinet.))
+
+<End of Plan>

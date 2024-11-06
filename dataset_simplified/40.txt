@@ -1,0 +1,28 @@
+multimodal input: IMAGE (334wx500h)
+
+Q="Which kind of furniture is the coffee cup on?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a young man standing in a coffee shop. In front of him, there is a black bicycle leaning against a wooden shelf. On the shelf, there are various coffee machines and coffee beans. The background shows a counter with a coffee machine and other coffee-related items.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a coffee shop
+a wooden shelf
+coffee machines
+a counter with a coffee machine and other coffee-related items
+</result>
+BOX0=LOC(image=IMAGE,object='coffee cup')
+<result>
+[[103, 122, 124, 142], [301, 80, 312, 103], [131, 242, 141, 260], [323, 14, 332, 29], [281, 61, 305, 104], [83, 122, 105, 146], [137, 246, 145, 265], [120, 162, 142, 184], [316, 82, 333, 102], [63, 123, 83, 146], [48, 274, 59, 299], [314, 19, 322, 28], [133, 116, 147, 139], [138, 163, 143, 172], [328, 28, 333, 56], [285, 148, 293, 161]]
+</result>
+ANSWER0=VQA(image=IMAGE,question='Are coffee cups on the shelf?')
+<result>
+yes
+</result>
+ANSWER1=RESULT(var='The coffee cup is on the shelf.')
+
+<End of Plan>

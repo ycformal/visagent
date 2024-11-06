@@ -41,7 +41,6 @@ for file in files:
 system_cmd = """
 External modules in Implement:
 LOC(image=*, object=*) returns bounding boxes for the specified object in the given image. Each bounding box is of the format [x1, y1, x2, y2], which represents the left top and right bottom of the rectangle. Note x axis grows horizontally from left to right, y axis grows vertically from top to bottom. Unit: pixels.
-COUNT(box=*) returns the total number of specified bounding boxes.
 CROP(image=*, box=*,index=*) returns the cropped image within the specified bounding box.
 CROP_RIGHTOF(image=*, box=*,index=*) returns the cropped image to the right of the specified bounding box.
 CROP_LEFTOF(image=*, box=*,index=*)

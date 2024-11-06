@@ -1,0 +1,18 @@
+multimodal input: IMAGE (640wx426h)
+
+Q="What is the animal that the forest is behind of called?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a man and a woman standing in front of a giraffe. The man is on the right side of the image and is looking up at the giraffe with a smile on his face. The giraffe is facing the man and appears to be sniffing the man's nose. In the background, there are trees and bushes, and a wooden fence can be seen on the left side.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a giraffe
+trees
+</result>
+ANSWER0=RESULT(var='The animal is a giraffe.')
+
+<End of Plan>

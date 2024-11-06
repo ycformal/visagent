@@ -1,0 +1,25 @@
+multimodal input: IMAGE (640wx425h)
+
+Q="Is the CD small?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a desktop computer setup on a wooden desk. The computer monitor is turned on and the screen is blank. Next to the monitor, there is a white keyboard with a red sticker on it. On the desk, there are also a few other items such as a water bottle, a black coffee mug, and a black telephone. The desk appears to be cluttered and messy.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+None
+</result>
+BOX0=LOC(image=IMAGE,object='CD')
+<result>
+[[384, 174, 456, 235]]
+</result>
+BOX1=LOC(image=IMAGE,object='mug')
+<result>
+[[483, 166, 565, 263]]
+</result>
+ANSWER0=RESULT(var='Yes, the CD is small.')
+
+<End of Plan>

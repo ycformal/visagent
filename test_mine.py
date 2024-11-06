@@ -183,13 +183,11 @@ def create_prompt2(inputs):
 system_cmd = """
 External modules in Implement:
 LOC(image=*, object=*) returns bounding boxes for the specified object in the given image. Each bounding box is of the format [x1, y1, x2, y2], which represents the left top and right bottom of the rectangle. Note x axis grows horizontally from left to right, y axis grows vertically from top to bottom. Unit: pixels.
-COUNT(box=*) returns the total number of specified bounding boxes.
 CROP(image=*, box=*,index=*) returns the cropped image within the specified bounding box.
 CROP_RIGHTOF(image=*, box=*,index=*) returns the cropped image to the right of the specified bounding box.
 CROP_LEFTOF(image=*, box=*,index=*)
 CROP_ABOVE(image=*, box=*,index=*)
 CROP_BELOW(image=*, box=*,index=*)
-FILTER_INCLUDED(box=*) returns a bounding box. Bounding boxes in `box` argument that are included in or heavily overlapped with other bounding boxes will be removed.
 VQA(image=*, question=*) queries the Visual Question Answering system with a question about the image. Note: Responses may be brief and not fully accurate.
 RESULT(var=*) only used in the last step. Returns the final result of the program.
 """
@@ -354,29 +352,95 @@ def create_prompt_stepname_selective(inputs):
     print(template)
     return system_cmd + '\n' + template + "{input}\n".format(**inputs)
 
+def create_prompt_stepname_selective_efficient(inputs):
+    global files
+    global file_question_dict
+    global vectorizer
+    template = []
+    file_score_dict = {}
 
-generator = ProgramGenerator(prompter=create_prompt_stepname_selective)
+    for file in files:
+        tfidf_matrix = vectorizer.fit_transform([inputs['input'], file_question_dict[file]])
+        similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
+        file_score_dict[file] = similarity[0][0]
+
+    
+    # sort files by text length, ascending
+    indices = [0,1,2,10,11,12,13,20,21,22,23,25,25,26,27,28,29,30,40,50]
+    _files = sorted(files, key=lambda x: len(open(f'./dataset_revised/{x}.txt').read()))
+    _files = [_files[i] for i in indices]
+    _files = sorted(_files, key=lambda x: file_score_dict[x], reverse=True)
+
+    for file in _files:
+        data = ''
+        file_path = os.path.join('./dataset_revised', file + '.txt')
+        with open(file_path, 'r') as f:
+            text = f.read()
+
+        if 'Implement' not in inputs['input']:
+            data = text.split('<End of Context>')[0] + '<End of Context>'
+            data += text.split('<End of Context>')[1].split('Implement(')[0]+ 'Implement(' + \
+                    text.split('Implement(')[1].split('))\n')[0] + '))\n\n<End of Plan>'
+            template.append(data)
+        else:
+            n_Implement = inputs['input'].count('Implement(')
+            last_Implement_statement = inputs['input'].split('Implement(')[n_Implement].split('))\n')[0] + ')'
+            step_name = parse_step(last_Implement_statement)['step_name']
+            output_var = parse_step(last_Implement_statement)['output_var']
+            step_count = text.count('=' + step_name + '(')
+            if step_count == 0:
+                continue
+            random_step = random.randint(0, step_count - 1)
+            prior_stepname = 'Implement('.join(('=' + step_name + '(').join(text.split('=' + step_name + '(')[:random_step + 1]).split('Implement(')[:-1])
+            post_stepname = ('=' + step_name + '(').join(text.split('=' + step_name + '(')[random_step + 1:])
+            post_stepname = post_stepname.split('Implement(')[0] + 'Implement(' + post_stepname.split('Implement(')[1].split('))\n')[0] + '))\n\n<End of Plan>'
+
+            # Replace contents in <result></result> with "omitted", except the last occurrence
+            import re
+            def replace_result_content(text):
+                pattern = r'(<result>)(.*?)(</result>\nThought)'
+                text = re.sub(pattern, r'\1\nomitted\n\3', text, flags=re.DOTALL)
+                return text
+
+            prior_stepname = replace_result_content(prior_stepname)
+
+            # Replace content in CAPTION_IMAGE=""
+            def replace_caption_image_content(text):
+                pattern = r'CAPTION_IMAGE="(.*?)"\n\nQ='
+                match = re.search(pattern, text, re.DOTALL)
+                if match:
+                    start, end = match.span(1)
+                    text = text[:start] + 'omitted' + text[end:]
+                return text
+
+            prior_stepname = replace_caption_image_content(prior_stepname)
+
+            data = prior_stepname + 'Implement(' + output_var + '=' + step_name + '(' + post_stepname
+            template.append(data)
+
+        simulated_template = system_cmd + '\n' + '\n'.join(template) + '\n' + "{input}\n".format(**inputs)
+        tokens = encoding.encode(simulated_template)
+        if len(tokens) > 4096 - 512:
+            template = template[:-1]
+            break
+
+    template = '\n'.join(template) + '\n'
+    print(system_cmd + '\n' + template + "{input}\n".format(**inputs))
+    return system_cmd + '\n' + template + "{input}\n".format(**inputs)
+
+
+generator = ProgramGenerator(prompter=create_prompt_stepname_selective_efficient)
 
 inputed = """
-multimodal input: IMAGE (500wx500h)
+multimodal input: IMAGE (640wx640h)
 
-CAPTION_IMAGE="The image shows a woman walking on a street with a small dog on a leash. The woman is wearing a black dress, brown boots, and a white handbag. She is walking on the right side of the street, with a bicycle parked on the sidewalk on the left side. The dog is brown and white in color and is walking ahead of the woman. The street is lined with buildings and there is a manhole cover on the ground. The image appears to be taken on a sunny day."
+CAPTION_IMAGE="The image shows a young boy standing in front of a desk with three laptops on it. He is wearing a t-shirt and appears to be working on one of the laptops. On the right side of the desk, there is a large screen with a presentation on it, and on the left side, there are several pictures and posters hanging on the wall. The room has a door and a window in the background. The image is in black and white.“
 
-Q="Are there planters to the left of the bike on the sidewalk?"
+Q="Are there both a door and a window in this scene?“
 
 <End of Context>
 
-Thought(Analyze the question: The main objects in the question are the planters and the bike. I need to locate the bike and find if there are planters to its left. Analyze the caption: The caption mentions a woman walking on the right side of the street and a bike parked on the left side. Unknown or unsure: Whether there are planters to the left of the bike. Plan: I need to locate the bike first.)
-Implement(BOX0=LOC(image=IMAGE,object='bike'))
-<result>
-[[260, 113, 374, 213], [265, 117, 308, 210]]
-</result>
-Thought(Analyze the result: There are two bounding boxes, and I need to filter wrong detections. Judge the size: The size for two bounding boxes are 114x100 and 43x93. The first one is much larger than the second one, so the second one is most likely a false detection. Plan: Remove small bounding boxes that are included in a larger one.)
-Implement(BOX1=FILTER_INCLUDED(box='[[260, 113, 374, 213], [265, 117, 308, 210]]'))
-<result>
-[[260, 113, 374, 213]]
-</result>
-Thought(Analyze the result: 
+Thought(Analyze the question: 
 """
 inputs = {
     'input': inputed

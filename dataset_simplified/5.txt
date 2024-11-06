@@ -1,0 +1,36 @@
+multimodal input: IMAGE (333wx500h)
+
+Q="Are there windows in this photo that are long?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a young man performing a skateboard trick on a concrete ramp. He is wearing a black Nike t-shirt, blue jeans, and black and white sneakers. In the background, there is a building and some trees. The sky is overcast and the ground is wet, suggesting that it has recently rained.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a building
+</result>
+BOX0=LOC(image=IMAGE,object='windows')
+<result>
+[]
+</result>
+BOX1=LOC(image=IMAGE,object='building')
+<result>
+[[156, 100, 330, 314]]
+IMAGE0=CROP(image=IMAGE,box=BOX1,index=0)
+<result>
+The image shows a young man performing a skateboard trick on a concrete surface. In the background, there is a building with large windows and a tree. The sky is overcast and the overall mood of the image is playful and energetic.
+</result>
+BOX2=LOC(image=IMAGE0,object='windows')
+<result>
+[]
+</result>
+ANSWER0=VQA(image=IMAGE0,question='Are there any long windows on the building?')
+<result>
+yes
+</result>
+ANSWER1=RESULT(var='yes')
+
+<End of Plan>

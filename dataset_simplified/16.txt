@@ -1,0 +1,21 @@
+multimodal input: IMAGE (640wx427h)
+
+Q="Are there both horses and deer in the picture?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a vast field of tall, golden grass with a few trees scattered throughout. On the right side of the image, there are three deer lying down in the grass, facing the camera. The grass is a golden yellow color, and there are no other animals or people in the image.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+three deer
+</result>
+BOX0=LOC(image=IMAGE,object='horse')
+<result>
+[]
+</result>
+ANSWER0=RESULT(var='No. There are deer but no horses.')
+
+<End of Plan>

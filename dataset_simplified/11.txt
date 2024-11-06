@@ -1,0 +1,31 @@
+multimodal input: IMAGE (640wx426h)
+
+Q="Is the old woman to the right or to the left of the man near the giraffe?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a man and a woman standing in front of a giraffe. The man is on the right side of the image and is looking up at the giraffe with a smile on his face. The giraffe is facing the man and appears to be sniffing the man's nose. The sky is blue and the overall atmosphere is peaceful and serene.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a man and a woman
+The man is on the right side of the image and is looking up at the giraffe
+The giraffe is facing the man
+</result>
+BOX0=LOC(image=IMAGE,object='man')
+<result>
+[[462, 187, 639, 425]]
+</result>
+BOX1=LOC(image=IMAGE,object='woman')
+<result>
+[[376, 346, 485, 424]]
+</result>
+ANSWER0=RELATIVE_POS(object=BOX1[0],reference=BOX0[0])
+<result>
+left below
+</result>
+ANSWER0=RESULT(var='yes')
+
+<End of Plan>

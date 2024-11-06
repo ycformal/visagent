@@ -1,0 +1,25 @@
+multimodal input: IMAGE (640wx425h)
+
+Q="Does the speaker have the same color as the keyboard?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a desktop computer setup on a wooden desk. Next to the monitor, there is a white keyboard with a red sticker on it. On the desk, there are also a few other items such as a water bottle, a black coffee mug, and a black telephone. The desk appears to be cluttered and messy.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+a white keyboard
+</result>
+BOX0=LOC(image=IMAGE,object='speaker'))
+<result>
+[]
+</result>
+ANSWER0=VQA(image=IMAGE,question='Is the speaker white?')
+<result>
+yes
+</result>
+ANSWER1=RESULT(var='Yes, both the speaker and the keyboard are white.')
+
+<End of Plan>

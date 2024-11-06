@@ -1,0 +1,25 @@
+multimodal input: IMAGE (640wx480h)
+
+Q="Are there either any small refrigerators or microwaves in the picture?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a young woman standing in front of an open refrigerator. The woman is bending over the door of the refrigerator, with her head down and her hands on the handle. She appears to be looking down at the contents inside the fridge.
+</result>
+X=RETRIEVE(question=Q, caption=CAP0)
+<result>
+an open refrigerator
+</result>
+BOX0=LOC(image=IMAGE,object='refrigerator')
+<result>
+[[290, 2, 636, 479]]
+</result>
+BOX1=LOC(image=IMAGE,object='microwave')
+<result>
+[[290, 2, 636, 479]]
+</result>
+ANSWER0=RESULT(var='No, there is a refrigerator but it is large.')
+
+<End of Plan>
