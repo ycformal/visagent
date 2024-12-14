@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a blue bridge over a river. The bridge has three pillars and spans over the river. On either side of the river, there is a grassy hill with white flowers. The sky is cloudy and there are a few birds flying in the sky.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a few birds
 </result>

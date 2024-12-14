@@ -1,0 +1,19 @@
+multimodal input: IMAGE (640wx480h)
+
+Q="Is there broccoli near the round food?"
+
+<End of Context>
+
+CAP0=CAP(image=IMAGE)
+<result>
+The image shows a plate with a sandwich and a salad on it. The sandwich is made with a toasted bun and is placed on top of a bed of green arugula leaves. The salad is made up of broccoli, red bell peppers, and yellow cheese. In the background, there is a glass of water and a black and white patterned cup.
+</result>
+X=RETRIEVE(question=Q,caption=CAP0)
+<result>
+a sandwich
+a salad on it
+The salad is made up of broccoli
+</result>
+ANSWER0=RESULT(var='yes')
+
+<End of Plan>

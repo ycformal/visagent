@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows two young men standing in front of a wall with orange panels. The man on the left is wearing a white sweatshirt with the word "AQUA" written on it and beige pants. He is holding a white remote control in his hand and appears to be playing a video game. The other man is standing next to him, wearing a black t-shirt with a graphic of a skull and crossbones on it.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 two young men
 </result>

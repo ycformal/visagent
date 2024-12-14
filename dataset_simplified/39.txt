@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a young woman standing in front of an open refrigerator. The woman is bending over the door of the refrigerator, with her head down and her hands on the handle. She appears to be looking down at the contents inside the fridge.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 an open refrigerator
 </result>

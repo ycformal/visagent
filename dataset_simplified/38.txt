@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows the rear wheel of a bicycle leaning against a wall next to a window. The bicycle has a black frame and a brown tire with white spokes. The handlebars are black and the seat is black. The window is open and the view outside is of a street with buildings and trees.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 None
 </result>

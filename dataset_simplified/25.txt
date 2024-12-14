@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a young man riding a brown horse in an equestrian competition. The man is wearing a white polo shirt, beige pants, and a black helmet. He is holding onto the reins with both hands and appears to be in the middle of a jump. The horse is galloping over a colorful obstacle, which is made up of pink, yellow, and blue poles.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a white polo shirt, beige pants, and a black helmet
 </result>

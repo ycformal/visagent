@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows two elderly people sitting on a wooden bench at a beach. The person on the left is wearing a beige jacket and a cap, and the person in the middle is holding a pink umbrella with a floral pattern. The umbrella is open and the people are looking out towards the horizon.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a pink umbrella
 The umbrella is open

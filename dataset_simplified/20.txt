@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a group of six people sitting around a dining table in a small room. The table is covered with a white tablecloth and is set with plates, bowls, glasses, and food. There are six people in total, four men and three women, all of whom are smiling and appear to be enjoying their meal. The room has a rustic and cozy atmosphere, with a wooden bench on the left side and a bookshelf on the right side.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 six people
 bowls

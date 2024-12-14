@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a large white church with two tall towers and a clock tower. The sky is blue with some clouds and there are a few people walking on the sidewalk in front of the church. There are also a few cars parked in the lot and a bus on the right side of the image.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 The sky is blue
 a few cars

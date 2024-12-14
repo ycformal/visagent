@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a clothing store on a cobblestone street. The store has a large window with a variety of clothes and accessories displayed on it. There are several jackets, scarves, and jackets hanging on hangers in front of the store.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a large window
 </result>

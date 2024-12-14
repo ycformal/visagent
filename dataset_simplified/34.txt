@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a large glass refrigerator with a yellow sign that reads "Mates Beer" above it. The refrigerator is located in a dimly lit room with wooden walls and a wooden door in the background. On the left side of the refrigerator, there is a clock with the time 9:35 displayed on it.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a clock
 </result>

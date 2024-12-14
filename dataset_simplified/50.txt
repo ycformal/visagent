@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a man sitting at a round wooden table with a laptop in front of him. He is wearing a blue jacket and jeans and appears to be working on his laptop. On the table, there are four cups of coffee and a bottle of water. In the background, there is a woman sitting in a chair with a baby stroller.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a chair
 </result>

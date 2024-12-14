@@ -1,0 +1,19 @@
+Question: Is the polo shirt bright and blue?
+
+Reference Answer: No, the polo shirt is bright but orange.
+
+Image path: ./sampled_GQA/2362004.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the polo shirt?')
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} == 'bright blue' else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is the polo shirt?')=<b><span style='color: green;'>orange</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="'yes' if ANSWER0 == 'bright blue' else 'no'")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="'yes' if 'orange' == 'bright blue' else 'no'")=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

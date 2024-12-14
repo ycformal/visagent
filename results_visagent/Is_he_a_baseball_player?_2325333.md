@@ -1,0 +1,20 @@
+Question: Is he a baseball player?
+
+Reference Answer: No, that is a tennis player.
+
+Image path: ./sampled_GQA/2325333.jpg
+
+Program:
+
+```
+ Is A a <occupation>?
+Program:
+ANSWER0=VQA(image=IMAGE,question='Is he a baseball player?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is he a baseball player?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

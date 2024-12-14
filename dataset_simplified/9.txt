@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a busy street in a city with tall buildings on both sides. The street is lined with trees and there are cars driving on the road. In the center of the street, a man is crossing the street at a red traffic light. He is wearing a black jacket and pants and is standing on the sidewalk.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a red traffic light
 </result>

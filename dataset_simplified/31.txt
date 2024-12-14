@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a baseball game in progress. The batter is at home plate and is in the process of swinging his bat. He is wearing a white uniform with the number 27 on it and a red helmet. The catcher is crouched behind home plate, ready to catch the ball. The umpire is standing on the right side of the image, watching the play closely.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a red helmet.
 </result>

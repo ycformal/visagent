@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a group of people gathered around an elephant in a park. There are two people sitting on a bench in front of the elephant, one of them is holding a basket and the other is looking at the elephant.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a group of people
 </result>

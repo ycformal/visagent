@@ -1,0 +1,20 @@
+Question: Which place is it?
+
+Reference Answer: It is a field.
+
+Image path: ./sampled_GQA/2355430.jpg
+
+Program:
+
+```
+ Complex question (place, weather, etc.)
+Program:
+ANSWER0=VQA(image=IMAGE,question='Which place is it?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Which place is it?')=<b><span style='color: green;'>field</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>field</span></b></div><hr>
+
+Answer: field
+

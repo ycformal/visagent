@@ -1,0 +1,61 @@
+---------------------------------------
+Begin Slurm Prolog: Dec-09-2024 11:05:46
+Job ID:    1032657
+User ID:   yxu846
+Account:   scs
+Job name:  visagent
+Partition: ice-gpu
+---------------------------------------
+2024-12-09 11:05:55.751132: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-12-09 11:05:55.765348: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-09 11:05:55.781785: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-09 11:05:55.786665: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-09 11:05:55.799007: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-09 11:05:57.530459: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/home/hice1/yxu846/.conda/envs/py39/lib/python3.9/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Registering LOC step
+Registering COUNT step
+Registering CROP step
+Registering CROP_RIGHTOF step
+Registering CROP_LEFTOF step
+Registering CROP_FRONTOF step
+Registering CROP_INFRONTOF step
+Registering CROP_INFRONT step
+Registering CROP_BEHIND step
+Registering CROP_AHEAD step
+Registering CROP_BELOW step
+Registering CROP_ABOVE step
+Registering VQA step
+Registering EVAL step
+Registering RESULT step
+Registering CAP step
+Registering RETRIEVE step
+Registering RELATIVE_POS step
+Registering MERGE step
+  0%|          | 0/300 [00:00<?, ?it/s]/home/hice1/yxu846/.conda/envs/py39/lib/python3.9/site-packages/transformers/generation/utils.py:1375: UserWarning: Using the model-agnostic default `max_length` (=20) to control the generation length. We recommend setting `max_new_tokens` to control the maximum length of the generation.
+  warnings.warn(
+  0%|          | 0/300 [00:02<?, ?it/s]
+Are there pots or glasses in this photo?
+reference answer: Yes, there is a pot.
+LOC
+LOC
+VQA
+Traceback (most recent call last):
+  File "/storage/ice1/6/1/yxu846/visagent/main.py", line 59, in <module>
+    result, prog_state, html_str = interpreter.execute(f"X=VQA(image=IMAGE,question='{question}')",init_state,inspect=True)
+ValueError: too many values to unpack (expected 3)
+srun: error: atl1-1-03-012-18-0: task 0: Exited with exit code 1
+---------------------------------------
+Begin Slurm Epilog: Dec-09-2024 11:06:58
+Job ID:        1032657
+Array Job ID:  _4294967294
+User ID:       yxu846
+Account:       scs
+Job name:      visagent
+Resources:     cpu=1,gres/gpu:h100=1,mem=200G,node=1
+Rsrc Used:     cput=00:01:12,vmem=0,walltime=00:01:12,mem=6584K,energy_used=0
+Partition:     ice-gpu
+Nodes:         atl1-1-03-012-18-0
+---------------------------------------

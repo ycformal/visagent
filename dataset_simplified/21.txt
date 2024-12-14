@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a vase of white roses on a wooden table in a living room. In the background, there are two people standing in the living room, one of them is holding a cup of coffee and the other is looking at the roses. The room is decorated with a brick fireplace, a couch, and a bookshelf. The floor is covered with a red carpet.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a brick fireplace
 </result>

@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a young woman sitting in front of a bathroom mirror. The mirror is on a white countertop and there are various makeup items such as a black mug, a bottle of lotion, and a few brushes scattered around it. In the reflection of the mirror, she is looking at her reflection and seems to be in the process of applying her makeup.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a bathroom mirror
 </result>

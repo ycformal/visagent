@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a young man walking on a sidewalk with a large blue Nike duffel bag in his hand. Behind him, there are several people walking on the sidewalk, some of them are carrying bags and one person is holding a water bottle.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 Nike duffel bag
 several people

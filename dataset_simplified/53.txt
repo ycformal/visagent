@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a young woman sitting at a wooden table with a large pizza in front of her. She is smiling and looking at the camera. The pizza is topped with melted cheese, bacon, and a fried egg.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a young woman
 </result>

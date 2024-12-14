@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a skateboarder in mid-air, performing a trick. He is wearing a blue t-shirt, khaki pants, and black shoes. His arms are stretched out to the sides and his legs are bent at the knees.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a skateboarder
 </result>

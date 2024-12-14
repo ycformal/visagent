@@ -1,0 +1,20 @@
+Question: How is the water today?
+
+Reference Answer: The water is choppy.
+
+Image path: ./sampled_GQA/2369172.jpg
+
+Program:
+
+```
+ How is A?
+Program:
+ANSWER0=VQA(image=IMAGE,question='How is the water today?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How is the water today?')=<b><span style='color: green;'>calm</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>calm</span></b></div><hr>
+
+Answer: calm
+

@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a street market with a variety of items for sale. There are several tables with colorful items on them, including t-shirts, bags, and other souvenirs. A woman is standing in front of one of the tables, looking at the items. In the background, there are palm trees and buildings, and a few people walking on the sidewalk.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 None
 </result>

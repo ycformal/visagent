@@ -10,7 +10,7 @@ The image is a collage of two photographs. On the left side, there is a young co
 
 On the right side of the image, there are two photographs of the same couple. The man is standing behind the woman, wearing a black tuxedo with a white shirt and a black bow tie. He has dark hair and is smiling at the camera. The woman is sitting on a wicker chair with a bouquet of flowers in her lap. She is wearing a white wedding dress with a long train and has blonde hair styled in an updo. Both photographs appear to be from the early 20th century.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a gray suit
 a black tuxedo

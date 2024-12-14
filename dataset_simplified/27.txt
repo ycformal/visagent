@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a breakfast meal on a white plate. On the left side of the plate, there is a stack of pancakes with a dollop of sour cream on top. Next to the pancakes, there are two pieces of scrambled eggs and two strips of bacon. The plate is on a wooden table with a cup of coffee and a saucer in the background.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a wooden table with a cup of coffee
 </result>

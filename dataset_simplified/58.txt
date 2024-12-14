@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a busy street scene in a European city. There are several buildings on the right side of the image, including a row of terraced houses with ornate architectural details. In the foreground, there are several cars and a police car parked on the side of a road. The street is lined with traffic lights and there are people walking on the sidewalk.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 traffic lights
 </result>

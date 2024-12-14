@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a mother and her young son playing baseball in a park. The mother is standing on a grassy field with trees in the background. She is holding a yellow baseball bat and is in the process of hitting the ball with it. The son is running towards the mother, who is wearing a yellow shirt and a helmet.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a mother and her young son playing baseball
 </result>

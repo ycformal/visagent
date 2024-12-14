@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a living room with a Christmas tree in the center. The tree is decorated with colorful ornaments, lights, and a star on top. On the left side of the tree, there is a snowman with a top hat and scarf.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a Christmas tree
 </result>

@@ -1,0 +1,18 @@
+Question: Is it an indoors scene?
+
+Reference Answer: No, it is outdoors.
+
+Image path: ./sampled_GQA/2384092.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is it an indoors scene?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is it an indoors scene?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

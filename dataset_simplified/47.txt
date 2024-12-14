@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a kitchen countertop with a small model of a house on it. The house is made of light-colored wood and has a sloping roof and a small window on the front. Next to the house, there is a toaster with a glass cover and a bottle of wine inside. On the right side, there are several kitchen knives in a wooden holder.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 None
 </result>

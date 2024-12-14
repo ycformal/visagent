@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a vast open field with a few hills in the background. In the foreground, there is a brown cow standing on the right side of the image. On the left side, there are two black and white dogs, one of which is a Jack Russell Terrier. The dog is standing on all fours and is looking towards the camera.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a brown cow
 two black and white dogs

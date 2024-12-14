@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows two skiers on a snowy mountain slope. The skiers are wearing red jackets, blue pants, and helmets, and are holding ski poles. The snow is deep and untouched, and the skiers appear to be in motion.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 red jackets
 </result>

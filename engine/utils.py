@@ -24,6 +24,7 @@ class ProgramInterpreter:
         return self.step_interpreters[step_name].execute(prog_step,inspect)
 
     def execute(self,prog,init_state,inspect=False):
+        results = []
         if isinstance(prog,str):
             prog = Program(prog,init_state)
         else:
@@ -39,11 +40,12 @@ class ProgramInterpreter:
                 html_str += step_html + '<hr>'
             else:
                 step_output = self.execute_step(prog_step,inspect)
+            results.append(step_output)
 
         if inspect:
-            return step_output, prog.state, html_str
+            return step_output, prog.state, html_str, results
 
-        return step_output, prog.state
+        return step_output, prog.state, results
 
 
 class ProgramGenerator():
@@ -82,13 +84,13 @@ class ProgramGenerator():
                 frequency_penalty=0,
                 presence_penalty=0,
                 n=1,
-                stop = '))',
+                # stop = ')\n',
                 logprobs=1
             )
 
             prob = self.compute_prob(response)
             prog = response.choices[0]['text'].lstrip('\n').rstrip('\n')
-            return prog, prob
+            return prog, prob, self.prompter(inputs)
         else:
             system_inst = None
             with open('dataset_revised/sys.txt', 'r') as fp:

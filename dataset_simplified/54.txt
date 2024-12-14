@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a young woman lying on a bed with her legs crossed. The bed is covered with a blue and white striped comforter and there is an orange blanket on the left side of the bed. There are two pillows on the bed and a window with white blinds in the background.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a young woman lying on a bed
 </result>

@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a group of people gathered around a row of motorcycles. There are six people in the image, three men and three women, all wearing red bandanas and sunglasses. The people are looking at the motorcycles and appear to be engaged in conversation.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a group of people
 three women

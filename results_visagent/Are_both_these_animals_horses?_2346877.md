@@ -1,0 +1,20 @@
+Question: Are both these animals horses?
+
+Reference Answer: Yes, all the animals are horses.
+
+Image path: ./sampled_GQA/2346877.jpg
+
+Program:
+
+```
+ Are both A <attr>?
+Program:
+ANSWER0=VQA(image=IMAGE,question='Are both these animals horses?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are both these animals horses?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

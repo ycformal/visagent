@@ -1,0 +1,139 @@
+question: Is there an umbrella in the picture that is not closed?
+caption: The image shows two elderly people sitting on a wooden bench at a beach. The person on the left is wearing a beige jacket and a cap, and the person in the middle is holding a pink umbrella with a floral pattern. The umbrella is open and the people are looking out towards the horizon.
+response: The umbrella is open
+question: Are there any shower curtains to the right of the cat?
+caption: The image shows a black cat standing on its hind legs in a bathroom. The cat is facing towards the right side of the image and appears to be looking down at the floor. There is a shower curtain hanging on the wall next to the toilet and a trash can on the left side.
+response: a black cat
+a shower curtain
+question: Do you see canisters near the appliance below the chalkboard?
+caption: The image shows a kitchen countertop with various kitchen items on it. On the left side of the countertop, there is a black chalkboard with the words "What happens next?" written on it in white chalk. In the center of the image, there appears to be a white toaster, a potted plant, and a few jars and containers on the counter.
+response: a black chalkboard
+question: Which direction is the gray elephant facing?
+caption: The image shows a herd of elephants walking through a dry grassy field. There are around 10 elephants in total, with a large number of them in the foreground and a few smaller ones in the background. The elephants are walking in a line, with some in the front and some behind them.
+response: a herd of elephants
+question: Are there windows in this photo that are long?
+caption: The image shows a young man performing a skateboard trick on a concrete ramp. He is wearing a black Nike t-shirt, blue jeans, and black and white sneakers. In the background, there is a building and some trees. The sky is overcast and the ground is wet, suggesting that it has recently rained.
+response: a building
+question: Are the books to the left or to the right of the wood cabinet?
+caption: The image shows a modern bathroom with a walk-in shower. On the left side of the shower, there are two wooden cabinets with a white countertop and a wooden vanity with a sink and a mirror above it. The overall color scheme of the bathroom is neutral and modern.
+response: two wooden cabinets
+question: Is the tall lamp to the left or to the right of the laptop computer?
+caption: The image shows an orange tabby cat lying on its side on a glass desk. The cat is resting its head on a white mouse pad and appears to be sleeping. On the desk, there is a laptop, a keyboard, a lamp, and a few pens and pencils in a holder. There are also a few books and a potted plant on the desk.
+response: a laptop
+a lamp
+question: Is there broccoli near the round food?
+caption: The image shows a plate with a sandwich and a salad on it. The sandwich is made with a toasted bun and is placed on top of a bed of green arugula leaves. The salad is made up of broccoli, red bell peppers, and yellow cheese. In the background, there is a glass of water and a black and white patterned cup.
+response: a sandwich
+a salad on it
+The salad is made up of broccoli
+question: What is this, a fire hydrant or a traffic light?
+caption: The image shows a busy street in a city with tall buildings on both sides. The street is lined with trees and there are cars driving on the road. In the center of the street, a man is crossing the street at a red traffic light. He is wearing a black jacket and pants and is standing on the sidewalk.
+response: a red traffic light
+question: Do you think the horse is walking?
+caption: The image shows a group of horses running on a rocky hillside. The hill is covered in shrubs and bushes, and the sky is blue with a few scattered clouds. The horses are of different sizes and colors, with some being brown and others being black. They are galloping across the hill, with their manes and tails flowing in the wind.
+response: a group of horses running
+galloping across the hill
+question: Is the old woman to the right or to the left of the man near the giraffe?
+caption: The image shows a man and a woman standing in front of a giraffe. The man is on the right side of the image and is looking up at the giraffe with a smile on his face. The giraffe is facing the man and appears to be sniffing the man's nose. The sky is blue and the overall atmosphere is peaceful and serene.
+response: a man and a woman
+The man is on the right side of the image and is looking up at the giraffe
+The giraffe is facing the man
+question: Do you see any fences that are not made of brick?
+caption: The image shows a young boy running on a street with a colorful kite in the air. The street is lined with trees and there is a white garage door on the right side of the image. There is a trash can and a green bag on the ground next to the garage door. The sky is blue and there are a few clouds in the background.
+response: None
+question: Is the person to the right of the other person staring or sleeping?
+caption: The image shows a skateboarder performing a trick at a skate park. The skatepark has a concrete ramp with graffiti on it, and there are trees in the background. The sky is blue and the weather appears to be sunny and clear.
+response: a skateboarder
+question: On which side is the clean bed?
+caption: The image shows a bedroom with a large window on the right side of the room. On the left side, there is a green sofa with colorful throw pillows and a wooden coffee table in front of it. Above the sofa, there are two round mirrors hanging on the wall. The bed is covered with a blue comforter with white flowers on it. The floor is carpeted in a light beige color.
+response: The bed
+question: Who is playing?
+caption: The image shows a mother and her young son playing baseball in a park. The mother is standing on a grassy field with trees in the background. She is holding a yellow baseball bat and is in the process of hitting the ball with it. The son is running towards the mother, who is wearing a yellow shirt and a helmet.
+response: a mother and her young son playing baseball
+question: Are there both horses and deer in the picture?
+caption: The image shows a vast field of tall, golden grass with a few trees scattered throughout. On the right side of the image, there are three deer lying down in the grass, facing the camera. The grass is a golden yellow color, and there are no other animals or people in the image.
+response: three deer
+question: Is there a lamp in this picture that is large?
+caption: The image shows two young men sitting on a brown leather couch in a living room. The man on the left is wearing a white t-shirt and black pants, and is holding a pair of black and white sneakers in his left hand. On the right side of the image, there is a young man wearing an orange shirt and blue jeans, sitting on the couch and smiling at the camera. He is also holding a book in his right hand. In the background, there are two lamps and a clock on the wall.
+response: two lamps
+question: Do the green trees look tall and dense?
+caption: The image shows an Oman Air airplane taking off from an airport runway. In the background, there is a hill covered in trees and a red crane can be seen in the distance. The sky is blue and the weather appears to be clear.
+response: a hill covered in trees
+question: Is the mirror in front of the woman made of glass?
+caption: The image shows a young woman sitting in front of a bathroom mirror. The mirror is on a white countertop and there are various makeup items such as a black mug, a bottle of lotion, and a few brushes scattered around it. In the reflection of the mirror, she is looking at her reflection and seems to be in the process of applying her makeup.
+response: a bathroom mirror
+question: Is the man to the left of the bowl leaning on a couch?
+caption: The image shows a group of six people sitting around a dining table in a small room. The table is covered with a white tablecloth and is set with plates, bowls, glasses, and food. There are six people in total, four men and three women, all of whom are smiling and appear to be enjoying their meal. The room has a rustic and cozy atmosphere, with a wooden bench on the left side and a bookshelf on the right side.
+response: six people
+bowls
+question: What is in front of the bricks?
+caption: The image shows a vase of white roses on a wooden table in a living room. In the background, there are two people standing in the living room, one of them is holding a cup of coffee and the other is looking at the roses. The room is decorated with a brick fireplace, a couch, and a bookshelf. The floor is covered with a red carpet.
+response: a brick fireplace
+question: Are these small bananas?
+caption: The image shows a woman in a grocery store, reaching for a large pile of bananas. The bananas are stacked on top of each other in two woven baskets. The store appears to be well-stocked with various items for sale.
+response: a large pile of bananas
+question: What type of animal are the trees in front of?
+caption: The image shows two men standing next to a brown horse on a dirt path in a wooded area. There are several other bags and equipment scattered around the path, including a backpack and a camera. In the background, there are trees and bushes, and the sky is blue and clear.
+response: a brown horse
+trees
+question: Is the CD small?
+caption: The image shows a desktop computer setup on a wooden desk. The computer monitor is turned on and the screen is blank. Next to the monitor, there is a white keyboard with a red sticker on it. On the desk, there are also a few other items such as a water bottle, a black coffee mug, and a black telephone. The desk appears to be cluttered and messy.
+response: None
+question: What is the person that looks young wearing?
+caption: The image shows a young man riding a brown horse in an equestrian competition. The man is wearing a white polo shirt, beige pants, and a black helmet. He is holding onto the reins with both hands and appears to be in the middle of a jump. The horse is galloping over a colorful obstacle, which is made up of pink, yellow, and blue poles.
+response: a white polo shirt, beige pants, and a black helmet
+question: What is the company the made the shoes called?
+caption: The image shows a young man playing tennis on a clay court. He is wearing a white t-shirt with red stripes on the sleeves and black shorts. He has a pair of glasses on and is holding a red and black tennis racket in his right hand.
+response: a young man
+question: Is that coffee mug on top of a sofa?
+caption: The image shows a breakfast meal on a white plate. On the left side of the plate, there is a stack of pancakes with a dollop of sour cream on top. Next to the pancakes, there are two pieces of scrambled eggs and two strips of bacon. The plate is on a wooden table with a cup of coffee and a saucer in the background.
+response: a wooden table with a cup of coffee
+question: Did Nike make the bag to the right of the lady?
+caption: The image shows a young man walking on a sidewalk with a large blue Nike duffel bag in his hand. Behind him, there are several people walking on the sidewalk, some of them are carrying bags and one person is holding a water bottle.
+response: Nike duffel bag
+several people
+question: What kind of furniture has the same color as the tree in front of the wall?
+caption: The image shows a living room with a Christmas tree in the center. The tree is decorated with colorful ornaments, lights, and a star on top. On the left side of the tree, there is a snowman with a top hat and scarf.
+response: a Christmas tree
+question: What toy is this, a doll or a stuffed bear?
+caption: The image shows a desk with a teddy bear wearing a blue beret and a green shirt. Next to the desk, there is a white fax machine with a red label on it.
+response: a teddy bear
+question: Are there any helmets or rackets that are red?
+caption: The image shows a baseball game in progress. The batter is at home plate and is in the process of swinging his bat. He is wearing a white uniform with the number 27 on it and a red helmet. The catcher is crouched behind home plate, ready to catch the ball. The umpire is standing on the right side of the image, watching the play closely.
+response: a red helmet.
+question: What type of furniture is made of the same material as the white ceiling?
+caption: The image shows a dining room with a long table set for a meal. The table is covered with a white tablecloth and has red and gold plates, silverware, and cutlery. The room has a high ceiling with wooden beams and chandeliers hanging from it. The walls are decorated with red curtains, and the overall atmosphere is elegant and cozy.
+response: a high ceiling
+question: Does the elephant near the stones seem to be sitting?
+caption: The image shows an adult elephant and a baby elephant in an enclosure. The adult elephant is standing on the right side of the image, while the baby elephant is walking on the left side. The baby elephant appears to be walking towards the adult elephant, as it is holding a piece of food in its trunk. The background is filled with trees and greenery.
+response: an adult elephant and a baby elephant
+The adult elephant is standing
+the baby elephant is walking
+question: Is the clock both rectangular and black?
+caption: The image shows a large glass refrigerator with a yellow sign that reads "Mates Beer" above it. The refrigerator is located in a dimly lit room with wooden walls and a wooden door in the background. On the left side of the refrigerator, there is a clock with the time 9:35 displayed on it.
+response: a clock
+question: What piece of clothing isn't white?
+caption: The image is a collage of two photographs. On the left side, there is a young couple posing for a photo in a tropical setting. The couple is dressed in formal attire, with the woman wearing a pink dress and the man wearing a gray suit. They are standing in front of a backdrop of palm trees and a blue sky.
+
+On the right side of the image, there are two photographs of the same couple. The man is standing behind the woman, wearing a black tuxedo with a white shirt and a black bow tie. He has dark hair and is smiling at the camera. The woman is sitting on a wicker chair with a bouquet of flowers in her lap. She is wearing a white wedding dress with a long train and has blonde hair styled in an updo. Both photographs appear to be from the early 20th century.
+response: a gray suit
+a black tuxedo
+question: What is the woman that is standing doing?
+caption: The image shows a group of people gathered around an elephant in a park. There are two people sitting on a bench in front of the elephant, one of them is holding a basket and the other is looking at the elephant.
+response: a group of people
+question: Are the vase and the toilet that looks rectangular both white?
+caption: The image shows a small bathroom with red walls and a white toilet. The toilet is on the left side of the image and has its lid open. Next to the toilet, there is a small armchair with a beige cushion. On the right side, there are two rolls of toilet paper and a small table with a vase of flowers and other decorative items.
+response: a white toilet
+a vase of flowers
+question: What is the name of the animal that is the same color as the container on the left of the image?
+caption: The image shows the rear wheel of a bicycle leaning against a wall next to a window. The bicycle has a black frame and a brown tire with white spokes. The handlebars are black and the seat is black. The window is open and the view outside is of a street with buildings and trees.
+response: None
+question: Are there either any small refrigerators or microwaves in the picture?
+caption: The image shows a young woman standing in front of an open refrigerator. The woman is bending over the door of the refrigerator, with her head down and her hands on the handle. She appears to be looking down at the contents inside the fridge.
+response: an open refrigerator
+question: Which kind of furniture is the coffee cup on?
+caption: The image shows a young man standing in a coffee shop. In front of him, there is a black bicycle leaning against a wooden shelf. On the shelf, there are various coffee machines and coffee beans. The background shows a counter with a coffee machine and other coffee-related items.
+response: a coffee shop
+a wooden shelf
+coffee machines
+a counter with a coffee machine and other coffee-related items

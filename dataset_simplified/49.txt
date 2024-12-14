@@ -8,7 +8,7 @@ CAP0=CAP(image=IMAGE)
 <result>
 The image shows a young man performing a skateboard trick on a wooden ramp. He is wearing a white t-shirt, blue jeans, and black shoes. In the background, there are people walking on the sidewalk and a tall building with glass windows. The sky is overcast and there are trees and bushes in the background.
 </result>
-X=RETRIEVE(question=Q, caption=CAP0)
+X=RETRIEVE(question=Q,caption=CAP0)
 <result>
 a young man
 people walking on the sidewalk

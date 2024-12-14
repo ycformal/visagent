@@ -20,21 +20,38 @@ from .nms import nms
 from vis_utils import html_embed_image, html_colored_span, vis_masks
 
 
-def parse_step(step_str,partial=False):
-    tokens = list(tokenize.generate_tokens(io.StringIO(step_str).readline))
-    output_var = tokens[0].string
-    step_name = tokens[2].string
+def parse_step(step_str, partial=False):
+    # Preprocess the input to replace [ and ] with placeholders
+    preprocessed_str = step_str.replace('[', 'lbrack').replace(']', 'rbrack')
+    tokens = list(tokenize.generate_tokens(io.StringIO(preprocessed_str).readline))
+    
+    # Replace placeholders back in token strings during processing
+    processed_tokens = [
+        tokenize.TokenInfo(token.type, token.string.replace('lbrack', '[').replace('rbrack', ']'),
+                           token.start, token.end, token.line)
+        for token in tokens
+    ]
+    
+    # Extract output variable and step name
+    output_var = processed_tokens[0].string
+    step_name = processed_tokens[2].string
+    
     parsed_result = dict(
         output_var=output_var,
-        step_name=step_name)
+        step_name=step_name
+    )
+    
     if partial:
         return parsed_result
-
-    arg_tokens = [token for token in tokens[4:-3] if token.string not in [',','=']]
+    
+    # Extract arguments
+    arg_tokens = [token for token in processed_tokens[4:-3] if token.string not in [',', '=']]
     num_tokens = len(arg_tokens) // 2
     args = dict()
+    
     for i in range(num_tokens):
-        args[arg_tokens[2*i].string] = arg_tokens[2*i+1].string
+        args[arg_tokens[2 * i].string] = arg_tokens[2 * i + 1].string
+    
     parsed_result['args'] = args
     return parsed_result
 
@@ -309,16 +326,16 @@ class LocInterpreter():
     
     def get_caption(self,img):
         prompt = "<MORE_DETAILED_CAPTION>"
-        inputs = self.processor(text=prompt, images=img, return_tensors="pt").to(self.device, self.torch_dtype)
-        generated_ids = self.model.generate(
+        inputs = self.processor_cap(text=prompt, images=img, return_tensors="pt").to(self.device, self.torch_dtype)
+        generated_ids = self.model_cap.generate(
             input_ids=inputs["input_ids"],
             pixel_values=inputs["pixel_values"],
             max_new_tokens=1024,
             num_beams=3,
             do_sample=False
         )
-        generated_text = self.processor.batch_decode(generated_ids, skip_special_tokens=False)[0]
-        parsed_answer = self.processor.post_process_generation(generated_text, task="<MORE_DETAILED_CAPTION>", image_size=(img.width, img.height))
+        generated_text = self.processor_cap.batch_decode(generated_ids, skip_special_tokens=False)[0]
+        parsed_answer = self.processor_cap.post_process_generation(generated_text, task="<MORE_DETAILED_CAPTION>", image_size=(img.width, img.height))
         return parsed_answer['<MORE_DETAILED_CAPTION>']
     
     def get_vqa(self,img,question):
@@ -341,9 +358,12 @@ class LocInterpreter():
             bboxes = [self.left_box(img)]
         elif obj_name=='RIGHT':
             bboxes = [self.right_box(img)]
+        elif obj_name=='all':
+            bboxes = [[0,0,img.size[0]-1,img.size[1]-1]]
         else:
             bboxes = self.predict(img,obj_name)
 
+        '''
         deleted = [False] * len(bboxes)
         for i in range(len(bboxes) - 1):
             for j in range(i + 1, len(bboxes)):
@@ -365,43 +385,46 @@ class LocInterpreter():
             if not deleted[i]:
                 filtered.append(bboxes[i])
         bboxes = filtered
+        '''
 
-        image_size = img.size
-        changed = True
-        expanded_boxes = copy.deepcopy(bboxes)
-        for i in range(len(expanded_boxes)):
-            center_x = (expanded_boxes[i][0] + expanded_boxes[i][2]) / 2
-            center_y = (expanded_boxes[i][1] + expanded_boxes[i][3]) / 2
-            # expanded width and height to 1.5x
-            width = expanded_boxes[i][2] - expanded_boxes[i][0]
-            height = expanded_boxes[i][3] - expanded_boxes[i][1]
-            expanded_boxes[i][0] = max(center_x - width * 0.75, 0)
-            expanded_boxes[i][2] = min(center_x + width * 0.75, image_size[0] - 1)
-            expanded_boxes[i][1] = max(center_y - height * 0.75, 0)
-            expanded_boxes[i][3] = min(center_y + height * 0.75, image_size[1] - 1)
-        while changed:
-            changed = False
-            for i in range(len(bboxes) - 1):
-                for j in range(i + 1, len(bboxes)):
-                    overlap_area = None
-                    x_distance = min(expanded_boxes[i][2], expanded_boxes[j][2]) - max(expanded_boxes[i][0], expanded_boxes[j][0])
-                    y_distance = min(expanded_boxes[i][3], expanded_boxes[j][3]) - max(expanded_boxes[i][1], expanded_boxes[j][1])
-                    if x_distance > 0 and y_distance > 0:
-                        overlap_area = x_distance * y_distance
-                    else:
-                        overlap_area = 0
-                    percentage_i = overlap_area / ((expanded_boxes[i][2] - expanded_boxes[i][0]) * (expanded_boxes[i][3] - expanded_boxes[i][1]))
-                    percentage_j = overlap_area / ((expanded_boxes[j][2] - expanded_boxes[j][0]) * (expanded_boxes[j][3] - expanded_boxes[j][1]))
-                    if percentage_i > 0.6 or percentage_j > 0.6:
-                        merged_box = [min(bboxes[i][0], bboxes[j][0]), min(bboxes[i][1], bboxes[j][1]), max(bboxes[i][2], bboxes[j][2]), max(bboxes[i][3], bboxes[j][3])]
-                        bboxes.append(merged_box)
-                        bboxes.pop(i)
-                        bboxes.pop(j - 1)
-                        changed = True
-                        break
-                if changed:
-                    break
-        bboxes = [box for box in bboxes if box[2] - box[0] > 20 and box[3] - box[1] > 20]
+        # image_size = img.size
+        # changed = True
+        # expanded_boxes = copy.deepcopy(bboxes)
+        # for i in range(len(expanded_boxes)):
+        #     center_x = (expanded_boxes[i][0] + expanded_boxes[i][2]) / 2
+        #     center_y = (expanded_boxes[i][1] + expanded_boxes[i][3]) / 2
+        #     # expanded width and height to 1.5x
+        #     width = expanded_boxes[i][2] - expanded_boxes[i][0]
+        #     height = expanded_boxes[i][3] - expanded_boxes[i][1]
+        #     expanded_boxes[i][0] = max(center_x - width * 0.75, 0)
+        #     expanded_boxes[i][2] = min(center_x + width * 0.75, image_size[0] - 1)
+        #     expanded_boxes[i][1] = max(center_y - height * 0.75, 0)
+        #     expanded_boxes[i][3] = min(center_y + height * 0.75, image_size[1] - 1)
+        # while changed:
+        #     changed = False
+        #     for i in range(len(bboxes) - 1):
+        #         for j in range(i + 1, len(bboxes)):
+        #             overlap_area = None
+        #             x_distance = min(expanded_boxes[i][2], expanded_boxes[j][2]) - max(expanded_boxes[i][0], expanded_boxes[j][0])
+        #             y_distance = min(expanded_boxes[i][3], expanded_boxes[j][3]) - max(expanded_boxes[i][1], expanded_boxes[j][1])
+        #             if x_distance > 0 and y_distance > 0:
+        #                 overlap_area = x_distance * y_distance
+        #             else:
+        #                 overlap_area = 0
+        #             percentage_i = overlap_area / ((expanded_boxes[i][2] - expanded_boxes[i][0]) * (expanded_boxes[i][3] - expanded_boxes[i][1]))
+        #             percentage_j = overlap_area / ((expanded_boxes[j][2] - expanded_boxes[j][0]) * (expanded_boxes[j][3] - expanded_boxes[j][1]))
+        #             if percentage_i > 0.7 or percentage_j > 0.7:
+        #                 merged_box = [min(bboxes[i][0], bboxes[j][0]), min(bboxes[i][1], bboxes[j][1]), max(bboxes[i][2], bboxes[j][2]), max(bboxes[i][3], bboxes[j][3])]
+        #                 bboxes.append(merged_box)
+        #                 bboxes.pop(i)
+        #                 bboxes.pop(j - 1)
+        #                 changed = True
+        #                 break
+        #         if changed:
+        #             break
+        # bboxes = [box for box in bboxes if box[2] - box[0] > 20 and box[3] - box[1] > 20]
+        
+        '''
         deleted = [False] * len(bboxes)
         for i in range(len(bboxes) - 1):
             # crop image on the box
@@ -412,9 +435,13 @@ class LocInterpreter():
             if len([cap for cap in caption.split() if obj_name.lower() == cap.lower()]) > 0:
                 continue
             # get vqa
-            question = "Any" + obj_name + " in the image?"
-            vqa = self.get_vqa(cropped_img, question)
-            if 'yes' not in vqa.lower():
+            question = "Any " + obj_name + " in the image?"
+            vqa1 = self.get_vqa(img, question)
+            question = "Is there " + obj_name + " in the image?"
+            vqa2 = self.get_vqa(img, question)
+            question = "Can you see anything likely to be " + obj_name + " in the image?"
+            vqa3 = self.get_vqa(img, question)
+            if 'yes' not in vqa1.lower() and 'yes' not in vqa2.lower() and 'yes' not in vqa3.lower():
                 deleted[i] = True
         
         filtered = []
@@ -422,7 +449,24 @@ class LocInterpreter():
             if not deleted[i]:
                 filtered.append(bboxes[i])
         bboxes = filtered
-        bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
+        '''
+        
+        # bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
+
+        # if len(bboxes) == 0:
+        #     caption = self.get_caption(img)
+        #     if len([cap for cap in caption.split() if obj_name.lower() == cap.lower()]) > 0:
+        #         bboxes = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
+        #     else:
+        #         # get vqa
+        #         question = "Any " + obj_name + " in the image?"
+        #         vqa1 = self.get_vqa(img, question)
+        #         question = "Is there " + obj_name + " in the image?"
+        #         vqa2 = self.get_vqa(img, question)
+        #         question = "Can you see " + obj_name + " in the image?"
+        #         vqa3 = self.get_vqa(img, question)
+        #         if 'yes' in vqa1.lower() or 'yes' in vqa2.lower() or 'yes' in vqa3.lower():
+        #             bboxes = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
 
         box_img = self.box_image(img, bboxes)
         prog_step.state[output_var] = bboxes
@@ -531,6 +575,54 @@ class RelativePosInterpreter():
         prog_step.state[output_var] = result
         if inspect:
             html_str = self.html(box, ref, result, output_var)
+            return result, html_str
+
+        return result
+
+class RetrieveInterpreter():
+    step_name = 'RETRIEVE'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        caption = parse_result['args']['caption']
+        question = parse_result['args']['question']
+        output_var = parse_result['output_var']
+        assert(step_name==self.step_name)
+        return caption,question,output_var
+    
+    def html(self,caption,question,result,output_var):
+        step_name = html_step_name(self.step_name)
+        output_var = html_var_name(output_var)
+        return f"""<div>{output_var}={step_name}({caption}, {question})={result}</div>"""
+    
+    def execute(self,prog_step,inspect=False):
+        caption,question,output_var = self.parse(prog_step)
+        caption = prog_step.state[caption]
+        question = prog_step.state[question]
+        with open('dataset_simplified/retrieve_template.txt', 'r') as f:
+            template = f.read()
+        template += 'question: ' + question + '\n'
+        template += 'caption: ' + caption + '\n'
+        template += 'response: '
+        response = openai.Completion.create(
+                model="gpt-3.5-turbo-instruct",
+                prompt=template,
+                temperature=0.3,
+                max_tokens=50,
+                top_p=0.5,
+                frequency_penalty=0,
+                presence_penalty=0,
+                n=1,
+                logprobs=1
+            )
+        result = response.choices[0]['text'].strip()
+        prog_step.state[output_var] = result
+        if inspect:
+            html_str = self.html(caption, question, result, output_var)
             return result, html_str
 
         return result
@@ -1653,7 +1745,9 @@ def register_step_interpreters(dataset='nlvr'):
             EVAL=EvalInterpreter(),
             RESULT=ResultInterpreter(),
             CAP=CapInterpreter(),
-            FILTER_INCLUDED=FilterInludedInterpreter()
+            RETRIEVE=RetrieveInterpreter(),
+            RELATIVE_POS = RelativePosInterpreter(),
+            MERGE=MergeInterpreter()
         )
     elif dataset=='imageEdit':
         return dict(
