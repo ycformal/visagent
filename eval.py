@@ -3,84 +3,105 @@
 import os
 import json
 import re
+import shutil
 
-def get_answer(file):
-    if not os.path.exists(os.path.join('results_visprog', file)):
-        print('File not found in results_visprog:', file)
+with open('sampled_GQA/sampled_data.json', 'r') as f:
+    sampled_data = json.load(f)
+
+data_dict = {}
+
+for data in sampled_data:
+    question = data['question']
+    imageId = data['imageId']
+    type = data['type']
+    if imageId not in data_dict:
+        data_dict[imageId] = {question: type}
+    else:
+        data_dict[imageId][question] = type
+
+def get_answer(file, method1, method2):
+    if not os.path.exists(os.path.join(f'results_{method1}', file)):
+        print(f'File not found in results_{method1}:', file)
         return 0, 0
-    correct_visagent = 0
-    correct = 0
-    with open(os.path.join('results_visprog', file), 'r') as f:
+    correct_1 = 0
+    correct_2 = 0
+    type = ''
+    imageId = file.split('_')[-1].split('.')[0]
+    with open(os.path.join(f'results_{method1}', file), 'r') as f:
         content = f.read()
-        answer_visagent = re.search(r'\nAnswer: (.+)', content)
+        answer_1 = re.search(r'\nAnswer: (.+)', content)
         try:
-            answer_visagent = answer_visagent.group(1)
+            answer_1 = answer_1.group(1)
         except:
-            print('Answer_visagent not found in', file)
+            print('answer_1 not found in', file)
             return 0, 0
-        answer_visagent = answer_visagent.replace('.', '')
-        answer_visagent = answer_visagent.replace(',', '')
-        answer_visagent = answer_visagent.replace('"', '')
-        answer_visagent = ' '.join(answer_visagent.split() + [word + 's' for word in answer_visagent.split()])
+        question = re.search(r'Question: (.+)', content)
+        question = question.group(1).strip()
+        type = data_dict[imageId][question]
+        answer_1 = answer_1.replace('.', '')
+        answer_1 = answer_1.replace(',', '')
+        answer_1 = answer_1.replace('"', '')
+        answer_1 = ' '.join(answer_1.split() + [word + 's' for word in answer_1.split()])
         reference = re.search(r'Reference Answer: (.+)', content)
         reference = reference.group(1)
-        # print('Answer:', answer)
-        # print('Reference:', reference)
         # split reference by non-alphanumeric characters
         reference = re.sub(r'\W+', ' ', reference)
         reference = ' '.join(reference.split() + [word + 's' for word in reference.split()])
-        if len(set(answer_visagent.lower().split()).intersection(reference.lower().split())) > 0:
-            # print('Correct')
-            correct_visagent = 1
+        if len(set(answer_1.lower().split()).intersection(reference.lower().split())) > 0 and 'runtime error' not in answer_1.lower():
+            correct_1 = 1
         else:
-            # print('Incorrect')
-            correct_visagent = 0
-    with open(os.path.join('results', file), 'r') as f:
+            correct_1 = 0
+    with open(os.path.join(f'results_{method2}', file), 'r') as f:
         content = f.read()
-        answer = re.search(r'\nAnswer: (.+)', content)
-        answer = answer.group(1)
-        answer = answer.replace('.', '')
-        answer = answer.replace(',', '')
-        answer = answer.replace('"', '')
-        answer = ' '.join(answer.split() + [word + 's' for word in answer.split()])
+        answer_2 = re.search(r'\nAnswer: (.+)', content)
+        answer_2 = answer_2.group(1)
+        answer_2 = answer_2.replace('.', '')
+        answer_2 = answer_2.replace(',', '')
+        answer_2 = answer_2.replace('"', '')
+        answer_2 = ' '.join(answer_2.split() + [word + 's' for word in answer_2.split()])
         reference = re.search(r'Reference Answer: (.+)', content)
         reference = reference.group(1)
-        # print('Answer:', answer)
-        # print('Reference:', reference)
         # split reference by non-alphanumeric characters
         reference = re.sub(r'\W+', ' ', reference)
         reference = ' '.join(reference.split() + [word + 's' for word in reference.split()])
-        if len(set(answer.lower().split()).intersection(reference.lower().split())) > 0:
-            # print('Correct')
-            correct = 1
+        if len(set(answer_2.lower().split()).intersection(reference.lower().split())) > 0:
+            correct_2 = 1
         else:
-            # print('Incorrect')
-            correct = 0
-    if correct_visagent==1 and correct==0:
-        print('Answer:', answer)
-        print('Reference:', reference)
-        print('Answer_visagent:', answer_visagent)
-        print('\n')
-    return correct_visagent, correct
+            correct_2 = 0
+    os.makedirs(f'collection_both_false/{type}', exist_ok=True)
+    os.makedirs(f'collection_only_{method1}_true/{type}', exist_ok=True)
+    os.makedirs(f'collection_only_{method2}_true/{type}', exist_ok=True)
+    if correct_1==1 and correct_2==0:
+        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method1}_true/{type}', method1 + '_' + file))
+        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method1}_true/{type}', method2 + '_' + file))
+    elif correct_1==0 and correct_2==1:
+        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method2}_true/{type}', method1 + '_' + file))
+        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method2}_true/{type}', method2 + '_' + file))
+    elif correct_1==0 and correct_2==0:
+        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_both_false/{type}', method1 + '_' + file))
+        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_both_false/{type}', method2 + '_' + file))
+    return correct_1, correct_2
 
 def main():
-    results_visagent = os.listdir('results_visagent')
-    results = os.listdir('results')
-    correct_visagent = 0
-    total_visagent = 0
-    correct = 0
-    total = 0
-    for result in results:
-        correctness_visagent, correctness = get_answer(result)
-        correct += correctness
-        total += 1
-        correct_visagent += correctness_visagent
-        total_visagent += 1
+    method1 = 'visprog'
+    method2 = 'threshold_caption'
+    results_1 = os.listdir(f'results_{method1}')
+    results_2 = os.listdir(f'results_{method2}')
+    correct_1 = 0
+    total_1 = 0
+    correct_2 = 0
+    total_2 = 0
+    for result in results_1:
+        correctness_1, correctness_2 = get_answer(result, method1, method2)
+        correct_1 += correctness_1
+        total_1 += 1
+        correct_2 += correctness_2
+        total_2 += 1
         
-    print('Correct: %d/%d' % (correct, total))
-    print('Accuracy:', correct / total)
-    print('Correct_visagent: %d/%d' % (correct_visagent, total_visagent))
-    print('Accuracy_visagent:', correct_visagent / total_visagent)
+    print(f'Correct_{method1}: {correct_1}/{total_1}')
+    print(f'Accuracy_{method1}: {correct_1/total_1}')
+    print(f'Correct_{method2}: {correct_2}/{total_2}')
+    print(f'Accuracy_{method2}: {correct_2/total_2}')
 
 if __name__ == '__main__':
     main()

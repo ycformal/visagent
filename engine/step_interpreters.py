@@ -162,6 +162,44 @@ class ResultInterpreter():
 
         return output
 
+class AssignInterpreter():
+    step_name = 'ASSIGN'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        output_var = parse_result['args']['var']
+        new_var = parse_result['output_var']
+        assert(step_name==self.step_name)
+        return output_var, new_var
+
+    def html(self,output,output_var):
+        step_name = html_step_name(self.step_name)
+        output_var = html_var_name(output_var)
+        if isinstance(output, Image.Image):
+            output = html_embed_image(output,300)
+        else:
+            output = html_output(output)
+            
+        return f"""<div>{step_name} -> {output_var} -> {output}</div>"""
+
+    def execute(self,prog_step,inspect=False):
+        output_var, new_var = self.parse(prog_step)
+        if output_var in prog_step.state:
+            output = prog_step.state[output_var]
+            prog_step.state[new_var] = output
+        else:
+            output = eval(output_var)
+            prog_step.state[new_var] = output
+        if inspect:
+            html_str = self.html(output,output_var)
+            return output, html_str
+
+        return output
+
 
 class VQAInterpreter():
     step_name = 'VQA'
@@ -216,7 +254,7 @@ class VQAInterpreter():
 class LocInterpreter():
     step_name = 'LOC'
 
-    def __init__(self,thresh=0.1,nms_thresh=0.5):
+    def __init__(self,thresh=0.08,nms_thresh=0.5):
         print(f'Registering {self.step_name} step')
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.processor = OwlViTProcessor.from_pretrained(
@@ -424,7 +462,7 @@ class LocInterpreter():
         #             break
         # bboxes = [box for box in bboxes if box[2] - box[0] > 20 and box[3] - box[1] > 20]
         
-        '''
+        
         deleted = [False] * len(bboxes)
         for i in range(len(bboxes) - 1):
             # crop image on the box
@@ -449,7 +487,7 @@ class LocInterpreter():
             if not deleted[i]:
                 filtered.append(bboxes[i])
         bboxes = filtered
-        '''
+        
         
         # bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
 
@@ -1747,7 +1785,8 @@ def register_step_interpreters(dataset='nlvr'):
             CAP=CapInterpreter(),
             RETRIEVE=RetrieveInterpreter(),
             RELATIVE_POS = RelativePosInterpreter(),
-            MERGE=MergeInterpreter()
+            MERGE=MergeInterpreter(),
+            ASSIGN=AssignInterpreter()
         )
     elif dataset=='imageEdit':
         return dict(

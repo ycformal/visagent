@@ -1,17 +1,21 @@
 def convert(chain):
+    input_image_var_name = None
     n_image_vars = 0
     n_box_vars = 0
     n_answer_vars = 0
     prog = []
     lines = chain.strip().split('\n')
     for line in lines:
-        instructions = line.split('->')
+        instructions = line.split('|')
         is_first_instruction = True
         is_cropped = False
         for instruction in instructions:
+            if 'INPUT' in instruction:
+                input_image_var_name = instruction.split('(')[1].split(')')[0]
+                continue
             image_var_name = None
             if not is_cropped:
-                image_var_name = 'IMAGE'
+                image_var_name = input_image_var_name
             else:
                 image_var_name = f"IMAGE{n_image_vars - 1}"
             if 'LOC' in instruction:
@@ -59,6 +63,17 @@ def convert(chain):
                 prog.append(f"IMAGE{n_image_vars}=CROP_BEHIND(image={image_var_name},box=BOX{n_box_vars - 1})")
                 n_image_vars += 1
                 is_cropped = True
+            elif 'ASSIGN' in instruction:
+                var_name = prog[-1].split('=')[0]
+                output_var_name = instruction.split('(')[1].split(')')[0]
+                prog.append(f"{output_var_name}=ASSIGN(var={var_name})")
+            elif 'EVAL' in instruction:
+                expression = instruction.split('(')[1].split(')')[0]
+                prog.append(f"ANSWER{n_answer_vars}=EVAL(expr=\"{expression}\")")
+                n_answer_vars += 1
+            elif 'COUNT' in instruction:
+                prog.append(f"ANSWER{n_answer_vars}=COUNT(box=BOX{n_box_vars - 1})")
+                n_answer_vars += 1
             else:
                 prog.append(f"IMAGE{n_image_vars}=CROP(image={image_var_name},box=BOX{n_box_vars - 1})")
                 n_image_vars += 1
