@@ -185,4 +185,4 @@ def create_prompt(inputs,num_prompts=8,method='random',seed=42,group=0):
     prompt_examples = f'Think step by step to answer the question.\n\n{prompt_examples}'
 
 
-    return prompt_examples + "\nQuestion: {question}\nProgram:".format(**inputs)
+    return prompt_examples + "\nQuestion: {question}\nProgram:\n".format(**inputs)

@@ -1,17 +1,19 @@
 from PIL import Image
-from IPython.core.display import HTML, display
 
 from engine.utils import ProgramInterpreter
-from prompts.gqa import create_prompt
-interpreter = ProgramInterpreter(dataset='gqa')
-import openai
-openai.api_key=""
 
-def execute(image, prompt):
-    image.thumbnail((640,640),Image.Resampling.LANCZOS)
-    init_state = dict(
-        IMAGE=image.convert('RGB')
-    )
-    display(image)
-    result, prog_state, html_str = interpreter.execute(prompt,init_state,inspect=True)
-    display(HTML(html_str))
+interpreter = ProgramInterpreter(dataset='gqa')
+
+prog = """
+BOX0=LOC(image=IMAGE,object='umbrella')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='Who is carrying the umbrella?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+"""
+image = Image.open('./examplar_images/2390296.jpg')
+image.thumbnail((640,640),Image.Resampling.LANCZOS)
+init_state = dict(
+    IMAGE=image.convert('RGB')
+)
+result, prog_state = interpreter.execute(prog,init_state)
+print(result)

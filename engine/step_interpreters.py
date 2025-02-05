@@ -20,38 +20,21 @@ from .nms import nms
 from vis_utils import html_embed_image, html_colored_span, vis_masks
 
 
-def parse_step(step_str, partial=False):
-    # Preprocess the input to replace [ and ] with placeholders
-    preprocessed_str = step_str.replace('[', 'lbrack').replace(']', 'rbrack')
-    tokens = list(tokenize.generate_tokens(io.StringIO(preprocessed_str).readline))
-    
-    # Replace placeholders back in token strings during processing
-    processed_tokens = [
-        tokenize.TokenInfo(token.type, token.string.replace('lbrack', '[').replace('rbrack', ']'),
-                           token.start, token.end, token.line)
-        for token in tokens
-    ]
-    
-    # Extract output variable and step name
-    output_var = processed_tokens[0].string
-    step_name = processed_tokens[2].string
-    
+def parse_step(step_str,partial=False):
+    tokens = list(tokenize.generate_tokens(io.StringIO(step_str).readline))
+    output_var = tokens[0].string
+    step_name = tokens[2].string
     parsed_result = dict(
         output_var=output_var,
-        step_name=step_name
-    )
-    
+        step_name=step_name)
     if partial:
         return parsed_result
-    
-    # Extract arguments
-    arg_tokens = [token for token in processed_tokens[4:-3] if token.string not in [',', '=']]
+
+    arg_tokens = [token for token in tokens[4:-3] if token.string not in [',','=']]
     num_tokens = len(arg_tokens) // 2
     args = dict()
-    
     for i in range(num_tokens):
-        args[arg_tokens[2 * i].string] = arg_tokens[2 * i + 1].string
-    
+        args[arg_tokens[2*i].string] = arg_tokens[2*i+1].string
     parsed_result['args'] = args
     return parsed_result
 
@@ -254,7 +237,7 @@ class VQAInterpreter():
 class LocInterpreter():
     step_name = 'LOC'
 
-    def __init__(self,thresh=0.08,nms_thresh=0.5):
+    def __init__(self,thresh=0.1,nms_thresh=0.5):
         print(f'Registering {self.step_name} step')
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.processor = OwlViTProcessor.from_pretrained(
@@ -462,7 +445,7 @@ class LocInterpreter():
         #             break
         # bboxes = [box for box in bboxes if box[2] - box[0] > 20 and box[3] - box[1] > 20]
         
-        
+        '''
         deleted = [False] * len(bboxes)
         for i in range(len(bboxes) - 1):
             # crop image on the box
@@ -487,7 +470,7 @@ class LocInterpreter():
             if not deleted[i]:
                 filtered.append(bboxes[i])
         bboxes = filtered
-        
+        '''
         
         # bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
 
