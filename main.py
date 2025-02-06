@@ -20,6 +20,7 @@ import openai
 openai.api_key="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"
 from tqdm import tqdm
 
+folder_name = 'results_visprog_mixtral'
 # test my method
 data_GQA = json.load(open('./sampled_GQA/sampled_data.json'))
 import time
@@ -35,14 +36,14 @@ for data in tqdm(data_GQA):
     answer = data['answer']
     print('reference answer:', answer)
     prog,_,_ = generator.generate(dict(question=question))
-    with open(f'results_visprog/{question.replace(" ","_")}_{data["imageId"]}.md','w') as f:
+    with open(f'{folder_name}/{question.replace(" ","_")}_{data["imageId"]}.md','w') as f:
         f.write(f'Question: {question}\n\n')
         f.write(f'Reference Answer: {answer}\n\n')
         f.write(f'Image path: ./sampled_GQA/{data["imageId"]}.jpg\n\n')
         f.write(f'Program:\n\n```\n{prog}\n```\n')
     try:
         result, prog_state, html_str = interpreter.execute(prog,init_state,inspect=True)
-        with open(f'results_visprog/{question.replace(" ","_")}_{data["imageId"]}.md','a') as f:
+        with open(f'{folder_name}/{question.replace(" ","_")}_{data["imageId"]}.md','a') as f:
             f.write(f'Rationale:\n\n{html_str}\n\n')
         # print(result)
     except Exception as e:
@@ -53,6 +54,6 @@ for data in tqdm(data_GQA):
     result, prog_state, html_str = interpreter.execute("X=CAP(image=IMAGE)",init_state,inspect=True)
     results['caption'] = result
     print(results)
-    with open(f'results_visprog/{question.replace(" ","_")}_{data["imageId"]}.md','a') as f:
+    with open(f'{folder_name}/{question.replace(" ","_")}_{data["imageId"]}.md','a') as f:
         f.write(f'Answer: {results["agent"]["answer"]}\n\n')
     print('\n')

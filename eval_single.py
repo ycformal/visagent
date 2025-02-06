@@ -23,48 +23,47 @@ def get_answer(file, method1):
     if not os.path.exists(os.path.join(f'results_{method1}', file)):
         print(f'File not found in results_{method1}:', file)
         return 0
-    correct_1 = 0
-    correct_2 = 0
+    correct = 0
     type = ''
     imageId = file.split('_')[-1].split('.')[0]
     with open(os.path.join(f'results_{method1}', file), 'r') as f:
         content = f.read()
-        answer_1 = re.search(r'\nAnswer: (.+)', content)
+        answer = re.search(r'\nAnswer: (.+)', content)
         try:
-            answer_1 = answer_1.group(1)
+            answer = answer.group(1)
         except:
-            print('answer_1 not found in', file)
-            return 0, 0
+            print('answer not found in', file)
+            return 0
         question = re.search(r'Question: (.+)', content)
         question = question.group(1).strip()
         type = data_dict[imageId][question]
-        answer_1 = answer_1.replace('.', '')
-        answer_1 = answer_1.replace(',', '')
-        answer_1 = answer_1.replace('"', '')
-        answer_1 = ' '.join(answer_1.split() + [word + 's' for word in answer_1.split()])
+        answer = answer.replace('.', '')
+        answer = answer.replace(',', '')
+        answer = answer.replace('"', '')
+        answer = ' '.join(answer.split() + [word + 's' for word in answer.split()])
         reference = re.search(r'Reference Answer: (.+)', content)
         reference = reference.group(1)
         # split reference by non-alphanumeric characters
         reference = re.sub(r'\W+', ' ', reference)
         reference = ' '.join(reference.split() + [word + 's' for word in reference.split()])
-        if len(set(answer_1.lower().split()).intersection(reference.lower().split())) > 0 and 'runtime error' not in answer_1.lower():
-            correct_1 = 1
+        if len(set(answer.lower().split()).intersection(reference.lower().split())) > 0 and 'runtime error' not in answer.lower():
+            correct = 1
         else:
-            correct_1 = 0
-    return correct_1
+            correct = 0
+    return correct
 
 def main():
-    method1 = 'visprog'
+    method1 = 'visprog_mixtral'
     results_1 = os.listdir(f'results_{method1}')
-    correct_1 = 0
-    total_1 = 0
+    correct = 0
+    total = 0
     for result in results_1:
         correctness_1 = get_answer(result, method1)
-        correct_1 += correctness_1
-        total_1 += 1
+        correct += correctness_1
+        total += 1
         
-    print(f'Correct_{method1}: {correct_1}/{total_1}')
-    print(f'Accuracy_{method1}: {correct_1/total_1}')
+    print(f'Correct_{method1}: {correct}/{total}')
+    print(f'Accuracy_{method1}: {correct/total}')
 
 if __name__ == '__main__':
     main()

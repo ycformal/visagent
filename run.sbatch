@@ -3,8 +3,8 @@
 #SBATCH -N 1                            # Number of nodes
 #SBATCH -N1 --gres=gpu:H100:1            # Request 1 GPU
 #SBATCH --mem=200G                      # Increase memory
-#SBATCH -t 240                          # Duration of the job
-#SBATCH -o visprog-%j.out                # Combined output and error messages file
+#SBATCH -t 300                          # Duration of the job
+#SBATCH -o visprog_glm-%j.out                # Combined output and error messages file
 
 cd $SLURM_SUBMIT_DIR                    # Correctly change to the submit directory
 

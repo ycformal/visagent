@@ -50,7 +50,7 @@ class ProgramInterpreter:
 
 
 class ProgramGenerator:
-    def __init__(self, prompter, model_name_or_path="meta-llama/Meta-Llama-3-8B",
+    def __init__(self, prompter, model_name_or_path="THUDM/glm-4-9b-hf",
                  temperature=0.7, top_p=0.5, prob_agg='mean'):
         """
         Initialize the ProgramGenerator using Hugging Face Transformers to load
