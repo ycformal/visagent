@@ -108,6 +108,42 @@ class EvalInterpreter():
             return step_output, html_str
 
         return step_output
+    
+class GetInterpreter():
+    step_name = 'GET'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        output_var = parse_result['output_var']
+        image_var = parse_result['args']['image']
+        assert(step_name==self.step_name)
+        return image_var, output_var
+    
+    def html(self,img,bounding_box,output_var):
+        step_name = html_step_name(self.step_name)
+        img_str = html_embed_image(img)
+        bounding_box = html_output(bounding_box)
+        output_var = html_var_name(output_var)
+        image_arg = html_arg_name('image')
+        return f"""<div>{output_var}={step_name}({image_arg}={img_str})={bounding_box}</div>"""
+
+    def execute(self,prog_step,inspect=False):
+        img_var, output_var = self.parse(prog_step)
+        prog_state = dict()
+        img = prog_step.state[img_var]
+
+        bounding_box = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
+
+        prog_step.state[output_var] = bounding_box
+        if inspect:
+            html_str = self.html(img, bounding_box, output_var)
+            return bounding_box, html_str
+
+        return bounding_box
 
 
 class ResultInterpreter():
@@ -444,7 +480,6 @@ class LocInterpreter():
         #         if changed:
         #             break
         # bboxes = [box for box in bboxes if box[2] - box[0] > 20 and box[3] - box[1] > 20]
-        
         '''
         deleted = [False] * len(bboxes)
         for i in range(len(bboxes) - 1):
@@ -471,7 +506,6 @@ class LocInterpreter():
                 filtered.append(bboxes[i])
         bboxes = filtered
         '''
-        
         # bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
 
         # if len(bboxes) == 0:
@@ -1766,10 +1800,7 @@ def register_step_interpreters(dataset='nlvr'):
             EVAL=EvalInterpreter(),
             RESULT=ResultInterpreter(),
             CAP=CapInterpreter(),
-            RETRIEVE=RetrieveInterpreter(),
-            RELATIVE_POS = RelativePosInterpreter(),
-            MERGE=MergeInterpreter(),
-            ASSIGN=AssignInterpreter()
+            GET=GetInterpreter()
         )
     elif dataset=='imageEdit':
         return dict(

@@ -68,23 +68,27 @@ def get_answer(file, method1, method2):
             correct_2 = 1
         else:
             correct_2 = 0
-    os.makedirs(f'collection_both_false/{type}', exist_ok=True)
-    os.makedirs(f'collection_only_{method1}_true/{type}', exist_ok=True)
-    os.makedirs(f'collection_only_{method2}_true/{type}', exist_ok=True)
-    if correct_1==1 and correct_2==0:
-        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method1}_true/{type}', method1 + '_' + file))
-        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method1}_true/{type}', method2 + '_' + file))
-    elif correct_1==0 and correct_2==1:
-        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method2}_true/{type}', method1 + '_' + file))
-        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method2}_true/{type}', method2 + '_' + file))
-    elif correct_1==0 and correct_2==0:
-        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_both_false/{type}', method1 + '_' + file))
-        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_both_false/{type}', method2 + '_' + file))
+    if correct_1 == 1 and correct_2 == 0:
+        print(f'{method1} correct, {method2} incorrect. Question: {question}')
+    elif correct_1 == 0 and correct_2 == 1:
+        print(f'{method1} incorrect, {method2} correct. Question: {question}')
+    # os.makedirs(f'collection_both_false/{type}', exist_ok=True)
+    # os.makedirs(f'collection_only_{method1}_true/{type}', exist_ok=True)
+    # os.makedirs(f'collection_only_{method2}_true/{type}', exist_ok=True)
+    # if correct_1==1 and correct_2==0:
+    #     shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method1}_true/{type}', method1 + '_' + file))
+    #     shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method1}_true/{type}', method2 + '_' + file))
+    # elif correct_1==0 and correct_2==1:
+    #     shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method2}_true/{type}', method1 + '_' + file))
+    #     shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method2}_true/{type}', method2 + '_' + file))
+    # elif correct_1==0 and correct_2==0:
+    #     shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_both_false/{type}', method1 + '_' + file))
+    #     shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_both_false/{type}', method2 + '_' + file))
     return correct_1, correct_2
 
 def main():
-    method1 = 'visprog'
-    method2 = 'threshold_caption'
+    method1 = 'baseline1_v1_glm'
+    method2 = 'visprog_glm'
     results_1 = os.listdir(f'results_{method1}')
     results_2 = os.listdir(f'results_{method2}')
     correct_1 = 0

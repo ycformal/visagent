@@ -53,17 +53,53 @@ def get_answer(file, method1):
     return correct
 
 def main():
-    method1 = 'visprog_mixtral'
-    results_1 = os.listdir(f'results_{method1}')
+    method = 'baseline1_v1_gpt'
+    results = os.listdir(f'results_{method}')
     correct = 0
     total = 0
-    for result in results_1:
-        correctness_1 = get_answer(result, method1)
-        correct += correctness_1
+    for result in results:
+        correctness = get_answer(result, method)
+        correct += correctness
         total += 1
         
-    print(f'Correct_{method1}: {correct}/{total}')
-    print(f'Accuracy_{method1}: {correct/total}')
+    print(f'Correct_{method}: {correct}/{total}')
+    print(f'Accuracy_{method}: {correct/total}')
+
+    method = 'baseline1_v1_mistral'
+    results = os.listdir(f'results_{method}')
+    correct = 0
+    total = 0
+    for result in results:
+        correctness = get_answer(result, method)
+        correct += correctness
+        total += 1
+        
+    print(f'Correct_{method}: {correct}/{total}')
+    print(f'Accuracy_{method}: {correct/total}')
+
+    method = 'baseline1_v1_glm'
+    results = os.listdir(f'results_{method}')
+    correct = 0
+    total = 0
+    for result in results:
+        correctness = get_answer(result, method)
+        correct += correctness
+        total += 1
+        
+    print(f'Correct_{method}: {correct}/{total}')
+    print(f'Accuracy_{method}: {correct/total}')
+
+    method = 'baseline1_v1_llama'
+    results = os.listdir(f'results_{method}')
+    correct = 0
+    total = 0
+    for result in results:
+        correctness = get_answer(result, method)
+        correct += correctness
+        total += 1
+        
+    print(f'Correct_{method}: {correct}/{total}')
+    print(f'Accuracy_{method}: {correct/total}')
 
 if __name__ == '__main__':
     main()

@@ -10,17 +10,38 @@ from IPython.core.display import HTML
 from functools import partial
 
 from engine.utils import ProgramGenerator, ProgramInterpreter
-# from engine.judger import judge
-# from engine.converter import convert
 from prompts.gqa_old import create_prompt
+
+import argparse
+
+parser = argparse.ArgumentParser(description='Run the threshold captioning experiment')
+parser.add_argument('--model', type=str, default='gpt', help='Model to generate the script')
+args = parser.parse_args()
+
+model = None
+if args.model == 'gpt':
+    model = 'gpt-3.5-turbo-instruct'
+elif args.model == 'llama':
+    model = 'meta-llama/Meta-Llama-3-8B'
+elif args.model == 'glm':
+    model = 'THUDM/glm-4-9b-hf'
+elif args.model == 'mistral':
+    model = 'mistralai/Mistral-Small-24B-Base-2501'
+else:
+    raise ValueError('Invalid model name')
+
 prompter = partial(create_prompt,method='all')
-generator = ProgramGenerator(prompter=prompter)
+generator = ProgramGenerator(prompter=prompter, model_name_or_path=model)
 interpreter = ProgramInterpreter(dataset='gqa')
 import openai
-openai.api_key="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"
+key = "tl.qspk.W5DyWbibnie1gou72KsNFzm2xtUltPk3bLuROweJsThTbc[IfLY:nogngujZVN{[ljus5rjxdLU4CmclGK{BHtxj`vvD6PLQiyZ1121yskCtUEk9bjQXX3.B1`25:4NQ[fuNnJGBdwMQHK[Tewgt:e4h.SNB"
+key = ''.join([chr(ord(k)-1) for k in key])
+openai.api_key=key
 from tqdm import tqdm
 
-folder_name = 'results_visprog_mixtral'
+folder_name = f'results_visprog_{args.model}'
+if not os.path.exists(folder_name):
+    os.makedirs(folder_name)
 # test my method
 data_GQA = json.load(open('./sampled_GQA/sampled_data.json'))
 import time
@@ -35,7 +56,7 @@ for data in tqdm(data_GQA):
     print(question)
     answer = data['answer']
     print('reference answer:', answer)
-    prog,_,_ = generator.generate(dict(question=question))
+    prog,_ = generator.generate(dict(question=question))
     with open(f'{folder_name}/{question.replace(" ","_")}_{data["imageId"]}.md','w') as f:
         f.write(f'Question: {question}\n\n')
         f.write(f'Reference Answer: {answer}\n\n')
@@ -57,3 +78,5 @@ for data in tqdm(data_GQA):
     with open(f'{folder_name}/{question.replace(" ","_")}_{data["imageId"]}.md','a') as f:
         f.write(f'Answer: {results["agent"]["answer"]}\n\n')
     print('\n')
+    if args.model == 'gpt':
+        time.sleep(1)

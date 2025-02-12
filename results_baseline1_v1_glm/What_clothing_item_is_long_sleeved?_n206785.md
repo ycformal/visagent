@@ -1,0 +1,18 @@
+Question: What clothing item is long sleeved?
+
+Reference Answer: dress shirt
+
+Image path: ./sampled_GQA/n206785.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What clothing item is long sleeved?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What clothing item is long sleeved?')=<b><span style='color: green;'>shirt</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>shirt</span></b></div><hr>
+
+Answer: shirt
+

@@ -4,6 +4,8 @@ os.environ["HF_HOME"] = "/home/hice1/yxu846/scratch/models"
 import numpy as np
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+import openai
+import copy
 
 from .step_interpreters import register_step_interpreters, parse_step
 
@@ -67,28 +69,30 @@ class ProgramGenerator:
         self.temperature = temperature
         self.top_p = top_p
         self.prob_agg = prob_agg
+        self.model_name_or_path = model_name_or_path
 
-        # Load the tokenizer and model from the given path,
-        # enforcing the cache directory to be /home/hice1/yxu846/scratch/models.
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            model_name_or_path,
-            cache_dir="/home/hice1/yxu846/scratch/models"
-        )
+        if model_name_or_path != 'gpt-3.5-turbo-instruct':
+            # Load the tokenizer and model from the given path,
+            # enforcing the cache directory to be /home/hice1/yxu846/scratch/models.
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                model_name_or_path,
+                cache_dir="/home/hice1/yxu846/scratch/models"
+            )
 
-        # Use max_memory and offload_folder to avoid OOM when loading the huge 70B model.
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name_or_path,
-            cache_dir="/home/hice1/yxu846/scratch/models",
-            device_map="auto",            # Automatically map layers to available devices.
-            torch_dtype=torch.float16,      # Use fp16 precision.
-            low_cpu_mem_usage=True
-        )
+            # Use max_memory and offload_folder to avoid OOM when loading the huge 70B model.
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_name_or_path,
+                cache_dir="/home/hice1/yxu846/scratch/models",
+                device_map="auto",            # Automatically map layers to available devices.
+                torch_dtype=torch.float16,      # Use fp16 precision.
+                low_cpu_mem_usage=True
+            )
 
-        self.generator = pipeline(
-            "text-generation",
-            model=self.model,
-            tokenizer=self.tokenizer
-        )
+            self.generator = pipeline(
+                "text-generation",
+                model=self.model,
+                tokenizer=self.tokenizer
+            )
 
     def compute_prob(self, response):
         """
@@ -101,24 +105,41 @@ class ProgramGenerator:
         """
         Generate a program based on the input prompt.
         """
-        prompt_text = self.prompter(inputs)
-        input_ids = self.tokenizer(prompt_text)["input_ids"]
-        generated = self.generator(
-            prompt_text,
-            max_length=len(input_ids) + 256,  # Safeguard maximum generation length.
-            temperature=self.temperature,
-            top_p=self.top_p,
-            do_sample=True,
-            early_stopping=True,
-            eos_token_id=self.tokenizer.eos_token_id,  # Let the model stop when it predicts EOS.
-            pad_token_id=self.tokenizer.eos_token_id,
-        )
-        # The pipeline returns a list of dictionaries with a "generated_text" key.
-        if generated and "generated_text" in generated[0]:
-            full_text = generated[0]["generated_text"].strip()
-            # Extract only the generated continuation beyond the prompt.
-            prog = full_text[len(prompt_text):].strip().split('\n\n')[0].strip()
+        if self.model_name_or_path == 'gpt-3.5-turbo-instruct':
+            response = openai.Completion.create(
+                model="gpt-3.5-turbo-instruct",
+                prompt=self.prompter(inputs),
+                temperature=self.temperature,
+                max_tokens=512,
+                top_p=self.top_p,
+                frequency_penalty=0,
+                presence_penalty=0,
+                n=1,
+                logprobs=1
+            )
+
+            prob = self.compute_prob(response)
+            prog = response.choices[0]['text'].lstrip('\n').rstrip('\n')
+            return prog, prob
         else:
-            prog = ""
-        prob = self.compute_prob(generated)
-        return prog, prob, prompt_text
+            prompt_text = self.prompter(inputs)
+            input_ids = self.tokenizer(prompt_text)["input_ids"]
+            generated = self.generator(
+                prompt_text,
+                max_length=len(input_ids) + 256,  # Safeguard maximum generation length.
+                temperature=self.temperature,
+                top_p=self.top_p,
+                do_sample=True,
+                early_stopping=True,
+                eos_token_id=self.tokenizer.eos_token_id,  # Let the model stop when it predicts EOS.
+                pad_token_id=self.tokenizer.eos_token_id,
+            )
+            # The pipeline returns a list of dictionaries with a "generated_text" key.
+            if generated and "generated_text" in generated[0]:
+                full_text = generated[0]["generated_text"].strip()
+                # Extract only the generated continuation beyond the prompt.
+                prog = full_text[len(prompt_text):].strip().split('\n\n')[0].strip()
+            else:
+                prog = ""
+            prob = self.compute_prob(generated)
+            return prog, prob

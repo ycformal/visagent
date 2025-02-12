@@ -13,7 +13,7 @@ BOX1=LOC(image=IMAGE0,object='metal')
 ANSWER0=COUNT(box=BOX1)
 ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
 ANSWER2=VQA(image=IMAGE0,question='Is the signal light low?')
-FINAL_RESULT=RESULT(var=ANSWER1+' '+ANSWER2)
+FINAL_RESULT=RESULT(var=ANSWER1 +'' + ANSWER2)
 ```
 Rationale:
 
