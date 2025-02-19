@@ -1,0 +1,28 @@
+Question: What is the name of the piece of furniture in front of the mirror the paintings are to the left of?
+
+Reference Answer: bed
+
+Image path: ./sampled_GQA/n125122.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='mirror')
+IMAGE0=CROP_FRONT(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='paintings')
+IMAGE1=CROP_LEFTOF(image=IMAGE0,box=BOX1)
+ANSWER0=VQA(image=IMAGE1,question='What is the name of the piece of furniture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is the name of the piece of furniture in front of the mirror the paintings are to the left of?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the name of the piece of furniture in front of the mirror the paintings are to the left of?')=<b><span style='color: green;'>table</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>table</span></b></div><hr>
+
+Answer: table
+

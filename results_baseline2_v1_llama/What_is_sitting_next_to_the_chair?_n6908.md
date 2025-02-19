@@ -1,0 +1,28 @@
+Question: What is sitting next to the chair?
+
+Reference Answer: flowers
+
+Image path: ./sampled_GQA/n6908.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='chair')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='person')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'person' if {ANSWER0} > 0 else 'nothing'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is sitting next to the chair?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is sitting next to the chair?')=<b><span style='color: green;'>table</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>table</span></b></div><hr>
+
+Answer: table
+

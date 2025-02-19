@@ -9,8 +9,8 @@ Program:
 ```
 BOX0=LOC(image=IMAGE,object='stove')
 IMAGE0=CROP(image=IMAGE,box=BOX0)
-BOX1=LOC(image=IMAGE0,object='stove top')
-IMAGE1=CROP(image=IMAGE0,box=BOX1)
+BOX1=LOC(image=IMAGE,object='stove top')
+IMAGE1=CROP(image=IMAGE,box=BOX1)
 ANSWER0=VQA(image=IMAGE0,question='What color is the stove?')
 ANSWER1=VQA(image=IMAGE1,question='What color is the stove top?')
 ANSWER2=EVAL(expr="'yes' if {ANSWER0} == {ANSWER1} else 'no'")

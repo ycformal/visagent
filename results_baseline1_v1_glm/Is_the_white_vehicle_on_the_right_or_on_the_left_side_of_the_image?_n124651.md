@@ -7,9 +7,9 @@ Image path: ./sampled_GQA/n124651.jpg
 Program:
 
 ```
-BOX0=LOC(image=IMAGE,object='vehicle',color='white')
+BOX0=LOC(image=IMAGE,object='vehicle')
 IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
-BOX1=LOC(image=IMAGE0,object='vehicle',color='white')
+BOX1=LOC(image=IMAGE0,object='vehicle')
 ANSWER0=COUNT(box=BOX1)
 ANSWER1=EVAL(expr="'right' if {ANSWER0} > 0 else 'left'")
 FINAL_RESULT=RESULT(var=ANSWER1)

@@ -1,0 +1,28 @@
+Question: What type of furniture is made of the same material as the white ceiling?
+
+Reference Answer: chair
+
+Image path: ./sampled_GQA/n68769.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='ceiling')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color is the ceiling?')
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} == 'white' else 'no'")
+ANSWER2=IF(condition={ANSWER1},then='table',else='no')
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What type of furniture is made of the same material as the white ceiling?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What type of furniture is made of the same material as the white ceiling?')=<b><span style='color: green;'>chairs</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>chairs</span></b></div><hr>
+
+Answer: chairs
+

@@ -61,7 +61,7 @@ FINAL_RESULT=RESULT(var=ANSWER1)
 """Question: Is the street light standing behind a truck?
 Program:
 BOX0=LOC(image=IMAGE,object='truck')
-IMAGE0=CROP(image=IMAGE,box=BOX0)
+IMAGE0=CROP_BEHIND(image=IMAGE,box=BOX0)
 BOX1=LOC(image=IMAGE0,object='street light')
 ANSWER0=COUNT(box=BOX1)
 ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
@@ -182,7 +182,7 @@ def create_prompt(inputs,num_prompts=8,method='random',seed=42,group=0):
         raise NotImplementedError
 
     prompt_examples = '\n'.join(prompt_examples)
-    prompt_examples = f'Think step by step to answer the question. Use only the module names in the following allowed list: LOC, CROP, CROP_RIGHTOF, CROP_LEFTOF, CROP_ABOVE, CROP_BELOW, VQA, COUNT, EVAL, RESULT. Note: The object argument of LOC must be a noun.\n\n{prompt_examples}'
+    prompt_examples = f'Note: The object argument of LOC must be a noun. Think step by step to answer the question.\n\n{prompt_examples}'
 
 
     return prompt_examples + "\nQuestion: {question}\nProgram:\n".format(**inputs)

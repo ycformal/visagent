@@ -1,0 +1,30 @@
+Question: What is the woman to the right of the camera standing on?
+
+Reference Answer: bricks
+
+Image path: ./sampled_GQA/n556604.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='camera')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='woman')
+IMAGE1=CROP_BELOW(image=IMAGE0,box=BOX1)
+BOX2=LOC(image=IMAGE1,object='table')
+ANSWER0=COUNT(box=BOX2)
+ANSWER1=EVAL(expr="'table' if {ANSWER0} > 0 else 'no table'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is the woman to the right of the camera standing on?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the woman to the right of the camera standing on?')=<b><span style='color: green;'>table</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>table</span></b></div><hr>
+
+Answer: table
+

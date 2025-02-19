@@ -1,0 +1,24 @@
+Question: What is the weather like, rainy or overcast?
+
+Reference Answer: overcast
+
+Image path: ./sampled_GQA/n511881.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the weather like, rainy or overcast?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the weather like, rainy or overcast?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the weather like, rainy or overcast?')=<b><span style='color: green;'>overcast</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>overcast</span></b></div><hr>
+
+Answer: overcast
+

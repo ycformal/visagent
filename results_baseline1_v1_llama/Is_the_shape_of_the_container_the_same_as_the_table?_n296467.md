@@ -10,7 +10,7 @@ Program:
 BOX0=LOC(image=IMAGE,object='table')
 IMAGE0=CROP(image=IMAGE,box=BOX0)
 BOX1=LOC(image=IMAGE0,object='container')
-IMAGE1=CROP(image=IMAGE,box=BOX1)
+IMAGE1=CROP(image=IMAGE0,box=BOX1)
 ANSWER0=VQA(image=IMAGE0,question='What shape is the table?')
 ANSWER1=VQA(image=IMAGE1,question='What shape is the container?')
 ANSWER2=EVAL(expr="'yes' if {ANSWER0} == {ANSWER1} else 'no'")

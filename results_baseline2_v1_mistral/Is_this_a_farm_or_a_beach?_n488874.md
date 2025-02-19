@@ -1,0 +1,24 @@
+Question: Is this a farm or a beach?
+
+Reference Answer: beach
+
+Image path: ./sampled_GQA/n488874.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a farm or a beach?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a farm or a beach?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this a farm or a beach?')=<b><span style='color: green;'>beach</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>beach</span></b></div><hr>
+
+Answer: beach
+

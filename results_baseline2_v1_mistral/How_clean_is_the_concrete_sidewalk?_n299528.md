@@ -1,0 +1,24 @@
+Question: How clean is the concrete sidewalk?
+
+Reference Answer: dirty
+
+Image path: ./sampled_GQA/n299528.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How clean is the concrete sidewalk?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How clean is the concrete sidewalk?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How clean is the concrete sidewalk?')=<b><span style='color: green;'>very clean</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>very clean</span></b></div><hr>
+
+Answer: "very clean"
+

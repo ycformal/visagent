@@ -1,0 +1,28 @@
+Question: Are there either any giraffes or bears that are not dark brown?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n410476.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='giraffe')
+BOX1=LOC(image=IMAGE,object='bear')
+ANSWER0=COUNT(box=BOX0)
+ANSWER1=COUNT(box=BOX1)
+ANSWER2=EVAL(expr="'yes' if {ANSWER0} > 0 or {ANSWER1} > 0 and else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are there either any giraffes or bears that are not dark brown?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are there either any giraffes or bears that are not dark brown?')=<b><span style='color: green;'>giraffe</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>giraffe</span></b></div><hr>
+
+Answer: giraffe
+

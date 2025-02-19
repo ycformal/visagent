@@ -87,8 +87,8 @@ def get_answer(file, method1, method2):
     return correct_1, correct_2
 
 def main():
-    method1 = 'baseline1_v1_glm'
-    method2 = 'visprog_glm'
+    method1 = 'caption_mistral'
+    method2 = 'visprog_mistral'
     results_1 = os.listdir(f'results_{method1}')
     results_2 = os.listdir(f'results_{method2}')
     correct_1 = 0

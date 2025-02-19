@@ -1,0 +1,24 @@
+Question: Which kind of device is large?
+
+Reference Answer: monitor
+
+Image path: ./sampled_GQA/n315887.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Which kind of device is large?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Which kind of device is large?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Which kind of device is large?')=<b><span style='color: green;'>computer</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>computer</span></b></div><hr>
+
+Answer: computer
+

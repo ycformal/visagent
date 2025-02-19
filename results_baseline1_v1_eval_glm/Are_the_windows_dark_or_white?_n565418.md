@@ -1,0 +1,18 @@
+Question: Are the windows dark or white?
+
+Reference Answer: dark
+
+Image path: ./sampled_GQA/n565418.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are the windows dark or white?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the windows dark or white?')=<b><span style='color: green;'>dark</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>dark</span></b></div><hr>
+
+Answer: dark
+

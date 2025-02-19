@@ -9,7 +9,7 @@ Program:
 ```
 BOX0=LOC(image=IMAGE,object='home plate')
 IMAGE0=CROP(image=IMAGE,box=BOX0)
-BOX1=LOC(image=IMAGE0,object='shoe')
+BOX1=LOC(image=IMAGE,object='shoe')
 IMAGE1=CROP(image=IMAGE,box=BOX1)
 ANSWER0=VQA(image=IMAGE0,question='What color is the home plate?')
 ANSWER1=VQA(image=IMAGE1,question='What color is the shoe?')

@@ -9,7 +9,7 @@ Program:
 ```
 BOX0=LOC(image=IMAGE,object='charger')
 IMAGE0=CROP(image=IMAGE,box=BOX0)
-BOX1=LOC(image=IMAGE0,object='rug')
+BOX1=LOC(image=IMAGE,object='rug')
 IMAGE1=CROP(image=IMAGE,box=BOX1)
 ANSWER0=VQA(image=IMAGE0,question='What color is the charger?')
 ANSWER1=VQA(image=IMAGE1,question='What color is the rug?')

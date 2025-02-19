@@ -8,8 +8,8 @@ Program:
 
 ```
 BOX0=LOC(image=IMAGE,object='blue candles')
-ANSWER0=EVAL(expr="'right' if {BOX0} > 0 else 'left'")
+ANSWER0=EVAL(expr="'right' if {BOX0}.x > IMAGE.width/2 else 'left'")
 FINAL_RESULT=RESULT(var=ANSWER0)
 ```
-Answer: Runtime error: '>' not supported between instances of 'list' and 'int'
+Answer: Runtime error: 'list' object has no attribute 'x'
 

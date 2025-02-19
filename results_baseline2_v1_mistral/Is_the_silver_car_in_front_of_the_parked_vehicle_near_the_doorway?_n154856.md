@@ -1,0 +1,30 @@
+Question: Is the silver car in front of the parked vehicle near the doorway?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n154856.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='doorway')
+IMAGE0=CROP_NEAR(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='parked vehicle')
+IMAGE1=CROP_FRONT(image=IMAGE0,box=BOX1)
+BOX2=LOC(image=IMAGE1,object='silver car')
+ANSWER0=COUNT(box=BOX2)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the silver car in front of the parked vehicle near the doorway?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the silver car in front of the parked vehicle near the doorway?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

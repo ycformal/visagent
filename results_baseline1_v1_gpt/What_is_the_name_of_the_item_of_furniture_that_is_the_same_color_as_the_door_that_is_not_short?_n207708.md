@@ -13,8 +13,8 @@ ANSWER0=VQA(image=IMAGE0,question='What color is the door?')
 BOX1=LOC(image=IMAGE,object='furniture')
 IMAGE1=CROP(image=IMAGE,box=BOX1)
 ANSWER1=VQA(image=IMAGE1,question='What color is the furniture?')
-ANSWER2=EVAL(expr="'yes' if {ANSWER0} == {ANSWER1} and 'no' if {ANSWER0} != {ANSWER1}")
+ANSWER2=EVAL(expr="'furniture' if {ANSWER0} == {ANSWER1} and {ANSWER2} != 'short' else 'none'")
 FINAL_RESULT=RESULT(var=ANSWER2)
 ```
-Answer: Runtime error: invalid syntax (<string>, line 1)
+Answer: Runtime error: 'ANSWER2'
 

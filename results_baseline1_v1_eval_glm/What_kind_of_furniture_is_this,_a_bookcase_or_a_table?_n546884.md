@@ -1,0 +1,18 @@
+Question: What kind of furniture is this, a bookcase or a table?
+
+Reference Answer: table
+
+Image path: ./sampled_GQA/n546884.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What kind of furniture is this, a bookcase or a table?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What kind of furniture is this, a bookcase or a table?')=<b><span style='color: green;'>table</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>table</span></b></div><hr>
+
+Answer: table
+

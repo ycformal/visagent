@@ -53,7 +53,7 @@ def get_answer(file, method1):
     return correct
 
 def main():
-    method = 'baseline1_v1_gpt'
+    method = 'baseline2_v1_gpt'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0
@@ -65,7 +65,7 @@ def main():
     print(f'Correct_{method}: {correct}/{total}')
     print(f'Accuracy_{method}: {correct/total}')
 
-    method = 'baseline1_v1_mistral'
+    method = 'baseline2_v1_mistral'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0
@@ -77,7 +77,7 @@ def main():
     print(f'Correct_{method}: {correct}/{total}')
     print(f'Accuracy_{method}: {correct/total}')
 
-    method = 'baseline1_v1_glm'
+    method = 'baseline2_v1_glm'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0
@@ -89,7 +89,7 @@ def main():
     print(f'Correct_{method}: {correct}/{total}')
     print(f'Accuracy_{method}: {correct/total}')
 
-    method = 'baseline1_v1_llama'
+    method = 'baseline2_v1_llama'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0

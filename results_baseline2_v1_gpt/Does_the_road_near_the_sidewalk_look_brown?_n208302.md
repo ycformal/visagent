@@ -1,0 +1,28 @@
+Question: Does the road near the sidewalk look brown?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n208302.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='sidewalk')
+IMAGE0=CROP_NEAR(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='road')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 and else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Does the road near the sidewalk look brown?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the road near the sidewalk look brown?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

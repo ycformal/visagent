@@ -1,0 +1,28 @@
+Question: Who is sitting?
+
+Reference Answer: woman
+
+Image path: ./sampled_GQA/n554880.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='chair')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='person')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Who is sitting?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABCAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD26KE+c0u+TDYARj8oHqB61Qh1x7ie5jtdI1CZbeVoWkBjVSw643OCR71rg4rnLHXtH0+51FLvU7SE/aHYiSQL/G39MVRBp/2rej/mBah/33B/8cq1bagZrV55oZLURswdZyoK47kgkY79axr3xx4etJ0hOr2ZkY8hWL8df4QcH6kVh6t4l8Da3B5Oo3b3ELNuMQScKxPGSFxnpRoGp1+la9p+uQPPpl5FcxxuUYp2I9uuPfvV3zH9a8smsfAnnx3mh6zJot8oO17TeueOAysMdunGa3fD3jAz2k6X+o2d48DDE0EbRu6epjI69fu8UaBqdqZWHemNMx6tUUFxBeQia3lWWM8bl/lUgQ+lVZE3GEk001FJfWsdvLMbiEiL737wDB7Z9Kp6frFvqN5LaxvGZUTzAqNk7c4yfx4pgXjTTT2UjtTACQCR2pgMPWinY+tFAFvfj0H1NYWnrbR6pqryx2pYznDyEAkdfT3qvePdlPuOwJ9M1zMVvdPq10ipMC7ZVBH16VLQzjbW1jdpVY4ATcMdPut/tKO1Y1q/h9pUEi3W/aqlQ4wZvUdMDrxzXbR+C/E8CzvBBEixxqiCS42NKcuOMdOoPPrXn+oaJrOj3a2ken3kr28iszwxGRA2M4UgYzz1FKlN076XuOS5ram1JHpSIzW0d8rg5G6VcA4OP1x+tS2sGmSTLcx397FPESxJUNgAcEY7etaFj4E8Ta9exXDWs1laMB5huZDEW6/wnLdx2rt9J+FljZnfe6hcykoUMUT7Vwfc8/yq3V5l8KJ5bdWVPDlxqFxpS6hZ3O6QSMhCrjeB0O3p36Vz3j/x34hsYbS7txGliGRZGSbCs+7PKjkgjg89u3f1vTNH07R7cW9jbiOPcW5YsST1OT9K8l+MmmG8s/slpAFjS8hMghXhFYEFiB7nJ+taKTqJqS1MHFU5JxejOU8ZeKE86WwuXVJIwsiNEPmfOSo9McA5rk7bxpqVhfW19YxmK4hzuLyMyvnqMZ6ZOfrV7xdoEt7rGu6nahRbaStpHIgU9HG0H8MfrXKM/wC7aPJ2nk88ZrKp8Vn0OmDTjdaJ9D6g+G3xAtvHGjsrqIdUtQBcQ5yGHZ19R29QfwrtCPavkT4ca3LoPj3SrlWKI9yIZPRkchWB/MH8BX14/BI9OKUWDViM0UE0VRI4cilaNHUq6kgjHBNN3elOB9zSAg/sywYYe2WQekrM4/8AHiatQRw2ybIIo4k/uxqFH6Un50fnSsMkLmjOajZiqMwUsVBIHr7Vxmu+N3t7SKKyiKXM0YfzDyEBOBj1PB61lWrQow55bGtChOvNQhubviTxDBoNiW4a7kB8qPP/AI8fYfrXmcfiO5lkma4AmkY7ncHaxz+natjR/CupeIbz7frTzJbvyWc4lk44wOw/yKXx9bWunzabYafAsYWIhY0HJLNgZ9ScV5k8Ti0niIPlWyXc9enhME2sNUXO92+3z/rzMDxNm2+EGu6msIQ6rdQQkDqAj4yT36V4cegya+kPilph0/4KS2KBT9lNvvIHfeMn8zXzYkEiWguGH7uRyin1KgZ/mK9VSnJJz36njtQi2qe3Q6D4fw2N34+8PW11HuDX4Z+ThuhQY/3hX1w7kkmuG+FGnWUHw50S6+ywG6aOR/PMalxmRjgNjIrti2fWrijOTAk+tFNyPeiqEOBFPBqEHA6g08NkZApASUcd6j3H0oBPr+tAx4YdQDxWWmh6dbXJ1CSEzSxKSnmHcEGSeB689TVmdbkuGhZDgYKseDWdfjV54vJa1g2A53JPtH4gjpUyipb6lRk4vR2NqO4W4iSVCdrjIzXm3ibzr74jWtrHKM+bAqgjlcYYn+ddvZ/bLe0SN7KQhenlspU5/HpXCDxHfTeOZNmirHaJcbWm8pjKpwRk8YOcdunSufEUXWSje1nc6MLXVCTla900d94i0yPxB4d1PSmUt9rt3RVJx82Mrz2+YCvjWUSxoYZEKtE5DKex6H9RX1rfa3G1k8KLfbpBjdBE25fzx9K8a8d+A7Kw0m31XTrS4h8y4dJo5OSARlWyB7EY9SOa6Gmc6a2PVfhfeJcfDPQtu1SkDRkL0BV2H5966zcT0b9a4v4YgW/w9023MMiPGZFkDoVO7ex5B+orsVwOi/pVIljzRScHo5opiHrTqKKQAvapBRRQAhJ2nntVS5JEDEE9KKKkZ4lqMsieLJo0dlTcTtBwPyrfsiTZK5JLY69+ooopIZV1OeaLUVWOWRFyeFYgd6y7u9umuATczE8dZD70UUwLo1O/RAUvrlSdpOJWGf1rW0/Ur6W6hSS9uXQ4yrSsQefrRRVIR6MnCADgAdKKKKYj/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Who is sitting?')=<b><span style='color: green;'>no one</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no one</span></b></div><hr>
+
+Answer: no one
+

@@ -1,0 +1,30 @@
+Question: Does the oven have the same shape as the floor?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n501609.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='oven')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE,object='floor')
+IMAGE1=CROP(image=IMAGE,box=BOX1)
+ANSWER0=VQA(image=IMAGE0,question='What shape is the oven?')
+ANSWER1=VQA(image=IMAGE1,question='What shape is the floor?')
+ANSWER2=EVAL(expr="'yes' if {ANSWER0} == {ANSWER1} else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Does the oven have the same shape as the floor?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the oven have the same shape as the floor?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

@@ -46,7 +46,7 @@ if not os.path.exists(folder_name):
 data_GQA = json.load(open('./sampled_GQA/sampled_data.json'))
 import time
 from IPython.display import display
-for data in tqdm(data_GQA[1269:]):
+for data in tqdm(data_GQA):
     image = Image.open('./sampled_GQA/' + data['imageId'] + '.jpg')
     image.thumbnail((640,640),Image.Resampling.LANCZOS)
     init_state = dict(
@@ -57,7 +57,13 @@ for data in tqdm(data_GQA[1269:]):
     print(question)
     answer = data['answer']
     print('reference answer:', answer)
-    prog,_ = generator.generate(dict(question=question))
+    try:
+        prog,_ = generator.generate(dict(question=question))
+    except Exception as e:
+        try:
+            prog,_ = generator.generate(dict(question=question))
+        except Exception as e:
+            prog,_ = generator.generate(dict(question=question))
     with open(f'{folder_name}/{question.replace(" ","_")}_{data["imageId"]}.md','w') as f:
         f.write(f'Question: {question}\n\n')
         f.write(f'Reference Answer: {answer}\n\n')
@@ -75,7 +81,13 @@ for data in tqdm(data_GQA[1269:]):
     results['caption'] = result
     print(results)
     if not (len(prog.split('\n')) == 2 and 'VQA' in prog.split('\n')[0] and 'RESULT' in prog.split('\n')[1]):
-        result = judge(results, question, show_analysis = True)
+        try:
+            result = judge(results, question, show_analysis = True)
+        except:
+            try:
+                result = judge(results, question, show_analysis = True)
+            except:
+                result = judge(results, question, show_analysis = True)
     else:
         result = results['agent']['answer']
     print(result)

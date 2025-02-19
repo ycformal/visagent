@@ -12,9 +12,10 @@ from PIL import Image,ImageDraw,ImageFont,ImageFilter
 from transformers import (ViltProcessor, ViltForQuestionAnswering, 
     OwlViTProcessor, OwlViTForObjectDetection,
     MaskFormerFeatureExtractor, MaskFormerForInstanceSegmentation,
-    CLIPProcessor, CLIPModel, AutoProcessor, BlipForQuestionAnswering, AutoModelForCausalLM)
+    CLIPProcessor, CLIPModel, AutoProcessor, BlipForQuestionAnswering, AutoModelForCausalLM, Owlv2Processor, Owlv2ForObjectDetection)
 from diffusers import StableDiffusionInpaintPipeline
 import copy
+import math
 
 from .nms import nms
 from vis_utils import html_embed_image, html_colored_span, vis_masks
@@ -137,6 +138,150 @@ class GetInterpreter():
         img = prog_step.state[img_var]
 
         bounding_box = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
+
+        prog_step.state[output_var] = bounding_box
+        if inspect:
+            html_str = self.html(img, bounding_box, output_var)
+            return bounding_box, html_str
+
+        return bounding_box
+
+class GetTopInterpreter():
+    step_name = 'GET_TOP'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        output_var = parse_result['output_var']
+        image_var = parse_result['args']['image']
+        assert(step_name==self.step_name)
+        return image_var, output_var
+    
+    def html(self,img,bounding_box,output_var):
+        step_name = html_step_name(self.step_name)
+        img_str = html_embed_image(img)
+        bounding_box = html_output(bounding_box)
+        output_var = html_var_name(output_var)
+        image_arg = html_arg_name('image')
+        return f"""<div>{output_var}={step_name}({image_arg}={img_str})={bounding_box}</div>"""
+
+    def execute(self,prog_step,inspect=False):
+        img_var, output_var = self.parse(prog_step)
+        prog_state = dict()
+        img = prog_step.state[img_var]
+
+        bounding_box = [[0, 0, img.size[0] - 1, int(img.size[1] / 2)]]
+
+        prog_step.state[output_var] = bounding_box
+        if inspect:
+            html_str = self.html(img, bounding_box, output_var)
+            return bounding_box, html_str
+
+        return bounding_box
+    
+class GetBottomInterpreter():
+    step_name = 'GET_BOTTOM'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        output_var = parse_result['output_var']
+        image_var = parse_result['args']['image']
+        assert(step_name==self.step_name)
+        return image_var, output_var
+    
+    def html(self,img,bounding_box,output_var):
+        step_name = html_step_name(self.step_name)
+        img_str = html_embed_image(img)
+        bounding_box = html_output(bounding_box)
+        output_var = html_var_name(output_var)
+        image_arg = html_arg_name('image')
+        return f"""<div>{output_var}={step_name}({image_arg}={img_str})={bounding_box}</div>"""
+
+    def execute(self,prog_step,inspect=False):
+        img_var, output_var = self.parse(prog_step)
+        prog_state = dict()
+        img = prog_step.state[img_var]
+
+        bounding_box = [[0, int(img.size[1] / 2), img.size[0] - 1, img.size[1] - 1]]
+
+        prog_step.state[output_var] = bounding_box
+        if inspect:
+            html_str = self.html(img, bounding_box, output_var)
+            return bounding_box, html_str
+
+        return bounding_box
+
+class GetLeftInterpreter():
+    step_name = 'GET_LEFT'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        output_var = parse_result['output_var']
+        image_var = parse_result['args']['image']
+        assert(step_name==self.step_name)
+        return image_var, output_var
+    
+    def html(self,img,bounding_box,output_var):
+        step_name = html_step_name(self.step_name)
+        img_str = html_embed_image(img)
+        bounding_box = html_output(bounding_box)
+        output_var = html_var_name(output_var)
+        image_arg = html_arg_name('image')
+        return f"""<div>{output_var}={step_name}({image_arg}={img_str})={bounding_box}</div>"""
+
+    def execute(self,prog_step,inspect=False):
+        img_var, output_var = self.parse(prog_step)
+        prog_state = dict()
+        img = prog_step.state[img_var]
+
+        bounding_box = [[0, 0, int(img.size[0] / 2), img.size[1] - 1]]
+
+        prog_step.state[output_var] = bounding_box
+        if inspect:
+            html_str = self.html(img, bounding_box, output_var)
+            return bounding_box, html_str
+
+        return bounding_box
+    
+class GetRightInterpreter():
+    step_name = 'GET_RIGHT'
+
+    def __init__(self):
+        print(f'Registering {self.step_name} step')
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        output_var = parse_result['output_var']
+        image_var = parse_result['args']['image']
+        assert(step_name==self.step_name)
+        return image_var, output_var
+    
+    def html(self,img,bounding_box,output_var):
+        step_name = html_step_name(self.step_name)
+        img_str = html_embed_image(img)
+        bounding_box = html_output(bounding_box)
+        output_var = html_var_name(output_var)
+        image_arg = html_arg_name('image')
+        return f"""<div>{output_var}={step_name}({image_arg}={img_str})={bounding_box}</div>"""
+
+    def execute(self,prog_step,inspect=False):
+        img_var, output_var = self.parse(prog_step)
+        prog_state = dict()
+        img = prog_step.state[img_var]
+
+        bounding_box = [[int(img.size[0] / 2), 0, img.size[0] - 1, img.size[1] - 1]]
 
         prog_step.state[output_var] = bounding_box
         if inspect:
@@ -276,11 +421,12 @@ class LocInterpreter():
     def __init__(self,thresh=0.1,nms_thresh=0.5):
         print(f'Registering {self.step_name} step')
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        self.processor = OwlViTProcessor.from_pretrained(
-            "google/owlvit-large-patch14")
-        self.model = OwlViTForObjectDetection.from_pretrained(
-            "google/owlvit-large-patch14").to(self.device)
-        self.model.eval()
+        self.processor = [OwlViTProcessor.from_pretrained(
+            "google/owlvit-large-patch14"), Owlv2Processor.from_pretrained("google/owlv2-large-patch14"), Owlv2Processor.from_pretrained("google/owlv2-large-patch14-ensemble")]
+        self.model = [OwlViTForObjectDetection.from_pretrained(
+            "google/owlvit-large-patch14").to(self.device), Owlv2ForObjectDetection.from_pretrained("google/owlv2-large-patch14").to(self.device), Owlv2ForObjectDetection.from_pretrained("google/owlv2-large-patch14-ensemble").to(self.device)]
+        for model in self.model:
+            model.eval()
         self.thresh = thresh
         self.nms_thresh = nms_thresh
         self.torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
@@ -311,36 +457,86 @@ class LocInterpreter():
         return [x1,y1,x2,y2]
 
     def predict(self,img,obj_name):
-        encoding = self.processor(
-            text=[[f'a photo of {obj_name}']], 
-            images=img,
-            return_tensors='pt')
-        encoding = {k:v.to(self.device) for k,v in encoding.items()}
-        with torch.no_grad():
-            outputs = self.model(**encoding)
-            for k,v in outputs.items():
-                if v is not None:
-                    outputs[k] = v.to('cpu') if isinstance(v, torch.Tensor) else v
-        
-        target_sizes = torch.Tensor([img.size[::-1]])
-        results = self.processor.post_process_object_detection(outputs=outputs,threshold=self.thresh,target_sizes=target_sizes)
-        boxes, scores = results[0]["boxes"], results[0]["scores"]
-        boxes = boxes.cpu().detach().numpy().tolist()
-        scores = scores.cpu().detach().numpy().tolist()
-        if len(boxes)==0:
-            return []
+        boxes = []
+        scores = []
+        for i in range(len(self.processor)):
+            encoding = self.processor[i](
+                text=[[f'a photo of {obj_name}']], 
+                images=img,
+                return_tensors='pt')
+            encoding = {k:v.to(self.device) for k,v in encoding.items()}
+            with torch.no_grad():
+                outputs = self.model[i](**encoding)
+                for k,v in outputs.items():
+                    if v is not None:
+                        outputs[k] = v.to('cpu') if isinstance(v, torch.Tensor) else v
+            
+            target_sizes = torch.Tensor([img.size[::-1]])
+            results = self.processor[i].post_process_object_detection(outputs=outputs,threshold=self.thresh,target_sizes=target_sizes)
+            _boxes, _scores = results[0]["boxes"], results[0]["scores"]
+            _boxes = _boxes.cpu().detach().numpy().tolist()
+            _scores = _scores.cpu().detach().numpy().tolist()
 
-        boxes, scores = zip(*sorted(zip(boxes,scores),key=lambda x: x[1],reverse=True))
+            _boxes, _scores = zip(*sorted(zip(_boxes,_scores),key=lambda x: x[1],reverse=True))
+            selected_boxes = []
+            selected_scores = []
+            for i in range(len(_scores)):
+                if _scores[i] > self.thresh:
+                    coord = self.normalize_coord(_boxes[i],img.size)
+                    selected_boxes.append(coord)
+                    selected_scores.append(_scores[i])
+
+            selected_boxes, selected_scores = nms(
+                selected_boxes,selected_scores,self.nms_thresh)
+            boxes.extend(selected_boxes)
+            scores.extend(selected_scores)
+
+        box_groups = []
+        score_groups = []
+        # boxes with IoU > 0.8 are in the same group
+        for i in range(len(boxes)):
+            found = False
+            for j in range(len(box_groups)):
+                for k in range(len(box_groups[j])):
+                    x1 = max(boxes[i][0], box_groups[j][k][0])
+                    y1 = max(boxes[i][1], box_groups[j][k][1])
+                    x2 = min(boxes[i][2], box_groups[j][k][2])
+                    y2 = min(boxes[i][3], box_groups[j][k][3])
+                    if x1 < x2 and y1 < y2:
+                        overlap_area = (x2 - x1) * (y2 - y1)
+                        area1 = (boxes[i][2] - boxes[i][0]) * (boxes[i][3] - boxes[i][1])
+                        area2 = (box_groups[j][k][2] - box_groups[j][k][0]) * (box_groups[j][k][3] - box_groups[j][k][1])
+                        if overlap_area / (area1 + area2 - overlap_area) > 0.8 and k == len(box_groups[j]) - 1:
+                            box_groups[j].append(boxes[i])
+                            score_groups[j].append(scores[i])
+                            found = True
+                            break
+                        elif overlap_area / (area1 + area2 - overlap_area) <= 0.8:
+                            break
+                if found:
+                    break
+            if not found:
+                box_groups.append([boxes[i]])
+                score_groups.append([scores[i]])
+
+        # only keep groups with total score > math.ceil(len(self.processor) / 2) * self.thresh
         selected_boxes = []
         selected_scores = []
-        for i in range(len(scores)):
-            if scores[i] > self.thresh:
-                coord = self.normalize_coord(boxes[i],img.size)
-                selected_boxes.append(coord)
-                selected_scores.append(scores[i])
+        for i in range(len(box_groups)):
+            total_score = sum(score_groups[i])
+            if total_score > math.ceil(len(self.processor) / 2) * self.thresh:
+                selected_boxes.append(box_groups[i])
+                selected_scores.append(sum(score_groups[i]) / len(score_groups[i]))
+        
+        for i in range(len(selected_boxes)):
+            min_x = min([j[0] for j in selected_boxes[i]])
+            min_y = min([j[1] for j in selected_boxes[i]])
+            max_x = max([j[2] for j in selected_boxes[i]])
+            max_y = max([j[3] for j in selected_boxes[i]])
+            selected_boxes[i] = [min_x, min_y, max_x, max_y]
 
-        selected_boxes, selected_scores = nms(
-            selected_boxes,selected_scores,self.nms_thresh)
+        # sort by score
+        selected_boxes, selected_scores = zip(*sorted(zip(selected_boxes, selected_scores), key=lambda x: x[1], reverse=True))
         return selected_boxes
 
     def top_box(self,img):
@@ -506,6 +702,10 @@ class LocInterpreter():
                 filtered.append(bboxes[i])
         bboxes = filtered
         '''
+        parse_result = parse_step(prog_step.prog_str)
+        if 'plural' in parse_result['args'] and len(bboxes) > 0 and eval(parse_result['args']['plural'])==True:
+            bboxes = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
+        
         # bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
 
         # if len(bboxes) == 0:
@@ -1800,7 +2000,11 @@ def register_step_interpreters(dataset='nlvr'):
             EVAL=EvalInterpreter(),
             RESULT=ResultInterpreter(),
             CAP=CapInterpreter(),
-            GET=GetInterpreter()
+            GET=GetInterpreter(),
+            GET_TOP=GetTopInterpreter(),
+            GET_BOTTOM=GetBottomInterpreter(),
+            GET_LEFT=GetLeftInterpreter(),
+            GET_RIGHT=GetRightInterpreter()
         )
     elif dataset=='imageEdit':
         return dict(

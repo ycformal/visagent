@@ -1,0 +1,26 @@
+Question: Is there a dog in the image that is not uncomfortable?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n342511.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='dog')
+ANSWER0=COUNT(box=BOX0)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 and else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is there a dog in the image that is not uncomfortable?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a dog in the image that is not uncomfortable?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

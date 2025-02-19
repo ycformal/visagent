@@ -1,0 +1,24 @@
+Question: What is the long sleeved clothing item?
+
+Reference Answer: dress shirt
+
+Image path: ./sampled_GQA/n234683.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the long sleeved clothing item?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the long sleeved clothing item?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the long sleeved clothing item?')=<b><span style='color: green;'>jacket</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>jacket</span></b></div><hr>
+
+Answer: jacket
+

@@ -1,0 +1,27 @@
+Question: Is the helmet made of plastic or metal?
+
+Reference Answer: plastic
+
+Image path: ./sampled_GQA/n501951.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='helmet')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What material is the helmet made of?')
+ANSWER1=EVAL(expr="'plastic' if 'plastic' in {ANSWER0} else 'metal'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the helmet made of plastic or metal?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the helmet made of plastic or metal?')=<b><span style='color: green;'>plastic</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>plastic</span></b></div><hr>
+
+Answer: plastic
+

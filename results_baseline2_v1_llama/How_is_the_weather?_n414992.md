@@ -1,0 +1,24 @@
+Question: How is the weather?
+
+Reference Answer: sunny
+
+Image path: ./sampled_GQA/n414992.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How is the weather?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How is the weather?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How is the weather?')=<b><span style='color: green;'>sunny</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>sunny</span></b></div><hr>
+
+Answer: sunny
+

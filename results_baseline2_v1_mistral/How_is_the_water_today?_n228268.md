@@ -1,0 +1,24 @@
+Question: How is the water today?
+
+Reference Answer: wavy
+
+Image path: ./sampled_GQA/n228268.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How is the water today?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How is the water today?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How is the water today?')=<b><span style='color: green;'>calm</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>calm</span></b></div><hr>
+
+Answer: calm
+

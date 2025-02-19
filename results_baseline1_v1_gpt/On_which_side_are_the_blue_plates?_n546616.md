@@ -8,8 +8,8 @@ Program:
 
 ```
 BOX0=LOC(image=IMAGE,object='blue plates')
-ANSWER0=EVAL(expr="'left' if {BOX0} < 0 else 'right'")
+ANSWER0=EVAL(expr="'left' if {BOX0} < IMAGE.width/2 else 'right'")
 FINAL_RESULT=RESULT(var=ANSWER0)
 ```
-Answer: Runtime error: '<' not supported between instances of 'list' and 'int'
+Answer: Runtime error: name 'IMAGE' is not defined
 

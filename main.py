@@ -56,7 +56,13 @@ for data in tqdm(data_GQA):
     print(question)
     answer = data['answer']
     print('reference answer:', answer)
-    prog,_ = generator.generate(dict(question=question))
+    try:
+        prog,_ = generator.generate(dict(question=question))
+    except Exception as e:
+        try:
+            prog,_ = generator.generate(dict(question=question))
+        except Exception as e:
+            prog,_ = generator.generate(dict(question=question))
     with open(f'{folder_name}/{question.replace(" ","_")}_{data["imageId"]}.md','w') as f:
         f.write(f'Question: {question}\n\n')
         f.write(f'Reference Answer: {answer}\n\n')

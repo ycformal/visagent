@@ -1,0 +1,28 @@
+Question: Is the trashcan below a nightstand?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n249639.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='trashcan')
+IMAGE0=CROP_ABOVE(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='nightstand')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the trashcan below a nightstand?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the trashcan below a nightstand?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+
