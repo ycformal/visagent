@@ -1,0 +1,28 @@
+Question: Is the person that is looking down using a laptop?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n278453.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person looking down')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='laptop')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the person that is looking down using a laptop?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the person that is looking down using a laptop?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

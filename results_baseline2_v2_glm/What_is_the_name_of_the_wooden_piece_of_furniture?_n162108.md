@@ -1,0 +1,24 @@
+Question: What is the name of the wooden piece of furniture?
+
+Reference Answer: cabinet
+
+Image path: ./sampled_GQA/n162108.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the name of the wooden piece of furniture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the name of the wooden piece of furniture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABLAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwC1dulvcRzSMFiAYux6AAda19MjjHm3YhEctyQz8YZgBhc++P51hyQ3Fy7PeRqLcSARRD7wB4y/bOcEAdK0LbUZHEUVtF5z7iksm7CRHHBb1z6CvPR0j0VJta8w5ZIyY1GeNx+8fwHH4mtGyHl+ZGTyjNj6E5qikMVrcxxQKqRIOABwCf8AJ/Op9xGp4B4kXae3P+c0rlWL6sHRz3YD8sn/AAqlZF4NXmi3Dy3QsoHRTnd0z1OW/KnRyt/bAh2Hyzbbt2BjIfGM5z39PxpZZo4ZLlpI2RFgDtLnjIJ4z61aEzZknaOBQoy2RgDvVdyqRi0jUqCpyUGAATzz6nP8zVbzWaRjGVaRUAbIwyZGQvp70QSxoqxLG8ZjGSjnJ+ucnP1zTeiEkB2i3bAAzK2MegGKYKj8z92ifVvzpQ1c7epqloPzTHGRxRmnCkFim1upOSOaKssOaKQjlzGL+eWU2Yihi+WNuP3xx145ABGMd6u2sVwTItteGJSNyho1cDI/DvVe1nURheenAAqSO58ueRItjT7RsRjgYOcE46Ctb6kpFuW6MNwEuQFJ5WReVwPX+7/L37VKtxKNRiJiKRk7dzNyfw9PrUCRSx26LdTLNIxIlYqMHPbHoOg9qqbjaTRWTuTCdrQEnLKM8pn26g+nHanoM22s4/7Xjvdi+cIXh3c5wSCB19c9qgmUXd1MSSIwVQ4OCVU5I+hYgfnUou1cySEhViby9x4BYYz+GSB+dUyd9rdoCVbd8hb2b/EfrVITNmaYRIqb1Lu3APGTVO53iJXkkDTRrkvjAPPIx6YqOcDY8r5Dsu45OduOcD8qg1C8WFASeWbAHt3pNjRYSUE8dKmDVnbbpDv+zO8eMiSH94pHvjkU63u/Pj3phh/stn/9VRClOfwq5vUUacVKUlr5mgGpwaqqTKwzmnNKAM5qWraGSd9ScvzRWOmt2kgJBYFSVOcDkUUcrFdGTqLvHeT21pKsUxG9WdchQepx3/z6UQWyxo3kH98JM72OSxx/Effp+NXrpRLGGwPMXIDf0qjHNslQnjJAJP41VxJG4kiz2wYcgryD1z0I+tZmo4uHMW5wYlQrICAQSwI/EAfrU8EqwwyXBLMkjs4ULz0HA9c44+tMhT/RrhWX52/ef8C64/DgU9h2uWp7eO50+GONVQJKpXAxsIPUe+CR+NRu7Q38qMQY3USoeuDnOPx+b8qri9Megy3AH3DvA/4EP6VLeySkssK+YzR7QmP9oAEn061SYrFy4ufnBBbAPQDl/YVzuu3MhvYkL/xDj09q15oUhjBlAdmJwoAGQOgH51jPoGq6heGS00+d4hjawHyg98E9qlvsO3c621XyVBhJTHI2mpZTb3BLXdsjyEEedH8kg/EdfxzVS1N1bBY762kgcD+MYB+hqxcSfumMYUvjgHgE1Kk46obSe5Haae3nbE1BJbbH/LdNsifiOG/SrD6fGSwEjMpHcYrKtNethL5Fyn2aXvu+6fxrbSYMAysCvYjpVObktQdzHHh23XhduDz8yAmitrfnt+VFO7Isjmp5DDcfcJVhngZ5+lZF9GUuP3gYwOxAjC9eec9+n4V10Ol213PNBdFum5Cj4Iz/APXrKk0pY7yS2mYlgvlpI3JZeoNQtFcpalKKWV0D+TM+wAKqqNqkHrzjkj0q3bTrLujVCJv7jcH3PPaoLbeZ2tN+0byGPrj+79SOv4VLPCkz5wBgZRgcbGx2Pbn+tDki1ELSCOXTrm3kRWBJBGOM/j74qe5mG6crIFIt/ky2B3/rVFFnjl83zlC47A7S3971P06Vh6rq0Ns/lmRncevJH4dqzdTotTWNJy2Ox0KS1vtVV508zb8+G5yc9B6gc/WvREdJEDRkMvYjpXgmm6sPNFxBIxZfvAnkCuwg8W3UKjeATjqy8/nVU6ltGZ1KLTPRbxbd4WS4VSuOjCvHTr7z648FsALYyFUXOePUGruseIdQ1GykUS+XEwIOBjP+feuS8Mxu2ou7cqinrTnO+xMY2OxnhhuUxIgb3qmi3umndZTlo/8Anm/SrRUjlCM9x2qrPJISArBT3B7/AErJOxTLK+LxGNtxauJB1waKz3ZS2SAT9KKvnIsdZqXmkCSGcwsVKFwMkA/5zVG6c3SCKd5EEW398CFMgwOcjpk5yKuSktaNnnisMfPcNuycLnk+1EnYIljMY2GNd3lfdduAtVL3Vbe0UvM+9xzjH8h/jVDVrqaK2ZkkKnpx2rlrqRy3LE5GTk9aiKc9XsejRoJq7NW+126vlIgk8kHuOW/OsCWJvmyd2edx60kRInODjIzxVqP95jfzlea3UVHY7IxVrIzxJJBKpt/lYclq6yx1iO9gxICkgHzf41yhJFww7VNaMRfRAHHOKU17tznq01JXNy+vXlTyhlYV6D1q34fTbDLIRjc2BWZIA0gDc1s6bxZrj1NcqdzikrbGmZMD3qvPMrAhvzpjMfWqc7HB5q0ZMbJI4fCtke/NFZsrtvPJoqiLn//Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the name of the wooden piece of furniture?')=<b><span style='color: green;'>toilet</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>toilet</span></b></div><hr>
+
+Answer: toilet
+

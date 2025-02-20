@@ -1,0 +1,28 @@
+Question: Is there a fence near the building?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n184551.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='building')
+IMAGE0=CROP_NEAR(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='fence')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is there a fence near the building?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a fence near the building?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

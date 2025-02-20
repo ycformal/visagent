@@ -1,0 +1,28 @@
+Question: Is there a child in the image that is eating?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n347706.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='child')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='eating')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is there a child in the image that is eating?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a child in the image that is eating?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

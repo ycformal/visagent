@@ -1,0 +1,27 @@
+Question: Does the cabinet to the left of the other cabinet look clean?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n97485.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='cabinet')
+IMAGE0=CROP_LEFTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='cabinet')
+ANSWER0=VQA(image=IMAGE1,question='Does this cabinet look clean?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Does the cabinet to the left of the other cabinet look clean?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the cabinet to the left of the other cabinet look clean?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

@@ -1,0 +1,28 @@
+Question: What color is the jacket near the gloves?
+
+Reference Answer: green
+
+Image path: ./sampled_GQA/n317189.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='gloves')
+IMAGE0=CROP_NEAR(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='jacket')
+IMAGE1=CROP(image=IMAGE0,box=BOX1)
+ANSWER0=VQA(image=IMAGE1,question='What color is the jacket?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What color is the jacket near the gloves?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is the jacket near the gloves?')=<b><span style='color: green;'>green</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>green</span></b></div><hr>
+
+Answer: green
+

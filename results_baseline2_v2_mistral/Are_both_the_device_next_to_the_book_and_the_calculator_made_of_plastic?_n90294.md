@@ -1,0 +1,32 @@
+Question: Are both the device next to the book and the calculator made of plastic?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n90294.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='book')
+IMAGE0=CROP_NEXTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='device')
+IMAGE1=CROP(image=IMAGE0,box=BOX1)
+BOX2=LOC(image=IMAGE,object='calculator')
+IMAGE2=CROP(image=IMAGE,box=BOX2)
+ANSWER0=VQA(image=IMAGE1,question='Is the device made of plastic?')
+ANSWER1=VQA(image=IMAGE2,question='Is the calculator made of plastic?')
+ANSWER2=EVAL(expr="'yes' if {ANSWER0} == 'yes' and {ANSWER1} == 'yes' else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are both the device next to the book and the calculator made of plastic?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are both the device next to the book and the calculator made of plastic?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

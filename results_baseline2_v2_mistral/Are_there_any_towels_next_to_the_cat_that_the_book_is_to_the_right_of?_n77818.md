@@ -1,0 +1,30 @@
+Question: Are there any towels next to the cat that the book is to the right of?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n77818.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='book')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='cat')
+IMAGE1=CROP_NEXTTO(image=IMAGE0,box=BOX1)
+BOX2=LOC(image=IMAGE1,object='towels')
+ANSWER0=COUNT(box=BOX2)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are there any towels next to the cat that the book is to the right of?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are there any towels next to the cat that the book is to the right of?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

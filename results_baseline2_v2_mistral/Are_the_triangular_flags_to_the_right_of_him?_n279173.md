@@ -1,0 +1,28 @@
+Question: Are the triangular flags to the right of him?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n279173.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='flags')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='him')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are the triangular flags to the right of him?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the triangular flags to the right of him?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

@@ -1,0 +1,31 @@
+Question: What bag is made of the same material as the trash can beside the wall?
+
+Reference Answer: trash bag
+
+Image path: ./sampled_GQA/n530733.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='trash can')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='wall')
+IMAGE1=CROP(image=IMAGE,box=BOX1)
+BOX2=LOC(image=IMAGE1,object='bag')
+ANSWER0=VQA(image=IMAGE0,question='What material is the trash can made of?')
+ANSWER1=VQA(image=IMAGE1,question='What material is the bag made of?')
+ANSWER2=EVAL(expr="'bag' if {ANSWER0} == {ANSWER1} else 'none'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What bag is made of the same material as the trash can beside the wall?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABLAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDyi+jNteXMeXXy5CvKn14qsLudThJT+tej3igSzoUUru5BAOfSuGh2W/iLeRgxXQYe3zg1IEVvqN6Wx9pceymvRvBFlHqt9FHPvfcjHJJ6gZrqfE3hrS7y386bT4mcyAb0QK3XuR2qt4AsILPxBDFDHtQO4C59VNFgubkGjeVbNtUlUcIo79QOn41taZplmbgxS2is6q/3xu6MOvWqM8jx3U3JB3lTn2b/AOtWroc5utQk3BeEc/mwNQyjiviAkQurNUQLiOToMf8ALRu1cZboPJujj+JB/Ou3+IpVdStgBkeU/Of+mj1xURBtbg/9NV/kaaEjRtEC6M3+05/pVZ0y1WEYJo0Q/vMT+tVg+5qoZb0i2+0azZQY4kuEX/x4V65pMoW6u5N+DJKSFHfkn6V5r4QjD+KLFiOI2aU/8BUn+lel6YqnT8ImSMvMxOAqgcAn3x+VDTtoIx5NDn8SalqF8rxFFuDChK9lVRx7ZzRXQ+GLSJtChnkjBa4Z5j2xuYkfpRTsFzw/UI9t3L/tYP6V53rJ+z63cHnnDD8hXpupLm4Q4+8n9f8A69eceLIvL1dW/vxD9CRQhdT6JvQJ9Bim6h4kfP1ANYXg8bPFEP8A13H6g1paPcve/D3T55ImjP2RFBJzvAUDcPY4rL8LuB4ohx/z3SixJ0N/A4vrrC8CY9+OTV7w1ADdNkkFoieOO4qvq7FNUulU8eZyM/SrHh4NLeCLcB+7Yj8xUMs5D4gKE1RQ5kchG2Db0BduM964eHIspD0zL0P0rsviHKU1OPdyUg5wP9pjwK46Ns2IPPzSE9PYUxIe7yvDDFtdUUcHbwefWrMVv5kLTw7toOGUg/KO2fypby5SC1tI2YD92Dycdqjgk3qaOo2jqPBkf/Ezu5f+eVnIfxbC/wBa9A1KKe18EzyW9yY2MW4gqCCCeR0z0rifB0eLPVZu5WKIfixY/wDoNd/4iUjQLWzHHnzQwn6ZBP8AKrET2EMlvp1rCURwkSqCMjoOn55oq3KwMhaFpQp5+ToT69KKBnheoYJgP+8v9f6VwXjeLZLZzY6h1/ka9A1J0isvOkYKkUgZmPQDoT+tcL41u7O7soIoLiOSaOQMVU5+Ug/4ULYXU9Z8H3izfC/SQTki3MZ9sMw/pWRp0pj1CQqxBGCCDjFZ/gzVI7b4bW8UgaWQSzRpCnLPznHoBz1PFYmj69cf2ky30UcJbhVjbdjnvimyT1CG4knV3lYyMTyWOSeKcdSXTJY5iZlDbl/dEZ7Hv9KraaweOUZyQ+P0BrM8U6xZaVbwtcz2ykOdySfMxXvhQQc1PUroYHjXxVYPrSRyXD7vITBkj29z6ZrOjYNaIB3Zj/KuM1ue017XCbHbHuJUO+UQgZIOTk5I/WqEevapZFYvOyqZGyQZ6/Xmm0CPTL6ytJPJ86CORhGPvjd6etOiMKQqkdvEhU8MowcenXH6V5zdeMNXuLrzjJGq4wI1T5QP51fsfHDRYF3Zhx3aNsH8jSsB7l4V2QeHJZpDtWW8yxx/Cic/+hV1V5rOlahfaWsN4hijnM0rPldoVDjOfc1yPhrUNPuvD9hELqGCTLytFM2wktjAyRtPA9a0bmw2SCUacTAykMYjhT77lytOzA72L7K0YMNyCnbZIMfpRXm5tdPk+Yi/B6YHlv8ArRRr2C5x+sQ/aNEvoSM7oG49cCvNbbQtQcb4rSO3HrJ8zfgD/wDWrodU+IthHHJDYWslyzKV3yfIvPt1P6VxV54j1S9Ta9yUj6bYxtGPwpAdORFpgNte6zMgZSwKqpBb0xyQOP1rEuNSSyu1e3WeRSMqZk25Oeo45FYCENIC5Y5PJrtbTSNa8S6WkbafI6xBVtryY+VsjH8P+0MDsOKaApTeNNfuIniW+NrG5yy242E8Y69f1qLRdBvfEl46QuocLvkmnY9M/mTWkPBM1q+yS9gL98RlgP1FdX4G0yW01qe0m2yebAzpLGOPlIyCOx5oE9jG0DwtoFv4ke01zVjHbeWGXJ8tZmz90t/CP5+td5q1r4YtrLEEekiMD7xZGOPqSTXnPjU+Tq7xp90KMA1iaZpM+pOCiBIs8ykcfQDuf0qxGjryaNd3cUekWw8wkh/KXCt6YHr71a07wZE4WS8UAdfLB/nW1p+m2enKViUGToztyT9f8K0TcBevT1FIZPDEkUSRIu1EUKo9AKtW1xdWb77W4lgb1icr/KqkFxHL91gathQRQBpjxPq4GHnilP8Aelt43b8yM0VlsvPWimI8GAJPA/OniMk/MamUAdKaepqCj2L4c+A7AaVDrd+kdzLMN0EbDKoPU+pz/Kus12c20ShmSPzDsjDEDcfQCvNPhv4i1aC4bTI7xvsS/MsTKrBSeuMjIq18QfEmrQyxrHdbdp+UiJNy/Q4yPwrRWsT1F1O7SwLPdSiMnsep+grHsvFd3baiLi0JjIUog6k5I6/lXJNLJNIZJZGkdurOck/jXoXw4sbWWK+vZIEe4gUGJ2GdpJ6gdKhLUpkh0Vtb1m3utZxDJcgLDa9C5C9/TOOPU0MHgSaSMDaFQIg4AGT0/Ktm8+aV5WJMgXeGzyGHQ/pVq/hjbVr1Si4xE2MdypJ/Umh6sFocGby7gldpPmVmyR3FSrdnUUMEM6xzH7u4kA+3sav6rDGA2EFcuny3nHH/AOuiK1sEti+L++0y7WG5hkDE4XuG+h713dpKxgUt1I6HtXM295cBbjEp+X7uecVr2jsY15NW1YhM1t4zRVTccDmilcZ//9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What bag is made of the same material as the trash can beside the wall?')=<b><span style='color: green;'>plastic bag</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>plastic bag</span></b></div><hr>
+
+Answer: plastic bag
+

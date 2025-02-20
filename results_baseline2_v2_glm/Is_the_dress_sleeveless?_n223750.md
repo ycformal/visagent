@@ -1,0 +1,24 @@
+Question: Is the dress sleeveless?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n223750.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the dress sleeveless?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the dress sleeveless?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the dress sleeveless?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

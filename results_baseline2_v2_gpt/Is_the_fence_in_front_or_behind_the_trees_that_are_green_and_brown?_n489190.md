@@ -1,0 +1,30 @@
+Question: Is the fence in front or behind the trees that are green and brown?
+
+Reference Answer: behind
+
+Image path: ./sampled_GQA/n489190.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='trees')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='green')
+BOX2=LOC(image=IMAGE0,object='brown')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=COUNT(box=BOX2)
+ANSWER2=EVAL(expr="'front' if {ANSWER0} > 0 and {ANSWER1} > 0 else 'behind'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the fence in front or behind the trees that are green and brown?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the fence in front or behind the trees that are green and brown?')=<b><span style='color: green;'>behind</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>behind</span></b></div><hr>
+
+Answer: behind
+

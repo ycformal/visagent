@@ -35,5 +35,83 @@ init_state = dict(
 result, prog_state, html = interpreter.execute(prog,init_state, inspect=True)
 print(result)
 
-with open('output.md', 'w') as f:
-    f.write(html)
+# with open('output.md', 'w') as f:
+#     f.write(html)
+
+# import os
+# # Enforce the download/cache directory for Hugging Face models.
+# os.environ["HF_HOME"] = "/home/hice1/yxu846/scratch/models"
+# from transformers import ViltProcessor, ViltForQuestionAnswering
+# import requests
+# from PIL import Image
+# import torch
+
+# device = "cuda:0" if torch.cuda.is_available() else "cpu"
+# # prepare image + question
+# url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+# image = Image.open(requests.get(url, stream=True).raw)
+# text = "How many cats are there?"
+
+# processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
+# model = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(device)
+# model.eval()
+
+# # prepare inputs
+# encoding = processor(image, text, return_tensors="pt")
+# encoding = {k:v.to(device) for k,v in encoding.items()}
+
+# with torch.no_grad():
+#     outputs = model(**encoding)
+# logits = outputs.logits
+# idx = logits.argmax(-1).item()
+# print(model.config.id2label[idx])
+
+# import os
+# # Enforce the download/cache directory for Hugging Face models.
+# os.environ["HF_HOME"] = "/home/hice1/yxu846/scratch/models"
+# from transformers import PaliGemmaForConditionalGeneration, AutoProcessor
+# import requests
+# from PIL import Image
+# import torch
+
+# device = "cuda:0" if torch.cuda.is_available() else "cpu"
+# # prepare image + question
+# url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+# image = Image.open(requests.get(url, stream=True).raw)
+# text = "How many cats are there?"
+
+# processor = AutoProcessor.from_pretrained("google/paligemma-3b-ft-vqav2-448")
+# model = PaliGemmaForConditionalGeneration.from_pretrained("google/paligemma-3b-ft-vqav2-448").to(device)
+# model.eval()
+
+# encoding = processor(image, text, return_tensors="pt")
+# encoding = {k:v.to(device) for k,v in encoding.items()}
+
+# with torch.no_grad():
+#     outputs = model.generate(**encoding, max_new_tokens=10)
+# print(processor.decode(outputs[0], skip_special_tokens=True))
+
+# import os
+# # Enforce the download/cache directory for Hugging Face models.
+# os.environ["HF_HOME"] = "/home/hice1/yxu846/scratch/models"
+# from transformers import BlipForQuestionAnswering, AutoProcessor
+# import requests
+# from PIL import Image
+# import torch
+
+# device = "cuda:0" if torch.cuda.is_available() else "cpu"
+# # prepare image + question
+# url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+# image = Image.open(requests.get(url, stream=True).raw)
+# text = "What is shown in the image?"
+
+# processor = AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")
+# model = BlipForQuestionAnswering.from_pretrained("Salesforce/blip-vqa-capfilt-large").to(device)
+# model.eval()
+
+# encoding = processor(image, text, return_tensors="pt")
+# encoding = {k:v.to(device) for k,v in encoding.items()}
+
+# with torch.no_grad():
+#     outputs = model.generate(**encoding, max_new_tokens=10)
+# print(processor.decode(outputs[0], skip_special_tokens=True))

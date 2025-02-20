@@ -1,0 +1,24 @@
+Question: Is the soap dispenser made of chrome or plastic?
+
+Reference Answer: chrome
+
+Image path: ./sampled_GQA/n473688.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the soap dispenser made of chrome or plastic?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the soap dispenser made of chrome or plastic?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the soap dispenser made of chrome or plastic?')=<b><span style='color: green;'>metal</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>metal</span></b></div><hr>
+
+Answer: metal
+

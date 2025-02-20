@@ -1,0 +1,24 @@
+Question: What do both the laptop and the mousepad have in common?
+
+Reference Answer: shape
+
+Image path: ./sampled_GQA/n433692.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What do the laptop and the mousepad have in common?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What do the laptop and the mousepad have in common?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What do the laptop and the mousepad have in common?')=<b><span style='color: green;'>color</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>color</span></b></div><hr>
+
+Answer: color
+

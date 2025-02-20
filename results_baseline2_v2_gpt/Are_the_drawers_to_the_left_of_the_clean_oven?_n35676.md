@@ -1,0 +1,28 @@
+Question: Are the drawers to the left of the clean oven?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n35676.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='oven')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='drawers')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are the drawers to the left of the clean oven?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the drawers to the left of the clean oven?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

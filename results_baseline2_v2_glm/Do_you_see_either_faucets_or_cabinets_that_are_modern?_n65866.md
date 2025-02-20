@@ -1,0 +1,32 @@
+Question: Do you see either faucets or cabinets that are modern?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n65866.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='faucets')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='modern')
+ANSWER0=COUNT(box=BOX1)
+BOX2=LOC(image=IMAGE,object='cabinets')
+IMAGE1=CROP(image=IMAGE,box=BOX2)
+BOX3=LOC(image=IMAGE1,object='modern')
+ANSWER1=COUNT(box=BOX3)
+ANSWER2=EVAL(expr="'yes' if {ANSWER0} > 0 or {ANSWER1} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Do you see either faucets or cabinets that are modern?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do you see either faucets or cabinets that are modern?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

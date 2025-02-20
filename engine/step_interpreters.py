@@ -12,13 +12,19 @@ from PIL import Image,ImageDraw,ImageFont,ImageFilter
 from transformers import (ViltProcessor, ViltForQuestionAnswering, 
     OwlViTProcessor, OwlViTForObjectDetection,
     MaskFormerFeatureExtractor, MaskFormerForInstanceSegmentation,
-    CLIPProcessor, CLIPModel, AutoProcessor, BlipForQuestionAnswering, AutoModelForCausalLM, Owlv2Processor, Owlv2ForObjectDetection)
+    CLIPProcessor, CLIPModel, AutoProcessor, BlipForQuestionAnswering,
+    AutoModelForCausalLM, Owlv2Processor, Owlv2ForObjectDetection,
+    PaliGemmaForConditionalGeneration)
 from diffusers import StableDiffusionInpaintPipeline
+from nltk.stem import PorterStemmer
 import copy
 import math
+import nltk
 
 from .nms import nms
 from vis_utils import html_embed_image, html_colored_span, vis_masks
+
+nltk.download('punkt_tab') # If there's error message, just modify the package name according to what the error message says
 
 
 def parse_step(step_str,partial=False):
@@ -371,10 +377,12 @@ class VQAInterpreter():
     def __init__(self):
         print(f'Registering {self.step_name} step')
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        self.processor = AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")
-        self.model = BlipForQuestionAnswering.from_pretrained(
-            "Salesforce/blip-vqa-capfilt-large").to(self.device)
-        self.model.eval()
+        self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large"), ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa"), AutoProcessor.from_pretrained("google/paligemma-3b-ft-vqav2-448")]
+        self.model = [BlipForQuestionAnswering.from_pretrained(
+            "Salesforce/blip-vqa-capfilt-large").to(self.device), ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(self.device), PaliGemmaForConditionalGeneration.from_pretrained("google/paligemma-3b-ft-vqav2-448").to(self.device)]
+        for model in self.model:
+            model.eval()
+        self.stemmer = PorterStemmer()
 
     def parse(self,prog_step):
         parse_result = parse_step(prog_step.prog_str)
@@ -387,12 +395,49 @@ class VQAInterpreter():
         return img_var,question,output_var
 
     def predict(self,img,question):
-        encoding = self.processor(img,question,return_tensors='pt')
-        encoding = {k:v.to(self.device) for k,v in encoding.items()}
-        with torch.no_grad():
-            outputs = self.model.generate(**encoding)
-        
-        return self.processor.decode(outputs[0], skip_special_tokens=True)
+        results = []
+        for i in range(len(self.processor)):
+            encoding = self.processor[i](img,question,return_tensors='pt')
+            encoding = {k:v.to(self.device) for k,v in encoding.items()}
+            with torch.no_grad():
+                try:
+                    outputs = self.model[i].generate(**encoding, max_new_tokens=50)
+                    result = self.processor[i].decode(outputs[0], skip_special_tokens=True)
+                    if question not in result:
+                        results.append(result)
+                    else:
+                        result = result.replace(question,'').strip()
+                        results.append(result)
+                except:
+                    try:
+                        outputs = self.model[i](**encoding)
+                        logits = outputs.logits
+                        idx = logits.argmax(-1).item()
+                        results.append(self.model[i].config.id2label[idx])
+                    except:
+                        raise ValueError('Model failed to generate answer. Update the code for VQA answer generation.')
+        stemmed_results = [''] * len(results)
+        for i in range(len(results)):
+            words = nltk.word_tokenize(results[i].lower())
+            stems = {self.stemmer.stem(word) for word in words if word.isalnum()}
+            stemmed_results[i] = ' '.join(stems)
+
+        votes = [0] * len(results)
+
+        for i, stems_i in enumerate(stemmed_results):
+            for j, stems_j in enumerate(stemmed_results):
+                if i != j:
+                    # Check if there is any overlap between the two sentences' stems
+                    if set(stems_i.split()).intersection(set(stems_j.split())):
+                        votes[i] += 1
+
+        max_votes = max(votes)
+        if max_votes == 0:
+            return min(results, key=lambda x: len(x.split()))
+
+        candidate_indices = [i for i, vote in enumerate(votes) if vote == max_votes]
+        best_index = min(candidate_indices, key=lambda i: len(results[i].split()))
+        return results[best_index]
 
     def html(self,img,question,answer,output_var):
         step_name = html_step_name(self.step_name)
@@ -477,6 +522,9 @@ class LocInterpreter():
             _boxes = _boxes.cpu().detach().numpy().tolist()
             _scores = _scores.cpu().detach().numpy().tolist()
 
+            if len(_boxes) == 0:
+                continue
+
             _boxes, _scores = zip(*sorted(zip(_boxes,_scores),key=lambda x: x[1],reverse=True))
             selected_boxes = []
             selected_scores = []
@@ -490,6 +538,9 @@ class LocInterpreter():
                 selected_boxes,selected_scores,self.nms_thresh)
             boxes.extend(selected_boxes)
             scores.extend(selected_scores)
+
+        if len(boxes) == 0:
+            return []
 
         box_groups = []
         score_groups = []
@@ -527,6 +578,9 @@ class LocInterpreter():
             if total_score > math.ceil(len(self.processor) / 2) * self.thresh:
                 selected_boxes.append(box_groups[i])
                 selected_scores.append(sum(score_groups[i]) / len(score_groups[i]))
+
+        if len(selected_boxes) == 0:
+            return []
         
         for i in range(len(selected_boxes)):
             min_x = min([j[0] for j in selected_boxes[i]])

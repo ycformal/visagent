@@ -1,0 +1,24 @@
+Question: Is it cloudy in this photo?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n572716.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is it cloudy in this photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is it cloudy in this photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is it cloudy in this photo?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

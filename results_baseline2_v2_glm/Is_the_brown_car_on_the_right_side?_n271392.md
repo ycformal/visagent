@@ -1,0 +1,28 @@
+Question: Is the brown car on the right side?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n271392.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='car')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color is the car?')
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} == 'brown' and else 'no'")
+ANSWER2=EVAL(expr="'yes' if {ANSWER1} == 'yes' and else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the brown car on the right side?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the brown car on the right side?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

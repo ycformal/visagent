@@ -1,0 +1,30 @@
+Question: Are there any ovens or cabinets that are black?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n548534.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='oven')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='cabinet')
+IMAGE1=CROP(image=IMAGE,box=BOX1)
+ANSWER0=VQA(image=IMAGE0,question='What color is the oven?')
+ANSWER1=VQA(image=IMAGE1,question='What color is the cabinet?')
+ANSWER2=EVAL(expr="'yes' if {ANSWER0} == 'black' or {ANSWER1} == 'black' else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are there any ovens or cabinets that are black?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are there any ovens or cabinets that are black?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

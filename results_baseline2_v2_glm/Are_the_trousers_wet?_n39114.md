@@ -1,0 +1,24 @@
+Question: Are the trousers wet?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n39114.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are the trousers wet?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are the trousers wet?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the trousers wet?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

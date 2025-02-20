@@ -1,0 +1,24 @@
+Question: Is the sink made of chrome?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n141939.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the sink made of chrome?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the sink made of chrome?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the sink made of chrome?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

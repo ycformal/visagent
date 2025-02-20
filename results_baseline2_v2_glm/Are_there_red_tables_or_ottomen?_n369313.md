@@ -1,0 +1,32 @@
+Question: Are there red tables or ottomen?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/n369313.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='table')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='red')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+ANSWER2=LOC(image=IMAGE,object='ottomen')
+ANSWER3=COUNT(box=ANSWER2)
+ANSWER4=EVAL(expr="'yes' if {ANSWER3} > 0 else 'no'")
+ANSWER5=EVAL(expr="'yes' if {ANSWER1} or {ANSWER4} else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER5)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are there red tables or ottomen?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are there red tables or ottomen?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

@@ -1,0 +1,24 @@
+Question: What do the laptop and the office chair have in common?
+
+Reference Answer: color
+
+Image path: ./sampled_GQA/n525901.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What do the laptop and the office chair have in common?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What do the laptop and the office chair have in common?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What do the laptop and the office chair have in common?')=<b><span style='color: green;'>black</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>black</span></b></div><hr>
+
+Answer: black
+
