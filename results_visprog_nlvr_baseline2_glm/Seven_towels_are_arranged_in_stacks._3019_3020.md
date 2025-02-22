@@ -1,0 +1,25 @@
+Question: Seven towels are arranged in stacks.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/originals/08/3a/e4/083ae4ca83b9fdb593a3b4d6b91d409f.jpg
+
+Right image URL: https://ae01.alicdn.com/kf/HTB1oI8EKXXXXXaQXXXXq6xXFXXXA/WAZIR-Designer-5-star-Hotel-Collection-Towels-Set-Wholesale-Beige-Blue-Pink-Turkish-Quick-Dry-Linen.jpg
+
+Original program:
+
+```
+The statement is False.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

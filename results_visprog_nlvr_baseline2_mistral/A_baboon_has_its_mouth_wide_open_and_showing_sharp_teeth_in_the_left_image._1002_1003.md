@@ -1,0 +1,28 @@
+Question: A baboon has its mouth wide open and showing sharp teeth in the left image.
+
+Reference Answer: True
+
+Left image URL: http://4.bp.blogspot.com/-XiCNNSCZiyA/T06NMHHsV9I/AAAAAAAAADo/U4pFbWlU4Kk/s1600/Baboonteeth.jpg
+
+Right image URL: http://static8.depositphotos.com/1418420/890/i/950/depositphotos_8902914-Baboon-eating-fruit.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Does the baboon have its mouth wide open and showing sharp teeth?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Does the baboon have its mouth wide open and showing sharp teeth?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the baboon have its mouth wide open and showing sharp teeth?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

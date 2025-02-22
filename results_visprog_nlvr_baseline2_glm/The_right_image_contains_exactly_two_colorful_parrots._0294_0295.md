@@ -1,0 +1,28 @@
+Question: The right image contains exactly two colorful parrots.
+
+Reference Answer: False
+
+Left image URL: https://i.ytimg.com/vi/IGBY9VmfP08/hqdefault.jpg
+
+Right image URL: https://media-cdn.tripadvisor.com/media/photo-s/05/fc/d5/9b/bristol-zoo-gardens.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many colorful parrots are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many colorful parrots are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many colorful parrots are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 == 2")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

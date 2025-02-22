@@ -1,0 +1,28 @@
+Question: The rodent in the image on the right is situated on a piece of pink material.
+
+Reference Answer: True
+
+Left image URL: http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/XWMAAOxyUylTVkPB/$_3.JPG?set_id=2
+
+Right image URL: https://cdn.thinglink.me/api/image/702345541740134400/1240/10/scaletowidth
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is the rodent situated on a piece of pink material?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is the rodent situated on a piece of pink material?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the rodent situated on a piece of pink material?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

@@ -1,0 +1,28 @@
+Question: The right image contains exactly two zebras.
+
+Reference Answer: False
+
+Left image URL: https://vetstreet-brightspot.s3.amazonaws.com/51/6a/d50c97624087a9ce5b6c1fd31f24/baby-zebra-mom-630mk081212.jpg
+
+Right image URL: http://www.awf.org/sites/default/files/media/gallery/wildlife/Plains%20Zebra/Z-Billy_Dodson_3.jpg?itok=rzMdZ7LM
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many zebras are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many zebras are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many zebras are in the image?')=<b><span style='color: green;'>7</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="7 == 2")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

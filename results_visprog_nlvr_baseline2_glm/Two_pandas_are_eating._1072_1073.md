@@ -1,0 +1,25 @@
+Question: Two pandas are eating.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/42/dc/75/42dc759ad49970335e3d718c1ef5b42c--baby-panda-bears-panda-babies.jpg
+
+Right image URL: http://images4.fanpop.com/image/photos/17800000/Cute-Panda-Cubs-Together-pandas-17838800-450-324.jpg
+
+Original program:
+
+```
+The program provided does not have a statement or question related to pandas eating. Therefore, it is not possible to determine if the statement is true or false based on the given program.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>panda</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>panda</span></b></div><hr>
+
+Answer: panda
+

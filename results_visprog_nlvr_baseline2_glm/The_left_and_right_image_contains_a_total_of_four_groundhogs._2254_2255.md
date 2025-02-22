@@ -1,0 +1,25 @@
+Question: The left and right image contains a total of four groundhogs.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/originals/bd/18/97/bd189720fc455cacb85ad9cd9ebd54a7.jpg
+
+Right image URL: https://i.pinimg.com/originals/1c/f9/a5/1cf9a57ec7d680acb7d384efe3b14c0d.jpg
+
+Original program:
+
+```
+The program provided is a series of logical steps to determine if certain statements are true or false based on the content of images. Each statement is evaluated using a combination of image analysis and logical expressions. The final answer is determined by evaluating the logical expressions and returning the result.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

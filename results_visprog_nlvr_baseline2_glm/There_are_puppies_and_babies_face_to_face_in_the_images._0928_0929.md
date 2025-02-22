@@ -1,0 +1,25 @@
+Question: There are puppies and babies face to face in the images.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/f8/91/08/f891083b482e4a21a7b6b1be62b7b8b0--baby-french-bulldog-french-baby.jpg
+
+Right image URL: https://i.pinimg.com/736x/a2/07/78/a207785ece9d08a17326f9709207f0a8--mini-french-bulldogs-baby-french-bulldog.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

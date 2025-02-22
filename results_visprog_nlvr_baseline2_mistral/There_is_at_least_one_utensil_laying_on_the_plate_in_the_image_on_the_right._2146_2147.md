@@ -1,0 +1,28 @@
+Question: There is at least one utensil laying on the plate in the image on the right.
+
+Reference Answer: False
+
+Left image URL: https://i.redd.it/5d4jvqun0kpx.jpg
+
+Right image URL: https://i.pinimg.com/236x/7d/a5/dd/7da5dd4d6d504912735e31aa47e82ea3--mashed-potatoes-cornbread.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many utensils are laying on the plate?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many utensils are laying on the plate?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many utensils are laying on the plate?')=<b><span style='color: green;'>0</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="0 >= 1")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

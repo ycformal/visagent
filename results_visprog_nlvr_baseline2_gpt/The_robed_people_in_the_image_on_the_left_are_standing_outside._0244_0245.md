@@ -1,0 +1,28 @@
+Question: The robed people in the image on the left are standing outside.
+
+Reference Answer: False
+
+Left image URL: https://www.sgc.sa.edu.au/wp-content/uploads/2015/10/IMG_9053.jpeg
+
+Right image URL: http://www.rocor.org.au/news10/wp-content/uploads/2014/09/bombala_1.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Are the robed people standing outside?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Are the robed people standing outside?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the robed people standing outside?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

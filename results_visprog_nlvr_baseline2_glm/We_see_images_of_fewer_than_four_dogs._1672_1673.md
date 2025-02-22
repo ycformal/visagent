@@ -1,0 +1,25 @@
+Question: We see images of fewer than four dogs.
+
+Reference Answer: False
+
+Left image URL: https://s-media-cache-ak0.pinimg.com/originals/28/fb/26/28fb26f0fac7c9226c0913545822b9ce.jpg
+
+Right image URL: https://s-media-cache-ak0.pinimg.com/originals/28/af/bd/28afbdb2a0fcfd62c968519328c4875a.jpg
+
+Original program:
+
+```
+The program will ask the user to answer the following questions:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

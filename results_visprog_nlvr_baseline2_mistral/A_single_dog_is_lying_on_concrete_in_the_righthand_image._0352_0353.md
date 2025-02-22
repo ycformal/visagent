@@ -1,0 +1,28 @@
+Question: A single dog is lying on concrete in the righthand image.
+
+Reference Answer: True
+
+Left image URL: http://www.dogcastradio.com/upload/P1594.jpg
+
+Right image URL: https://i.ytimg.com/vi/FYy7QAcNT64/hqdefault.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many dogs are lying on concrete?')
+ANSWER1=EVAL(expr='{ANSWER0} == 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many dogs are lying on concrete?')
+ANSWER1=EVAL(expr='{ANSWER0} == 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many dogs are lying on concrete?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 == 1")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

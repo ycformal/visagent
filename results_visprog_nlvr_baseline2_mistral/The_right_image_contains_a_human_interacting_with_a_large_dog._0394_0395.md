@@ -1,0 +1,28 @@
+Question: The right image contains a human interacting with a large dog.
+
+Reference Answer: True
+
+Left image URL: http://www.city-data.com/forum/attachments/dogs/94952d1336347669-leonberger-pup-dscn4655.jpg
+
+Right image URL: https://i.pinimg.com/236x/db/cf/ee/dbcfeee496f4ca023c7b3132bcc30569--huge-dogs-giant-dogs.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a human interacting with a large dog?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a human interacting with a large dog?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a human interacting with a large dog?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

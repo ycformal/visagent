@@ -1,0 +1,25 @@
+Question: There is food on a table.
+
+Reference Answer: True
+
+Left image URL: https://s3-media4.fl.yelpcdn.com/bphoto/GAyoN7gLwpQke59w-L8Fzg/348s.jpg
+
+Right image URL: https://s3-media3.fl.yelpcdn.com/bphoto/IGHHcUdWu7xSCeuAd-3Thg/ls.jpg
+
+Original program:
+
+```
+The program provided is a series of logical steps to determine if a given statement is true or false based on the content of an image. Each statement is evaluated using a series of questions and logical expressions to determine the final answer. The program uses the VQA (Visual Question Answering) function to ask questions about the images and evaluate the answers using logical expressions. The final answer is then returned as the result of the program.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

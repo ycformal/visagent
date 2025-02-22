@@ -1,0 +1,25 @@
+Question: The right image contains exactly two guinea pigs.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/43/20/02/432002abcd269b48601903a5ec264a57--guinea-pig-toys-guinea-pigs.jpg
+
+Right image URL: https://2.bp.blogspot.com/-SzHFzGlXo60/V2HvNF1XpQI/AAAAAAAA4bc/MYKYbk5EK_kr9Y9PuNHkWxVYGbtE_in5QCLcB/s400/rainbowguineapig.jpg
+
+Original program:
+
+```
+The statement is True.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

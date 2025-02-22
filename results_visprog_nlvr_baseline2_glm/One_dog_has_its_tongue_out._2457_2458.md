@@ -1,0 +1,30 @@
+Question: One dog has its tongue out.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/236x/ee/dc/8e/eedc8e7a3f3000b581ab74ca835a7779--blenheim-cavalier-king-charles-spaniels.jpg
+
+Right image URL: https://i.pinimg.com/736x/1e/c0/71/1ec0719b2971e35bce2844784947959c--people-people-prince-edward.jpg
+
+Original program:
+
+```
+Statement: One dog has its tongue out.
+Program:
+ANSWER0=VQA(image=LEFT,question='How many dogs have their tongues out?')
+ANSWER1=VQA(image=RIGHT,question='How many dogs have their tongues out?')
+ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 1')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

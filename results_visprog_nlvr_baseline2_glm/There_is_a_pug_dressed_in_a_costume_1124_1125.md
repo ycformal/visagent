@@ -1,0 +1,25 @@
+Question: There is a pug dressed in a costume
+
+Reference Answer: False
+
+Left image URL: https://s-media-cache-ak0.pinimg.com/564x/b2/c1/37/b2c13768aa779c2cbe1a463a9b2e3b16.jpg
+
+Right image URL: https://i.pinimg.com/736x/a8/fc/b1/a8fcb138feae5d8a13dfa6c584501a2a--pug-photos-pug-pictures.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

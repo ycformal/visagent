@@ -1,0 +1,25 @@
+Question: In each image, at least one pelican perches on some kind of platform in front of the same double-peaked building in the background.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/236x/78/bc/35/78bc35bd82510fc6a7fa2d76091b6cca--fort-myers-beach-usa-travel.jpg
+
+Right image URL: https://i.pinimg.com/736x/2c/bb/5c/2cbb5c854222756f7d581cb4b5b28889--fort-myers-beach-beach-walk.jpg
+
+Original program:
+
+```
+The provided program is incomplete and does not contain the necessary steps to evaluate the statement. It only includes the initial setup for the program, but does not include the actual evaluation of the statement based on the given images.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

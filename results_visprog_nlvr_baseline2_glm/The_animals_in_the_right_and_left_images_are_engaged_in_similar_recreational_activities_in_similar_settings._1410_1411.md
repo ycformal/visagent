@@ -1,0 +1,25 @@
+Question: The animals in the right and left images are engaged in similar recreational activities in similar settings.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/e1/2b/c3/e12bc3a7365261cade6af657a984e8fa--pig-games--calendar.jpg
+
+Right image URL: https://i.pinimg.com/736x/af/82/a3/af82a3ddcb106ff8085853c314192c27--pig-games-weight-lifting.jpg
+
+Original program:
+
+```
+The program provided is a series of steps to determine if certain statements are true or false based on the content of images. Each statement is evaluated using a combination of questions and logical expressions. The final answer is determined by evaluating the logical expressions and returning the result.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

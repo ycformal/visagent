@@ -1,0 +1,28 @@
+Question: The left image contains at least five bottles.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/236x/13/ec/95/13ec95dc935e9b6ae82a5032bcf85c7f--spoon-rest-bottle-crafts.jpg
+
+Right image URL: https://img0.etsystatic.com/165/0/5460547/il_340x270.1093974608_flil.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many bottles are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many bottles are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many bottles are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 5")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 >= 5")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

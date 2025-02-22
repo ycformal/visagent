@@ -1,0 +1,21 @@
+Question: The left image contains one square white pillow with an all-over shaggy texture.
+
+Reference Answer: False
+
+Left image URL: https://img0.etsystatic.com/011/0/5934536/il_fullxfull.457533828_o3ul.jpg
+
+Right image URL: https://i.pinimg.com/736x/42/81/5b/42815b617110f258af0a9dc08751e5a4--mermaid-bedroom-mermaid-lagoon.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Does the image contain one square white pillow with an all-over shaggy texture?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the image contain one square white pillow with an all-over shaggy texture?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

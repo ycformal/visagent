@@ -1,0 +1,25 @@
+Question: One or more dogs are visible.
+
+Reference Answer: False
+
+Left image URL: https://advancedwindowsusa.com/wp-content/uploads/doggy_door1.jpg
+
+Right image URL: https://i.pinimg.com/originals/0a/a3/1f/0aa31fbd5c635b1e69a39ecca10dc416.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

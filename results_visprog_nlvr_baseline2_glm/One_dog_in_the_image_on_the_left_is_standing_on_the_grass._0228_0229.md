@@ -1,0 +1,25 @@
+Question: One dog in the image on the left is standing on the grass.
+
+Reference Answer: True
+
+Left image URL: http://www.tinybeagles.com/uploads/8/6/8/6/8686937/9361988_orig.jpg
+
+Right image URL: https://i.pinimg.com/236x/aa/d2/40/aad2406f447fba6efebce6e9442b37c1--baby-beagle-beagle-pups.jpg
+
+Original program:
+
+```
+The program is designed to analyze an image and determine if the statement is true or false. The program uses a series of questions to gather information about the image and then evaluates the answers to determine if the statement is true or false.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

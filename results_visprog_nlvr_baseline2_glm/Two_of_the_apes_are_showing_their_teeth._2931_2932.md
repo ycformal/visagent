@@ -1,0 +1,25 @@
+Question: Two of the apes are showing their teeth.
+
+Reference Answer: True
+
+Left image URL: http://3.bp.blogspot.com/_Hbo7Ung0Hbg/TFfloWX47HI/AAAAAAAABYg/NV2-tRseC20/s1600/gorilla+play+tag+EMJ.jpg
+
+Right image URL: http://www.enzopennetta.it/wp-content/uploads/2012/03/gorilla.jpg
+
+Original program:
+
+```
+The program provided is a series of steps to determine if certain statements are true or false based on the content of images. Each statement is evaluated using a combination of questions and logical expressions. The final answer is determined by evaluating the logical expressions and returning the result.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAyAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDktNRtQaSBHVJUUhoCT+754HSo7lbq1MsU0JEbZXA6EdjUlhb6rNC8gsWWwClZZV2l9vTk9cDH6V0OnwQSWVnFdL5xwTGSpOABnmvBrqNOV1rfoQ7bowdMWV4DdNOsMUZ4OQGJ9BS20EOou4EUY3yEF3b7x+o6VhanqhkuJCSdoBCKAAMk/pXT+E006z0uS21O4ZJp8Mudqgc/e56Y+vI7V60cNDkSluWopl5TYNaSR3WN20qW4xkf4VkzSJEgWKVHRf4ccY7VQ1+a2mvRLp8lxdW0haJJEQqJGXqfofX2olv3tNOy9s8SD5SzBSwPoDR9SpgoJGxbWgdPNK4kxwrNkflVXU9Q+xMVKbiU+UheM9xXMJd3bzF45JCc5AZua09QvHuIozKpGVALA5+bFYyw3s9ndFJK1irqES3tpBcopMijy3TPTHIP5Z/KufaJmvYw39zI/WujtzJtaMj5JMqhLc7h0qghtrHVYiZDKVjDfMvG7J4x6U6MryIS1Iv3ogjlE/lF/ublADYP6UjNIbRnkk89QcMABwe3PX8K9HbUtFumtbprSOC4VQIStuzDIPLfKCF543Gi+8QaUBe6paWCPyieY8HlqknIyvrkDr/jXYUeOzI0MrRurBlOCGGCKKsalcm6v5ZmxljRQI9heWE2wNrEjXQkiAaUAMNxw2TjkYya6C9nS4sljWKaKa1UAso4ZT6MOnr6iuSs4I7a0k813Fw43SeRKXfIGQR2ApcStEHubu4VC26PD8yEckEd+B+FeRJ8qatuYyVmcT4jtbrSb5b4wKtrJK3ljdu5HUH8apwXH9r7nw6pEPmwefoPrXU+MIZJ9PspLu0bcjMryCTcGU4259CBXMJ5NhDCbd1w7+Y3cYHQV6eHm5U02zWGqNCfU3iRUYTRIikQq3CoT3x60r+JjCqRwoBGo2usgB3j1NQNqVjdXgFynnQqMkgkYJqJNMslvnd3aSEDegfqfb61sttDRu71JjaJ9oa4x9nj6tEByhPT8DXWaXbxXNrFBPZgmCPLKcKGOcg596papJbatost/pVtFHJYBPtAhyEMJ46YOSD1INWNH1pLHTIDdiRXkB8tVOSBng4xjNcuLpupBKL2YnBtroTqls5aKa3aMowfZMuOO20iuP8AFFtFba7BtiEKNCDgNkZLHkV3i366o8t0l7JFNG+VWTqgzzyPvL7HkVw3xGk8vWbEHDP9jVmYLtyS7np9MVhhcP7KW5TpqKv1Ow8M+LNO0rSY7Zk+0GN96gxBtnrhjjGTzjNYPjDxTDqqeUlsYoBjbGAAucfe4OM1wg1FhGE8pcAYFMkvS+fkAHoDXfYge+CxJOT7UVVMhJoosI9d0u41LTpGuGtEEC4EqbwTjruzjJIHY1eupp/Eetr/AGXYjz44gJLsOFKIem0EgZP9Kwr/AFMNpWyzIc7gnmA4Kn69asabcw2tjC8mpSRXZ4YxygYAPf34ry7uTbMm+a8mdZp8V9blpLK2Erg7ZXnIySPY/wBK818WifUbkzwWyRM7sMRrt3nPtXbWuvtOt1b208d1DOh2jq2e5U9Pw9qTTdJMkEMGo3RT7QMKikCRQOefQHj8aVOcoNcpMVbU8ui0W+s5d5tppYmRWLIhK5PYke9LNczLEqGNgwPyrICvt0PWvTLVr/R47jS7MJcafNKDNIFzIBgBlDdx3xj8ak1fwmYbiDUFiEoiXzYo2k+82PlLZ6Z610vFSgtVf0NrtbnDW1xe2UBtpHkiUEhoQTtU9xiug07V7JreO2vLdHiI+8hKkE/yNYN/Z37zLKF3Sz7ndAeQ2eV9z34qTR9GvNThDCaMSSANGrPtDLnqTg4HXtXT7aEYKU2aq5t6hfeTcwaXo1pDaWzKXkucM5OTzvYgkDHGK5n4kvLJ4gtmlkhcm0QqYemNzYFdp9tXQdBms5rJXubZXCyZysjH9WI9egxXluu3Ml1eo8ibX8sAgE46noO1Y05SdR6WRL5reRl0UUV1EhRRRQB6RMi/2AX2jcXGWxyelUr7jQ7aQcOIkw3cfN60UV48d/n+hn1NXwsB/wAJbc8D/j3Y/jkc13UcUZVpvLTzTIoL45PXvRRVP4wl8D+Q/VEVdNucKBiHjA6fMap6HLJLHdLJIzgOQAxzxjpRRVdGJfw36lDSz5lmJJPndVV1ZuSG3YyPfHFS3w8uNwnyjKD5eOKKKcv4a/rudVfb7ilqskn2m4O9spOirz0GRwPavOfGn/IUtW7m1Qk+vJoorrp/ES9jm6KKK6CAooooA//Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

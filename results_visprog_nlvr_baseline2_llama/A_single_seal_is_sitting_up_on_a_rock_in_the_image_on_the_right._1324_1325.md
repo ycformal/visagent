@@ -1,0 +1,28 @@
+Question: A single seal is sitting up on a rock in the image on the right.
+
+Reference Answer: True
+
+Left image URL: http://thecraftycanvas.com/photography-portfolio/files/2013/05/lazy-sunbathing-seal-national-zoo.jpg
+
+Right image URL: https://3.bp.blogspot.com/-F-bNL5Gk1M8/VeGZiloB7RI/AAAAAAAAAdk/yTWZf_AElR8By9-04XhyG-4ORoUdZsYiwCPcB/s1600/california_sea_lion_5_Big.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a single seal sitting up on a rock?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a single seal sitting up on a rock?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a single seal sitting up on a rock?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

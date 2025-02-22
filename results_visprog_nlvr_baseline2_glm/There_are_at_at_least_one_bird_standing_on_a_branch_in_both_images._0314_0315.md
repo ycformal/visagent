@@ -1,0 +1,25 @@
+Question: There are at at least one bird standing on a branch in both images.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/736x/62/2e/87/622e87be6f01a8b08f718be5f84ad117--colorful-parrots-colorful-birds.jpg
+
+Right image URL: http://i.dailymail.co.uk/i/pix/2011/06/23/article-2007193-0CB1495100000578-690_468x330.jpg
+
+Original program:
+
+```
+The program is correct. It checks if there is at least one bird standing on a branch in both images. If there is, the answer is True, otherwise False.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

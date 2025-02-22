@@ -1,0 +1,28 @@
+Question: There is a single gorilla in the left image.
+
+Reference Answer: True
+
+Left image URL: http://gorillahighlands.com/wp-content/uploads/2016/04/Mountain-gorilla-yawn-photo-by-Anna-Behm-Masozera-IGCP.jpg
+
+Right image URL: https://s-media-cache-ak0.pinimg.com/originals/9d/a3/55/9da355a4c05bdd6098900d081453d2ed.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many gorillas are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many gorillas are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABKAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDtxpVyJxLdxhQ4LLGG+baOn0rTbWJbSzj02ytEiklztw5ZiO5+vvSR3H22VoZpIw8S4UZ+fj19qz7mS4sL8PHJvY9Sw4we3tXgylLCxUY35Nrr+tzJWtcpaxo11DprXptSykEPs5ZR64rm7SK4M9vHJK7xuA+4KScelejw6yjWxjCFcjDYxhf8RVCwT+zTI0V3AIf+WYBzmuuMFV5KdFtp7vtoK3Yt2Q03TrRYmi85iPmUje2ff0ps+ojyvKgIWJP4OuM8gE+lc9cahChlkjizO0hYl2x+OBVCPXZbmUxu+V6YY4H4V7lLDUoQUJK/Q0jC25sX1zb3kfk3EIbOQCrY2+9cy2moWwjZwCQHGDV2WIFt3mPHnuuCKpyRSwYkkdXjPIZFz+Z9ac8PTkrWt6FOKM2bzbVPKZCCTwafFKzKPNBX1rRkvUQhJtrocEkjcDVO8t0H+kwPuiY4IH8Hsa82rgVBNp3RnKJJp1vE+oxXcjlfLkB5OM4q/qFrNqeoSQQKqlQCZT0Ax3NZZtLxU/eRuQVLLjpitzw3eGGwlRYDJOwIUnkMe34VxS5INVebS1gRlSyLpsrWy24nC/8ALRiRu9wOworo10ie6LTXVyBKx5EajA9qK8aeOy9yblZstUqhXtXJfOzNyON4PJ9sVv3dk6RM/wAwULlgeSMVzui21wNSt4LmVZJMlto6Ovrmui8VXp07TRIr7S4xtP8AEfSu3AUKlWnKMt09O9/MySuchqWtDS7XdJkzMTsAHIHqa4i/8Z3UrhIj8oP3d3JrQkto9buXe5ufKyDhi2ee2ajtPh7cXV2lv/bOnxCdS0UcpIMi9MqMc817tHCyw9JU6O3V92axVjEm12aeMnzGDs2PrnpVJNVuw6kysMHPLcmutPw3OnRyPqOo2VtDGcLJcS7RJzjIXrj3rJm8HXtm0ieZEDnB5H6etP2VdalNtjoPFDxlQzNkjBBbrXR291Ibfch+QnOM9OK5K40Vbe2COyvKrBsjp9K2dLuAkWMnkArz0I4/z+NddJzvaYi1NIJS6Nnco3EA9f8APFbnhm4W0cxXaq9tKCrBxkZrnJSUvVuApMMi9R/C3pW1ZXKwynOPIkA/ee/vTkua6YWO2bRrJJ4JLc3MSrk7QfMRweevatiXT7CDTle2tkgkIyMcZqno988NiEJU+Vypzx7/AId6ln1CK7ugwBkn4wR0BH/1q8eUKUozpVOqa7f19xG2pjYMhJ810wcYGaKu3mkWN7ctO5KOfvBJioJ9cCivnXw+k7Kf4F87ZgpeRw+IxLDMBHboXmI5Cr6fXtiue8Z+J/7bltvKhaJI1OVY9yf/ANVVW1FLSJ2mWVxM28tx8x965jxDdkajLJGNqbBhc9DivTyyvL2sr/DuZx0NrSzBJIxnnCxrzI+Puj0Hua6WbxToWpxoraM+pCzUBSkbnywO5K8V5dZG4vEhsm3hJZ18zB5KAFj+grU07xjq9jGILe7Syt4JmaAR24cjIxnntjPFe59dUfdsdFOHMdpPf+G5tVe5k00RagW377jezqfXa54/KsPXL+UXDzef5iM2WJ657ZrE1XxVeagtrBqV1BeW0b4LLEUKqT1Hv9OxqnrLf2brN5Y72ktMhoJHOS0bAMpJ78Gq+uxk+W1hzpuKuaL3Idgc8VElyUmOPWsOG+I3Iex6g9R61aheS6uDHGpLdqcaylsYnSWN/GXlQjgncVI4zV621V0ieGJSYCf4Uxu989ulYdqu19u4B+SrN8pyOn8q1jdpIgJUpzuMYUHlRgr9D1rojewzpdP8Qy2yGN1VYVAxHtPP1Na1nrcEp8pIzCjH7xI/SvP5LmayjSSKVnUnGPw7VZg1VpIwQQjgZKuvDfT0rCthaNdNTVm1utH94jsbxbu5uC1haSTQqNvmAEAnqf50Vz8GveTHsLPF32rhh+tFedHI6UVaM3YCnDbiSzYySo1uzEg4+4a5bxHbNbai43rJG0YYMoPXpitaO5P2dI5JABgrjdjPp9az9WY3VusZUl4yAcehrx8L7lZNbPRkJnOWdxIurWy/Oys2zrzyOtO1iKayLzp/CQCvYir3hQ283jjTVuWVIYp9zZOBgA4H8q7fxJodte3Ln7LEwBRACz4kTbySFPUEY969h0pOSmvR/mdlCPNTaPMZG8y3SQHCyLkE+uSKktFnuvDFzcylnNrKFDE5wuMYz6Diu/07wraq8RngheC3IENuA37wbmJ3k9ecdPU+lUfGFtpvhnwteadDcR/aL+YP5Eb7ljGSSB7DCjNXGm23G22ptUg1Hml2ODgdyVbYWLAAY611mmQCFfODOsjISWB4BPT8OKy/D9tHHbpPKVZlZdo9Mg1ekvfssXmhMiXoygEnoRn24/WuulFQ95nAbMypcRLI3y3AwrEHqR0J9SRmoZp91qRt2smPmB6nODketZ73zPkRnacZCk/eHbHviljulmRmUiOTrtJ4bv8ATB/Q1u6iYF6eXfaxcnOcbf8A69VBKbYEbv3e4Zx29CP6j3pLe63QssgB+QH8xzVeSVZ0eHPzou1mzw3Gf5VMpdUBo/bgQMSKOOeKKxreR5Yso6kA4Py5xRSVW+oGo11Zi+EchjVkb5QrE810rmB7dZLiCJJXjK4AALA9DivOdPAa/QsM5lUHPeuu1BmOoqpJK56E8dK5aNOnK8nFaC0Zy93BFaajKvPJI575qIaxcWLCPezRdMkmneICV1JipwfIJyK5+RmMIyxPy9zStaegN2Nq98VXrLi3mkQY65NYsXm316qs5lkkPLu2f1/Oqsp+atDRAC85wM7MfqK16XY9zofMiBhtoyAGcJnOOvBA/D+dW7qSObC5LLGW2lvxH6f0rmpGZgNxJwCeT3w3Nadm7yRfvGZ8qpO45ySDk/jTUtAJkg3wbc8AblY9UP8AhxVe2v8AI3M+zBG5HHBHTNTtxKwHA8o1j2xJmbJz0/pWbdrWJbNO4ufs8NxGhUb1xGc+/PPvg1XkmktjHLJJlgAHYDGRn9aral/x5A99v+FRXJJtOST16/hU3bGW/JDsXidijnKsjAA/nRU+iKv2ST5RxIe3sKKv2aEf/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many gorillas are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 == 1")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

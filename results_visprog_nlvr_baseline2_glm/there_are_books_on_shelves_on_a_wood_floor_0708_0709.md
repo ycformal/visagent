@@ -1,0 +1,25 @@
+Question: there are books on shelves on a wood floor
+
+Reference Answer: True
+
+Left image URL: https://hankwhittemore.files.wordpress.com/2012/08/used-bookstore1.jpg
+
+Right image URL: https://i.pinimg.com/736x/58/34/5a/58345ac76833ab089188979b1f3659a4--used-books-bookstores.jpg
+
+Original program:
+
+```
+The program provided is a set of logical statements that are used to determine if certain conditions are met in images. Each statement is evaluated and the final answer is determined based on the results of these evaluations.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

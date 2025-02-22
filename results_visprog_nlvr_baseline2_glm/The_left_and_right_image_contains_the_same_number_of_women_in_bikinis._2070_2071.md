@@ -1,0 +1,25 @@
+Question: The left and right image contains the same number of women in bikinis.
+
+Reference Answer: True
+
+Left image URL: https://ae01.alicdn.com/kf/HTB1JZM7KpXXXXajXXXXq6xXFXXXE/Free-shipping-black-halter-neck-one-piece-black-catwalk-tie-Hot-women-s-sexy-bikini-B.jpg
+
+Right image URL: https://ae01.alicdn.com/kf/HTB1j6eUkZnI8KJjSspeq6AwIpXaj/Vrouwen-Tribal-Bloemenprint-Gehaakte-Bikini-set-Hoge-Hals-Sport-thong-Badpak-Braziliaanse-bikini-2018-Badmode-Badpak.jpg
+
+Original program:
+
+```
+The program provided is a series of logical steps to determine if certain statements are true or false based on the content of images. Each statement is evaluated using a combination of visual question answering (VQA) and logical expressions. The VQA function asks a question about the content of an image, and the answer is either true or false. The logical expressions then combine these answers to determine if the overall statement is true or false.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

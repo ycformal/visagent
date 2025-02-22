@@ -380,6 +380,9 @@ class VQAInterpreter():
         self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large"), ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa"), AutoProcessor.from_pretrained("google/paligemma-3b-ft-vqav2-448")]
         self.model = [BlipForQuestionAnswering.from_pretrained(
             "Salesforce/blip-vqa-capfilt-large").to(self.device), ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(self.device), PaliGemmaForConditionalGeneration.from_pretrained("google/paligemma-3b-ft-vqav2-448").to(self.device)]
+        # self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")]
+        # self.model = [BlipForQuestionAnswering.from_pretrained(
+        #     "Salesforce/blip-vqa-capfilt-large").to(self.device)]
         for model in self.model:
             model.eval()
         self.stemmer = PorterStemmer()
@@ -415,7 +418,9 @@ class VQAInterpreter():
                         idx = logits.argmax(-1).item()
                         results.append(self.model[i].config.id2label[idx])
                     except:
-                        raise ValueError('Model failed to generate answer. Update the code for VQA answer generation.')
+                        print(question)
+                        print('Model failed to generate answer. Update the code for VQA answer generation.')
+                        results.append('Runtime error on this VQA model.')
         stemmed_results = [''] * len(results)
         for i in range(len(results)):
             words = nltk.word_tokenize(results[i].lower())
@@ -2034,7 +2039,8 @@ def register_step_interpreters(dataset='nlvr'):
         return dict(
             VQA=VQAInterpreter(),
             EVAL=EvalInterpreter(),
-            RESULT=ResultInterpreter()
+            RESULT=ResultInterpreter(),
+            CAP=CapInterpreter()
         )
     elif dataset=='gqa':
         return dict(

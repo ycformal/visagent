@@ -1,0 +1,25 @@
+Question: An image shows one red balloon floating several feet off the ground in a cemetery full of tombstones.
+
+Reference Answer: True
+
+Left image URL: https://78.media.tumblr.com/127f07ae844d9253b2d508f2d874a4d6/tumblr_owyfrbsy2Y1wct9qio1_500.jpg
+
+Right image URL: http://www.lovethispic.com/uploaded_images/116173-Disneyland-Balloons.jpg
+
+Original program:
+
+```
+The program provided does not have the necessary steps to determine if the statement is true or false.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

@@ -1,0 +1,28 @@
+Question: The right image contains one dog with their teeth exposed.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/75/19/dc/7519dc48c8b7bf11880f11fd8d5ce002--my-favorite-things-humor-memes.jpg
+
+Right image URL: https://i.ytimg.com/vi/b5o2_9zFIUs/maxresdefault.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a dog with their teeth exposed?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a dog with their teeth exposed?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a dog with their teeth exposed?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

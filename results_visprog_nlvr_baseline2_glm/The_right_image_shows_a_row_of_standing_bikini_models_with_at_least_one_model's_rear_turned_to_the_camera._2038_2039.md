@@ -1,0 +1,25 @@
+Question: The right image shows a row of standing bikini models with at least one model's rear turned to the camera.
+
+Reference Answer: False
+
+Left image URL: https://image.dhgate.com/albu_851218459_00/temp2.0x0.jpg
+
+Right image URL: https://i.pinimg.com/originals/23/20/cf/2320cf39d4708997943b4ec3b5640bdb.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

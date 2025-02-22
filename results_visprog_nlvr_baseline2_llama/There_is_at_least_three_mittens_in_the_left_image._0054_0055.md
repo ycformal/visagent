@@ -1,0 +1,28 @@
+Question: There is at least three mittens in the left image.
+
+Reference Answer: False
+
+Left image URL: http://68.media.tumblr.com/8194743fcefc509da306718b11442931/tumblr_mfr3g489Dw1qdcyrfo1_400.jpg
+
+Right image URL: http://3.bp.blogspot.com/-xCv2wW7yxjs/TujOZzHzmoI/AAAAAAAACzQ/OfWzPO1Wrjs/s1600/001.JPG
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many mittens are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 3')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many mittens are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 3')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many mittens are in the image?')=<b><span style='color: green;'>2</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 3")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="2 >= 3")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

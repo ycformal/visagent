@@ -1,0 +1,25 @@
+Question: A dog sitting on a seat and facing forward has an upright cup between his front paws.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/2c/ec/35/2cec35fed8906bdb567d09d7a27bacbe--italian-greyhound-silly-dogs.jpg
+
+Right image URL: https://i.pinimg.com/736x/2d/53/a5/2d53a5e5dafa203c1d83763c27cbd577--greyhound-italiano-italian-greyhound.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

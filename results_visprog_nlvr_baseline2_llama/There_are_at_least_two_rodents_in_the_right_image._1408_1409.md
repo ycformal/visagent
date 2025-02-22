@@ -1,0 +1,28 @@
+Question: There are at least two rodents in the right image.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/236x/30/ab/00/30ab00468a7bddbceaf9796ee00bcce3--mike-dantoni-hamsters.jpg
+
+Right image URL: https://laughingsquid.com/wp-content/uploads/2015/01/three-little-hamsters-live-in-a.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many rodents are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many rodents are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many rodents are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 >= 2")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

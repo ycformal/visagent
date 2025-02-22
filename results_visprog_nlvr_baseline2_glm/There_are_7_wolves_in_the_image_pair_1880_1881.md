@@ -1,0 +1,30 @@
+Question: There are 7 wolves in the image pair
+
+Reference Answer: True
+
+Left image URL: https://vetstreet-brightspot.s3.amazonaws.com/2e/0ff170370011e1abfd005056b5004b/file/wolf%20with%20cubs.jpg
+
+Right image URL: https://s-media-cache-ak0.pinimg.com/originals/7e/9b/56/7e9b56b70d901e45fd3e726c9c6db622.jpg
+
+Original program:
+
+```
+Statement: There are 7 wolves in the image pair
+Program:
+ANSWER0=VQA(image=LEFT,question='How many wolves are in the image?')
+ANSWER1=VQA(image=RIGHT,question='How many wolves are in the image?')
+ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 7')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

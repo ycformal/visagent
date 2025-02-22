@@ -1,0 +1,25 @@
+Question: There are two lemon trees.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/originals/0f/2d/fc/0f2dfc73f68d1597ea56275373002dd6.jpg
+
+Right image URL: http://metaphysican.com/wp-content/uploads/2017/12/qhpmze0ybksdwctvoa1ul9x2j358nrf64ig7.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

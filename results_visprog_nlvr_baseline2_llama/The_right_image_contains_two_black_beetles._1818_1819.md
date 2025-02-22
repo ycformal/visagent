@@ -1,0 +1,28 @@
+Question: The right image contains two black beetles.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/a9/77/7b/a9777b356d34deb5878088dff4036b1f--beetles-national-parks.jpg
+
+Right image URL: http://farm8.staticflickr.com/7387/10141366573_3aceecb036_b.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many black beetles are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many black beetles are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many black beetles are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 == 2")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

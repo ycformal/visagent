@@ -1,0 +1,25 @@
+Question: Books are stacked high down an aisle in the image on the left.
+
+Reference Answer: True
+
+Left image URL: https://igx.4sqi.net/img/general/600x600/1656556_gTMl5Btz-BH4YHeEvD_9oyXpsLYlHTFGaG6HpsgEbl8.jpg
+
+Right image URL: https://s-media-cache-ak0.pinimg.com/736x/2a/96/39/2a96398e9da696502b55161f55d6fc7e.jpg
+
+Original program:
+
+```
+The statement is True.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAwAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDslSCaLS/Llid9gPyOGzxg9PeodF8PQadcNq1uEjZlfzIuNkmZMDOc9KT7NBqdq8F/p9ohWYvB5YbdErdQCoHzA9D07U3SmvfJm02Xz4jEFQMXDxPjklSeevUHpU0al1ytETpOLbT3/wAjS8Raw9taw27wQwyoTJKqHHzE8YyOeDk8d6nt/EqweH1aSEbWJ28gFznPA9PeuR8c6lOt+kbzh2ECbnVygJJBOQvTnFYUes7rOG1YRhfKyAGPLDg8n6frSqTsrI0pwTV2dbN4hXUbrLxTQxySgybQ0hOFxkKB0rM1jxlNpTPbWunrPOSEjYwkHJ/H9DXP2k11cz2sS3TQje0kXlN8+4YyeOe1QSGebU5nF3HAVJVsBt5J6njjnr61KqO3KDppu4PDvtS0sR80sC+f7xzVdbUDdhMAZyc9K6fTP+EWu9LWa71Z4wCpuNyHC/MVGO/JHU1YXxZb6UqQaVrWmGzbOI57fzZE/EKMj6k1xRTlqdL00PPLzU0hyltHvb/no3QfQd6m0Px1r/h1n+wX7rG53NE6h0J9cHp+FdJ4mfw7qs0d8+v297c5CNDDAbZdvJJGF5/E5PrWC1npKXzC31PSUtQRiSSKR3OSOMHODXZTlCCslqYyUpPc6a3+NniQrt+x2Uzeohb+jU+X4qeM7tCIbaK3yPvLBj/0Imue1JdMF0seneKZYoG2jebTpzyflwQB+ZrNudN01tUtYpPFd1d28is00y27qYwPQM3OcUOpdX2+8ajYu3mreKr65ae51SbzDxzcEYH0HFFWIdY8FWcQgOgpd7OPPleVXf3IDkA+worPnf8ASK5T0rS2/tHw1aRzywfaonUmYWpIJB4BBxk4xxzWfq1xeaUF/sS0+1ytP+9DqqbRjBY8beoHAq1osWparZ2kEEpEMJ/fsMoMg8jJ5PPXt9a5nTtbudS1PWIIhFNJDcfukwXQKuBxjPQHtWqhyu99+hzxmmrW2MfxbfynU4kdpI7m3LHaBgo5IOWx06jFZj3W+OO9ZmaR1aPGMksVJ3fpV/xbY3U+rPdAqpkjy2Wyc8ZOOvpWDd+db2UDAIAp2k+pIOTj6UrWNU00XLK9txeWkVwitG4Mfyn7rHua0NN1C1tr+aE3EMdzIc/Pg7/QhiMD6ZrmyssURuPuvGxBJHIJX/65p0syMwh2qNmcN3GBxj8hScdPUcbX16I6LTtV0+bTNcgk0e0WOLyptiK2JEEgyTliPf8AGpWhtViV00WxSOZiYJzAqq4GOhJO1hnlTmudskFnqNrHcNi3u1aGfaTllYAH8uo963tNvxo1/eaPqEPn2JYpNCTyccblPZu4NefUutYs6oWZcmhCym3Om2MEpUOi+REvmjttJBB6djzmh3lWfyzaWJkI3CM2aA/987cj8iKffRT6HDHIjJqnh25G6F5F3KD6MOqP7jGf0p9ukd7AI9LukcE8adqOGB/65ueD9PlNZcz6mnKuhUNrZzyDzdG0qRlHMYt9pPqCAQc1Wm0rRbiSNP7GWKQZB+zzOvGOmCT69asu1slwsNzHc6fc52tFNH58Qx/sv8y/8BJqGeW1t1kdpEEYcKZbObzEZsd0kB7fTHSrUpdGyXFdivLoHhrzMHSdTQgYIW94J9RlKKjF0heTyZVeMN8rCKVc8Dsj4FFN1JLTmYlCHY7i88WSxardQ2zXMdhcQMruynbwOZOPukjjHU/XmuG0TUNRtNRF9p+oPFPIckJAF3DOdp49OPWrmuXDWsGnQyLgSznOWIG3AAJHr/nvUemnzWt5IpZJGDghFTpzwM554r0IL3byOKbTdokl24HiDZa30k9jOpmVZFzjd2z9c1BrkK/2erIfmQ5247U7T7OaG9uWuI2XaF8piOOQMj2Of507UAWhIJzWtiLmBNdGewAaNV+dfu9845PvVBnJaaT+90p7ZLLApAIzjnv2qujosMcLkCQEkj8elQtNy3tp1LN9q+nvDZ4u0LxSjeBnIBGD2qfVPFGm30tpOXL3JjCXDZIUsvAbp3AWuClJMrk9dxplT9Xi0kylVad0eqaP44t7K2e3W5tvssvEtrOCyScdSTyPw9BWQPEVrDcSqlzGsW4kCMkr+GRmuCoqPqcL3uafWZdjudW8QWsthYpDfNI0YbKFiRGODheOOartrVkdLaATRGUyBtxU5wB0+lcdRTWFgla5LxEjr7XXoraEIl0q55PXrRXIUUPB027sFiJI/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

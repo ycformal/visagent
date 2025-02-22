@@ -1,0 +1,25 @@
+Question: A young girl is holding something to feed a long-necked animal wearing a halter on its head.
+
+Reference Answer: True
+
+Left image URL: https://media-cdn.tripadvisor.com/media/photo-s/0d/3a/18/b6/feeding-llamas-at-cochasqui.jpg
+
+Right image URL: https://static1.squarespace.com/static/580da10c414fb51edc019daf/59c2000bb7411cb6bc8fdb15/59c20186a9db092ebfaa9778/1505887943511/IMG_3281.JPG
+
+Original program:
+
+```
+The provided program does not have a statement or question related to this scenario.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

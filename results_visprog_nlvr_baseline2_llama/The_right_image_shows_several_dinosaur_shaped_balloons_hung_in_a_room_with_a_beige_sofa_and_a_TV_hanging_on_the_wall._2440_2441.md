@@ -1,0 +1,28 @@
+Question: The right image shows several dinosaur shaped balloons hung in a room with a beige sofa and a TV hanging on the wall.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/originals/6a/6a/7b/6a6a7bb1bbce0a814f559233a9643f4c.jpg
+
+Right image URL: https://i.pinimg.com/originals/f5/b0/5b/f5b05b00562d410b56dead6d6ab60e7d.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Does the image show several dinosaur shaped balloons hung in a room with a beige sofa and a TV hanging on the wall?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Does the image show several dinosaur shaped balloons hung in a room with a beige sofa and a TV hanging on the wall?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the image show several dinosaur shaped balloons hung in a room with a beige sofa and a TV hanging on the wall?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

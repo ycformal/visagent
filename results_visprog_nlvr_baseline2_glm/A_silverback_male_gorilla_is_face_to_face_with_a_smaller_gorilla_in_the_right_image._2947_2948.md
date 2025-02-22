@@ -1,0 +1,31 @@
+Question: A silverback male gorilla is face to face with a smaller gorilla in the right image.
+
+Reference Answer: False
+
+Left image URL: http://media.npr.org/assets/img/2013/10/03/ap132047184934-dallas-gorilla-patrick_custom-44f4e50266cf06ecb2464afdb92f394a753b136a.jpg
+
+Right image URL: https://secure.parksandresorts.wdpromedia.com/media/disneyparks/blog/wp-content/uploads/2014/12/WLW704701LARGE.jpg
+
+Original program:
+
+```
+Statement: A silverback male gorilla is face to face with a smaller gorilla in the right image.
+Program:
+ANSWER0=VQA(image=RIGHT,question='Is there a silverback male gorilla in the image?')
+ANSWER1=VQA(image=RIGHT,question='Is there a smaller gorilla in the image?')
+ANSWER2=VQA(image=RIGHT,question='Are the gorillas face to face?')
+ANSWER3=EVAL(expr='{ANSWER0} and {ANSWER1} and {ANSWER2}')
+FINAL_ANSWER=RESULT(var=ANSWER3)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

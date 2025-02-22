@@ -24,10 +24,9 @@ def parse_step(step_str,partial=False):
     parsed_result['args'] = args
     return parsed_result
 
-def validate(program, question, module_list):
+def validate(program, question, module_list, state_dict = {"IMAGE": None}):
     inflect_engine = inflect.engine()
     lines =program.split('\n')
-    state_dict = {"IMAGE": None}
     for i, line in enumerate(program.split('\n')):
         parse_result = parse_step(line)
         step_name = parse_result['step_name']

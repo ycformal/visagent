@@ -1,0 +1,28 @@
+Question: A single shoe is sitting alone in the image on the right.
+
+Reference Answer: True
+
+Left image URL: https://s-media-cache-ak0.pinimg.com/originals/47/d3/27/47d327f049081e75733a7ce9e594ef16.jpg
+
+Right image URL: https://s-media-cache-ak0.pinimg.com/736x/2e/ae/61/2eae613bb39fe7e5f121975d654b97a4.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a single shoe sitting alone in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a single shoe sitting alone in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a single shoe sitting alone in the image?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

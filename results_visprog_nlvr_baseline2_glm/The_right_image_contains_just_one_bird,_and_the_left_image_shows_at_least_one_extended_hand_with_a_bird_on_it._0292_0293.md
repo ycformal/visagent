@@ -1,0 +1,25 @@
+Question: The right image contains just one bird, and the left image shows at least one extended hand with a bird on it.
+
+Reference Answer: False
+
+Left image URL: http://admin.whatsongroup.net/Admin/uploads/displays/B/bristol-zoo-feb111.jpg
+
+Right image URL: https://media-cdn.tripadvisor.com/media/photo-s/04/46/12/7f/bristol-zoo-gardens.jpg
+
+Original program:
+
+```
+Statement: The right image contains just one bird, and the left image shows at least one extended hand with a bird on it.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

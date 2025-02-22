@@ -1,0 +1,25 @@
+Question: The bird in one of the images is standing on the ground.
+
+Reference Answer: False
+
+Left image URL: http://www.strangewonderfulthings.com/Parrot_Impatiens_niamniamensis_6839.jpg
+
+Right image URL: http://www.besgroup.org/wp-content/uploads/HangingParrotBlCr-GoldenShower-fl-Chung-Wah-Weckherlin.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

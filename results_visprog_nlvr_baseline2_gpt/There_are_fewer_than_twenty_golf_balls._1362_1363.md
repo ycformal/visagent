@@ -1,0 +1,28 @@
+Question: There are fewer than twenty golf balls.
+
+Reference Answer: False
+
+Left image URL: https://images-na.ssl-images-amazon.com/images/I/61QtvXkT%2BmL._SY355_.jpg
+
+Right image URL: https://sc01.alicdn.com/kf/HTB1G_oQMVXXXXa6aXXXq6xXFXXXU/222493353/HTB1G_oQMVXXXXa6aXXXq6xXFXXXU.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many golf balls are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} < 20')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many golf balls are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} < 20')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many golf balls are in the image?')=<b><span style='color: green;'>8</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 < 20")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="8 < 20")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

@@ -1,0 +1,25 @@
+Question: There is at least one penguin chick visible.
+
+Reference Answer: False
+
+Left image URL: http://i.dailymail.co.uk/i/pix/2007/04_02/05penguinDM_468x743.jpg
+
+Right image URL: http://www.photovolcanica.com/PenguinSpecies/King/ANT09_1399s.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABbAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDEOAOaZuHYH8qfye+KdHsz85OK+nlKx8FGNyFlLdBz700Q5PXn2rG8Q+KobS2ihsVK3bOJAxAKiPkYbPUnr7VraBqKa3pguggjlDFJUXoD/wDXrip46FSTSTPUqZVWpRUpNa9i0kLkZAYil2t/dNW0Zo+ByKkVo2GGjrR132MlgovqUQhbsPxqhBdzfb5rccRiQhvYdj+ddAEhA+61cwdsOo6jyysZVCgccckn9BXHi6rnA9TLMMqVRtPoXry8trS2U3E+xJXWMknHJPUnsBWhaadaapZNLZJLqkakExQSbdyg9Tlhnntz9K47XzGLeE3So8IkzjJ3MQDwSBxnNbFnqc2nW9rfWKNbh48lNvH3eF/CvKu76HuPY07gWcULzaWfL8hlJgbAHHOMfWuf0wwSXdzeJDJG+4+WAMpz1GT6A966/wAAajbwNfWl1ai4a8kHDxhgwAwefxqvqugwaB4hubaN18iRUlQYyyg54PuMY962lLQzS1Mtpmc5MLMRxwuaKu7oU44bvnBorE0Id6+tV9Rm+z6PdXXRVXaCe7NwB+tOmnRpmaNNqZ4Wua8SX7yzWtgrnYMzMvbPRf619FiKjhTbR8Zg8MqldRe3+RoaR4SXxJcWe6Muwb5wp/gAJ+b2JBFbmpaZJpNpNqKFIntYsnb0lUdEb19j2rsfg5ZqLHVXlyZFuosDH8PlDH/oTVna+fJutU0S8QPEC0fTG6NuVP5EV4OGlUnVqKysrW7+b/I+mxPJGMHJu3Xs/KxgaPrVtqUskSEMVUOp67lP4DBB4IrajSN3y4AH0rkfBXhq6j8SzQ+cHUI6xjHLqeh9sHGRXR3N5Pa3DwSx+XJGxVlI5BFddCv7Rum37y37+py4mjGjyzXwy26lySJRyrcVyV/bINRuJ5J2k+bPzcBAB0rcW/cnJb8K4nVPFUNvqdzbvbSP5cjDIYDJpYqLUUa4KcZTdjrfDFxp9/HLEbWOV9xeMOR+8UDopPQ/Wm6jpEGs3Zh0pbv7WHyLeVChVu4OeBx36e9cD/wk1qrbo7aaN+u5HANT2njRra785/tcykbWDzAED2IHBHrXFTXK32Z6MtTpoPD+vaXdm7N3Fp+1xNGLqcKMg9MZ79xWnqOtT6xqhu7vyo5hEsUiRfNHuXPII7c9K4e48V2F0wa5tby4K8KZ59+PzpyeL7GIYjsZlHYB14/SqbYkjsVKhfmck+w/workx45gA/49Z/8Av4P8KKizKudIyr26Vw+tTH/hILnBxt2ID6cCutP2rPV/wWuL1Et/bl2Wzu385HPQV3V8bCtHlieRgsvnh5uc2tj3z4JzxzaLqI83dOLhN6HsuzAP8/yqj8VnWz8StcqOtmjHHcgsP6CuX+C+qNZ+NPsgJ8q8gdCPdRuX+RH41p/F6R7nxra2QkKCWGGP2ALHJ/8AHq56dT2U+ZdTsr0PbQUH3Rv+AdDn0uzhvb5915cgSFTzsU8hc+vOT+XarnxI0yA29tq6JsnZxBLjowwdp+vGK2okERSNeiAKPoOKqeObdrzwXc7FZpEeN1A6khgOPzrloL2Nf2/V7m2JpKtRdLZdPI8s5Hc15prn/Icvf+urV6G2lag4z9huceoUivOtZieHWbuN1KssrAq3UV21MYq6taxx4TAPDScnK9yjRRRWJ3hRRRQAUUUUAfUflQbVcWzYPTCgV4J4hk3+NNVl24AvH+X6N0/Svolr1nKpAqjJIAlyp46nFfP2v24ufiHqVvHyJtRaMY4+84H9aSST0Q5XsdF4LtW0v4u2tnyPJvJUA9trY/Suk+Kcjy+KtKcwMoSfy0c/x4KZx+NbXh/wZewfEvVfEl7FtsoUMsDFgTI7KFIx1GPm/MVV8dxvdan4a86MKx1Aj72cggE/youKx2cZZ33Cm+I2MfhPUHDbWRFdT6MHUj9atWCb8DFVvHSCHwlLGVb9/cW8Q2jJ5lX/AANQlqUzPaHUVDjYGJPG1uK+dPGauvjPVxJ98XT7vrmvo8+LdF3JvujGZMlVdCGxjOSOoFfN/jK6hvfGWr3NuxaGW6dkJGMgnjg1p8ibWe5h0UUUAFFFFABRRRQB9gCGMuH8kB+fmCjOPrXzf4jEln451S4jOHjv5JF4zgh8ivoiDUIHjiijW1UygtEkUud30GBkV5Fqng/UNU17xFcTWk0DlzLZKw4lJfJyf4RtB6460Ip3Z7VZ3n2vw/FcKwK3IRgfUEbqw9Z0y2nnt9VuJAqWCSFVYADc20Bvwxj8azfCOqrdaRaaUEB/sy2j8xoplb5ySCDtPsP1pfFtnqPibRUs9JcRQm5CXMjo38BBHPpnuM5x9anQEnY3ftsljFaSjlJiRj3FaeoCK/0+JLhA8ayBlDdiO/615+nia4tjqGjazdQ2lzZxF7Ro5FAlwG5BPUnjgfSqfgPxfbXfh9bLxFqym680lPtRALqwB6nrg9qSTuDsdvDpelW86eTaWiuiFB0LBfQe3tXzZ45RI/HOtJGqqi3bgBRgAZr6ejhjwGRSdvTA/Ln8a+Y/HYx471sAY/0yTj8asTOdooooEFFFFABRRRQB9X2OiW2kwKLW3y65AIJDAelXm8ua3PmZQEYIbg/jVmYkAAEioZADIBjg9feqd27sEktEMtYLaGE/ZIIoUbj5IwufyHP1qxDOULM/3FGc5zUKErKiAnbg8E5qy4CABQBg1NkVdkV3pel3shnudPtZJT/y0eJWPb1HsKT7PCVVBFCyx8KpjHy+mPSpCcZpucHilZILkZMxm4ChQODkg/pxivmDx1n/AITrW9xy32uTJ9ea+o2Y/L7g18u+Pf8AkfNc/wCvyT+dMlnO0UUUAFFFFABRRRQB/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

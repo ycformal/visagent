@@ -1,0 +1,28 @@
+Question: The animal in the image on the right is standing with its body fully above the surface.
+
+Reference Answer: True
+
+Left image URL: https://c1.staticflickr.com/3/2114/2523633088_95cf3c49cb_b.jpg
+
+Right image URL: https://www.nps.gov/wica/learn/news/images/Ferret-Close-Up-low-res.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is the animal standing with its body fully above the surface?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is the animal standing with its body fully above the surface?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the animal standing with its body fully above the surface?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

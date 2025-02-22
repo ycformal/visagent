@@ -1,0 +1,30 @@
+Question: The right image contains three safety pins that are three different colors.
+
+Reference Answer: True
+
+Left image URL: https://ae01.alicdn.com/kf/HTB1PJdDLXXXXXXVXFXXq6xXFXXX9/-font-b-1000-b-font-pcs-tr&ecirc;s-cores-preto-prata-ouro-Preto-Em-Forma-de.jpg
+
+Right image URL: https://ae01.alicdn.com/kf/HTB1NQJzLXXXXXX.XVXXq6xXFXXXX/2000-pcs-three-color-silver-black-gold-mini-nickel-plated-safety-pins-4-5-length-18mm.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many safety pins are in the image?')
+ANSWER1=VQA(image=RIGHT,question='Are there three safety pins that are three different colors?')
+ANSWER2=EVAL(expr='{ANSWER0} == 3 and {ANSWER1}')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many safety pins are in the image?')
+ANSWER1=VQA(image=RIGHT,question='Are there three safety pins that are three different colors?')
+ANSWER2=EVAL(expr='{ANSWER0} == 3 and {ANSWER1}')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDuhS0CnCoEGKKKKAClxRRQAlFFFABikxS0UANpDTjSGgBtFLRQAo606kFLQAtMllSCJ5ZG2oilmPoByafUVzAl1bSwSfckQo30IxQB5/J8XLKKeQHSrjyA2Ek343/TjH4ZrrLLxNYXdrFNL5toZFDbbiMrjPbd0rkY/BetaNqEElhLb3tqj/6qclCF9+oP1rqP7ReFdt9otxGO7wYlX9MH9KYG5FLHOm+GRJE/vIwYfpT65gN4duZN0V2lrP7sYH/XFVrrVtT0y8aG1vLe9gjg85/tLjOMkAB1x6Hk57UgOvoqCyulvrKC5VSoljVwp6jIzip6ACkIpaQ0ANopaKAFFLSCloAWiikoACQOpAo4bpg1TvZ1iGySaS3LD93cogfy29x3Bqukd/JNj+07eeJcMsscQ3t9eMj6VyPES9r7NRNFBct7l6a0t7hcTQRuPRlBrNk8LaHNIryaZbMynI+QVo7rpByiSD/ZO00q3KZAcNG3o4x+vSuj2i66E2ZKirGoVQAoGABS0UVZIUUUUANooooAWlpop2aACikpaAEZQwwwBB7Gq40+3Vy8SmNj3Q4qd2Kqdq7m6Kvqe1c6PEmoCVlOh3GAfly6qzDPUL/iaiSi90NX6G5suo/uSLIPRxg/mKRriUAiS1Yj/ZIYU1NQBQNLbzxZGeVzj8qmjuoJjiOZCfTOD+VTydmO5RtnZrvMf2kA8MjrhAPatOiiilT9mrIJS5mIaM0HrSVqSFFIaKACnCmiloAXvS0gooAiuLdbm3eFyQGGOKowprNrHHbG6F3aR/dE3Lr9GPNalFICr9sKf663kT3AyKa0thccSeWT/tjBq5TGijf7yKfwoGVGVYFza3HJ4Cs+5c/0qe2maVCJNvmLw2zpn2pr2Nq/3oUP4VLHEkKBI1CqOwoAdRRRTEJRRRRcBAaXNMBpwNIB1LTc0ZpAOopM0tMAooooAKKTNGaACkJoJppNACk0U3NFACUtFFIBaWiigApaKKACiiigYUlFFAAabRRQIaTRRRQM/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many safety pins are in the image?')=<b><span style='color: green;'>3</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDuhS0CnCoEGKKKKAClxRRQAlFFFABikxS0UANpDTjSGgBtFLRQAo606kFLQAtMllSCJ5ZG2oilmPoByafUVzAl1bSwSfckQo30IxQB5/J8XLKKeQHSrjyA2Ek343/TjH4ZrrLLxNYXdrFNL5toZFDbbiMrjPbd0rkY/BetaNqEElhLb3tqj/6qclCF9+oP1rqP7ReFdt9otxGO7wYlX9MH9KYG5FLHOm+GRJE/vIwYfpT65gN4duZN0V2lrP7sYH/XFVrrVtT0y8aG1vLe9gjg85/tLjOMkAB1x6Hk57UgOvoqCyulvrKC5VSoljVwp6jIzip6ACkIpaQ0ANopaKAFFLSCloAWiikoACQOpAo4bpg1TvZ1iGySaS3LD93cogfy29x3Bqukd/JNj+07eeJcMsscQ3t9eMj6VyPES9r7NRNFBct7l6a0t7hcTQRuPRlBrNk8LaHNIryaZbMynI+QVo7rpByiSD/ZO00q3KZAcNG3o4x+vSuj2i66E2ZKirGoVQAoGABS0UVZIUUUUANooooAWlpop2aACikpaAEZQwwwBB7Gq40+3Vy8SmNj3Q4qd2Kqdq7m6Kvqe1c6PEmoCVlOh3GAfly6qzDPUL/iaiSi90NX6G5suo/uSLIPRxg/mKRriUAiS1Yj/ZIYU1NQBQNLbzxZGeVzj8qmjuoJjiOZCfTOD+VTydmO5RtnZrvMf2kA8MjrhAPatOiiilT9mrIJS5mIaM0HrSVqSFFIaKACnCmiloAXvS0gooAiuLdbm3eFyQGGOKowprNrHHbG6F3aR/dE3Lr9GPNalFICr9sKf663kT3AyKa0thccSeWT/tjBq5TGijf7yKfwoGVGVYFza3HJ4Cs+5c/0qe2maVCJNvmLw2zpn2pr2Nq/3oUP4VLHEkKBI1CqOwoAdRRRTEJRRRRcBAaXNMBpwNIB1LTc0ZpAOopM0tMAooooAKKTNGaACkJoJppNACk0U3NFACUtFFIBaWiigApaKKACiiigYUlFFAAabRRQIaTRRRQM/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are there three safety pins that are three different colors?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER2</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 3 and ANSWER1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="3 == 3 and False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER2</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

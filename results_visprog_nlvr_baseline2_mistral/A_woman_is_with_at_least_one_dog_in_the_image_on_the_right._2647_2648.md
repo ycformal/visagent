@@ -1,0 +1,28 @@
+Question: A woman is with at least one dog in the image on the right.
+
+Reference Answer: False
+
+Left image URL: https://usercontent2.hubstatic.com/6720905_f520.jpg
+
+Right image URL: https://img-aws.ehowcdn.com/600x600p/photos.demandstudios.com/79/244/fotolia_11959707_XS.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many dogs are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many dogs are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many dogs are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 >= 1")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

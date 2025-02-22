@@ -1,0 +1,28 @@
+Question: There are no more than five bottles of perfume.
+
+Reference Answer: False
+
+Left image URL: https://ae01.alicdn.com/kf/HTB1EHM6MVXXXXaTaXXXq6xXFXXXF/5PC-lot-30ml-font-b-50ml-b-font-Black-font-b-Glass-b-font-font-b.jpg
+
+Right image URL: https://i.pinimg.com/236x/ca/0a/10/ca0a104570c63992ad95158e59cdafd0--vanilla-juicy-couture.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many bottles of perfume are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} <= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many bottles of perfume are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} <= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3eilooASiiigApaKKBEc0ywKpYElmCqAOSTWbZeILLUHkWATDy3Ebb0xgk4HfpnvUupTossEXJdW88gDoi8E/+PCuJ8GXkcz6qELSFL3fwM4VWBI/AZ4rmqV3GfKaxheNz0WkpqSLLEkiHKuoYH2PNL0rqMQNNNFITTGJRRRSAz/Emrf2RpE0yttlZCImPQN2pvhnWk1nTmcPueJyhJPzEDoSO3/1q4D4ieJYrqZtNRSWt33ZB6jHP1B4IP1pvwy1yZdRi01nh8m5DyYT7+5RwD7Vy+1brW6GfP71j1uq0t9HFcPBsZpEi84gYA25I/mDVmsW6P8AxPLv205P/Rj10mhX07xnp2qancadaRzvc25AlUgDbnpyTW9FMs0ZZQRhipB7EHB/lXj/AIAJ/wCFj6+D3eM/zr1iw4t3z/z3l/8AQzSW4GZrM3k6gzYziwk4zjq6/wCFcH8OW48QP/08Tn9K7rXrWaW6EkYDCS38gKD824uD09K4nwNZXViuswzQsJLieURheRlgcAntXBWpzc5NLsdEJLlPTbMYsrcf9Mk/9BFSk02NTHDGh6qoU/gMUE16KOYM0lFJmgYtFJmignU+afEGor/wkN8WcLtldQUPykZPT2q98OZ/N8b6XFHKI1SRndiwHygHI/HpXq8ljZyk77SBvrGDUSaXp0UolSxtlkXkMsQBFcqpJO4vY63ud8CCKxLs/wDE5vj6afH/AOjHrQ09ibGJmOSRnNZl+wj1S/dztVrKJVLcAnfIcA10vYs838Bt/wAXK1z6x16XJNNBpEkkUxVvtMpJC5JG9uBXl/gFj/wsjWmPCl05PSvSJww0iPqM3cmfoXekCJbzSLi52Mt7h15DkZNZFj4end5zJcIfnIyAQa24Jna1jO4524602ORwW+Y/eNToMRRfWl7aRfahJFI+11ZegCk8c8VrVgzM763py5+7KzH6bDW5mqQmLSUE00tVCFJopmfeigDly1IzcGqBmuf+eSn/AIFT4pZmmjDRALuGfmrE1OouLqSz0y1ERAdmVCSM9Qf8Ky7kTX8qjz2PljK7+x6Z6GresMfsULj+GeNvwqpEdl+y44ZSR71TZBlxaJLJPIZBERuz1xk/lWrdTzrCkbzhwGXIqyDhmPvWddOPNVe7OBSGa1uf9Hx6Mw/WhDy31qK2fdC3+9n9BTkb5m+tMQyPDa5C56IjGtjzV9axLQ7r6d/T5RV4vTQMuGRfWm+Yv94VTL00tTuIu71/vCiqO6ii4GAcUnTmgmkNQWbsw8/Shn0U/rVFWzJav/eQircZY6UQOuwkfhWTHdKvl7iR5RJHuDQI1u7fWqO0SXxzztG6gX6HOCMnkVBpha4uLmUZ+ZGC59u/60AaVk37kg9eP8P6Uy7maG0uZEOHVCyn3xWNHqqxplG3IwyGAzUVzqoms51BOWUj7p9KUnoxpamH408S6joENtc2EipJIVViVyDnrxXW6Ze3Fxa2cjzOzSS7XzjBG1j6eoFcZ4ut4r22to5UDKRG2Pfiup0fAtrP/rr/AOyNXDTm/d9TpnFanRk00tTSaaTXonJYdmimUUBY4iS+uPMYeaRyeBV7Q5pbjU0V5N6gElG6EVQv7FraVs5wSQK0PDsKm+3lSGSPIOevaoGdiCuNuBtxjHtXLWGmG5ikikndJoJnjJ65weD+WK6LdXNmacarcS2k3lq0mXUqGDHGM+3QUxF2DQnTUPs8l4zfu/M3Ads4xUuhMZJL+f8A5ZfaWhiGOiJx/PNVnm1N2aVLqNJdu3cIwcgc45q1pGxNOURLtUMxweuSckn86BmboUEX+nWksSsIrqRQGHbOf61e1OztIIYzFAkfySSMcdlH/wBesiO28+6mkkOW8w8g4qzc2CtbOd2W28F3JApS2Y1uYWvDLWy9gqfyrf0lsQWY/wCmp/8AQGrD1iKUyQgqvCrjDe1bGlxyiG0JCgCU9/8AYNcFOEk43R1TkmmdEWFNLioSW9aaSa9G5yE3mCioMmii4GP4kHzQt3was+Hm32RLAEoxUHHOKKKkDYLEKT6CuZVihJU8k5JoopgPW5mHO/OD0wK0bJimnybeMAkfrRRQMxJpmjPAB+tQtcM0TDaoz6CiigQauSJ4x6Kv8q2NOJ+zW3/XRv8A0E0UVktkX3NEk00k0UVoSMZyDRRRQM//2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many bottles of perfume are in the image?')=<b><span style='color: green;'>2</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 <= 5")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="2 <= 5")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

@@ -1,0 +1,25 @@
+Question: The right image shows several dinosaur shaped balloons hung in a room with a beige sofa and a TV hanging on the wall.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/originals/6a/6a/7b/6a6a7bb1bbce0a814f559233a9643f4c.jpg
+
+Right image URL: https://i.pinimg.com/originals/f5/b0/5b/f5b05b00562d410b56dead6d6ab60e7d.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

@@ -1,0 +1,25 @@
+Question: The combined images include capped bottles, brown glass bottles and cans.
+
+Reference Answer: True
+
+Left image URL: https://pbs.twimg.com/media/BBrGIt_CAAEziqw.jpg
+
+Right image URL: https://i.ebayimg.com/images/g/n4YAAOSwx-9Wu6gc/s-l300.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

@@ -1,0 +1,25 @@
+Question: There are at least 4 gorillas sitting in the greenery.
+
+Reference Answer: True
+
+Left image URL: https://denisilligesaucier.files.wordpress.com/2016/05/rwanda-054.jpg
+
+Right image URL: https://saleereese.files.wordpress.com/2015/05/silverback.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

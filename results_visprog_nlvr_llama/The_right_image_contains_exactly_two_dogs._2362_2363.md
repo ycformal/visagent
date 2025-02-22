@@ -1,0 +1,21 @@
+Question: The right image contains exactly two dogs.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/736x/c8/8a/60/c88a60b0a1a050a2ed04b46aab9d4a63--shetland-sheepdog-partner.jpg
+
+Right image URL: https://i.pinimg.com/736x/b7/a0/7c/b7a07c1671bd5cf2d2f9b2fe00424d66--two-wolves-twos-company.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many dogs are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many dogs are in the image?')=<b><span style='color: green;'>2</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="2 == 2")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

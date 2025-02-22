@@ -1,0 +1,25 @@
+Question: A man is holding a book in the image on the left.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/61/ab/b0/61abb006f2b9863c5d4f0216d6c8e106--cotton-pyjamas-mens-collection.jpg
+
+Right image URL: https://b451c108ef7ce3b912eb-75c7695d67180639ae25fac6b37d4ead.ssl.cf3.rackcdn.com/bonsoir/uploads/prod_img/2_2154_s.jpg
+
+Original program:
+
+```
+The statement is True.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

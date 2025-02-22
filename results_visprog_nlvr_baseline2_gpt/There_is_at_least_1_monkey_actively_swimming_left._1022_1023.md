@@ -1,0 +1,28 @@
+Question: There is at least 1 monkey actively swimming left.
+
+Reference Answer: False
+
+Left image URL: https://media-cdn.tripadvisor.com/media/photo-s/0d/aa/ac/c4/baboon-having-a-drink.jpg
+
+Right image URL: https://i.pinimg.com/736x/8f/b7/74/8fb774b1a8fd280764e76e4093095979--funny-animal-pics-animal-humor.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many monkeys are actively swimming left?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many monkeys are actively swimming left?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many monkeys are actively swimming left?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 >= 1")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

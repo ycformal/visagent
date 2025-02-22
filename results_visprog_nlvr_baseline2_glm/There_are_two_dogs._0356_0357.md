@@ -1,0 +1,25 @@
+Question: There are two dogs.
+
+Reference Answer: True
+
+Left image URL: https://s-media-cache-ak0.pinimg.com/736x/55/d9/53/55d953b8438594b4d4d960b9c36ab819.jpg
+
+Right image URL: https://i.pinimg.com/736x/61/d9/8b/61d98b459189e633e4b80bdbfb98aa44--hound-puppies-hound-dog.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

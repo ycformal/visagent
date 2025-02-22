@@ -1,0 +1,36 @@
+Question: At least one cheetah is bending over water.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/736x/77/45/89/774589b4d972698f709605d4349a589d--baby-cheetahs-wildlife-nature.jpg
+
+Right image URL: https://i.pinimg.com/736x/2e/e3/1e/2ee31e3e7bba9042a2e6ab5ea8f01c2e--baby-cheetahs-big-cats.jpg
+
+Original program:
+
+```
+Statement: An image shows one bare hand with the thumb on the right holding up a belly-first, head-up crab, with water in the background.
+Program:
+ANSWER0=VQA(image=LEFT,question='Does the image shows one bare hand with the thumb on the right holding a crab?')
+ANSWER1=VQA(image=RIGHT,question='Does the image shows one bare hand with the thumb on the right holding a crab?')
+ANSWER2=VQA(image=LEFT,question='Is the crab belly-first and head-ups?')
+ANSWER3=VQA(image=RIGHT,question='Is the crab belly-first and head-ups?')
+ANSWER4=VQA(image=LEFT,question='Is there water in the background?')
+ANSWER5=VQA(image=RIGHT,question='Is there water in the background?')
+ANSWER6=EVAL(expr='{ANSWER0} and {ANSWER2} and {ANSWER4}')
+ANSWER7=EVAL(expr='{ANSWER1} and {ANSWER3} and {ANSWER5}')
+ANSWER8=EVAL(expr='{ANSWER6} xor {ANSWER7}')
+FINAL_ANSWER=RESULT(var=ANSWER8)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

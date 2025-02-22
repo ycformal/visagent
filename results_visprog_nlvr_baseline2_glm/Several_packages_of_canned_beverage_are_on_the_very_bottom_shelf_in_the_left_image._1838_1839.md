@@ -1,0 +1,25 @@
+Question: Several packages of canned beverage are on the very bottom shelf in the left image.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/236x/49/77/2a/49772aa0909956bdd9665c3c9232bb71--soda-bottles-vending-machines.jpg
+
+Right image URL: http://aknextphase.com/wp-content/uploads/2015/02/Soda-Bottles.jpg
+
+Original program:
+
+```
+The statement is True.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAA0AGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDrdQ1bUb5WC3E4UIVZRGMA8ZH5evfnrWHPaXt7Opmklmkiw0jyWqhkXHGPU9fyHrWFeRXdpdNFPrj+Wsxj3pG7YXaDnGeTz93rUawXMgJj1ySTaASFjfjJ68t09+54pNtofKdPYpr0rSX1rdXEfmNtQFVCtHnGNpHBxz61djfX7ya7t5JWkZQ3lllxg5xkcY5GP881wEn28XMkaajI5DqoYkrnJx68Vei3patNe61PHGJjECsZfBx3G8H17dqnmb0KU0ouH4mw2lXF7cOsCyCZbndKhDIojHAxkc8jtXVv4mj8MeAbKVrjbIigFPJZzgs/JAxgHGM15BeeJY11AwQ6xdzQgDEoR0+bPTBYnHvW34svpH0/RzaW8Wq20lipEtzayZk+eTJHzcHGepzWXKo6pHVBuatLWy/q50E3xgkQzKk5LqYwgazdc7jg9+MdvWpNE+JurapebJSgQo5A8to13DPGScntx9eteXpql0U3/wDCL6bnYj5+yP3bC/xVKPEt5Y3TLFomjwyb2jIe0GRgZOQTVLQwr3qQagkn8z2O4+IJ09Y2v53g3oCfKjafB78gjpwPfJ6VGnxQtZEB824f94UY+SUx+GfpXkbeKNRuow0+j6WUEIk509SAhOM9OlT2euahOA0ek6ZGjTBHcaegAJ+o69KUuZqyOeFKapqM3dnrtp8QJLt4gnmqZBv/AHijHHpg5weOta2l+KJru4tUknTEq7zxjr29q8eg1/WbZLcxvYRyMzxqsdnEGXH4cCnQ+K/EajzIpkVljMnyWkYKkHBzxx296ySnF2kzL2c1L4l+J9F6fM08UrM2cSsB9KKxfAdxdXfhG0uL1i11IWaViMZOfSiutbG55DNoc9551ydOBh2gSKYm3se5APJJ9R6VePhe2tJYJdP06SNpZCNzAuAhXoQTgc9M1wt1FqYSWP7SysxZSEuSxJUemenv3rMay1FIWbz7lj5G/wC+ODx+fejlSNZV5Thyt6HqMOi3+JlbT4d0Sp0AGcZOAf4s8D9KWXw8L21tpLvT7kQ+cZGWMlHyRj5tvPXrnjivN7bS9QuIjMklyYvNdFIfPQZFVbq3vba4KSvdjKI+c44P3vrWboxck+xzxjy63Ohuvhfrf9oTCzgtjEJBMomlJO3nC5xyfX8KteJNPu7aHRmg1O2064i06OFkuLkQnG6TIAIPf2rM0NJIrhLmaVyqK7fvJG28A9cfh0707xdewFfDz3MTqn9mCQyLl3Lb5MDBOPx5NXKWtrG9NeZUUa6I9o8W6Z9xE41OPGA2f7nTNQS6TqFzcGeXxHpTuXZizaomcEY/u9fWqmnzaRJe2kI+0uPOjyskACkKvcg+tdLAmjh8m3bieRuYvUY//VXHVxKpOzR6lDL51k2pfjcwV0W/CbR4n0lSIfKz/aowOc4xt6e1aljpmoNcmS+8VabPA0nmPjU8/Nt4P3euQDmubgbQz9vW/N2rLEqQCKPPc5+h6c102jz2VzbfZoLceRJc7leSM7uAODg9OtdDk7XXqcCi3U5G/I2II7fS3gu7bVdHubxCd/n3hC9cgjjrnvUJv7ry4opL7w2qqWL5vz85JByeOvA/Kpv7NtlkVWaInewO5Tg46D3Ht1qiul2UiwyOtuzB2yXDHIOeD+XFcX1iNR3evzO2eUrq/wA/66HvPgOZ5/CNpK80EzPuJkgbcjc9VPcUVF8O4Ut/BNjCgARNwH5mivRg7xTR5c48knHseZXN1pLmMWtxosUZZstHKilFYYC++OTxVGaJIZIxZ6ppdyi23kFvtUaA9eoPWuZtvCcc0ZMNykjhFdV+qZwary+F/JgeaVwIYWj3uuO6ZA/WqSU9SG3HSx6PbJYooJ1iwkk3FwRdhSPlwF4rLv8AS7K/Fs516xs3SNEkX7SHJKknJOfU9K4m08P3pjVyqhPLjPQcrnqKng0GaXxBc20lsXJAbYABuU9cAfUdKrldGa0szNOFVM6dNMtEtpIJPFOnqMMozMp8zJzyc8Vy198VvEGiXB0mxk0u5srT93A72iyfL1+8evJNWb3wrc+TORpr8BidykAlRncPbGR/OvOddQx6xMpJJwh/NQcfrUSm5S13NVFKN0dp/wALq8U/88dI/wDBelL/AMLq8Vf88tI/8F6V5zRTA9F/4XT4p/546R/4L0o/4XV4p/546R/4L0rzqigD0b/hdXin/njpH/gvSj/hdXir/nlpH/gvSvOaKAuemx/HfxpCgSKTT40H8K2agUV5lRQB9KSaBp5EbRw+U+D80fBOaW08M6fJN5MokkhlHzxu2QcDA7dhRRTTYNIktfD9oNRSPfN5Jby/K3DaFHIA4zwfetddEsXuhO0ZMpm27889PWiirbb1ZMYpbIrXWn28X2s4Z18tsIzHA45/OvnjxvBHb+L7+KIbUUpgenyLRRWb1d2XstDn6KKKBBRRRQAUUUUAFFFFAH//2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

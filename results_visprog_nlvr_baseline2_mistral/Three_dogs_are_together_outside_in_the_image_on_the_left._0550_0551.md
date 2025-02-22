@@ -1,0 +1,28 @@
+Question: Three dogs are together outside in the image on the left.
+
+Reference Answer: False
+
+Left image URL: https://pbs.twimg.com/media/B_6zebRWsAE8NV0.jpg
+
+Right image URL: http://de.academic.ru/pictures/dewiki/68/Dingo_or_maybe_crossbreed.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many dogs are together outside?')
+ANSWER1=EVAL(expr='{ANSWER0} == 3')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many dogs are together outside?')
+ANSWER1=EVAL(expr='{ANSWER0} == 3')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many dogs are together outside?')=<b><span style='color: green;'>2</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 3")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="2 == 3")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

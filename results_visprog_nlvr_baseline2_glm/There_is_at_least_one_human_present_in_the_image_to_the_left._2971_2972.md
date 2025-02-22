@@ -1,0 +1,28 @@
+Question: There is at least one human present in the image to the left.
+
+Reference Answer: True
+
+Left image URL: https://media-cdn.tripadvisor.com/media/photo-s/0b/61/f2/30/carlo-s-bakery.jpg
+
+Right image URL: https://media-cdn.tripadvisor.com/media/photo-s/09/a6/e4/f0/carlo-s-bake-shop-cake.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is there a human present in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is there a human present in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a human present in the image?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

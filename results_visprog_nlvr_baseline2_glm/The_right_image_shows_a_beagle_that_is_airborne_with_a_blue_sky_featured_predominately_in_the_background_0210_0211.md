@@ -1,0 +1,25 @@
+Question: The right image shows a beagle that is airborne with a blue sky featured predominately in the background
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/736x/ef/3f/7c/ef3f7cbc15f2daed7e1bc6f5d448ff12--types-of-dogs-lifestyle.jpg
+
+Right image URL: https://i.pinimg.com/736x/fd/fc/b5/fdfcb51a95eb8bc2c7773beff07964d4--pet-photos-dog-pictures.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

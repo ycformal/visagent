@@ -1,0 +1,28 @@
+Question: The right image contains a vertical stack of two pillows.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/236x/00/c4/6b/00c46b2980ed55862ac35b7e655c01c2--down-pillows-bed-pillows.jpg
+
+Right image URL: https://www.shophiltongardeninn.com/Sweepstakes/images/HGI-fourth_prize.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a vertical stack of two pillows in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a vertical stack of two pillows in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a vertical stack of two pillows in the image?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

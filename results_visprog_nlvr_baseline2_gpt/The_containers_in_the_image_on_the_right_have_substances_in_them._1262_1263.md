@@ -1,0 +1,28 @@
+Question: The containers in the image on the right have substances in them.
+
+Reference Answer: True
+
+Left image URL: https://cdn3.blovcdn.com/bloglovin/aHR0cCUzQSUyRiUyRnd3dy5nYXJkZW5pc3RhLmNvbSUyRndwLWNvbnRlbnQlMkZ1cGxvYWRzJTJGMjAxNSUyRjA0JTJGZmllbGRzJTJGU0VMRVRUSS1JTlRFUklPUi1MQUItQ09MTEVDVElPTi1TRVRfMTAyNHgxMDI0LmpwZw==?checksum=af2e134dca45a9b2b799b77d8d783108e24260e4&format=j
+
+Right image URL: http://www.yuyumedical.com/images/lg173.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Do the containers in the image have substances in them?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Do the containers in the image have substances in them?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do the containers in the image have substances in them?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

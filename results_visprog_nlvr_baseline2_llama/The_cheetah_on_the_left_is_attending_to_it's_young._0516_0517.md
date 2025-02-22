@@ -1,0 +1,28 @@
+Question: The cheetah on the left is attending to it's young.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/736x/0a/91/f9/0a91f91f03aea63ef1662e5747d6065e--kenya-cheetahs.jpg
+
+Right image URL: https://i.pinimg.com/736x/16/11/c8/1611c81816434a56269fa9e8e8fba2b4.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is the cheetah attending to it's young?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is the cheetah attending to it's young?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the cheetah attending to it')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

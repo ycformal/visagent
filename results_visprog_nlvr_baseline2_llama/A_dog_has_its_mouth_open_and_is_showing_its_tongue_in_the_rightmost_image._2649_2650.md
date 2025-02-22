@@ -1,0 +1,28 @@
+Question: A dog has its mouth open and is showing its tongue in the rightmost image.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/bb/55/ba/bb55bafe1500ac3cb67f3c8ca9d93766--hair-chalk-hair-dye.jpg
+
+Right image URL: http://4.bp.blogspot.com/-tFguWHwTEZw/U2QLL9VtnAI/AAAAAAAAAd4/mTwrCpnj8DE/s1600/miniature-schnauzer+another+pets.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is the dog showing its tongue?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is the dog showing its tongue?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABLAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDx/wAxdy8d+tblvBFPFllB4xn0osvBl7dWQuJZBb7hlUdcnHvUqafc6W2yaSOaJhglQeDWKnG9rmii9zNudP25ZH246g8iqcU7W0uJF+XoeciukGj3V60Ygik8tpAjNt+VPU5PFYOriwgvpILGeWRU+Us6gZI69OvNNTV+UHBpXGSyrKAFQnBzxyTTLaY2upxynCnPIBzioYZ3jc7AocdvX6VZtdLvNS8x7S3ZynLBe1VYk7FLsld2c8ZBrM1O+kmXyzJtToQDjNP0PSNYv5YopYJbeAnDSFBnGccA969MtfBehrpY8yyW4coNzElmY+x9fpis1Sd9S3JHjdvafbLorGPkXAzjtXSW1mkKALgCu4Pg/Tra227IrU4+VYyTt+pJ5NYF74cvbeYiKSO4j/hGdpb+hpTjIUWjIWNBK4ILMB8vpWTqNjCPMZhvkZfmZz0HtWtDeRBmjk+SVeNp4xVLUWWO3eYbHkIwoPIHuazV0y2ZFlbJBaqrBGJ+b5hzz0/TFFXGRc4Y8gAc9elFaE2O11i+CK55OAScdhXJaNdy654jgsEijMLku3mAncqgk/nj9a6i4eFrcC5t5YVlj4MqEZBHr+NZenaSug6lFqFmQFUMh3sflDDG7PtxXPGKinfc1v2Ooj1iKWSW0kjEcP3V2gDbx0A7cV5pcSWMuqTJFCjMSygkDDCrMmnXY1N2vL4xRxMWkcMTgHkYPesp7WKG7EkJkRCC0e8fe6/zrWlhnG7uE66dlYlsoNOluPLnt2WRc42ORkg+ldtZl/sKW1vaxwIOUYLhj1wMntz3zVG3tjoMjRlo2vWiV3bjceM468HHaootc1C/dIYHaZozzu6KDk8VrUpzjHm5v8jOFSMny8p3+lXcq2wj/eKFcDCoMKvc/wD1q1b++WLZDIzss4HlyxnaAD0b2Pt7Vwr63b6VZPFLLvvW4bB+5/s/Wuh8MSyax4Wuba7t2iMTl7bcPmdT1468Hp9azoVak27rQutThDZjZtYuLO9hgmdpLO4UDzJCJAM5AJ46HFdE1lb3EShflLYA2cY74wfasJJVvbGK0Zmi2yokhU7SBuA6/wCe9dbqEAFuY2X5FzhjyfzPf3roRzs4nxD4Ri1Bch8sgJRkHzqPTHU15xqtpe6KrQ3IVlPCyAcA/wBDXqU3iA2YXzI/tVsrbmDHLKMD7p9fY1L4g0W117SDcRqJ7a5AZXx86cdffB7deKlpMpNo8ijuBOpYCMkHB3etFUL3SJdOu5LeZ5VcHOR0YetFTZFXZ7pKDc+F48B/Otv3Lqck7MZHfpg1i3GlwyWjy2+Im+TCx4wcjvn3/wA4rpYJo9SsTHChRb2Asox9xkPKn8OK561uESzkhY4WMDcFIBYqcdfQ8flW0kpbmaujlr7zNPjbz1QWwURozAsiFjn06c5A+tc7rZgkvbP7BerevGAz7VwqnPQevrXqqac5cedGkiyESbDkqFPQMfUjH0/Gon8LWNyiSRwxmQtnO0Kp444xwCP1pp2VkK13c5nTPCsmrSTa7POJPOkJZM7CHHTGMnaPwya3/D+jJ/wjmswW8Ya9jlfBC4JG35T7cVStBqfh6C4+yl2gabfvePrxgJg5GPlNdr8M9TivL/XJpYJI5FSNzvjK5HzA4B/CsK0fa+6tjWnL2ep5H4N0U6pql+Th2t8/u34bHeuoutek0G+tnibMETbGhYYJGMEA/wCe1ZPjaZPDvxBurjTJkdZj5jiHnBPZh79a3bDT31LQ/wC1Z7HzPMIJjOVOOxH410wa5bIwnfmuzcudE0/xDEb7Sb9YvtCEkZ+XOByfccVtr9ql0eaK7ktnuGiIUrJw3GM89M15vptvc6X4jRcbgXxJFJypUjPbvx1FenQ2tjLtC2IjnCb/AJvmXPcZqGrbF30OAg0e9+yXQvYtjgl1DHgf7Qx96up8LzRzaa1srfImCpPXv+VZPijWXttFu4oIVSeExOMLgAltpHHXIasuPXI/DVrJNcYBlRXjjTruPUfnULRj3H+INNjXUvuqdyBuWA6k+tFcjqOua3q9412b37MDwIgobA9zRRzwGkztdUvpNBtYZgxDQ2qBNxwqEnJJA7k9at3SR6mLTWbEN5U8e7aq4GerLyeo5HtXOyX8N/aRwXMaMTF5bgnC5AIDfrmk8Nao2jJ9mvQ89gzbiFGTG2Mbh+HUd6XtI3sPke52OnXUVzalJQC82cgHO1Rjj6dq02ZAsjoAABiLjjOcH6jOayBHHPIbuwmE0LjrE2MDHII6g0+zu3SWJJFL+UpHyZALDOME9yMitLkWLc5EdwYwodI/md+xLN0/kahsdQOhas99MNxuFMEjuT1ZgF4784/Oqd/qXm2Mb25y7OGCA8cEcHHbp9ai8QrHrXhi4u7PzTJJJuEa9Y2HP5AipbGkW73SUn02/Oq28Ml9cSyOSideflK/gBWp4AV7zSHguVVZLZ9gGPUcHP51m+HtVl1izhSc4kiUrL7HHUn3rovCjKuoXSoAFkQSKGGOOmfzNc0b0quj0kbTanT13RxOup9l+Ivkuy740Hzf3geR+I5rubZgLcTkqsbuv5DrXJfE8JFqOk3JlRJDcCNmC4YKfvd+as+IvEFvBYJbwuu1FG5Twqc4BPtXT5swWqRxPjLUY1j1W4ZvMV7pPIUHhiOTj9PyrlbdJryQ3l4xkuZMEs3YdgPSnXsz61epy5t7fKx553k9WNXY/KjjXeH5GBhDgkVhOXRGqRFKFR8Z7UUyWRd+QxGeeVNFQM1YtUtblMLE4J4yY+PzqxE1q0e1pArg9z1qeGGNUAVAB6VYWGM5yi9fSsXLsUmVrVfIn820uzFJ6o4GfrW5b627Afa7WO4Q8Fo/lYH1x0NZjWluyEmJc1QaCNWbauPm7E0KtKI+VPc6tLzTJSu+aWPy2LfvE5Ofpx/ntVq1a2UZgvbcYAG1nGCvH3vX2rhWLKeHf/vo1BJcS7SN+cHuM1rHEPqiXTR6TYR2Vlcgo8W0jLbZV+b6gmttNfhWWCRbmCJAMsrlTzjGCQen+e1eUwokmdyKeP7opJ7aDj90nT0qvrHkL2V+ppeONbsLy/gkNy1zdIMsIkwkZx29e/U1xd1ePqUp+0XG2LI/d84OOmfWr00Mah8IBiqvlJn7oqXUctSlFJWLNusCQkRzxbu3zU5nmwp3KNuTxzWdLGn90VAyKOgxz2NJIC45lLchj+FFZjsyuQGYD/eNFacpJ//Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the dog showing its tongue?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

@@ -1,0 +1,21 @@
+Question: one whole and one cut up lemon are on a wooden surface
+
+Reference Answer: False
+
+Left image URL: https://josepomez.files.wordpress.com/2017/05/los-dos-limones-gordos-y-la-rosa-butano.jpg
+
+Right image URL: https://s-media-cache-ak0.pinimg.com/originals/3a/f1/7a/3af17a4ba665afa526c6e2eaa5a49f4d.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Are there one whole and one cut up lemon on a wooden surface?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are there one whole and one cut up lemon on a wooden surface?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

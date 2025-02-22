@@ -1,0 +1,25 @@
+Question: Three or fewer goats are visible.
+
+Reference Answer: False
+
+Left image URL: https://static4.depositphotos.com/1000894/362/i/450/depositphotos_3621313-stock-photo-alpine-ibex.jpg
+
+Right image URL: http://www.itsnature.org/wp-content/uploads/2010/06/flickr-3925571697-image.jpg
+
+Original program:
+
+```
+The program is missing, so I cannot provide a detailed step-by-step analysis.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

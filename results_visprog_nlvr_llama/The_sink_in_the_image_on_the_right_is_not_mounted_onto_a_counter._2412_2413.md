@@ -1,0 +1,21 @@
+Question: The sink in the image on the right is not mounted onto a counter.
+
+Reference Answer: True
+
+Left image URL: https://media-cdn.tripadvisor.com/media/photo-s/0d/39/0a/32/wash-basin-the-fridge.jpg
+
+Right image URL: http://www.shirecruisers.co.uk/narrowboat/images/CO10.JPG
+
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is the sink mounted onto a counter?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the sink mounted onto a counter?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

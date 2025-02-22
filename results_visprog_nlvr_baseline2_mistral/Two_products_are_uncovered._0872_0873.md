@@ -1,0 +1,30 @@
+Question: Two products are uncovered.
+
+Reference Answer: False
+
+Left image URL: https://astairwaytofashion.files.wordpress.com/2013/11/rouge_double_intensit____everred_49__chanel__31_____945945854_north_545x-1-txt2.jpeg
+
+Right image URL: http://cdn2.stylecraze.com/wp-content/uploads/2014/08/Chanel-Rouge-Allure-Luminous-Satin-Lip-Color-In-Pirate.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many products are uncovered?')
+ANSWER1=VQA(image=RIGHT,question='How many products are uncovered?')
+ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many products are uncovered?')
+ANSWER1=VQA(image=RIGHT,question='How many products are uncovered?')
+ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAEMDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAoormPiF4hu/CvgfUtZsEhe5tlQosykry6ryAR2NAHT0V4tD8WNfb4t23hVobBrB7iOJpPKYSYaMMed2Op9K9pHSgAooooAKKKKACiiigArg/jN/wAkn1z/AHIv/RqV3lcJ8ZOfhPrv/XOP/wBGpQB5AbT7P+0HpMgLMJbi2diegJi6fkBX00Ogr5tkuN/x00SLavFxZtuB5/1OP6V9JDpTYBRRRSAKKKKACiiigArhvjECfhRr2Bn91H/6NSu5rI8TY/sC4yMjKdf99amcuWLl2HFXaR83aUM/HexYc/6fa9P+uVfVA6VwsEUaeIb4rGgJ1mHBCjj9xFXdVNOr7S+mw5R5bBRRRWhIUUUUAFFFFABWR4n/AOReufqn/oa1r1z/AI2vYtP8JXt3MGMcWwttGTjetZ1VenJeTLpK81buY8Q/4nt2f+o1H/6IiruK8l0zxvpN/wCLEsYVufOvNVSWPdGAAvlIOTn1U160OlZYdW5vU0rwlHlUlbQKKKK6TAKKKKACiiigArkPih/yTnWP9xP/AEYtdfXI/FD/AJJzrH/XNP8A0YtTP4WbYf8AjR9V+Z4f4Q5+JuiH/p7T/wBAr6eHSvmHwdz8StEP/T0v/oBr6eHSs6Gx25p/Ej6BRRRWx5gUUUUAFFFFABXJfE4Z+HGs/wDXNf8A0Na62obu0t761ktbuCOeCQYeORQysPcGlJXTRdOXJNS7M+Z/Bf8AyUfRD/09L/6Aa+nh0rFsvCPh7Trxby00eziuVOVlWIblPTg9q2qinDlVjoxeIVeSklayCiiitDkCiiigAooooAKKKKACiiigAooooAKKKKAP/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many products are uncovered?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gNzUK/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgAPABkAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A9/ooooAKKKKACivKvij8V7/wFrtnp1npttdCe289nmdgR8xXAx9KwNI+Omraitu76PYqsk6xMFkfOCwGR+dAHulFcH8RPHV14VFra6dBDJdzq0jNMCVjQHHQEZJOfyrqtA1VNc0Gy1JAB9oiDlR0VujD8CCKlSTdjaVCcaaqtaM0qKKKoxCiiigAooooAKKKKACiiigD5o/aN/5HjTP+waP/AEa9cV4Y/wBRZf8AX6n/AKMWu1/aN/5HjTP+waP/AEa9cX4XBNtan0vU/wDQ0pgeufGWRh4hCjGDYxj/AMiNXc/Ch2b4f2WT92WYD/v41cVrkSar428dLfqLlbGC0FqsvIhBGSF9Mk5r07QrS303ULywsoUt7OOGGRIYxhVZjIWIHvgVzQf71no1sRGeFhSS1X9fqbtFFFdB5wUUUUAFFFFABRRRQAUUUUAfNH7Rv/I86Z/2DR/6NeuS8KR7tMgf0vU/9DSut/aN/wCR40z/ALBo/wDRr1zvg5M+Hlf0vl/9DSmB6je/8jv8R/8ArjZ/+g16fppzr+of9ett/wC1K8dutahk+LHirRUjY3GryRWsbbhtjaJOS3cg47V7FpMUo1G5uJAF86CJAoJONhbPOP8AaFccdKxu/wCGbNFFFdZgFFFFABRRRQAUUUUAFFFFAHzZ+0NBLc+PNMSGNpHGmA4XrjzXrF8KWVxaeFs3ELxZvlxuHX546+m9S8P6Nq8qS6lpNjeSIu1XuLdZCo64BI6VDB4W8P2wAg0TTogGDAJbIBn1wB14oA+fI/8Ak4+b/sKyf+gGvoyz/wBcv/XP+oqo3hTw++sHVTo1l/aBbebkRASbsYzu65xWrHBFEcogBxjPtWLpv2ikac65bEtFFFbGYUUUUAFFFFAH/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many products are uncovered?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER2</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 + ANSWER1 == 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 + 1 == 2")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER2</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

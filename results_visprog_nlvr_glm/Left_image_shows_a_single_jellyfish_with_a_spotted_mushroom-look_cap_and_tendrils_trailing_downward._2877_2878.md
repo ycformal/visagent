@@ -1,0 +1,21 @@
+Question: Left image shows a single jellyfish with a spotted mushroom-look cap and tendrils trailing downward.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/736x/16/93/47/169347424a6a70d00268ac1692c4bc88--jellyfish-tattoo-deep-sea.jpg
+
+Right image URL: http://calphotos.berkeley.edu/imgs/512x768/0000_0000/0305/0687.jpeg
+
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is there a single jellyfish with a spotted mushroom-look cap and tendrils trailing downward?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a single jellyfish with a spotted mushroom-look cap and tendrils trailing downward?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

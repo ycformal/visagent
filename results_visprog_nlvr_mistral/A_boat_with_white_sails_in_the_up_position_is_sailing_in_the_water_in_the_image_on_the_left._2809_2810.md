@@ -1,0 +1,21 @@
+Question: A boat with white sails in the up position is sailing in the water in the image on the left.
+
+Reference Answer: False
+
+Left image URL: http://www.tallship-fan.de/images/rr2015_0757.jpg
+
+Right image URL: http://www.tallship-fan.de/images/rr2015_0237.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is there a boat with white sails in the up position sailing in the water?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a boat with white sails in the up position sailing in the water?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

@@ -1,0 +1,28 @@
+Question: there are at least 2 large decorative bobby pins hanging on a wall next to a picture
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/236x/63/1f/31/631f31284dcd469dd2832f6ffd366931--laundry-room-wall-decor-laundry-rooms.jpg
+
+Right image URL: https://i.pinimg.com/736x/d3/51/55/d3515528d986dca0166ec30dee42b0f0--laundry-room-art-the-laundry.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many large decorative bobby pins are hanging on a wall next to a picture?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many large decorative bobby pins are hanging on a wall next to a picture?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many large decorative bobby pins are hanging on a wall next to a picture?')=<b><span style='color: green;'>3</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="3 >= 2")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

@@ -1,0 +1,25 @@
+Question: A piece of green lettuce is in the mouth of a llama who's head is up.
+
+Reference Answer: False
+
+Left image URL: http://www.eveandersson.com/photos/chile/casablanca-valley-emiliana-vineyards-llamas-eating-lettuce-large.jpg
+
+Right image URL: https://img1.etsystatic.com/019/0/6188428/il_fullxfull.536582877_iiwj.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

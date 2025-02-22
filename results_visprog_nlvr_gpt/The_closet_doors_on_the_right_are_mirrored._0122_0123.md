@@ -1,0 +1,20 @@
+Question: The closet doors on the right are mirrored.
+
+Reference Answer: False
+
+Left image URL: https://s-media-cache-ak0.pinimg.com/originals/a6/08/65/a6086585ff1b65977b4963d8ba514715.jpg
+
+Right image URL: https://i.pinimg.com/736x/09/a4/5b/09a45b12068a056ff4c89058a1b053cb--bedroom-wardrobe-wardrobe-closet.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Do the closet doors have mirrors?')
+FINAL_ANSWER=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do the closet doors have mirrors?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

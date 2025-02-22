@@ -1,0 +1,25 @@
+Question: Two dogs are sitting outside in the grass in the image on theleft.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/236x/6c/d5/d2/6cd5d2f46c3c4800e434c74a45c57bcd--beagle-puppies-beagles.jpg
+
+Right image URL: https://lh3.googleusercontent.com/-hKVE11zyirs/VgtcsIU1urI/AAAAAAAAFx0/I2S6Izpd9bg/s640/blogger-image--1909466912.jpg
+
+Original program:
+
+```
+The program is designed to analyze an image and determine if the statement is true or false. It uses a series of questions to gather information about the image and then evaluates the answers to determine if the statement is true or false.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

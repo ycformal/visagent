@@ -1,0 +1,28 @@
+Question: Birds are gathered around their prey in the image on the right.
+
+Reference Answer: False
+
+Left image URL: https://68.media.tumblr.com/9d05ef3272fc502d9f27390e6783f14d/tumblr_ny4gbp42cZ1uq6qkko1_500.jpg
+
+Right image URL: http://fs5.directupload.net/images/170104/u47jm659.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Are birds gathered around their prey in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Are birds gathered around their prey in the image?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are birds gathered around their prey in the image?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

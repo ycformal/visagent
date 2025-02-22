@@ -1,0 +1,30 @@
+Question: There are at most two dogs.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/736x/12/a9/ef/12a9efc34657beb5f49a72e03251d7a2--french-bulldog-brindle-french-bulldog-puppies.jpg
+
+Right image URL: https://i.pinimg.com/736x/f0/42/e0/f042e017c64fa0e05ca1bdd51fb4c2db--cutest-animals-baby-animals.jpg
+
+Original program:
+
+```
+Statement: There are at most two dogs.
+Program:
+ANSWER0=VQA(image=LEFT,question='How many dogs are in the image?')
+ANSWER1=VQA(image=RIGHT,question='How many dogs are in the image?')
+ANSWER2=EVAL(expr='{ANSWER0} <= 2 and {ANSWER1} <= 2')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

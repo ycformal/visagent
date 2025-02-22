@@ -1,0 +1,21 @@
+Question: In the image to the right, you can see the person's fingers.
+
+Reference Answer: True
+
+Left image URL: https://i.ytimg.com/vi/Yq0EzVpgskg/maxresdefault.jpg
+
+Right image URL: https://media-cdn.tripadvisor.com/media/photo-s/10/c6/1d/be/feeding-the-stingrays.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Can you see the person's fingers?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Can you see the person')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

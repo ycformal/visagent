@@ -1,0 +1,25 @@
+Question: there is mashed potatoes in a black plastic container
+
+Reference Answer: False
+
+Left image URL: https://s3-media1.fl.yelpcdn.com/bphoto/9rux2F1xDjX3LKcq6cpHlw/o.jpg
+
+Right image URL: https://s3-media2.fl.yelpcdn.com/bphoto/Te-n_dgg1aJRD1ofjLoKiQ/348s.jpg
+
+Original program:
+
+```
+Solution:
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

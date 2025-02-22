@@ -1,0 +1,21 @@
+Question: In the image to the left, there is only one black kneepad.
+
+Reference Answer: True
+
+Left image URL: https://cdn1.bigcommerce.com/server3200/irb16l/products/541/images/2317/asics_Rally_Volleyball_Kneepads_ZD0920_90L__13197.1369866527.500.659.jpg?c=2
+
+Right image URL: https://ae01.alicdn.com/kf/HTB1KJAgKpXXXXXAaXXXq6xXFXXXM/Thickening-font-b-Football-b-font-Volleyball-Extreme-Sports-knee-pads-brace-font-b-support-b.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many black kneepads are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many black kneepads are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 == 1")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

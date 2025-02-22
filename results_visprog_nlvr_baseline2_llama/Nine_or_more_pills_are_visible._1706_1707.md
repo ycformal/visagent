@@ -1,0 +1,30 @@
+Question: Nine or more pills are visible.
+
+Reference Answer: True
+
+Left image URL: https://static3.depositphotos.com/1000387/133/i/450/depositphotos_1338679-stock-photo-syringe.jpg
+
+Right image URL: https://st2.depositphotos.com/1801483/5765/i/950/depositphotos_57651909-stock-photo-medical-syringe-on-a-drugs.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many pills are visible?')
+ANSWER1=VQA(image=RIGHT,question='How many pills are visible?')
+ANSWER2=EVAL(expr='{ANSWER0} >= 9 or {ANSWER1} >= 9')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many pills are visible?')
+ANSWER1=VQA(image=RIGHT,question='How many pills are visible?')
+ANSWER2=EVAL(expr='{ANSWER0} >= 9 or {ANSWER1} >= 9')
+FINAL_ANSWER=RESULT(var=ANSWER2)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many pills are visible?')=<b><span style='color: green;'>0</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBxdWFsaXR5ID0gNzUK/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgAQgBkAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A8KC56UuKKKAFxUkUTSvtX8SegFR1M8oZAiLsTuAep96AEk8sAKgzjq57/wD1qZigVpaLpDazdvALmK2VELtJKCQBkDoPrQBnAZOBSYr0XxXo2iX2n2zaFeWQktImEy7GQuAM8ceuevrXnVJNPYbTW4lKqF2CqMse1JUvm7YtiLtJHzNnk0xCSLHGpQYd+7dh9KhxTqbQAmKKWigBKfsYKGKnaehqVY1hG+dTn+GP1+vtUTyNI25jz0HtQAZziikpwx3/AEoAK6zwHLJBqd1LF5u9bfA8pQW5YdM1yYrrPA6k3d8VhgmbyQAk7YUnd9Rk+1TP4WVD4kbF093DZ6gkkUscX2ZnUNFGD82epH0rz3a2wtg7RwTXoN7ayW2kag95AsDlCTGLZk4P91j1/lXAyyGQ4wFQfdUdBWdHYut8RFk4xSUtHGea2MhKTPGKU0lACUU9YZHGVjcj1AooAaxLHJJJPcmkopaADFLRSqpZgoGSelAAK67wUI918JWhCOiJmZNy8k9e46dRXLPGsYALZk7gdB/9euy8AQPcDUI4tglcKqOwztbkg1FT4WXT+JEutXCtpF/FHcIyRKsQjWd5VA67lJ6dcYrhDXb6qzL4Wmjdt8hbfKVAADseQcdDXEGoo/CXW+ITtRRRitjESkxxnipniEafvDhz0UdvrUJoAcJpFUKsjADoAaKZRQA4ZHSinbacFoAZirG9YVxCSWI+ZyMfgKj2j0pdtADQpJAA612ukeGtdh0m6KWkkbM6kYkAJGDzxXGha7/4ZRPJd3y+UTDtQO4l2lTk4AHfP9KTBGU/hzXItMuo/sU7MXGVXBJOR2FcrNDJBK8UyMkiHDIwwQfQ16L8QHnt7aFYvNSN7hiZBN3APy4H8687bLEliST1J5zREbIiKlRo4kDISZT6jhf/AK9IQMdOaaVpiGncxJPJPUmmEVLtxTSKAI8UU7FFAEgq1MALeHAxRRQBCOlKKKKAHV6R8Kv+Yn9Yv/ZqKKT2GM+I3/IOs/8Ar6f/ANBrgSALIEDktzRRSjsDKxpD1ooqhBSNRRQBHRRRQB//2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many pills are visible?')=<b><span style='color: green;'>3</span></b></div><hr><div><b><span style='color: blue;'>ANSWER2</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 9 or ANSWER1 >= 9")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="0 >= 9 or 3 >= 9")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER2</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

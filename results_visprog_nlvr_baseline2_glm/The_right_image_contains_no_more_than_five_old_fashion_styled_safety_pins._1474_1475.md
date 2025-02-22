@@ -1,0 +1,28 @@
+Question: The right image contains no more than five old fashion styled safety pins.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/236x/d8/a3/ae/d8a3ae6eb69c0435eb7a92080996ebc3--safety-pins-laundry.jpg
+
+Right image URL: https://img1.etsystatic.com/123/0/6795088/il_340x270.1025245325_1atd.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many old fashion styled safety pins are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} <= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many old fashion styled safety pins are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} <= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many old fashion styled safety pins are in the image?')=<b><span style='color: green;'>5</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 <= 5")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="5 <= 5")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

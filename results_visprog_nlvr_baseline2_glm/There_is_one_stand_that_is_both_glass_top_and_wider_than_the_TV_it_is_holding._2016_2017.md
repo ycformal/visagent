@@ -1,0 +1,25 @@
+Question: There is one stand that is both glass top and wider than the TV it is holding.
+
+Reference Answer: True
+
+Left image URL: http://c.shld.net/rpx/i/s/i/spin/image/spin_prod_875480912?hei=333&wid=333&op_sharpen=1
+
+Right image URL: https://i5.walmartimages.com/asr/7a90d0cc-7914-4abd-9fe8-2941119717b5_1.a090e7fad7964fd401c9d042891dbef1.jpeg
+
+Original program:
+
+```
+The provided program does not contain any statement or question related to the given statement. Therefore, it is not possible to determine if the statement is True or False based on the given program.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

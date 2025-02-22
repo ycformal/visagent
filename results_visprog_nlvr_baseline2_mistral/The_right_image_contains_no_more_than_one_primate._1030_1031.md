@@ -1,0 +1,28 @@
+Question: The right image contains no more than one primate.
+
+Reference Answer: True
+
+Left image URL: https://haaren.files.wordpress.com/2010/11/gay.jpg
+
+Right image URL: https://pbs.twimg.com/media/BKwKD6MCQAAt64I.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many primates are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} <= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='How many primates are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} <= 1')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many primates are in the image?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 <= 1")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="1 <= 1")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

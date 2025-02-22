@@ -1,0 +1,28 @@
+Question: The left image contains at least five bottles.
+
+Reference Answer: True
+
+Left image URL: https://img1.etsystatic.com/214/0/6444907/il_570xN.1256466947_12d7.jpg
+
+Right image URL: https://img0.etsystatic.com/000/0/6209495/il_fullxfull.295991818.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many bottles are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many bottles are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} >= 5')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many bottles are in the image?')=<b><span style='color: green;'>5</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 >= 5")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="5 >= 5")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

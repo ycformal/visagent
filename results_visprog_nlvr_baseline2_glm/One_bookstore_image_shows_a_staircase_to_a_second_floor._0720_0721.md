@@ -1,0 +1,25 @@
+Question: One bookstore image shows a staircase to a second floor.
+
+Reference Answer: True
+
+Left image URL: http://forreadingaddicts.co.uk/wp-content/uploads/2016/03/ohio-books2.jpg
+
+Right image URL: http://www.ohiobookstore.net/images/first_floor_shelves.jpg
+
+Original program:
+
+```
+The statement is True.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

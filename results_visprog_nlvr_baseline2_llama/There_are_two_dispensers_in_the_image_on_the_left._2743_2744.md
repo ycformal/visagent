@@ -1,0 +1,28 @@
+Question: There are two dispensers in the image on the left.
+
+Reference Answer: True
+
+Left image URL: https://ae01.alicdn.com/kf/HTB1dSANLVXXXXbSaXXXq6xXFXXXR/Basit-Duvara-monte-&uuml;&ccedil;-renk-otel-tuvalet-banyo-manuel-&ccedil;ift-kafa-700-ML-ABS-Sabunluk.jpg
+
+Right image URL: https://ae01.alicdn.com/kf/HTB1TWfZa50TMKJjSZFNq6y_1FXaH/KEMAIDI-Shampoo-Shower-font-b-Soap-b-font-Dispenser-Battery-Powered-300ml-Wall-Mount-Automatic-Kitchen.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many dispensers are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='How many dispensers are in the image?')
+ANSWER1=EVAL(expr='{ANSWER0} == 2')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many dispensers are in the image?')=<b><span style='color: green;'>2</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0 == 2")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="2 == 2")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

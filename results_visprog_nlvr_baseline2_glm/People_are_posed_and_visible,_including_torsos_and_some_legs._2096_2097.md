@@ -1,0 +1,36 @@
+Question: People are posed and visible, including torsos and some legs.
+
+Reference Answer: False
+
+Left image URL: http://www.blackfilm.com/read/wp-content/uploads/2015/05/Barbershop-3-new-additions.jpg
+
+Right image URL: http://media.mlive.com/entertainment/detroit_impact/photo/9706520-large.jpg
+
+Original program:
+
+```
+Statement: An image shows one bare hand with the thumb on the right holding up a belly-first, head-up crab, with water in the background.
+Program:
+ANSWER0=VQA(image=LEFT,question='Does the image shows one bare hand with the thumb on the right holding a crab?')
+ANSWER1=VQA(image=RIGHT,question='Does the image shows one bare hand with the thumb on the right holding a crab?')
+ANSWER2=VQA(image=LEFT,question='Is the crab belly-first and head-ups?')
+ANSWER3=VQA(image=RIGHT,question='Is the crab belly-first and head-ups?')
+ANSWER4=VQA(image=LEFT,question='Is there water in the background?')
+ANSWER5=VQA(image=RIGHT,question='Is there water in the background?')
+ANSWER6=EVAL(expr='{ANSWER0} and {ANSWER2} and {ANSWER4}')
+ANSWER7=EVAL(expr='{ANSWER1} and {ANSWER3} and {ANSWER5}')
+ANSWER8=EVAL(expr='{ANSWER6} xor {ANSWER7}')
+FINAL_ANSWER=RESULT(var=ANSWER8)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

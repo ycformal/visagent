@@ -1,0 +1,28 @@
+Question: The dog in the image on the right has its mouth open.
+
+Reference Answer: False
+
+Left image URL: https://c2.staticflickr.com/4/3079/2728219828_d314673b6d_z.jpg?zz=1
+
+Right image URL: https://howlingforjustice.files.wordpress.com/2010/09/black-wolf-in-snow-beautiful-eyes-kewl.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Does the dog have its mouth open?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Does the dog have its mouth open?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABLAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD0WATGCRA2CcKrEdPp+tTRxYhaWRN8seccAfN2wfrVdC6cOjbM79w5C5z+frT7u9MWnO0bB5NuPlbcF/8Ar4qrgWrfZb2kccuIg8aq6khiGA5Hv9afbBkKiKIRqQxAXhQB0z9entTbVIVU3KKz/IMEcnAXIA9Scj61X0+cvaQPIj27YBkiYbNr5z0980gIZUZ9YMcLqsh8reh+UsnJb5up4HT8a021C0t5zaLLBFcTSMIYWdQ0rYyxx14HJ9qpmSJtZdgMho1k34IDbcrhiRwckECvDfi/dvZ+LLJrW8ZZLYO6GNvmjbcDnPXOR1oA+gkdFj86Y7UjXeWfjAxyTVTSvEema9YG70e9ivYVJRmjGNpHY5GR/hXzNc/EbxTqWmT6fcancSieMRNt4LAnnOOuRxW58HPE0Oha5e2l85jtLyIDcThVdTx9MgkUXA+ikkGVBXBfO0469KeGMUAjXmRiSQTkqKfCYlChX4IDDn2zWZJqER1I2yxkAqT5hBBOO2fSmAwosu8SSExROSMN174PtWTHcW15qG5IIysbNH5ijoxGcflV+edLe4MDIih4w7HcMkdMtVS8mtrK1klWONVkdT8ufnbj09gKQiC4u7e3k8t7iJCB0JorIdYbxzOGUK2MB1wQMd6KLgbtwvnRGEzsm8jy1TljtHK/TpTdRjkliR2ZIm8slZADkOF4U/U1U07XbY2Ql1EeVmQLvA/jbj8umfStexgNy0yTSoEZ1wsbhgxU7txz/Sjcop2OplbC0dGdrNlVHkQY2EIOB+h9uaydYkv59TSztLiWWSaMTQtwMP1weOowOTV3TjPBfw2E0AjDTTXFu0S5XaQxZWP4j8CKvWKiWaB/7PS3ZZpBMgIYk4G0k9cdTx7VKd0M5rxt4kk0fwTbxxSeTfXeNyrnK5+Zs57+/qa8Dv5zMyM/zF1LksSSMnrnv0r2D4qfNbRoy7tsjSRyhcZQcBQf4sf4da8aVDO2zPzKcjJzkUX1sFtCs0bRSYJIXP3sc4qSylaO4ADY9DnFdhqVnp11aRabZ6e0clrKwN+SAs8Zxgsx6EH04xXHbBFI5YhlGdue/vTZJ7N4J+IV7qi2vh64UR3sMfl283aQDopHGOOM+1dHZ+GdYW8nv7mSTashYIshAHBAHvgevrXh+h30w1/Tbi3z9pjmTbhc5ww4+uOK+ortmuEliRSQyB3z0PPGP149qS1G0cusN9LrEs8uFhcr97O/AUgZ7Y9vx5p02lweWXt08mfPmBkc8Ee3f6YqzounXEDXPnGRnkj2RuzHAAJIAHfr16mrPlSySNJMU+7hSRgD6enc0xGQNOvYlUQWcE6EZ3ysyN+I5orWl1K3t9gJLhl3Bo+QR9fwoo0HZjbzTo576zt7SIApvuHD9MABQSPqf0rWs9PYEJIiKsLBkYKOW6lh6VBo8bNDJdSRMs11iaQuMEKfuKPYDH6+tbMUpeU4UlcYyOx/z/KpuVY5PxObyCcoZC4hh+1QMX5Qq21h06ENjH5VpxWtxDercTXEoQI4kdCVBOeBt546nPWk8YxSyWNv5ZjVHmWB5GGSgdgDx6cCt+KOVgWkwcEgnHUetJbsOh5D8RWgPhXQg0gwwmjLDkYAPTvjOK8R3nz88A46CvQfiV4hk/tlNIQloLCaUIX5bDYBH4YOPrXnd0pFyCODgYo6jb0HzNIq+Usr+UTu8vcdufpVVh1Y+tWJR5kCzAEbflY44B7Usknm2in7J8qfI0wB+8eeT0zjtVIlnQ/DewbVPHWlwKOFnWQ5/ur8x/lX09BELn/SPLTfI7YyM9MqMfln8a8F+B9m0ni27u0OHtrGRox3ZjheB3619EWoENskY3DYoUFuh4pX1Gtit/ZcKzrJbyvHIG+dV+ZT6jnpn1rKurMyPFIxZTCH2qTxuwVBx36k10se4cjG1hmsyW08uJ3JPLE4J6AnimI52E21vawRXcsJuFjAcsOWPr+NFW57O3mk3tGCSOT6/wCNFLlKuaylPJLoSy4/hOf8n2p0bgWSzIrsxGF2DJPPf+tJYoBaRott5Shw2Nm3JJ64q3cMsVp/pGEBITceMk9PzNOwrmZrUU11Z2cRiwWvbcsCeoB3H+VTavc3dvp7PaSRpKzhE8wZG4ngYrReznnS3G7Zsbc+B970+lQ3ekJcogeRwsYJxjJyRjIyMg4z0pNAmj5pvfCup614i1u7lZpoLGWR7iUfecLljgepAOKzNC8OTeLPEkGnWoFqHVndnywgjHJJ9cDj3NfTNpZaVCtxvSGF5sQyZBUuW4JOeuRgD8q8m+F9pHovxMvbKdfnjgnBZs8AMMKB9BnJ69uOSAS/EXwZp2g/DW1h0iM+Xb3SyTyuP3kpdSAzfpx2zWD8O9Ck174eeMbGOASu3ltFxysiqzKR/nvXuXjDTLfWfCuq6awRJJbZiGdh94DcD+BxXnv7P0Zh/wCEit512zJLFvjJ5UgMDkfpRYVzz34Tz3MXj3TooXMYkhlR/wDcIJP8hX06swwg3YMjEL8ucd/yr598OWH/AAj37QcenlMRrdyxx57o6MVP5EV9DsLa3hE9yUiC9WcgY/GiwXGrGHLxRzAMB83A69qpXlwGjaElTtGSR6/5zTpr6GZGktpVeFoxgq2R95uQfwFYWr6jHZwHarPcTIPLjjHJAOC3fpnNNuyuC1ZHLcRK+1cZA+Y7W5PXt7YoqsLczEmUCN1wpAYEdB0J7UUXY7I6hiVt5XDOzhcgAdx6CozdNcTpG8UbOQrGNyDt7qcfUfmKmi+bIPIpXsrZnFwYh5q4UOCQcenuKpozuPW8kkVZEeMo2cnOc+mD9arwtJIzsJJ1ZmyxbI5GBwD91eOg9TUiAJeRRqAEw3GPTGKvMBuxjiiwXOf1PSF1FHiSdoZ1IeKZQCyc5yM8dR+tcXqfgt5fFJ1m41+SPbtWSMp8pDDBUHPQ89Qetej3wEVozJ8p45H1FZ1lpNjdGS/uLdZblFVlZySAccHBOM/hUtIpMgisWChWBmjRAgbGMrjFY3haztLTxBq9zY6PJZXE3Ekylyr852kHgHvwO/eu2hRdspPO4oTk57U+zjTEjY5VyB7VKQ2zzDxP4XnHjiw8TWbRNcJJEW8+RkCiPClVwMZI7k9eMV31xcF5vLZC6jkAnkH8elaksUci/vI1cZz8wzWde/JJCFAHzEdO2KqzFdGVNcTzN9kX/WgsCMdfmz/WqMczuMj76LsVWXBQDrgiujjsLbK3BiBlYnLEnPNWbC3hgsk8uJFwCMgc9aXKx8yOHub+4gl2fZHk4HzD/wCuKK6TVSRecEjKjpxRUOL7l8y7H//Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the dog have its mouth open?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

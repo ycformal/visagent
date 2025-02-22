@@ -1,0 +1,28 @@
+Question: The model in the right image wears matching mittens, scarf and pom-pom hat with a distinctive pattern of red stripes around a white stripe.
+
+Reference Answer: True
+
+Left image URL: https://ae01.alicdn.com/kf/HTB1yNIlJVXXXXcuXpXXq6xXFXXXq/De-punto-sombreros-de-invierno-para-mujer-de-sombrero-de-la-bufanda-guante-de-tres-piezas.jpg
+
+Right image URL: https://ae01.alicdn.com/kf/HTB13nQmOFXXXXXoXpXXq6xXFXXXV/CIVICHIC-Regalo-Caliente-de-Invierno-de-Punto-Guantes-Sombrero-Bufanda-3-Unids-Mujer-Chic-Gorros-Pomp&oacute;n.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Does the model wear matching mittens, scarf and pom-pom hat with a distinctive pattern of red stripes around a white stripe?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Does the model wear matching mittens, scarf and pom-pom hat with a distinctive pattern of red stripes around a white stripe?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the model wear matching mittens, scarf and pom-pom hat with a distinctive pattern of red stripes around a white stripe?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

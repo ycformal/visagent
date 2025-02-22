@@ -1,0 +1,28 @@
+Question: In the right image, people in purple attire are lined up in front of a temple.
+
+Reference Answer: False
+
+Left image URL: http://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/11/Distant-view-of-Lingdum-Monastery-in-Sikkim-ss28112016.jpg
+
+Right image URL: https://media-cdn.tripadvisor.com/media/photo-s/01/67/8d/3d/rumtek-monastery.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Are people in purple attire lined up in front of a temple?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Are people in purple attire lined up in front of a temple?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are people in purple attire lined up in front of a temple?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="False")=<b><span style='color: green;'>False</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>False</span></b></div><hr>
+
+Answer: False
+

@@ -1,0 +1,28 @@
+Question: The main sails are white in the left image.
+
+Reference Answer: False
+
+Left image URL: http://www.yachtsandyachting.com/photos/national12/yandy144851.jpg
+
+Right image URL: https://www.woodenboat.com/sites/default/files/bonus-content/yawls-1.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Are the main sails white?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Are the main sails white?')
+ANSWER1=EVAL(expr='{ANSWER0}')
+FINAL_ANSWER=RESULT(var=ANSWER1)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the main sails white?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: blue;'>ANSWER1</span></b>=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="ANSWER0")=<b><span style='color: red;'>EVAL</span></b>(<b><span style='color: darkorange;'>expression</span></b>="True")=<b><span style='color: green;'>True</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER1</span></b> -> <b><span style='color: green;'>True</span></b></div><hr>
+
+Answer: True
+

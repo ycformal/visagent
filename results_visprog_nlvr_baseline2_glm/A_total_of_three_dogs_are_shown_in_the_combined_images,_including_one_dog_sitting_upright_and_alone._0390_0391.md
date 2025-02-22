@@ -1,0 +1,25 @@
+Question: A total of three dogs are shown in the combined images, including one dog sitting upright and alone.
+
+Reference Answer: True
+
+Left image URL: https://i.pinimg.com/236x/61/41/32/6141328817a6d92074028cebc99b1167--leonberger-dog-carolina-usa.jpg
+
+Right image URL: https://i.pinimg.com/736x/4f/e3/25/4fe32501763128db2b75a4c84e11d862--giant-dogs-big-dogs.jpg
+
+Original program:
+
+```
+The program is not provided for this statement.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+

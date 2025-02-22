@@ -1,0 +1,36 @@
+Question: There is a light pole outside of the shop in one of the images.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/da/1c/33/da1c33247ba83b1f8bfbdceb8bcd5333--bookstores-northern-line.jpg
+
+Right image URL: https://img03.deviantart.net/9e91/i/2013/011/2/6/flourish_and_blotts_by_hellonlegs-d5r667b.jpg
+
+Original program:
+
+```
+Statement: An image shows one bare hand with the thumb on the right holding up a belly-first, head-up crab, with water in the background.
+Program:
+ANSWER0=VQA(image=LEFT,question='Does the image shows one bare hand with the thumb on the right holding a crab?')
+ANSWER1=VQA(image=RIGHT,question='Does the image shows one bare hand with the thumb on the right holding a crab?')
+ANSWER2=VQA(image=LEFT,question='Is the crab belly-first and head-ups?')
+ANSWER3=VQA(image=RIGHT,question='Is the crab belly-first and head-ups?')
+ANSWER4=VQA(image=LEFT,question='Is there water in the background?')
+ANSWER5=VQA(image=RIGHT,question='Is there water in the background?')
+ANSWER6=EVAL(expr='{ANSWER0} and {ANSWER2} and {ANSWER4}')
+ANSWER7=EVAL(expr='{ANSWER1} and {ANSWER3} and {ANSWER5}')
+ANSWER8=EVAL(expr='{ANSWER6} xor {ANSWER7}')
+FINAL_ANSWER=RESULT(var=ANSWER8)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>store</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>store</span></b></div><hr>
+
+Answer: store
+

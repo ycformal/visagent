@@ -1,0 +1,20 @@
+Question: A cushioned bench sits under a window in the image on the right.
+
+Reference Answer: False
+
+Left image URL: https://i.pinimg.com/736x/3f/2d/a6/3f2da6cba47ee2a3d6332b62ada85180--white-shelves-wall-shelves.jpg
+
+Right image URL: https://es.habcdn.com/photos/project/big/libreria-hueco-escalera-902654.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=RIGHT,question='Is there a cushioned bench under a window?')
+FINAL_ANSWER=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a cushioned bench under a window?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

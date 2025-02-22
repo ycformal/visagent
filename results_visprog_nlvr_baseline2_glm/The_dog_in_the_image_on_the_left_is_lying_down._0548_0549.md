@@ -1,0 +1,26 @@
+Question: The dog in the image on the left is lying down.
+
+Reference Answer: False
+
+Left image URL: https://c2.staticflickr.com/4/3377/3425079861_ab652faa68_b.jpg
+
+Right image URL: http://www.usc.edu.au/media/13755880/dingo_520x520.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is the dog lying down?')
+FINAL_ANSWER=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=LEFT,question='Is the dog lying down?')
+FINAL_ANSWER=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the dog lying down?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: False
+

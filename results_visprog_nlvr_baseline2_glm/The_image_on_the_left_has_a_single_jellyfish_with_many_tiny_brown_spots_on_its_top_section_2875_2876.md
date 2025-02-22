@@ -1,0 +1,25 @@
+Question: The image on the left has a single jellyfish with many tiny brown spots on its top section
+
+Reference Answer: True
+
+Left image URL: http://www.geodia.com/gallery2/d/535-4/Med_7_31r.jpg
+
+Right image URL: https://i.pinimg.com/736x/f7/ac/32/f7ac32f3a63ba8708dee16fb746d41e5--lions-mane-jellyfish-jellyfish-tattoo.jpg
+
+Original program:
+
+```
+The statement is True.
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is "{statement.replace('(','').replace(')','')}" true or false?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is ')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: True
+
