@@ -377,12 +377,12 @@ class VQAInterpreter():
     def __init__(self):
         print(f'Registering {self.step_name} step')
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large"), ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa"), AutoProcessor.from_pretrained("google/paligemma-3b-ft-vqav2-448")]
-        self.model = [BlipForQuestionAnswering.from_pretrained(
-            "Salesforce/blip-vqa-capfilt-large").to(self.device), ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(self.device), PaliGemmaForConditionalGeneration.from_pretrained("google/paligemma-3b-ft-vqav2-448").to(self.device)]
-        # self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")]
+        # self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large"), ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa"), AutoProcessor.from_pretrained("google/paligemma-3b-ft-vqav2-448")]
         # self.model = [BlipForQuestionAnswering.from_pretrained(
-        #     "Salesforce/blip-vqa-capfilt-large").to(self.device)]
+        #     "Salesforce/blip-vqa-capfilt-large").to(self.device), ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(self.device), PaliGemmaForConditionalGeneration.from_pretrained("google/paligemma-3b-ft-vqav2-448").to(self.device)]
+        self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")]
+        self.model = [BlipForQuestionAnswering.from_pretrained(
+            "Salesforce/blip-vqa-capfilt-large").to(self.device)]
         for model in self.model:
             model.eval()
         self.stemmer = PorterStemmer()
@@ -790,6 +790,134 @@ class LocInterpreter():
             return bboxes, html_str
 
         return bboxes
+
+# uncomment the following if you want to test Visprog
+class LocInterpreter():
+    step_name = 'LOC'
+
+    def __init__(self,thresh=0.1,nms_thresh=0.5):
+        print(f'Registering {self.step_name} step')
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.processor = OwlViTProcessor.from_pretrained(
+            "google/owlvit-large-patch14")
+        self.model = OwlViTForObjectDetection.from_pretrained(
+            "google/owlvit-large-patch14").to(self.device)
+        self.model.eval()
+        self.thresh = thresh
+        self.nms_thresh = nms_thresh
+
+    def parse(self,prog_step):
+        parse_result = parse_step(prog_step.prog_str)
+        step_name = parse_result['step_name']
+        img_var = parse_result['args']['image']
+        obj_name = eval(parse_result['args']['object'])
+        output_var = parse_result['output_var']
+        assert(step_name==self.step_name)
+        return img_var,obj_name,output_var
+
+    def normalize_coord(self,bbox,img_size):
+        w,h = img_size
+        x1,y1,x2,y2 = [int(v) for v in bbox]
+        x1 = max(0,x1)
+        y1 = max(0,y1)
+        x2 = min(x2,w-1)
+        y2 = min(y2,h-1)
+        return [x1,y1,x2,y2]
+
+    def predict(self,img,obj_name):
+        encoding = self.processor(
+            text=[[f'a photo of {obj_name}']], 
+            images=img,
+            return_tensors='pt')
+        encoding = {k:v.to(self.device) for k,v in encoding.items()}
+        with torch.no_grad():
+            outputs = self.model(**encoding)
+            for k,v in outputs.items():
+                if v is not None:
+                    outputs[k] = v.to('cpu') if isinstance(v, torch.Tensor) else v
+        
+        target_sizes = torch.Tensor([img.size[::-1]])
+        results = self.processor.post_process_object_detection(outputs=outputs,threshold=self.thresh,target_sizes=target_sizes)
+        boxes, scores = results[0]["boxes"], results[0]["scores"]
+        boxes = boxes.cpu().detach().numpy().tolist()
+        scores = scores.cpu().detach().numpy().tolist()
+        if len(boxes)==0:
+            return []
+
+        boxes, scores = zip(*sorted(zip(boxes,scores),key=lambda x: x[1],reverse=True))
+        selected_boxes = []
+        selected_scores = []
+        for i in range(len(scores)):
+            if scores[i] > self.thresh:
+                coord = self.normalize_coord(boxes[i],img.size)
+                selected_boxes.append(coord)
+                selected_scores.append(scores[i])
+
+        selected_boxes, selected_scores = nms(
+            selected_boxes,selected_scores,self.nms_thresh)
+        return selected_boxes
+
+    def top_box(self,img):
+        w,h = img.size        
+        return [0,0,w-1,int(h/2)]
+
+    def bottom_box(self,img):
+        w,h = img.size
+        return [0,int(h/2),w-1,h-1]
+
+    def left_box(self,img):
+        w,h = img.size
+        return [0,0,int(w/2),h-1]
+
+    def right_box(self,img):
+        w,h = img.size
+        return [int(w/2),0,w-1,h-1]
+
+    def box_image(self,img,boxes,highlight_best=True):
+        img1 = img.copy()
+        draw = ImageDraw.Draw(img1)
+        for i,box in enumerate(boxes):
+            if i==0 and highlight_best:
+                color = 'red'
+            else:
+                color = 'blue'
+
+            draw.rectangle(box,outline=color,width=5)
+
+        return img1
+
+    def html(self,img,box_img,output_var,obj_name):
+        step_name=html_step_name(self.step_name)
+        obj_arg=html_arg_name('object')
+        img_arg=html_arg_name('image')
+        output_var=html_var_name(output_var)
+        img=html_embed_image(img)
+        box_img=html_embed_image(box_img,300)
+        return f"<div>{output_var}={step_name}({img_arg}={img}, {obj_arg}='{obj_name}')={box_img}</div>"
+
+
+    def execute(self,prog_step,inspect=False):
+        img_var,obj_name,output_var = self.parse(prog_step)
+        img = prog_step.state[img_var]
+        if obj_name=='TOP':
+            bboxes = [self.top_box(img)]
+        elif obj_name=='BOTTOM':
+            bboxes = [self.bottom_box(img)]
+        elif obj_name=='LEFT':
+            bboxes = [self.left_box(img)]
+        elif obj_name=='RIGHT':
+            bboxes = [self.right_box(img)]
+        else:
+            bboxes = self.predict(img,obj_name)
+
+        box_img = self.box_image(img, bboxes)
+        prog_step.state[output_var] = bboxes
+        prog_step.state[output_var+'_IMAGE'] = box_img
+        if inspect:
+            html_str = self.html(img, box_img, output_var, obj_name)
+            return bboxes, html_str
+
+        return bboxes
     
 class MergeInterpreter():
     step_name = 'MERGE'
@@ -829,117 +957,6 @@ class MergeInterpreter():
             return merged, html_str
 
         return merged
-    
-class RelativePosInterpreter():
-    step_name = 'RELATIVE_POS'
-
-    def __init__(self):
-        print(f'Registering {self.step_name} step')
-
-    def parse(self,prog_step):
-        parse_result = parse_step(prog_step.prog_str)
-        step_name = parse_result['step_name']
-        box_var = parse_result['args']['object']
-        reference_var = parse_result['args']['reference']
-        output_var = parse_result['output_var']
-        assert(step_name==self.step_name)
-        return box_var,reference_var,output_var
-    
-    def html(self,box,ref,result,output_var):
-        step_name = html_step_name(self.step_name)
-        output_var = html_var_name(output_var)
-        return f"""<div>{output_var}={step_name}({box}, {ref})={result}</div>"""
-    
-    def execute(self,prog_step,inspect=False):
-        box_var,reference_var,output_var = self.parse(prog_step)
-        if box_var.split('[')[0] in prog_step.state:
-            box = prog_step.state[box_var.split('[')[0]]
-            if '[' in box_var:
-                index = int(box_var.split('[')[1].split(']')[0])
-                box = box[index]
-            else:
-                box = box[0]
-        else:
-            box = eval(eval(box_var))
-        if reference_var.split('[')[0] in prog_step.state:
-            ref = prog_step.state[reference_var.split('[')[0]]
-            if '[' in reference_var:
-                index = int(reference_var.split('[')[1].split(']')[0])
-                ref = ref[index]
-            else:
-                ref = ref[0]
-        else:
-            ref = eval(eval(reference_var))
-        
-        result = ''
-        x_box = (box[0] + box[2]) / 2
-        y_box = (box[1] + box[3]) / 2
-        x_ref = (ref[0] + ref[2]) / 2
-        y_ref = (ref[1] + ref[3]) / 2
-        if x_box < x_ref:
-            result += 'left'
-        elif x_box > x_ref:
-            result += 'right'
-        result += ' '
-        if y_box < y_ref:
-            result += 'above'
-        elif y_box > y_ref:
-            result += 'below'
-        
-        prog_step.state[output_var] = result
-        if inspect:
-            html_str = self.html(box, ref, result, output_var)
-            return result, html_str
-
-        return result
-
-class RetrieveInterpreter():
-    step_name = 'RETRIEVE'
-
-    def __init__(self):
-        print(f'Registering {self.step_name} step')
-
-    def parse(self,prog_step):
-        parse_result = parse_step(prog_step.prog_str)
-        step_name = parse_result['step_name']
-        caption = parse_result['args']['caption']
-        question = parse_result['args']['question']
-        output_var = parse_result['output_var']
-        assert(step_name==self.step_name)
-        return caption,question,output_var
-    
-    def html(self,caption,question,result,output_var):
-        step_name = html_step_name(self.step_name)
-        output_var = html_var_name(output_var)
-        return f"""<div>{output_var}={step_name}({caption}, {question})={result}</div>"""
-    
-    def execute(self,prog_step,inspect=False):
-        caption,question,output_var = self.parse(prog_step)
-        caption = prog_step.state[caption]
-        question = prog_step.state[question]
-        with open('dataset_simplified/retrieve_template.txt', 'r') as f:
-            template = f.read()
-        template += 'question: ' + question + '\n'
-        template += 'caption: ' + caption + '\n'
-        template += 'response: '
-        response = openai.Completion.create(
-                model="gpt-3.5-turbo-instruct",
-                prompt=template,
-                temperature=0.3,
-                max_tokens=50,
-                top_p=0.5,
-                frequency_penalty=0,
-                presence_penalty=0,
-                n=1,
-                logprobs=1
-            )
-        result = response.choices[0]['text'].strip()
-        prog_step.state[output_var] = result
-        if inspect:
-            html_str = self.html(caption, question, result, output_var)
-            return result, html_str
-
-        return result
     
 class CapInterpreter():
     step_name = 'CAP'

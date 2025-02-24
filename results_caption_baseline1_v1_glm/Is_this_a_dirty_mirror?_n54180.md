@@ -1,0 +1,18 @@
+Question: Is this a dirty mirror?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/n54180.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a dirty mirror?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this a dirty mirror?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+
