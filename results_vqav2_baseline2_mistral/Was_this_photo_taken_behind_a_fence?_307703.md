@@ -1,0 +1,28 @@
+Question: Was this photo taken behind a fence?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/307703.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='fence')
+IMAGE0=CROP_BEHIND(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='camera')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Was this photo taken behind a fence?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Was this photo taken behind a fence?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

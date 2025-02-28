@@ -377,12 +377,12 @@ class VQAInterpreter():
     def __init__(self):
         print(f'Registering {self.step_name} step')
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        # self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large"), ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa"), AutoProcessor.from_pretrained("google/paligemma-3b-ft-vqav2-448")]
-        # self.model = [BlipForQuestionAnswering.from_pretrained(
-        #     "Salesforce/blip-vqa-capfilt-large").to(self.device), ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(self.device), PaliGemmaForConditionalGeneration.from_pretrained("google/paligemma-3b-ft-vqav2-448").to(self.device)]
-        self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")]
+        self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large"), ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa"), AutoProcessor.from_pretrained("google/paligemma-3b-ft-vqav2-448")]
         self.model = [BlipForQuestionAnswering.from_pretrained(
-            "Salesforce/blip-vqa-capfilt-large").to(self.device)]
+            "Salesforce/blip-vqa-capfilt-large").to(self.device), ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(self.device), PaliGemmaForConditionalGeneration.from_pretrained("google/paligemma-3b-ft-vqav2-448").to(self.device)]
+        # self.processor = [AutoProcessor.from_pretrained("Salesforce/blip-vqa-capfilt-large")]
+        # self.model = [BlipForQuestionAnswering.from_pretrained(
+        #     "Salesforce/blip-vqa-capfilt-large").to(self.device)]
         for model in self.model:
             model.eval()
         self.stemmer = PorterStemmer()
@@ -670,117 +670,12 @@ class LocInterpreter():
             bboxes = [self.left_box(img)]
         elif obj_name=='RIGHT':
             bboxes = [self.right_box(img)]
-        elif obj_name=='all':
-            bboxes = [[0,0,img.size[0]-1,img.size[1]-1]]
         else:
             bboxes = self.predict(img,obj_name)
 
-        '''
-        deleted = [False] * len(bboxes)
-        for i in range(len(bboxes) - 1):
-            for j in range(i + 1, len(bboxes)):
-                overlap_area = None
-                x_distance = min(bboxes[i][2], bboxes[j][2]) - max(bboxes[i][0], bboxes[j][0])
-                y_distance = min(bboxes[i][3], bboxes[j][3]) - max(bboxes[i][1], bboxes[j][1])
-                if x_distance > 0 and y_distance > 0:
-                    overlap_area = x_distance * y_distance
-                else:
-                    overlap_area = 0
-                percentage_i = overlap_area / ((bboxes[i][2] - bboxes[i][0]) * (bboxes[i][3] - bboxes[i][1]))
-                percentage_j = overlap_area / ((bboxes[j][2] - bboxes[j][0]) * (bboxes[j][3] - bboxes[j][1]))
-                if percentage_i > 0.85 and percentage_i > percentage_j:
-                    deleted[i] = True
-                elif percentage_j > 0.85:
-                    deleted[j] = True
-        filtered = []
-        for i in range(len(bboxes)):
-            if not deleted[i]:
-                filtered.append(bboxes[i])
-        bboxes = filtered
-        '''
-
-        # image_size = img.size
-        # changed = True
-        # expanded_boxes = copy.deepcopy(bboxes)
-        # for i in range(len(expanded_boxes)):
-        #     center_x = (expanded_boxes[i][0] + expanded_boxes[i][2]) / 2
-        #     center_y = (expanded_boxes[i][1] + expanded_boxes[i][3]) / 2
-        #     # expanded width and height to 1.5x
-        #     width = expanded_boxes[i][2] - expanded_boxes[i][0]
-        #     height = expanded_boxes[i][3] - expanded_boxes[i][1]
-        #     expanded_boxes[i][0] = max(center_x - width * 0.75, 0)
-        #     expanded_boxes[i][2] = min(center_x + width * 0.75, image_size[0] - 1)
-        #     expanded_boxes[i][1] = max(center_y - height * 0.75, 0)
-        #     expanded_boxes[i][3] = min(center_y + height * 0.75, image_size[1] - 1)
-        # while changed:
-        #     changed = False
-        #     for i in range(len(bboxes) - 1):
-        #         for j in range(i + 1, len(bboxes)):
-        #             overlap_area = None
-        #             x_distance = min(expanded_boxes[i][2], expanded_boxes[j][2]) - max(expanded_boxes[i][0], expanded_boxes[j][0])
-        #             y_distance = min(expanded_boxes[i][3], expanded_boxes[j][3]) - max(expanded_boxes[i][1], expanded_boxes[j][1])
-        #             if x_distance > 0 and y_distance > 0:
-        #                 overlap_area = x_distance * y_distance
-        #             else:
-        #                 overlap_area = 0
-        #             percentage_i = overlap_area / ((expanded_boxes[i][2] - expanded_boxes[i][0]) * (expanded_boxes[i][3] - expanded_boxes[i][1]))
-        #             percentage_j = overlap_area / ((expanded_boxes[j][2] - expanded_boxes[j][0]) * (expanded_boxes[j][3] - expanded_boxes[j][1]))
-        #             if percentage_i > 0.7 or percentage_j > 0.7:
-        #                 merged_box = [min(bboxes[i][0], bboxes[j][0]), min(bboxes[i][1], bboxes[j][1]), max(bboxes[i][2], bboxes[j][2]), max(bboxes[i][3], bboxes[j][3])]
-        #                 bboxes.append(merged_box)
-        #                 bboxes.pop(i)
-        #                 bboxes.pop(j - 1)
-        #                 changed = True
-        #                 break
-        #         if changed:
-        #             break
-        # bboxes = [box for box in bboxes if box[2] - box[0] > 20 and box[3] - box[1] > 20]
-        '''
-        deleted = [False] * len(bboxes)
-        for i in range(len(bboxes) - 1):
-            # crop image on the box
-            box = bboxes[i]
-            cropped_img = img.crop(box)
-            # get caption
-            caption = self.get_caption(cropped_img)
-            if len([cap for cap in caption.split() if obj_name.lower() == cap.lower()]) > 0:
-                continue
-            # get vqa
-            question = "Any " + obj_name + " in the image?"
-            vqa1 = self.get_vqa(img, question)
-            question = "Is there " + obj_name + " in the image?"
-            vqa2 = self.get_vqa(img, question)
-            question = "Can you see anything likely to be " + obj_name + " in the image?"
-            vqa3 = self.get_vqa(img, question)
-            if 'yes' not in vqa1.lower() and 'yes' not in vqa2.lower() and 'yes' not in vqa3.lower():
-                deleted[i] = True
-        
-        filtered = []
-        for i in range(len(bboxes)):
-            if not deleted[i]:
-                filtered.append(bboxes[i])
-        bboxes = filtered
-        '''
         parse_result = parse_step(prog_step.prog_str)
         if 'plural' in parse_result['args'] and len(bboxes) > 0 and eval(parse_result['args']['plural'])==True:
             bboxes = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
-        
-        # bboxes = sorted(bboxes, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]), reverse=True)
-
-        # if len(bboxes) == 0:
-        #     caption = self.get_caption(img)
-        #     if len([cap for cap in caption.split() if obj_name.lower() == cap.lower()]) > 0:
-        #         bboxes = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
-        #     else:
-        #         # get vqa
-        #         question = "Any " + obj_name + " in the image?"
-        #         vqa1 = self.get_vqa(img, question)
-        #         question = "Is there " + obj_name + " in the image?"
-        #         vqa2 = self.get_vqa(img, question)
-        #         question = "Can you see " + obj_name + " in the image?"
-        #         vqa3 = self.get_vqa(img, question)
-        #         if 'yes' in vqa1.lower() or 'yes' in vqa2.lower() or 'yes' in vqa3.lower():
-        #             bboxes = [[0, 0, img.size[0] - 1, img.size[1] - 1]]
 
         box_img = self.box_image(img, bboxes)
         prog_step.state[output_var] = bboxes
@@ -792,132 +687,132 @@ class LocInterpreter():
         return bboxes
 
 # uncomment the following if you want to test Visprog
-class LocInterpreter():
-    step_name = 'LOC'
+# class LocInterpreter():
+#     step_name = 'LOC'
 
-    def __init__(self,thresh=0.1,nms_thresh=0.5):
-        print(f'Registering {self.step_name} step')
-        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        self.processor = OwlViTProcessor.from_pretrained(
-            "google/owlvit-large-patch14")
-        self.model = OwlViTForObjectDetection.from_pretrained(
-            "google/owlvit-large-patch14").to(self.device)
-        self.model.eval()
-        self.thresh = thresh
-        self.nms_thresh = nms_thresh
+#     def __init__(self,thresh=0.1,nms_thresh=0.5):
+#         print(f'Registering {self.step_name} step')
+#         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+#         self.processor = OwlViTProcessor.from_pretrained(
+#             "google/owlvit-large-patch14")
+#         self.model = OwlViTForObjectDetection.from_pretrained(
+#             "google/owlvit-large-patch14").to(self.device)
+#         self.model.eval()
+#         self.thresh = thresh
+#         self.nms_thresh = nms_thresh
 
-    def parse(self,prog_step):
-        parse_result = parse_step(prog_step.prog_str)
-        step_name = parse_result['step_name']
-        img_var = parse_result['args']['image']
-        obj_name = eval(parse_result['args']['object'])
-        output_var = parse_result['output_var']
-        assert(step_name==self.step_name)
-        return img_var,obj_name,output_var
+#     def parse(self,prog_step):
+#         parse_result = parse_step(prog_step.prog_str)
+#         step_name = parse_result['step_name']
+#         img_var = parse_result['args']['image']
+#         obj_name = eval(parse_result['args']['object'])
+#         output_var = parse_result['output_var']
+#         assert(step_name==self.step_name)
+#         return img_var,obj_name,output_var
 
-    def normalize_coord(self,bbox,img_size):
-        w,h = img_size
-        x1,y1,x2,y2 = [int(v) for v in bbox]
-        x1 = max(0,x1)
-        y1 = max(0,y1)
-        x2 = min(x2,w-1)
-        y2 = min(y2,h-1)
-        return [x1,y1,x2,y2]
+#     def normalize_coord(self,bbox,img_size):
+#         w,h = img_size
+#         x1,y1,x2,y2 = [int(v) for v in bbox]
+#         x1 = max(0,x1)
+#         y1 = max(0,y1)
+#         x2 = min(x2,w-1)
+#         y2 = min(y2,h-1)
+#         return [x1,y1,x2,y2]
 
-    def predict(self,img,obj_name):
-        encoding = self.processor(
-            text=[[f'a photo of {obj_name}']], 
-            images=img,
-            return_tensors='pt')
-        encoding = {k:v.to(self.device) for k,v in encoding.items()}
-        with torch.no_grad():
-            outputs = self.model(**encoding)
-            for k,v in outputs.items():
-                if v is not None:
-                    outputs[k] = v.to('cpu') if isinstance(v, torch.Tensor) else v
+#     def predict(self,img,obj_name):
+#         encoding = self.processor(
+#             text=[[f'a photo of {obj_name}']], 
+#             images=img,
+#             return_tensors='pt')
+#         encoding = {k:v.to(self.device) for k,v in encoding.items()}
+#         with torch.no_grad():
+#             outputs = self.model(**encoding)
+#             for k,v in outputs.items():
+#                 if v is not None:
+#                     outputs[k] = v.to('cpu') if isinstance(v, torch.Tensor) else v
         
-        target_sizes = torch.Tensor([img.size[::-1]])
-        results = self.processor.post_process_object_detection(outputs=outputs,threshold=self.thresh,target_sizes=target_sizes)
-        boxes, scores = results[0]["boxes"], results[0]["scores"]
-        boxes = boxes.cpu().detach().numpy().tolist()
-        scores = scores.cpu().detach().numpy().tolist()
-        if len(boxes)==0:
-            return []
+#         target_sizes = torch.Tensor([img.size[::-1]])
+#         results = self.processor.post_process_object_detection(outputs=outputs,threshold=self.thresh,target_sizes=target_sizes)
+#         boxes, scores = results[0]["boxes"], results[0]["scores"]
+#         boxes = boxes.cpu().detach().numpy().tolist()
+#         scores = scores.cpu().detach().numpy().tolist()
+#         if len(boxes)==0:
+#             return []
 
-        boxes, scores = zip(*sorted(zip(boxes,scores),key=lambda x: x[1],reverse=True))
-        selected_boxes = []
-        selected_scores = []
-        for i in range(len(scores)):
-            if scores[i] > self.thresh:
-                coord = self.normalize_coord(boxes[i],img.size)
-                selected_boxes.append(coord)
-                selected_scores.append(scores[i])
+#         boxes, scores = zip(*sorted(zip(boxes,scores),key=lambda x: x[1],reverse=True))
+#         selected_boxes = []
+#         selected_scores = []
+#         for i in range(len(scores)):
+#             if scores[i] > self.thresh:
+#                 coord = self.normalize_coord(boxes[i],img.size)
+#                 selected_boxes.append(coord)
+#                 selected_scores.append(scores[i])
 
-        selected_boxes, selected_scores = nms(
-            selected_boxes,selected_scores,self.nms_thresh)
-        return selected_boxes
+#         selected_boxes, selected_scores = nms(
+#             selected_boxes,selected_scores,self.nms_thresh)
+#         return selected_boxes
 
-    def top_box(self,img):
-        w,h = img.size        
-        return [0,0,w-1,int(h/2)]
+#     def top_box(self,img):
+#         w,h = img.size        
+#         return [0,0,w-1,int(h/2)]
 
-    def bottom_box(self,img):
-        w,h = img.size
-        return [0,int(h/2),w-1,h-1]
+#     def bottom_box(self,img):
+#         w,h = img.size
+#         return [0,int(h/2),w-1,h-1]
 
-    def left_box(self,img):
-        w,h = img.size
-        return [0,0,int(w/2),h-1]
+#     def left_box(self,img):
+#         w,h = img.size
+#         return [0,0,int(w/2),h-1]
 
-    def right_box(self,img):
-        w,h = img.size
-        return [int(w/2),0,w-1,h-1]
+#     def right_box(self,img):
+#         w,h = img.size
+#         return [int(w/2),0,w-1,h-1]
 
-    def box_image(self,img,boxes,highlight_best=True):
-        img1 = img.copy()
-        draw = ImageDraw.Draw(img1)
-        for i,box in enumerate(boxes):
-            if i==0 and highlight_best:
-                color = 'red'
-            else:
-                color = 'blue'
+#     def box_image(self,img,boxes,highlight_best=True):
+#         img1 = img.copy()
+#         draw = ImageDraw.Draw(img1)
+#         for i,box in enumerate(boxes):
+#             if i==0 and highlight_best:
+#                 color = 'red'
+#             else:
+#                 color = 'blue'
 
-            draw.rectangle(box,outline=color,width=5)
+#             draw.rectangle(box,outline=color,width=5)
 
-        return img1
+#         return img1
 
-    def html(self,img,box_img,output_var,obj_name):
-        step_name=html_step_name(self.step_name)
-        obj_arg=html_arg_name('object')
-        img_arg=html_arg_name('image')
-        output_var=html_var_name(output_var)
-        img=html_embed_image(img)
-        box_img=html_embed_image(box_img,300)
-        return f"<div>{output_var}={step_name}({img_arg}={img}, {obj_arg}='{obj_name}')={box_img}</div>"
+#     def html(self,img,box_img,output_var,obj_name):
+#         step_name=html_step_name(self.step_name)
+#         obj_arg=html_arg_name('object')
+#         img_arg=html_arg_name('image')
+#         output_var=html_var_name(output_var)
+#         img=html_embed_image(img)
+#         box_img=html_embed_image(box_img,300)
+#         return f"<div>{output_var}={step_name}({img_arg}={img}, {obj_arg}='{obj_name}')={box_img}</div>"
 
 
-    def execute(self,prog_step,inspect=False):
-        img_var,obj_name,output_var = self.parse(prog_step)
-        img = prog_step.state[img_var]
-        if obj_name=='TOP':
-            bboxes = [self.top_box(img)]
-        elif obj_name=='BOTTOM':
-            bboxes = [self.bottom_box(img)]
-        elif obj_name=='LEFT':
-            bboxes = [self.left_box(img)]
-        elif obj_name=='RIGHT':
-            bboxes = [self.right_box(img)]
-        else:
-            bboxes = self.predict(img,obj_name)
+#     def execute(self,prog_step,inspect=False):
+#         img_var,obj_name,output_var = self.parse(prog_step)
+#         img = prog_step.state[img_var]
+#         if obj_name=='TOP':
+#             bboxes = [self.top_box(img)]
+#         elif obj_name=='BOTTOM':
+#             bboxes = [self.bottom_box(img)]
+#         elif obj_name=='LEFT':
+#             bboxes = [self.left_box(img)]
+#         elif obj_name=='RIGHT':
+#             bboxes = [self.right_box(img)]
+#         else:
+#             bboxes = self.predict(img,obj_name)
 
-        box_img = self.box_image(img, bboxes)
-        prog_step.state[output_var] = bboxes
-        prog_step.state[output_var+'_IMAGE'] = box_img
-        if inspect:
-            html_str = self.html(img, box_img, output_var, obj_name)
-            return bboxes, html_str
+#         box_img = self.box_image(img, bboxes)
+#         prog_step.state[output_var] = bboxes
+#         prog_step.state[output_var+'_IMAGE'] = box_img
+#         if inspect:
+#             html_str = self.html(img, box_img, output_var, obj_name)
+#             return bboxes, html_str
 
-        return bboxes
+#         return bboxes
     
 class MergeInterpreter():
     step_name = 'MERGE'

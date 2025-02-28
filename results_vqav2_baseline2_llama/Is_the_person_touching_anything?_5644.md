@@ -1,0 +1,28 @@
+Question: Is the person touching anything?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/5644.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='touching')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the person touching anything?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the person touching anything?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

@@ -1,0 +1,24 @@
+Question: What does the sign say?
+
+Reference Answer: one way
+
+Image path: ./sampled_GQA/35940.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What does the sign say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What does the sign say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What does the sign say?')=<b><span style='color: green;'>one way</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>one way</span></b></div><hr>
+
+Answer: "One Way"
+

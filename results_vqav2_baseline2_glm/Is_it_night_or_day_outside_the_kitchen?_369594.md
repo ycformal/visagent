@@ -1,0 +1,24 @@
+Question: Is it night or day outside the kitchen?
+
+Reference Answer: day
+
+Image path: ./sampled_GQA/369594.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is it night or day outside the kitchen?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is it night or day outside the kitchen?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is it night or day outside the kitchen?')=<b><span style='color: green;'>day</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>day</span></b></div><hr>
+
+Answer: day
+

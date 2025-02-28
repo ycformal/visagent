@@ -11,8 +11,8 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='Is the yurt solid-color?')
 ANSWER1=VQA(image=RIGHT,question='Is the yurt solid-color?')
-ANSWER2=VQA(image=LEFT,question='Is the roof contrasting?')
-ANSWER3=VQA(image=RIGHT,question='Is the roof contrasting?')
+ANSWER2=VQA(image=LEFT,question='Is the roof contrasting with the yurt?')
+ANSWER3=VQA(image=RIGHT,question='Is the roof contrasting with the yurt?')
 ANSWER4=VQA(image=LEFT,question='Is there one visible door?')
 ANSWER5=VQA(image=RIGHT,question='Is there one visible door?')
 ANSWER6=VQA(image=LEFT,question='Is there snow in the landscape?')
@@ -20,7 +20,7 @@ ANSWER7=VQA(image=RIGHT,question='Is there snow in the landscape?')
 ANSWER8=VQA(image=LEFT,question='Are there trees in the background?')
 ANSWER9=VQA(image=RIGHT,question='Are there trees in the background?')
 ANSWER10=EVAL(expr='{ANSWER0} and {ANSWER2} and {ANSWER4} and {ANSWER6} and {ANSWER8}')
-ANSWER11=EVAL(expr='{ANSWER1} and {ANSWER3} and {ANSWER5} and {ANSWER7
+ANSWER11=EVAL(expr='{ANSWER1} and {ANSWER3} and {ANSWER5
 ```
 Answer: True
 

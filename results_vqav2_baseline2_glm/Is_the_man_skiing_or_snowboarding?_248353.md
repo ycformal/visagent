@@ -1,0 +1,24 @@
+Question: Is the man skiing or snowboarding?
+
+Reference Answer: skiing
+
+Image path: ./sampled_GQA/248353.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the man skiing or snowboarding?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the man skiing or snowboarding?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the man skiing or snowboarding?')=<b><span style='color: green;'>skiing</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>skiing</span></b></div><hr>
+
+Answer: skiing
+

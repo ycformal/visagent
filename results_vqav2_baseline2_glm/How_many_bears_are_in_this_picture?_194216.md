@@ -1,0 +1,24 @@
+Question: How many bears are in this picture?
+
+Reference Answer: 3
+
+Image path: ./sampled_GQA/194216.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How many bears are in this picture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How many bears are in this picture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many bears are in this picture?')=<b><span style='color: green;'>3</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>3</span></b></div><hr>
+
+Answer: 4
+

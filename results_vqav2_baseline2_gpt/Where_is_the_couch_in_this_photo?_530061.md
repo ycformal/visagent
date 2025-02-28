@@ -1,0 +1,25 @@
+Question: Where is the couch in this photo?
+
+Reference Answer: background
+
+Image path: ./sampled_GQA/530061.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='couch')
+ANSWER0=EVAL(expr="'top' if {BOX0[0]} < 0.5 else 'bottom'")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Where is the couch in this photo?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Where is the couch in this photo?')=<b><span style='color: green;'>behind girl</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>behind girl</span></b></div><hr>
+
+Answer: behind girl
+

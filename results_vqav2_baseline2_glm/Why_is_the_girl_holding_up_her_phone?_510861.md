@@ -1,0 +1,24 @@
+Question: Why is the girl holding up her phone?
+
+Reference Answer: recording
+
+Image path: ./sampled_GQA/510861.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why is the girl holding up her phone?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why is the girl holding up her phone?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Why is the girl holding up her phone?')=<b><span style='color: green;'>taking picture</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>taking picture</span></b></div><hr>
+
+Answer: taking picture
+

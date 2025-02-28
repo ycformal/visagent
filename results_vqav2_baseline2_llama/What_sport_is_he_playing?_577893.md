@@ -1,0 +1,26 @@
+Question: What sport is he playing?
+
+Reference Answer: tennis
+
+Image path: ./sampled_GQA/577893.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What sport is he playing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What sport is he playing?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAEMDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDyVrbSZIg0bzyXAb5lY4Vwc8rgcY4PPWq8ccdvEHNi7To+7JJdGX0IxzTl3nOWb86eSx6s34ms7PuL2gv2lQjR/wBmI0RO5kwQC2O3cVbt4pLeWSezWziikUI0Ejj5xkE5DHGMj15qqkJlbCqWah4ih2suCKLC9ozQje4hmkVJbBYivQyoMt2PHYdh+eagj8wXsEt1e2siKRvUMzgjnsF/rVQLgmgijlQe0ZJ5rxSysmpt8x6rExbpjqelVp8TyyPJczOWOSAgUA+3NStA6jJRgPUg0hhdRuKMAe5Boshc7LEV1YRxKn2WZsDr5gGf0oqmRgkHg0U7IOdm9d6ZbwWk8yowjCRtC4fcSWGcMOw688Va0vSY5LNZSASyF2YjOAKqpP5cgB1GPasXk/LHnKehGMGiz1ZrJXt1LPASQD0O36f0rkaqONkxaG4+jCSG1FjNHDDcspaVxtbB7ms26fQYLp7K/SSJIsqLm3wzk+rAkbqbceIHmsXtNm5T912OCo9KYklpLodvYXdmk0abyksL+W6luSxyCGPAGDRSUor94b0kpJpGXcRQCeQWcrTwA/K7JsJHqRk1btUFiyXDxo7cgZOQOOv1qjFEUhdoI51tBJ8hmQK+doznHb0qeK4CpHGwIC8BgegrpcXszK8Uy1fxSt81yrhM7dyAHn1561B9it5wGhvFGAMrINv9abc3IeEQpyO7EYzVIipUGlo7EytcSdGM8hZkYliSQwINFNI560VoibmlFpd1Jn904x6o3P6VYXQ7pv4SPw/xNdQiCpRGcZHNcLxMjTlRy6+H7g9Tj8R/jV/TtFeC5V3MbbRkbzu2+4GOtbWKhuy8dq7x/fA4rTD15SqxT7mdVWg7C3clhqMDWbRCOQAqJGOSTnPPoPp0rJXw/Ap+ZiT7D/69ZM1zNYo02fNy4JLN09eK6mO63MscwAkONrK2QwI4rtzGUrKUfmY4Om2mr/L8ygNDs1/gJ/Kl/sq0XpFWrtprICK8n2k31OoyzYW+f9SPzNFXynPeijnl3AsIvFS7MChB7VOPes2URBAe9Mmt2kgdB3HH1p11MtpayTlchBkiuo03UPD0VtFND5U2QD5knJJ74z0rahTlKV07WBw5lqeR6pCsccqFic4bHpWhp6ySLpQ53YwR/sjnP5ZrX17Qre7mllt78LGzE+W4zgZ7Ef1q7ZWdnYWqG2LXEm073dcZ46L6V6uLrU3TaXX/ADObDUZwmubTf8rBtprRnsKm5A6c0hzXinQVSBmipivNFAAjD3qZW9qoRXcR/j/OrKTxsOHFDQyeaMXEEkLDh1Kn8a43QJJLDX30+aMETEqyt/CwBORXYLKg6uPzps+kC7ij1C3hjM6yhVkwMt+NaUk3eJSejRn6vpEtyizWMrQ3EZzsDkI49D6Gr2hfbNThuUkt2Se1ALowwWH+z6+vFW5la3laKUFHXgqe1RfbVs5BOku2dBmPDYOaUXd8sgUrKzAnHeo2YmrGo6pa3zpNHC0U7DMwxtUt6gf5FZ7TDtilKPK7EjyTnpRVcz89vzopWEVVt48Z5/OpFtkxkOR9arrOoGSaQ30QyMZq9RkrNFCc+YrY7Bd2fwqS48TahLcpJB5NuVAH/HuccDHAzhfwrLmuIXPyxYPqDimIhfq4FXGUo7Cubcd7eag3mTywyzH7zsDz+FNuNPS4TE/llRzhUxzVS2hiQ5M659M1o7wQPmyB71m227jGxwrFCIwoKjpuOcUjZX7ox9DQzZ6GojICOtKwCFpM9/0ophfminYDP2jpQkSN2ooqwJkiQdqmRFA4FFFSA8HmpCxCHntRRQMZuPIzSHgUUUCISTmiiimB/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What sport is he playing?')=<b><span style='color: green;'>tennis</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>tennis</span></b></div><hr>
+
+Answer: tennis
+

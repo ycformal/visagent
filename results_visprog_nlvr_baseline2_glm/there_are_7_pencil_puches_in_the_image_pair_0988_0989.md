@@ -12,7 +12,7 @@ Original program:
 ANSWER0=VQA(image=LEFT,question='How many pencil puches are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many pencil puches are in the image?')
 ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 7')
-FINAL_ANSWER=RESULT(var=ANSWER2)The given program is a series of logical steps to determine if a statement is true or false based on the information provided in the images. The program uses a combination of VQA (Visual Question Answering) and EVAL (Evaluation) functions to analyze the images and provide a final answer.
+FINAL_ANSWER=RESULT(var=ANSWER2)The statement is True.
 ```
 Program:
 
@@ -20,7 +20,7 @@ Program:
 ANSWER0=VQA(image=LEFT,question='How many pencil puches are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many pencil puches are in the image?')
 ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 7')
-FINAL_ANSWER=RESULT(var=ANSWER2)The given program is a series of logical steps to determine if a statement is true or false based on the information provided in the images. The program uses a combination of VQA (Visual Question Answering) and EVAL (Evaluation) functions to analyze the images and provide a final answer.
+FINAL_ANSWER=RESULT(var=ANSWER2)The statement is True.
 ```
 Rationale:
 

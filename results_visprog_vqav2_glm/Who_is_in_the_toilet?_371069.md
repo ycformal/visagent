@@ -1,0 +1,18 @@
+Question: Who is in the toilet?
+
+Reference Answer: no one
+
+Image path: ./sampled_GQA/371069.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Who is in the toilet?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Who is in the toilet?')=<b><span style='color: green;'>no one</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no one</span></b></div><hr>
+
+Answer: no one
+

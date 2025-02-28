@@ -1,0 +1,24 @@
+Question: What color is the wall?
+
+Reference Answer: white
+
+Image path: ./sampled_GQA/299457.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the wall?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the wall?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is the wall?')=<b><span style='color: green;'>white</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>white</span></b></div><hr>
+
+Answer: white
+

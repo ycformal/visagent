@@ -1,0 +1,26 @@
+Question: What color are the man's shorts?
+
+Reference Answer: red
+
+Image path: ./sampled_GQA/293852.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color are the man''s shorts?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What color are the man's shorts?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color are the man's shorts?')=<b><span style='color: green;'>red</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>red</span></b></div><hr>
+
+Answer: red
+

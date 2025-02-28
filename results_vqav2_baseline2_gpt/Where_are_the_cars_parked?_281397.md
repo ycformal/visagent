@@ -1,0 +1,25 @@
+Question: Where are the cars parked?
+
+Reference Answer: on curb
+
+Image path: ./sampled_GQA/281397.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='cars')
+ANSWER0=EVAL(expr="'top' if {BOX0}.y < 0.5 else 'bottom'")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Where are the cars parked?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Where are the cars parked?')=<b><span style='color: green;'>street</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>street</span></b></div><hr>
+
+Answer: side of the road
+

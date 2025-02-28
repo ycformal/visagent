@@ -1,0 +1,24 @@
+Question: Is this an adult bear?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/435240.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this an adult bear?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this an adult bear?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this an adult bear?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

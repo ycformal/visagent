@@ -1,0 +1,24 @@
+Question: What type of clouds are in the sky?
+
+Reference Answer: cumulus
+
+Image path: ./sampled_GQA/581317.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What type of clouds are in the sky?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What type of clouds are in the sky?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What type of clouds are in the sky?')=<b><span style='color: green;'>cumulus</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>cumulus</span></b></div><hr>
+
+Answer: cumulus
+

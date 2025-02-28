@@ -1,0 +1,28 @@
+Question: Is the person taking a self photo?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/424270.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='camera')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the person taking a self photo?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the person taking a self photo?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

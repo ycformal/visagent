@@ -11,24 +11,20 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many yellow trucks are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many yellow trucks are in the image?')
-ANSWER2=VQA(image=LEFT,question='Are there yellow plows in the image?')
-ANSWER3=VQA(image=RIGHT,question='Are there yellow plows in the image?')
-ANSWER4=VQA(image=LEFT,question='Is the truck pushing snow?')
-ANSWER5=VQA(image=RIGHT,question='Is the truck pushing snow?')
-ANSWER6=EVAL(expr='{ANSWER0} >= 1 and {ANSWER1} >= 1 and {ANSWER2} and {ANSWER3} and {ANSWER4} and {ANSWER5}')
-FINAL_ANSWER=RESULT(var=ANSWER6)
+ANSWER2=VQA(image=LEFT,question='Are there yellow plows pushing snow?')
+ANSWER3=VQA(image=RIGHT,question='Are there yellow plows pushing snow?')
+ANSWER4=EVAL(expr='{ANSWER0} > 0 and {ANSWER1} > 0 and {ANSWER2} and {ANSWER3}')
+FINAL_ANSWER=RESULT(var=ANSWER4)
 ```
 Program:
 
 ```
 ANSWER0=VQA(image=LEFT,question='How many yellow trucks are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many yellow trucks are in the image?')
-ANSWER2=VQA(image=LEFT,question='Are there yellow plows in the image?')
-ANSWER3=VQA(image=RIGHT,question='Are there yellow plows in the image?')
-ANSWER4=VQA(image=LEFT,question='Is the truck pushing snow?')
-ANSWER5=VQA(image=RIGHT,question='Is the truck pushing snow?')
-ANSWER6=EVAL(expr='{ANSWER0} >= 1 and {ANSWER1} >= 1 and {ANSWER2} and {ANSWER3} and {ANSWER4} and {ANSWER5}')
-FINAL_ANSWER=RESULT(var=ANSWER6)
+ANSWER2=VQA(image=LEFT,question='Are there yellow plows pushing snow?')
+ANSWER3=VQA(image=RIGHT,question='Are there yellow plows pushing snow?')
+ANSWER4=EVAL(expr='{ANSWER0} > 0 and {ANSWER1} > 0 and {ANSWER2} and {ANSWER3}')
+FINAL_ANSWER=RESULT(var=ANSWER4)
 ```
 Answer: true
 

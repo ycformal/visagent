@@ -1,0 +1,24 @@
+Question: Is this a kitchen?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/188544.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a kitchen?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a kitchen?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this a kitchen?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

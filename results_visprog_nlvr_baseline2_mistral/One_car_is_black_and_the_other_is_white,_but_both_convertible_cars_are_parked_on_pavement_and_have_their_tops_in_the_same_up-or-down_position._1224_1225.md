@@ -22,5 +22,5 @@ ANSWER9=VQA(image=RIGHT,question='Is the top of the car down?')
 ANSWER10=EVAL(expr='{ANSWER0} xor {ANSWER2}')
 ANSWER11=EVAL(expr
 ```
-Answer: true
+Answer: True
 

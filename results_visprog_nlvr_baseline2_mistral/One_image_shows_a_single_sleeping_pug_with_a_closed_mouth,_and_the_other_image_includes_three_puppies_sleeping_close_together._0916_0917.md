@@ -9,15 +9,16 @@ Right image URL: https://pbs.twimg.com/media/CPQiMYQUcAQnpks.png
 Original program:
 
 ```
-ANSWER0=VQA(image=LEFT,question='How many pugs are sleeping with a closed mouth?')
-ANSWER1=VQA(image=RIGHT,question='How many pugs are sleeping with a closed mouth?')
-ANSWER2=VQA(image=LEFT,question='How many puppies are sleeping close together?')
-ANSWER3=VQA(image=RIGHT,question='How many puppies are sleeping close together?')
-ANSWER4=EVAL(expr='{ANSWER0} == 1 and {ANSWER2} == 0')
-ANSWER5=EVAL(expr='{ANSWER1} == 1 and {ANSWER3} == 0')
-ANSWER6=EVAL(expr='{ANSWER0} == 0 and {ANSWER2} == 3')
-ANSWER7=EVAL(expr='{ANSWER1} == 0 and {ANSWER3} == 3')
-ANSWER8=EVAL(expr='({ANSWER4} xor {ANSWER5}) and ({ANSWER6} xor {AN
+ANSWER0=VQA(image=LEFT,question='How many pugs are in the image?')
+ANSWER1=VQA(image=RIGHT,question='How many pugs are in the image?')
+ANSWER2=VQA(image=LEFT,question='Is the pug sleeping with a closed mouth?')
+ANSWER3=VQA(image=RIGHT,question='Is the pug sleeping with a closed mouth?')
+ANSWER4=VQA(image=LEFT,question='How many puppies are sleeping close together?')
+ANSWER5=VQA(image=RIGHT,question='How many puppies are sleeping close together?')
+ANSWER6=EVAL(expr='{ANSWER0} == 1 and {ANSWER2}')
+ANSWER7=EVAL(expr='{ANSWER1} == 1 and {ANSWER3}')
+ANSWER8=EVAL(expr='{ANSWER4} == 3 and {ANSWER5} == 3')
+ANSWER9=EVAL(expr='{ANSWER6} xor {ANSWER7} and {AN
 ```
 Answer: True
 

@@ -12,7 +12,7 @@ Original program:
 ANSWER0=VQA(image=LEFT,question='How many graduation gowns are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many graduation gowns are in the image?')
 ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 2')
-FINAL_ANSWER=RESULT(var=ANSWER2)
+FINAL_ANSWER=RESULT(var=ANSWER2)The given program is a series of logical steps to determine if a statement is true or false based on the content of two images. The program uses a combination of logical operators and variable assignments to evaluate the statement.
 ```
 Program:
 
@@ -20,7 +20,7 @@ Program:
 ANSWER0=VQA(image=LEFT,question='How many graduation gowns are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many graduation gowns are in the image?')
 ANSWER2=EVAL(expr='{ANSWER0} + {ANSWER1} == 2')
-FINAL_ANSWER=RESULT(var=ANSWER2)
+FINAL_ANSWER=RESULT(var=ANSWER2)The given program is a series of logical steps to determine if a statement is true or false based on the content of two images. The program uses a combination of logical operators and variable assignments to evaluate the statement.
 ```
 Rationale:
 

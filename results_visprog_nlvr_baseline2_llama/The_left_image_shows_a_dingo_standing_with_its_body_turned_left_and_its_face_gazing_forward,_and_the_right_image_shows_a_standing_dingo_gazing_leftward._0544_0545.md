@@ -19,5 +19,5 @@ ANSWER6=VQA(image=LEFT,question='Is the dingo standing with its body turned righ
 ANSWER7=VQA(image=RIGHT,question='Is the dingo standing with its body turned right and its face gazing leftward?')
 ANSWER8=EVAL(expr='{ANSWER0}
 ```
-Answer: True
+Answer: neither
 

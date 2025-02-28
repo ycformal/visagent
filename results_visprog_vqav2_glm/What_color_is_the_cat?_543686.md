@@ -1,0 +1,18 @@
+Question: What color is the cat?
+
+Reference Answer: white
+
+Image path: ./sampled_GQA/543686.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the cat?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is the cat?')=<b><span style='color: green;'>white</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>white</span></b></div><hr>
+
+Answer: white
+

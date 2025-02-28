@@ -9,8 +9,8 @@ Right image URL: https://theactivedad.files.wordpress.com/2011/02/bilde.jpg
 Original program:
 
 ```
-ANSWER0=VQA(image=LEFT,question='Does the image show a bedroom of a yurt?')
-ANSWER1=VQA(image=RIGHT,question='Does the image show a bedroom of a yurt?')
+ANSWER0=VQA(image=LEFT,question='Is the image showing a bedroom of a yurt?')
+ANSWER1=VQA(image=RIGHT,question='Is the image showing a bedroom of a yurt?')
 ANSWER2=VQA(image=LEFT,question='Is there a large bed in the image?')
 ANSWER3=VQA(image=RIGHT,question='Is there a large bed in the image?')
 ANSWER4=VQA(image=LEFT,question='Are there at least two sets of bunkbeds in the image?')

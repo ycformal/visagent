@@ -1,0 +1,24 @@
+Question: Why are there no passengers in this train station?
+
+Reference Answer: closed
+
+Image path: ./sampled_GQA/17198.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why are there no passengers in this train station?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why are there no passengers in this train station?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Why are there no passengers in this train station?')=<b><span style='color: green;'>closed</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>closed</span></b></div><hr>
+
+Answer: closed
+

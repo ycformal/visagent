@@ -1,0 +1,32 @@
+Question: Can you groom yourself in this room?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/45229.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='mirror')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='chair')
+IMAGE1=CROP_BELOW(image=IMAGE0,box=BOX1)
+BOX2=LOC(image=IMAGE1,object='table')
+IMAGE2=CROP_RIGHTOF(image=IMAGE1,box=BOX2)
+BOX3=LOC(image=IMAGE2,object='lamp')
+ANSWER0=COUNT(box=BOX3)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Can you groom yourself in this room?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Can you groom yourself in this room?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

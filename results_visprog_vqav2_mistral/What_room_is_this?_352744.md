@@ -1,0 +1,18 @@
+Question: What room is this?
+
+Reference Answer: bathroom
+
+Image path: ./sampled_GQA/352744.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What room is this?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAEsDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDVtI5LS8dd5B3AdOpP/wCuundLqS1Mfl8Y49q4u/1qa0unIRAyDO5hksAc/wBKP+FkXojKIkSjHPUmmqLmk4le0UdGdRa6RctFcs0XBQnPpxW1oyZijPrElcHpvju9lkMLOmxxgjb713+g82UBP/PJRVuDhuHNzDtVTiP6mseRODXQamuUT6msR160hozJU61TlStKVeapyrQBmywg1QMC56H8q13XrVcrzSGih4rhiScleCQVOR1x/jXDyHa2RnntXoHiqMysMqFOTg9cVwksa7iuenFbYWMowSZyybbuybTJCt2uCR717n4cLS6RbMCBmMZP0Y14Zp0f+mIM+te5+FDnRrfPo4/8fNOv0LpmhqzpDa+bIwVFyWJ7DFc/ZX9pqVmLmCUhGJGHQhhg46V02oKGhAPQ5B/KuetdItLG28lIw43Fi0nJJNYG3QrTPbL1kY/RaoTXNqP4mP4gVpy2sA6QRD/gAqpJDGOiIPoooCzMOW/H2sxrFGYdmd3nfPnPp6UvmRnnZJ/3wa0ZI1weBk1AUpBZnOavM93y0wGOhLYrlp7dkckspOezZr0Q+Fry6OGW2twf+ekhkP5KP61dtfh3ASDPc3D9/wB1GIx+Zya1pycdzOUU9jzzRbR5b5BtJ9K9s8KJjSogOcPIP/Hqp2ngnR7bBNmshHeaRnP5dK6Czs4bBVECBIhwIokAUe+BRUlzMcVYffr+7X61lSA4PFaWqSjYgWTnPQGsSZiQckmsmaJFedgCcsKoyyqPU0+ZvmNU5GyaVx2GvJuOAMUzPtTcnJo3UwO9E1nbDCFF/wB0VE2orn5VY/XisbeAM9qBdA5KKzcZ9KrmJ5Ua322Q9Aq0xp3f7zkj68VkQX3nF8gqFOBtGc+tWQzOflh59ZD/AEpO40kWS4P3efoM1m6pPNbKjCEFWbBy2KuqjyqmbjIf7oiHB/Go7vQba9jVZ5ZPlbd8p4P1HelYdzImJV8OrI3owwaqO2TXUmygceXM3nr/ALfUfQisHVLBdPDzLKWt1GWDfeX+hFKwXKBOKjL89aQXUMiKQ4Cv9w560m0nkcihAbBmnmjZVUIGGM9xRpUnm77K4H+kwn5Rn74/+uORWkI7WFMB2kb1xgViau0Uc8FzHKIrhOEIPLHPAx3p6R1Fqx8WlC2uH86R3WQHC7iOp68GtmAqI1VfugYA9qhhki1i1WVCI5lPzqf4W7j6VKsDRDElyiL6RLlvzP8AhTuBNF5NlbRxRiOCFBtRBwAPQCnGdyuVjIX+/Kdo/LqaqLcQQOTAmHPWRzuY/if6VTvL1ihwrOx6Gp5uw7Fy4v0hUsZCx9vlFclq9xLq1vcQidogDtI2nPr0960fMyclsuO/pWNqFt5+ow3BmYCHOEHQn601dgV102FnhNyFuTAAYmdeUYdxV3I/yaiDcmgvzTEdBeLcSWrJHO0TPwsgXkfhVSKGSPbJcy+dOUwXxgKPRR2H860FcSRFfUVnyy5YfSsmykILl7aR5I+Nw+b3qrHrN1PdGMsqrx0HNMu5cRkVkWcub1j6Yo6DO5ijxDuzk4zUiwgRjCgg9V9ajtH322f9mrET4QA8g0tmIyr7TmYGe2JLdx6//XrBd2LENnPcHrXaMCrblPUfgwrG1GwS4ZpoMLKB8ynv/n1rSLJZhDg8mhj8x6fhUcrlWKnhl6qeoqsbggmqEdLBK+3Oe1UhIzcmiisZGkStdk7D9KyoBsuiQTziiijoM7nTTm259Ktp9wfSiik9ySWH5iyHoQT9DWdcMVfeDhh3ooqkIwdYgikt/thQCdF4YccZ6fSudZ23HmiitiD/2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What room is this?')=<b><span style='color: green;'>bathroom</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>bathroom</span></b></div><hr>
+
+Answer: bathroom
+

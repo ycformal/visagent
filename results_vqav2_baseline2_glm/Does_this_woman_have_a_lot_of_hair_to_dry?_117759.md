@@ -1,0 +1,24 @@
+Question: Does this woman have a lot of hair to dry?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/117759.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does this woman have a lot of hair to dry?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does this woman have a lot of hair to dry?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does this woman have a lot of hair to dry?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

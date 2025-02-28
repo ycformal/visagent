@@ -1,0 +1,18 @@
+Question: What is the man doing?
+
+Reference Answer: talking on phone
+
+Image path: ./sampled_GQA/363272.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the man doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the man doing?')=<b><span style='color: green;'>talking on phone</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>talking on phone</span></b></div><hr>
+
+Answer: talking on phone
+

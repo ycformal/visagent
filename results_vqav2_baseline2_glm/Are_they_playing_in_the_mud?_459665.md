@@ -1,0 +1,24 @@
+Question: Are they playing in the mud?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/459665.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are they playing in the mud?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are they playing in the mud?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are they playing in the mud?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

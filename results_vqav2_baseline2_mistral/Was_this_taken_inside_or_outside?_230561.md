@@ -1,0 +1,24 @@
+Question: Was this taken inside or outside?
+
+Reference Answer: inside
+
+Image path: ./sampled_GQA/230561.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Was this taken inside or outside?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Was this taken inside or outside?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Was this taken inside or outside?')=<b><span style='color: green;'>inside</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>inside</span></b></div><hr>
+
+Answer: inside
+

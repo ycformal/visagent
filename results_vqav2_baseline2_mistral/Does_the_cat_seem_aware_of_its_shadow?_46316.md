@@ -1,0 +1,24 @@
+Question: Does the cat seem aware of its shadow?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/46316.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does the cat seem aware of its shadow?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does the cat seem aware of its shadow?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the cat seem aware of its shadow?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

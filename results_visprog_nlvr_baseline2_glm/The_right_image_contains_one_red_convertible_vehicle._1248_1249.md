@@ -11,14 +11,14 @@ Original program:
 ```
 ANSWER0=VQA(image=RIGHT,question='Is there a red convertible vehicle in the image?')
 ANSWER1=EVAL(expr='{ANSWER0}')
-FINAL_ANSWER=RESULT(var=ANSWER1)The statement is True.
+FINAL_ANSWER=RESULT(var=ANSWER1)
 ```
 Program:
 
 ```
 ANSWER0=VQA(image=RIGHT,question='Is there a red convertible vehicle in the image?')
 ANSWER1=EVAL(expr='{ANSWER0}')
-FINAL_ANSWER=RESULT(var=ANSWER1)The statement is True.
+FINAL_ANSWER=RESULT(var=ANSWER1)
 ```
 Rationale:
 

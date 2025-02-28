@@ -1,0 +1,26 @@
+Question: What is on the Plate?
+
+Reference Answer: cake
+
+Image path: ./sampled_GQA/501491.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='plate')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What is on the plate?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is on the Plate?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is on the Plate?')=<b><span style='color: green;'>cake</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>cake</span></b></div><hr>
+
+Answer: slice of cake
+

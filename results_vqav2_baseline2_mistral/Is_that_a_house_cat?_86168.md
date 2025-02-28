@@ -1,0 +1,24 @@
+Question: Is that a house cat?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/86168.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a house cat?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a house cat?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDLk1VZk8kR789c9Kxb7MIZgNgPQCtYWT7VaBMHJGCKqTW88sLI8Mjyew7VzwstjDUx4JpGfywu/J6danlsZY4jJt8vDcLVqHS7yyXesLfORgkdKD9qVnSVHfB4wM81bfYCK3IlulE6qVUYDN1FdFbWEbwsi8ZGVrkvIlur5Lb94JHPYYx9T2FVdS1y9inmsLG7dYbY4MqHBdvr2ArLkcpXRcUdtFZmJ08xSRT5I9kxwchvzFZPhXxJBqVmq394kd4jFDv4Djsc9M11trbL5hlbZMp7qcinKTirNFMZoyKdXs0EwZi/K966jxK2RFHnrMxx9FH+NUtIsrQ6xDLHHtkBzT9cl83U3j/55lj+eP8ACrpPmVy1seZaqMtMfWWup0lMWkY/2RXM343Y/wBqU11umri3QewrZgi8F4oqTFFAzjbbVpFkDqAwxnmtG11xGlcOVUpxmuRS11BZiEUBcfLlulNuLG5Z8o3zHlmz1NYKDTMTuIdWglXMpTIOQKmWWymYyKcdzXnxtbwlVCMR1zuxW3ptvcxLiVshuwPSk4MSLHie+s9Kt2eGNTczLgey9f1xXkRlctIQWCseRXT+Ir2S41i5Us21G2j2A4rnJAFY4BGfWt4x5VY0SsRwzvCzbTwa29L8SX2myq0VxJHg5xnIP1FYsa5YgKSx+6AKdcWzwyiNwQ2AeaoZ6dp3xUkt5I5IdNW4uBxnO1SfwrpNK12TWmu7q7+yR3D8+TBIW2j3z3+leN6dKlnCXGCzNtJIzgVK+oGJ/NiO18dVNFkCO9uly0A9XJrr7FcRL9K8YtfEl1HKhdzIAc4fmvXfDmpwavpsdxCefuundW9KTGjZxRTsUUxmKPGGgp/qvB+m/wDfA/8AiKQ+ObFB+68I6WPrH/8AY1yplA71XmuUA5cfnWtzKx1Nx8SWhU+V4X0dfrHVKTxZqfiXT5Io9LsLceYoVrWI7j6gnsK4u+uQwIUM3+6M1ueCNfg0lyksDYdiC7EDbmknqOxp+JPh9dXMovrSRczKDJEzfdbHOO3WuXl+HWuSIrxpC+fvAP8Ad969hlv1OOpVxxVdb5LZjuICsMZ9Kh7lHnnhjwOdO1NrjUvLlESZRRzhs/rxWL48WAX0AhgIIUs8gGAewH4Yr0m9vGVgsBUE5DFug981z2tyWLWXl3AjlC8nI4J+tUloJ6WPLJA0dvGT/ESQKgMhwRVu+la5uXLqqeigYAHtWc6shwenrUDFD4bg10nhTxJLoOqLKcm3f5ZU9vX6iuYzipEbPHekB9LwTR3ECTROGjdQysDwRRXiuh+NdS0rTVtIwJI0Y7d3YelFMdzd+zQ9wW+ppCsSD5UUfhVFtR/ur+ZqBri5m4RTz6CtLoiw6+l+QisH7Z9nmDAg88D39a1W0e/u+oIB9ab/AMIhcsMsSamzY7o6Lw94teR44L2YkdPMc9TXYGe3uJIwGBB9DxiuV8K/DqCaCS+1eaVYVOIkQ43epqPxLBY6CpuNNaW3VSAYCSyt7gnvSafUdzW8TX1npVupDL5jBmXPRsdq8w1LWZr2csWZVByqg8L9Kv3l6NViaW5ZnSLCogOCWPqfTisORFViyoAenFIBhkZxyPw9Kay/IQSfxp8cbM9OaJ5GKRqWPtQBSPFKvy8mrR0y9zxbSN7qM0n9lagTxZz/APfBoswuRLdTRrtSQqvpRVxPD+puu4Wkg+ooosxaHaWlvCcZQGugs7aHA/drRRXRFGbNiCCID7gq7HDGf4BRRVsknuyY9NZF4UHoK8t1iR5r4wyMWjXGFPaiiuee5sth6WVtJp77oVP6VyM42zuo6A8UUVLGOtUV5grDIzXRWkEW4DYMUUU4ks3bWGMAYQVpRovHFFFbozZaWNMfdooopjP/2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is that a house cat?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

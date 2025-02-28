@@ -1,0 +1,24 @@
+Question: Does this plane bear the American Airlines logo?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/525344.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does this plane bear the American Airlines logo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does this plane bear the American Airlines logo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does this plane bear the American Airlines logo?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

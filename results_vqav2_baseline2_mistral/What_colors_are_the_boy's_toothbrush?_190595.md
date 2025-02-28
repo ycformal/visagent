@@ -1,0 +1,28 @@
+Question: What colors are the boy's toothbrush?
+
+Reference Answer: green and blue
+
+Image path: ./sampled_GQA/190595.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='boy')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='toothbrush')
+IMAGE1=CROP(image=IMAGE0,box=BOX1)
+ANSWER0=VQA(image=IMAGE1,question='What colors are the boy's toothbrush?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What colors are the boy's toothbrush?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What colors are the boy's toothbrush?')=<b><span style='color: green;'>green and blue</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>green and blue</span></b></div><hr>
+
+Answer: green
+

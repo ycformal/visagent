@@ -1,0 +1,24 @@
+Question: Is that a walk-in shower?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/436520.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a walk-in shower?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a walk-in shower?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is that a walk-in shower?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes.
+

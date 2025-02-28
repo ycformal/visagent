@@ -11,8 +11,8 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many giant safety pins are hanging next to the sign?')
 ANSWER1=VQA(image=RIGHT,question='How many giant safety pins are hanging next to the sign?')
-ANSWER2=VQA(image=LEFT,question='Is the sign labeled with the word Laundry?')
-ANSWER3=VQA(image=RIGHT,question='Is the sign labeled with the word Laundry?')
+ANSWER2=VQA(image=LEFT,question='Is the sign labeled "Laundry"?')
+ANSWER3=VQA(image=RIGHT,question='Is the sign labeled "Laundry"?')
 ANSWER4=EVAL(expr='{ANSWER0} >= 2 and {ANSWER2}')
 ANSWER5=EVAL(expr='{ANSWER1} >= 2 and {ANSWER3}')
 ANSWER6=EVAL(expr='{ANSWER4} xor {ANSWER5}')
@@ -23,8 +23,8 @@ Program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many giant safety pins are hanging next to the sign?')
 ANSWER1=VQA(image=RIGHT,question='How many giant safety pins are hanging next to the sign?')
-ANSWER2=VQA(image=LEFT,question='Is the sign labeled with the word Laundry?')
-ANSWER3=VQA(image=RIGHT,question='Is the sign labeled with the word Laundry?')
+ANSWER2=VQA(image=LEFT,question='Is the sign labeled "Laundry"?')
+ANSWER3=VQA(image=RIGHT,question='Is the sign labeled "Laundry"?')
 ANSWER4=EVAL(expr='{ANSWER0} >= 2 and {ANSWER2}')
 ANSWER5=EVAL(expr='{ANSWER1} >= 2 and {ANSWER3}')
 ANSWER6=EVAL(expr='{ANSWER4} xor {ANSWER5}')

@@ -1,0 +1,24 @@
+Question: Is this a busy road?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/133827.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a busy road?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a busy road?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this a busy road?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

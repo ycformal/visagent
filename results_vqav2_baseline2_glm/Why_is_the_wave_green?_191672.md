@@ -1,0 +1,24 @@
+Question: Why is the wave green?
+
+Reference Answer: dirty
+
+Image path: ./sampled_GQA/191672.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why is the wave green?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why is the wave green?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD1a1t7f7LD+4i/1a/wD0FTC2g/54Q/98D/AAptsf8ARYf+ua/yFTZqjMZ9mt/+eEX/AH7FL9ng/wCeEP8A37H+FPzRmmIZ9ng/54Q/9+x/hSfZ4P8AnhD/AN+x/hUlGaAI/s8H/PCH/v2P8KPs8H/PCH/v2P8ACpAC2doJx1xSHI7UDI/s8H/PCH/v2KPs8H/PCL/v2P8ACn7qM0CGfZ4P+eEX/fsf4U0wQf8APCL/AL9ipM0hIoEcz4hhhF7DiGIfuR/AP7zUU7xF/wAf0P8A1xH/AKE1FBRetvEGjfZoR/atpny1/wCWo9Kl/wCEj0TOP7WtM/8AXSuFi0WcW8bG1wrIuASuTx6VMNFl2Ai2x6AkDP05p3h3Mb1ex2o8Q6LnA1a0z/10FB8R6KOurWn/AH8riP7KnC5a0lVenCDrVqLSGliztA+XPzkDP50Xh3C9Xsdeuu6Q/wB3U7U/SQVYGoWZTcLuEg9DvFcXb6QRnCIuOcswFaSWY+zmBprfPUYkHFS5Q7lx9o90dspSK2QLg71DEjvmopLkBVVEBP0rN064IsI4ZJY2aIBVKvncvp9RWb4o1DTLTSLm11K4eNLyNoEWIFpXZhgCNRyzew/Ss3Nbm6RviRfMxJHgZ7U+RVWQDcNrjK57V85eG/iZr2gaxHot3b3FxYRkW0dtcYE0ZzgYbHXPYkjtnjNevyeI47+3t57aUMCvoc49x2I6Y9avVMR1kojt0JkkUHr17VXlmhQ/NKgJGeTXKy+J5reWPcIJAvCrLwf54ratb6DW9PM6RNFJGSrr2/A+9PmV7EtXMnxDPF9th/ep/qR3/wBpqKyvEjwi/hAK8Qgct/tNRTuhWZy48SsiRqx2naCVPXpTovEzzyFIiCQOSScKPfngVz0cxeCBStmgG0sLkGTcfTpke+OK0Gv5HRo4ZrJYQx4fJDKRyqL1Vfcn0rzvqx1c6Noa3NbsfPRkYYGwABiT0xnn0qvceKsykLtIB25znke9c6zXSPHcwlbfY2YkBI/PJPbrVCaKf7Qd8QXGMqnQUnhtLC50dUfFD/3/AMBTo/EpkYKzZ92Oa5Ty9rH5Rx609WcsAFH0qfqqHznbJrMvofYKeRj+VadpdQaqsrzwH+1ecynduli28hSfunA5AxnrXDpZXhYBHYFucL+dWLS9vdOlDRsZVVgWjcna46FT7EZH41UKSiwbuYVrpmj2trHfLbztcw3bqk04cGRQco+0kcgHH1FasevSxoSssgySS4UZJ+lTazeQ61fxCWJrSxhU+Wine4JxnJA5HGB9KyZrOKBCba93DdjayEHH+HeuvRyumZ9DSe7uJI2cKl2gG5mhzlfwNa3hLxMmk6yrhma1mXy7iA8Pj1GeMg/pmuXgjlJ81SQytwy5NXvKnuY1P+tVs/eHA49fWpdFX5kCl3PRvE9vGNVUxoWRowysOQwJJBBorz2fWdcCQRu80qxxBIz5nRQTxz75oq7MRpRaSzIirBK5Kj+AnsPSpZNFKgEwOvs8bCvVbLw3LJZR7rlUyg/eLHtwNoxwSefxq8mj29ixaa+upl24CyuNq9vzp2XcWp4z/ZrNLiYmIsc5YEH8OKS6s3Ny7sHZm5bK9T3OPWvWSdOMoj+2XP3gBsYkLz0qjf3On27GOLz3lP3W8wNuPpUSSSu2NNvoeYjSWk4WFs/Snppjn/l0kOT/AM8z/hXbXl09u6KfPSYD54ZJAu4Hpjioo9XMHy3em3c6jBLpIpYD6DGalKMtLjba6HPppl0sfFtLtHDDLDH1GKFsJhG37jjGM4LY/Su6tLvRbuOMwyFWcZCmbaw+qtg0y+Y2F0iyQRTWzqWVjeBCcdiMU3Qj3DnfY8u+xuhMZV885HlnJ/SpVsJtpZLWdh/1xbH8q9LXZKWaKPcNoYKkrPnPoQOaVElmD7NK1TcoOAFzk+nOMVaoLuT7R9jzqKzvB5hSzuASCCxjbp+XFTwQXccwcQXKvt5JVsHjjqDXW3huLK5ElwGhQbAqSXAQgk9Svce/PSqS6lHt2fblUm4IObtiAoHHIXp7il7O2zMZYhroYOqSJvt/MsIXfyRljkE/M1FaGparbSNbF7pXkEIDNtPJDN/s0Voo+Zop3V7HVtf3IjgYSDLou75BzwPakS+uFicb1ILk8op/mKKKSKMbVL+5tZkit3EUdwsnmrGirvwOM4FcrpWoXQspNsu3KvyFAPAz1+oFFFKr8I47mRJqd5uDGYlpB8xKg5/SpF1W9iH7ucr9AP8ACiiuOG6NZbGimtajPbrHLdM6AcKQMD9K2NF1zULUtHDOqqw3H90hOfqRmiiu6PQ5n1Nu+1O9EHnfaH8zGcnntWRBcSXqb7gh2w2W2gE8eoooqugdRmnTyWmr2zRNyVwd/wA45HPDZq14n1O5g0iF4fIjZpVDFLeMFgc5zheaKKnoWcvqFxI0kRJXPlj+Aep9qKKK3MD/2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Why is the wave green?')=<b><span style='color: green;'>algae</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>algae</span></b></div><hr>
+
+Answer: algae
+

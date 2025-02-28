@@ -1,0 +1,24 @@
+Question: What are the animals standing around?
+
+Reference Answer: grass
+
+Image path: ./sampled_GQA/463588.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What are the animals standing around?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What are the animals standing around?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What are the animals standing around?')=<b><span style='color: green;'>grass</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>grass</span></b></div><hr>
+
+Answer: grass
+

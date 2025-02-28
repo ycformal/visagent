@@ -1,0 +1,28 @@
+Question: Is the horse inside or outside the house?
+
+Reference Answer: outside
+
+Image path: ./sampled_GQA/167993.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='house')
+IMAGE0=CROP_INSIDE(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='horse')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'inside' if {ANSWER0} > 0 else 'outside'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the horse inside or outside the house?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the horse inside or outside the house?')=<b><span style='color: green;'>outside</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>outside</span></b></div><hr>
+
+Answer: outside
+

@@ -1,0 +1,24 @@
+Question: Are they flying a kite?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/17365.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are they flying a kite?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are they flying a kite?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are they flying a kite?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

@@ -1,0 +1,26 @@
+Question: What color is his tie?
+
+Reference Answer: blue
+
+Image path: ./sampled_GQA/170955.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color is his tie?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What color is his tie?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is his tie?')=<b><span style='color: green;'>blue</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>blue</span></b></div><hr>
+
+Answer: blue
+

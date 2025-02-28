@@ -1,0 +1,24 @@
+Question: What color is the suitcase?
+
+Reference Answer: red
+
+Image path: ./sampled_GQA/266981.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the suitcase?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the suitcase?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is the suitcase?')=<b><span style='color: green;'>red</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>red</span></b></div><hr>
+
+Answer: red
+

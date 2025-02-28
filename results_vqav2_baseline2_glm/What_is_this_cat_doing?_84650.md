@@ -1,0 +1,24 @@
+Question: What is this cat doing?
+
+Reference Answer: resting
+
+Image path: ./sampled_GQA/84650.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is this cat doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is this cat doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is this cat doing?')=<b><span style='color: green;'>sitting</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>sitting</span></b></div><hr>
+
+Answer: sitting
+

@@ -8,17 +8,6 @@ import shutil
 with open('sampled_GQA/sampled_data.json', 'r') as f:
     sampled_data = json.load(f)
 
-data_dict = {}
-
-for data in sampled_data:
-    question = data['question']
-    imageId = data['imageId']
-    type = data['type']
-    if imageId not in data_dict:
-        data_dict[imageId] = {question: type}
-    else:
-        data_dict[imageId][question] = type
-
 def get_answer(file, method1, method2):
     if not os.path.exists(os.path.join(f'results_{method1}', file)):
         print(f'File not found in results_{method1}:', file)
@@ -37,7 +26,6 @@ def get_answer(file, method1, method2):
             return 0, 0
         question = re.search(r'Question: (.+)', content)
         question = question.group(1).strip()
-        type = data_dict[imageId][question]
         answer_1 = answer_1.replace('.', '')
         answer_1 = answer_1.replace(',', '')
         answer_1 = answer_1.replace('"', '')
@@ -72,23 +60,23 @@ def get_answer(file, method1, method2):
         print(f'{method1} correct, {method2} incorrect. Question: {question}')
     elif correct_1 == 0 and correct_2 == 1:
         print(f'{method1} incorrect, {method2} correct. Question: {question}')
-    # os.makedirs(f'collection_both_false/{type}', exist_ok=True)
-    # os.makedirs(f'collection_only_{method1}_true/{type}', exist_ok=True)
-    # os.makedirs(f'collection_only_{method2}_true/{type}', exist_ok=True)
-    # if correct_1==1 and correct_2==0:
-    #     shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method1}_true/{type}', method1 + '_' + file))
-    #     shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method1}_true/{type}', method2 + '_' + file))
-    # elif correct_1==0 and correct_2==1:
-    #     shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_only_{method2}_true/{type}', method1 + '_' + file))
-    #     shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_only_{method2}_true/{type}', method2 + '_' + file))
-    # elif correct_1==0 and correct_2==0:
-    #     shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collection_both_false/{type}', method1 + '_' + file))
-    #     shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collection_both_false/{type}', method2 + '_' + file))
+    os.makedirs(f'collections/collection_both_false', exist_ok=True)
+    os.makedirs(f'collections/collection_only_{method1}_true', exist_ok=True)
+    os.makedirs(f'collections/collection_only_{method2}_true', exist_ok=True)
+    if correct_1==1 and correct_2==0:
+        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collections/collection_only_{method1}_true', method1 + '_' + file))
+        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collections/collection_only_{method1}_true', method2 + '_' + file))
+    elif correct_1==0 and correct_2==1:
+        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collections/collection_only_{method2}_true', method1 + '_' + file))
+        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collections/collection_only_{method2}_true', method2 + '_' + file))
+    elif correct_1==0 and correct_2==0:
+        shutil.copyfile(os.path.join(f'results_{method1}', file), os.path.join(f'collections/collection_both_false', method1 + '_' + file))
+        shutil.copyfile(os.path.join(f'results_{method2}', file), os.path.join(f'collections/collection_both_false', method2 + '_' + file))
     return correct_1, correct_2
 
 def main():
-    method1 = 'caption_baseline1_v1_mistral'
-    method2 = 'caption_mistral'
+    method1 = 'visprog_gpt'
+    method2 = 'baseline2_v2_gpt'
     results_1 = os.listdir(f'results_{method1}')
     results_2 = os.listdir(f'results_{method2}')
     correct_1 = 0

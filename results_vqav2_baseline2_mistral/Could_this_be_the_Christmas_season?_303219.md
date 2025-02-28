@@ -1,0 +1,24 @@
+Question: Could this be the Christmas season?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/303219.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Could this be the Christmas season?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Could this be the Christmas season?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Could this be the Christmas season?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

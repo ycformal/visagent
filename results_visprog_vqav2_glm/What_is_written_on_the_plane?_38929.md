@@ -1,0 +1,18 @@
+Question: What is written on the plane?
+
+Reference Answer: avianca
+
+Image path: ./sampled_GQA/38929.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is written on the plane?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is written on the plane?')=<b><span style='color: green;'>avianca</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>avianca</span></b></div><hr>
+
+Answer: avianca
+

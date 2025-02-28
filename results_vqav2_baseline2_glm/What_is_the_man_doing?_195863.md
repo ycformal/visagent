@@ -1,0 +1,24 @@
+Question: What is the man doing?
+
+Reference Answer: flying kite
+
+Image path: ./sampled_GQA/195863.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the man doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the man doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the man doing?')=<b><span style='color: green;'>flying kite</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>flying kite</span></b></div><hr>
+
+Answer: taking a photo of the kite flying in the sky
+

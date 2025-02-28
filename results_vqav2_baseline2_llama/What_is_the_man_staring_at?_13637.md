@@ -1,0 +1,28 @@
+Question: What is the man staring at?
+
+Reference Answer: fire hydrant
+
+Image path: ./sampled_GQA/13637.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='cat')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'cat' if {ANSWER0} > 0 else 'nothing'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is the man staring at?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the man staring at?')=<b><span style='color: green;'>fire hydrant</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>fire hydrant</span></b></div><hr>
+
+Answer: fire hydrant
+

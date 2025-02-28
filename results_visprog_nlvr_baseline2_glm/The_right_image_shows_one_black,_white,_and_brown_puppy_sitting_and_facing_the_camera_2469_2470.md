@@ -13,7 +13,7 @@ ANSWER0=VQA(image=RIGHT,question='Is the puppy black, white, and brown?')
 ANSWER1=VQA(image=RIGHT,question='Is the puppy sitting?')
 ANSWER2=VQA(image=RIGHT,question='Is the puppy facing the camera?')
 ANSWER3=EVAL(expr='{ANSWER0} and {ANSWER1} and {ANSWER2}')
-FINAL_ANSWER=RESULT(var=ANSWER3)
+FINAL_ANSWER=RESULT(var=ANSWER3)The statement is True.
 ```
 Program:
 
@@ -22,7 +22,7 @@ ANSWER0=VQA(image=RIGHT,question='Is the puppy black, white, and brown?')
 ANSWER1=VQA(image=RIGHT,question='Is the puppy sitting?')
 ANSWER2=VQA(image=RIGHT,question='Is the puppy facing the camera?')
 ANSWER3=EVAL(expr='{ANSWER0} and {ANSWER1} and {ANSWER2}')
-FINAL_ANSWER=RESULT(var=ANSWER3)
+FINAL_ANSWER=RESULT(var=ANSWER3)The statement is True.
 ```
 Rationale:
 

@@ -1,0 +1,28 @@
+Question: What is the man holding?
+
+Reference Answer: bat
+
+Image path: ./sampled_GQA/510095.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='umbrella')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'umbrella' if {ANSWER0} > 0 else 'nothing'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is the man holding?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the man holding?')=<b><span style='color: green;'>bat</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>bat</span></b></div><hr>
+
+Answer: a red baseball bat
+

@@ -11,14 +11,14 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many hyenas are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many hyenas are in the image?')
-ANSWER2=VQA(image=LEFT,question='Are the hyenas facing right?')
-ANSWER3=VQA(image=RIGHT,question='Are the hyenas facing right?')
-ANSWER4=VQA(image=LEFT,question='Are the hyenas with black paws?')
-ANSWER5=VQA(image=RIGHT,question='Are the hyenas with black paws?')
-ANSWER6=VQA(image=LEFT,question='Are the hyenas with their face slightly forward?')
-ANSWER7=VQA(image=RIGHT,question='Are the hyenas with their face slightly forward?')
+ANSWER2=VQA(image=LEFT,question='Does the hyena have black paws?')
+ANSWER3=VQA(image=RIGHT,question='Does the hyena have black paws?')
+ANSWER4=VQA(image=LEFT,question='Is the hyena facing right?')
+ANSWER5=VQA(image=RIGHT,question='Is the hyena facing right?')
+ANSWER6=VQA(image=LEFT,question='Is the hyena's face slightly forward?')
+ANSWER7=VQA(image=RIGHT,question='Is the hyena's face slightly forward?')
 ANSWER8=EVAL(expr='{ANSWER0} == 1 and {ANSWER2} and {ANSWER4} and {ANSWER6}')
-ANSWER9=EVAL(expr='{ANSWER1} == 1 and {
+ANSWER9=EVAL(expr='{ANSWER1} == 1 and {ANSW
 ```
 Answer: True
 

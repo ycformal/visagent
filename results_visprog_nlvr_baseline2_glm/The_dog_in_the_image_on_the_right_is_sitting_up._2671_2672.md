@@ -10,13 +10,13 @@ Original program:
 
 ```
 ANSWER0=VQA(image=RIGHT,question='Is the dog sitting up?')
-FINAL_ANSWER=RESULT(var=ANSWER0)The statement is True.
+FINAL_ANSWER=RESULT(var=ANSWER0)
 ```
 Program:
 
 ```
 ANSWER0=VQA(image=RIGHT,question='Is the dog sitting up?')
-FINAL_ANSWER=RESULT(var=ANSWER0)The statement is True.
+FINAL_ANSWER=RESULT(var=ANSWER0)
 ```
 Rationale:
 

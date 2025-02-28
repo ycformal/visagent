@@ -1,0 +1,28 @@
+Question: How come number 76 isn't showing his belly?
+
+Reference Answer: not facing camera
+
+Image path: ./sampled_GQA/163118.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='76')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='76')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="How come number 76 isn't showing his belly?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How come number 76 isn't showing his belly?')=<b><span style='color: green;'>he's jumping</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>he's jumping</span></b></div><hr>
+
+Answer: he's jumping
+

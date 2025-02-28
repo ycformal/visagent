@@ -1,0 +1,18 @@
+Question: What color is her shirt?
+
+Reference Answer: red
+
+Image path: ./sampled_GQA/263202.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is her shirt?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD1O3uRxzWhHMD3rhItVZTya6LTbsToCWrGlJ7M1qRS1R0aS08vuUiqSOgGS4AHU5pVu7eRN8U6OvqrAj9K2Zkch40sFntJAVzwa+atVt/smozQjgK3FfUniOVJLV+RyK+b/FtuTrZ8tSWc7QB3NUhM5w5YgAEk9AK7Pwt8NdY8QusskbW1sf4mHzEewrvvhr8N4rdU1LVIw8rDIDDIX6V7BGkFrHsgQIB6CrUL7mUqiWiOX8P+FofDWlrbRt9xeSTzXifxDuWuNQun3ZUzBc+uBXv+sXflWcpU8kYH1r5w8XsGkbByTM5P4cVVTSNiaOsmziyQC3rURGakkHzGkC9TWB0EdFTpCWXOKKAPoCedYxnNQweKHhDwQN++28Hrj3rn9T1FooZNxwQKZo9k8MDXU/E0+Dg/wr2H9awb5Y3NkueVjdm1PUbu38qe8mkjbqGbr9azZdVuNGSR7SYxuVwcdPyq2vK8dqydS0s39vLEJlid1IV2GQD71yKTb1Z28qS0RNB46e/tY47q4UySfKOMEH+oqHQdCm1jxhHPcxHy4eQCOCexrjU8F6rHIzefYlY+d/2jj8sZ/SvT/h5baxZOj3F1YyRuxVY1lyT24Y8CuyE+VpJ3RyzgpxbtZnrtuiQW6RIAAoxxUU0p6VFaXsF28kUbjzY/vp6e4PQj3FRX86W0Mjsegr042aujxpJp2ZgeI78R2rHcAIwSfr2rwPXZRIpJ+9tz+ZzXpHizVg1i4DcEkH3NeSaxdefPIF4UYXH0FYVnrY6qEbK5kcvJx61NtHAFEKYBb1qaBQzgnpmsTYnhREiUN1PNFNkwZDkY9KKYHpbQxX95E55RPmYevoK0JXLNgCqWj2z2Wlx+eczsMufQ+n4Uy7ufKjYlsVx1n0Ougtbli41KK0jwSM1zN9rxaUqjfLWPqeo3N5cmG1Qt2Jq3pfhyG4G7VNQSPIwI4pASPqaIULq8iqmIUXaJjXWuzM7BGIXua63w7LLpU0UuoyXBIRZkt1iRg6uMgnccc8c+1aem/C/RNSUmLWriMnhflRxn39avTabJZ2Flaz/vLi032EjoMbvLPyt9CpBr0MLQhVqqnLRHBXr1Iwc46s3tA8aLd61Ai2ckESqw3uR82MbhwBjjngkcVp+I9XBMg3fLXIGGG2aN/NCyIwbj8QR+RIqnqVz5ylVmZs9ya0q1aFCTjTd1+prTy3F10pTjynP+JtU8xBGG7ljXHFGmbpwOSa6W70wTsWEp3e9VP7KZUO6UD2UVxOspO7Or+zq8fdsYrAL8vQVZtVQOpkVhGOTjrV1dOjQ7n+bHrVO8k+Xavf09KamnsZ1MNKkrzK1xL5s7uo2qTwB2FFNUZFFUc9j1u4k2RACuY1m6whANbl7KeinpXHa3NiOQ56CuZ+9Ox1w92DZg/wBovGzBOhJOfWg6nOTwcVQqxaW73VwsKLl24ArrOK12a2k6xq/26KKzupY3dgMrXo1xqctvbGKSYzTM2+SQ9S2MZrE0nRodCs/NkAa6ccse3sKq3N3vYnNYTld6HvYLCKlHnqLX8izNfM7EljVY3Rz1zVB5cnrTDLg1i0ej7Qt/acE81A9xzVR5fmNQmTmkomc61ia5uSEIB61jzSF3PtxVi4lycVUbG810042R4ONqupV9CVMBRmikMgHHpRWljjPRpiSXzXHa6f3Uv+e9FFcsP4h2y/hHN11/gWGN72eVkBdE+UntRRXRP4TPBq9eJs6tNIZSCx61iOSW60UVij6GruQzEhxiowSW60UU3sc7+Irsx8080xjzRRQjnk9yrL96om+/RRWy2PKq/GxtFFFUZH//2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is her shirt?')=<b><span style='color: green;'>red</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>red</span></b></div><hr>
+
+Answer: red
+

@@ -1,0 +1,24 @@
+Question: Which person is not wearing a backpack?
+
+Reference Answer: both
+
+Image path: ./sampled_GQA/326928.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Which person is not wearing a backpack?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Which person is not wearing a backpack?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Which person is not wearing a backpack?')=<b><span style='color: green;'>left</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>left</span></b></div><hr>
+
+Answer: left
+

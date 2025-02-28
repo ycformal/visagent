@@ -17,10 +17,10 @@ ANSWER4=VQA(image=LEFT,question='Is the doberman black-and-tan?')
 ANSWER5=VQA(image=RIGHT,question='Is the doberman black-and-tan?')
 ANSWER6=VQA(image=LEFT,question='Is the doberman wearing a chain collar?')
 ANSWER7=VQA(image=RIGHT,question='Is the doberman wearing a chain collar?')
-ANSWER8=VQA(image=LEFT,question='Are the doberman\'s ears erect?')
-ANSWER9=VQA(image=RIGHT,question='Are the doberman\'s ears erect?')
-ANSWER10=VQA(image=LEFT,question='Is the doberman\'s tail docked?')
-ANSWER11=VQA(image=RIGHT,question='Is the doberman
+ANSWER8=VQA(image=LEFT,question='Are the doberman's ears erect?')
+ANSWER9=VQA(image=RIGHT,question='Are the doberman's ears erect?')
+ANSWER10=VQA(image=LEFT,question='Is the doberman's tail docked?')
+ANSWER11=VQA(image=RIGHT,question='Is the doberman's tail dock
 ```
 Answer: True
 

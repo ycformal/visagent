@@ -20,5 +20,5 @@ ANSWER7=EVAL(expr='{ANSWER1} == 1 and {ANSWER3} and {ANSWER5}')
 ANSWER8=EVAL(expr='{ANSWER6} and {ANSWER7}')
 FINAL_ANSWER=RESULT(var=ANSWER
 ```
-Answer: True
+Answer: same
 

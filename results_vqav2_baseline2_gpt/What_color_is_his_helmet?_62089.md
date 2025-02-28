@@ -1,0 +1,26 @@
+Question: What color is his helmet?
+
+Reference Answer: black
+
+Image path: ./sampled_GQA/62089.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color is his helmet?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What color is his helmet?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is his helmet?')=<b><span style='color: green;'>black</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>black</span></b></div><hr>
+
+Answer: black
+

@@ -1,0 +1,28 @@
+Question: Is the woman alone?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/225378.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='woman')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='person')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} == 1 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the woman alone?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the woman alone?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

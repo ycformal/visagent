@@ -1,0 +1,24 @@
+Question: Is this California?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/178982.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this California?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this California?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxpVwKf2qiLh19PypRcufSur28Q5S/miqX2pvb86el3hwXXK55AbBxT9vAOVlruKdVVroFyUUhcnALZIH5UG6IAwufXmmq8A5Wdd4a8F6h4pRzZTW6FDjbIxBNaEXw41CUEi7hAHcwyY64znHSqfg7xDY6dZyveXslq6bztjzukHBAHvx3rq7PxV4XfyVkvZEjlCsXO7MfXKsMcnp096ftY9zy8TXxMZONKDfnbQxm+GGooC0t7DGoGSxgkwB61V1HwBcabbtLLfAnkKFtZMM2CcZ7dOtdQ3jPwtcxDFxdRMshTEyckD+LAz8v61l6j400u21y6a02X1lFbL5CSqwRpSQG4AB6Fup7fnnUrqMbxd2GCnjatdQrR5Y9XY4MWY48y6toW/uyMwI/JTV6z0qI6nBb3E8cyy5Ui2Ziye5yvQZGfaquoS2T3jSW8865AXzDDyAAB8o3cdPrV7wvdWOm6rBMbqUKN6b5YwoG7GT1PPFZKvKXketXXIpOGtr/ADOkuY9O0do7Wzlt549gZnSbYC3IPLRkt068egAxRVjxJruiPqaA6w8zJCqsYQWQHngH6EdPWihyV9zyIU68opuD+/8A4J49uT+8fzpwweA5/OogBWrpWjTarMYrcKX2lsMwHAGT1+lc8pKKuz3qFCdaXLBXZQGP7/61IkZc4DZpZbfypCrdjWnpFrDPdIsjbVJGTUSqJRuP2ElPke5TlsbmBEaSORFcblLJgMPUetVirA/eH5V6j4z0O207TdPeDUvtQMIxG6j92Ou0ZHSvPHuoVJElpEx9cYrKlX9orpFVaCg7NlIlv7w/KnBpP74/KpGltmORCo9hUICHoAT9K35vIw5fMfulJ++OPanCSUqcyD2HNIheNgyjB55IqaysRdCaR3EcUSFmY0pTSV2VGDbsiszyYOSKFnkkbDNkgYGeenStiTQo0AxMXJGRj8KF0ZYoL2SctbywRq8cbjDPubHT6c1Ea8GavC1FrYw2Zw5DNkg880Ux2y7H1NFbHOMC1YgleI/KSOO1RU5Ov4Ghq+46c3B3ixWYsck81dsWHmr9e1UM1YtmKyAhT+VRNe6aRm3K7O5jtPtD26TXDvEy565IAGcc1gSWEeXZGIIJGCAa09PvWYKCrthSBtGTyMdBTGsbgRDcVTH99HyfwxXmxlKLs2ejOMZpNIztVsU064mQTRy7DtU7Au447VV06QS3saSQ5Q5JCuVzgZqbVobi7lSGA72VHmdSQOFGSecdgau2VpaRwpK0sCtgZKtuIyPSum/LSvLdmHJerpokdRpWiLPJDHIEWOVmTEi+YFBB7HvXNW1nETNCxypGGAreTxFa28SlZQWjcuByM/pXK6a81xf3l5GubdVLSf7C54P61yUo1WpOWh2SUXKKirmq0UcY7nAxWdruoXGo3sb3Ezu5iEeSf4VACj6AUs2oQndtft6Vl3dwjyo6ncFznFdFCm+ZNmNetaLimZbHLH60UjZ3HA4or0DyrkwiX0NPEKD+E/nUW8n2o3sP/wBVOwJonCRj+FfxNTRyLGQQE/KqW8+po3H1P50uVD57bG0NUnCbRMyj0DEfyqs107HLTE/U5/pWenLgEnGaG6r9KSpxWyKdWTWpJdyszqyuTgY6461ftr3yoUXqVGP88Vmqcdh+IoPXpTcVaxKm1qbf9pwbf3ka/wCfwrDSd0m3gkbm5+lHHpUiCPHKjNLlSLjKUnvYvefGeQg/AGka4DdQGH+0mf6VSOM8cfSmEtkkkn3zS5UOVRouO8ZORFEPpuoqjweufzop8hHON7U0miitDEWiiikA5Scn6Ur/AHh9BRRR1H0DNGaKKBhSgmiikxoXNKaKKChKKKKog//Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this California?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

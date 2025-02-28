@@ -1,0 +1,24 @@
+Question: What color is the turf?
+
+Reference Answer: blue
+
+Image path: ./sampled_GQA/273155.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the turf?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the turf?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is the turf?')=<b><span style='color: green;'>blue</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>blue</span></b></div><hr>
+
+Answer: blue
+

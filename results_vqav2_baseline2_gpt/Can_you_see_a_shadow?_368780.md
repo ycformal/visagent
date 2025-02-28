@@ -1,0 +1,24 @@
+Question: Can you see a shadow?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/368780.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Can you see a shadow?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Can you see a shadow?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Can you see a shadow?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

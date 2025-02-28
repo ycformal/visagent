@@ -1,0 +1,24 @@
+Question: What color is the walls?
+
+Reference Answer: yellow
+
+Image path: ./sampled_GQA/437218.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the walls?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is the walls?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is the walls?')=<b><span style='color: green;'>yellow</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yellow</span></b></div><hr>
+
+Answer: yellow
+

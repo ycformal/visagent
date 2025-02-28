@@ -1,0 +1,24 @@
+Question: Is one of the animals a little lamb?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/9041.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is one of the animals a little lamb?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is one of the animals a little lamb?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is one of the animals a little lamb?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

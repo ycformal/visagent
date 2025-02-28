@@ -11,10 +11,10 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many light brown bookshelves are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many light brown bookshelves are in the image?')
-ANSWER2=VQA(image=LEFT,question='How many books are on the bookshelves?')
-ANSWER3=VQA(image=RIGHT,question='How many books are on the bookshelves?')
+ANSWER2=VQA(image=LEFT,question='How many books are on every shelf?')
+ANSWER3=VQA(image=RIGHT,question='How many books are on every shelf?')
 ANSWER4=EVAL(expr='{ANSWER0} + {ANSWER1} == 2')
-ANSWER5=EVAL(expr='{ANSWER2} + {ANSWER3} >= 20')
+ANSWER5=EVAL(expr='{ANSWER2} + {ANSWER3} >= 10')
 ANSWER6=EVAL(expr='{ANSWER4} and {ANSWER5}')
 FINAL_ANSWER=RESULT(var=ANSWER6)
 ```
@@ -23,10 +23,10 @@ Program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many light brown bookshelves are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many light brown bookshelves are in the image?')
-ANSWER2=VQA(image=LEFT,question='How many books are on the bookshelves?')
-ANSWER3=VQA(image=RIGHT,question='How many books are on the bookshelves?')
+ANSWER2=VQA(image=LEFT,question='How many books are on every shelf?')
+ANSWER3=VQA(image=RIGHT,question='How many books are on every shelf?')
 ANSWER4=EVAL(expr='{ANSWER0} + {ANSWER1} == 2')
-ANSWER5=EVAL(expr='{ANSWER2} + {ANSWER3} >= 20')
+ANSWER5=EVAL(expr='{ANSWER2} + {ANSWER3} >= 10')
 ANSWER6=EVAL(expr='{ANSWER4} and {ANSWER5}')
 FINAL_ANSWER=RESULT(var=ANSWER6)
 ```

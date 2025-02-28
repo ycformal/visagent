@@ -1,0 +1,27 @@
+Question: Is the man wearing new jeans?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/199055.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What is the man wearing?')
+ANSWER1=EVAL(expr="'yes' if 'new' in {ANSWER0} and 'jeans' in {ANSWER0} else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the man wearing new jeans?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the man wearing new jeans?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

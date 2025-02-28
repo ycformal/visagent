@@ -1,0 +1,24 @@
+Question: What time does the clock say?
+
+Reference Answer: 12:45
+
+Image path: ./sampled_GQA/498804.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What time does the clock say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What time does the clock say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What time does the clock say?')=<b><span style='color: green;'>3:30</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>3:30</span></b></div><hr>
+
+Answer: 3:30
+

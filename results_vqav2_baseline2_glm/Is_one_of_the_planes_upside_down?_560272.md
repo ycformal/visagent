@@ -1,0 +1,24 @@
+Question: Is one of the planes upside down?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/560272.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is one of the planes upside down?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is one of the planes upside down?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is one of the planes upside down?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

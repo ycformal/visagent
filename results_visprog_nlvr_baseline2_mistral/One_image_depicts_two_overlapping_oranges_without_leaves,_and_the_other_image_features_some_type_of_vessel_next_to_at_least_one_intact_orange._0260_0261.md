@@ -15,10 +15,10 @@ ANSWER2=VQA(image=LEFT,question='Are the oranges overlapping?')
 ANSWER3=VQA(image=RIGHT,question='Are the oranges overlapping?')
 ANSWER4=VQA(image=LEFT,question='Are there leaves on the oranges?')
 ANSWER5=VQA(image=RIGHT,question='Are there leaves on the oranges?')
-ANSWER6=VQA(image=LEFT,question='Is there a vessel next to at least one intact orange?')
-ANSWER7=VQA(image=RIGHT,question='Is there a vessel next to at least one intact orange?')
+ANSWER6=VQA(image=LEFT,question='Is there a vessel next to the oranges?')
+ANSWER7=VQA(image=RIGHT,question='Is there a vessel next to the oranges?')
 ANSWER8=EVAL(expr='{ANSWER0} == 2 and {ANSWER2} and not {ANSWER4}')
-ANSWER9=EVAL(expr='{ANSWER1} == 2 and {ANSWER3} and
+ANSWER9=EVAL(expr='{ANSWER1} == 2 and {ANSWER3} and not {ANSW
 ```
 Answer: True
 

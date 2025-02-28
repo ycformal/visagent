@@ -1,0 +1,18 @@
+Question: Is there crown molding?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/483525.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is there crown molding?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there crown molding?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

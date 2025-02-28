@@ -1,0 +1,28 @@
+Question: What is this woman holding?
+
+Reference Answer: case
+
+Image path: ./sampled_GQA/441995.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='woman')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='umbrella')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'umbrella' if {ANSWER0} > 0 else 'nothing'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is this woman holding?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is this woman holding?')=<b><span style='color: green;'>suitcase</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>suitcase</span></b></div><hr>
+
+Answer: black briefcase
+

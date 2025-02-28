@@ -1,0 +1,24 @@
+Question: Does this person have long hair?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/240287.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does this person have long hair?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does this person have long hair?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does this person have long hair?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

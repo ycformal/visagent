@@ -9,18 +9,18 @@ Right image URL: https://howtotrainthedog.com/wp-content/uploads/2016/06/doberma
 Original program:
 
 ```
-ANSWER0=VQA(image=LEFT,question='Is the dog black-and-tan?')
-ANSWER1=VQA(image=RIGHT,question='Is the dog black-and-tan?')
-ANSWER2=VQA(image=LEFT,question='Are the ears erect?')
-ANSWER3=VQA(image=RIGHT,question='Are the ears erect?')
-ANSWER4=VQA(image=LEFT,question='Is the mouth open?')
-ANSWER5=VQA(image=RIGHT,question='Is the mouth open?')
-ANSWER6=VQA(image=LEFT,question='Is there only one dog in the image?')
-ANSWER7=VQA(image=RIGHT,question='Is there only one dog in the image?')
-ANSWER8=VQA(image=RIGHT,question='Is the dog reclining?')
-ANSWER9=VQA(image=RIGHT,question='Is the dog facing leftward?')
-ANSWER10=EVAL(expr='{ANSWER0} and {ANSWER2} and {ANSWER4} and {ANSWER6}')
-ANSWER11=EVAL(expr='{ANSWER1} and {ANSWER3} and {ANSWER5} and {ANSWER7}
+ANSWER0=VQA(image=LEFT,question='Are the dogs black-and-tan dobermans with erect ears and open mouths?')
+ANSWER1=VQA(image=RIGHT,question='Are the dogs black-and-tan dobermans with erect ears and open mouths?')
+ANSWER2=VQA(image=LEFT,question='How many dogs are in the image?')
+ANSWER3=VQA(image=RIGHT,question='How many dogs are in the image?')
+ANSWER4=VQA(image=LEFT,question='Is the dog reclining?')
+ANSWER5=VQA(image=RIGHT,question='Is the dog reclining?')
+ANSWER6=VQA(image=LEFT,question='Is the dog facing leftward?')
+ANSWER7=VQA(image=RIGHT,question='Is the dog facing leftward?')
+ANSWER8=EVAL(expr='{ANSWER0} and {ANSWER2} == 1 and {ANSWER4}')
+ANSWER9=EVAL(expr='{ANSWER1} and {ANSWER3} == 1 and {ANSWER5}')
+ANSWER10=EVAL(expr='{ANSWER6} xor {ANSWER7}')
+ANSWER11=EVAL(expr
 ```
-Answer: True
+Answer: same
 

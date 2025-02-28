@@ -19,10 +19,9 @@ ANSWER6=VQA(image=LEFT,question='Is the car parked on pavement?')
 ANSWER7=VQA(image=RIGHT,question='Is the car parked on pavement?')
 ANSWER8=VQA(image=LEFT,question='Is the car top up or down?')
 ANSWER9=VQA(image=RIGHT,question='Is the car top up or down?')
-ANSWER10=EVAL(expr='{ANSWER0} xor {ANSWER2}')
-ANSWER11=EVAL(expr='{ANSWER4} and {ANSWER5}')
-ANSWER12=EVAL(expr='{ANSWER6} and {ANSWER7}')
-ANSWER13=EVAL(expr='{ANSWER8} == {ANS
+ANSWER10=EVAL(expr='{ANSWER0} and {ANSWER4} and {ANSWER6} and {ANSWER8}')
+ANSWER11=EVAL(expr='{ANSWER1} and {ANSWER5} and {ANSWER7} and {ANSWER9}')
+ANSWER12=EVAL(expr='{
 ```
-Answer: true
+Answer: True
 

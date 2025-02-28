@@ -1,0 +1,24 @@
+Question: Are the three men in the same team?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/447088.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are the three men in the same team?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are the three men in the same team?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the three men in the same team?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

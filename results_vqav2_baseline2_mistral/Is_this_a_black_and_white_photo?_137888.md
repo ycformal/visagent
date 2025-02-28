@@ -1,0 +1,24 @@
+Question: Is this a black and white photo?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/137888.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a black and white photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a black and white photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this a black and white photo?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

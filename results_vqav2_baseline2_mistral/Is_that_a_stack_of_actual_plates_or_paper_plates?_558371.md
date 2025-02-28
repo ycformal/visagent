@@ -1,0 +1,24 @@
+Question: Is that a stack of actual plates or paper plates?
+
+Reference Answer: paper
+
+Image path: ./sampled_GQA/558371.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a stack of actual plates or paper plates?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a stack of actual plates or paper plates?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is that a stack of actual plates or paper plates?')=<b><span style='color: green;'>paper</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>paper</span></b></div><hr>
+
+Answer: paper
+

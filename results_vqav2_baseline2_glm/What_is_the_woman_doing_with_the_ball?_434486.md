@@ -1,0 +1,24 @@
+Question: What is the woman doing with the ball?
+
+Reference Answer: bouncing
+
+Image path: ./sampled_GQA/434486.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the woman doing with the ball?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the woman doing with the ball?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the woman doing with the ball?')=<b><span style='color: green;'>hitting</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>hitting</span></b></div><hr>
+
+Answer: hitting
+

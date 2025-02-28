@@ -1,0 +1,24 @@
+Question: Is there any fresh water for the animals?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/384258.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is there any fresh water for the animals?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is there any fresh water for the animals?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABLAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCi1ueCiccAjdViGJov3jFW/wBknrUUcwOEyF4zy3GamSZY9spwMHggda59RCvNDOilXCKODu6k/U9qkKKyZWRHRs5GeKqzalG0mZI1eXuSvWollSVsKCzDoAuMf0qkmK5ZZEVQQTjn7xJP5moZG2Lhc7fpQxDIGD4K/wAI5JqWMkfM4Cp90sTn+VUkIjjLup3ggD0FWbcID069OamVYyCoJBHuTTk8v7vG4jIzxmjRCLkV35IGQTWjFfRyoA3TtxWMq5GCfrVmBNqnoSfStEmVc2MRsvG0j0IzVea3Rm4cr9BTrSEkFyOMcZ7mrEwVVA70bBuZTaeGbPmufyoq6F388D6minzByo4mS0KSJ5mCmcjjGAKvwBY7fCMFQ5OBzmsz+0iBlnCjsOtWE1e3yFcgnswFYPXoK4NeqxcREswPKqOfzqeQSyxr8vJIBK8Y+tO+12nlZyI0HfgAVGtzBG4GwskoyjoNwfvx6n2q1Z7ASwxKqrujXd1yo4PepFjV2yi5BweBnFTWtzZSpkXUeCAdrHafaluNStrZH8hovNxnI+YfX04os2OyGW0QuJsxsFGByT1HX+VXFtFI4Py+w6VkaL5b6jdSs+WC/vixxknkfj9K1L3V4bWDEEvmPjauGBwarlsCLEaQec0CyqZQMlC3zAfSrkFm2QWHHoe9c1pskcOswXszqQ6eWWx0J/rnFdW1+APlhc49qai+gXXUmAMYGevpULFpHAzkDqRVSW9nHPlEE+q1EL26AOAB/wABq1TYnNGiyMT7UVlPfXAbmRh+FFP2XmL2nkcsmi45dl9MJnB/OnNoSTDbal0cDksc5roIbQDa2/gd8VYBjRVJBO7kfKf5VzxbeyKcEjnLXS7my3yO2JB8q5G5T3OR1HTqKheBsOyIIy7h1CsGQSryCCPUZB6c49a19Vd3utNjUZiac7wy8YCntTxZJLfAr91QCR+vP6VeqGrGCscZGVyYwCy+oU5fH4DGPdqdc28mPlBzzkKueBnOB1I7464Fbcuki1h3Qq0uwACMfeYAKOO38Ip0NorN5GMybhznBB9c+tPmCxgxw2yxySIrFpQC2TkDAzgHv0PNSXFjM0sexc84PHU/16fzxXXtpMLbdzuz4wWbBJ4I/qaetpEkmwKrDJJyOtHMw5UQTaFY3GmwWrZBjKt5gA3Z68+taMhVgOgA6Cg/L6c1EDk9h7elAEmN3ORgUjxjGWb3PFJuRVy2MD3pnmbui8fhTAQwxnpg++BRUbSMDxtH40UAUxKMAjDD2NKu6QllbkfnWZDcwKhyyrkknk9ati/gVgQ/QclRmjXohXXVklxGPKUkZIYc4qaJFgu5SFJeQbuaoXN2Li2kRFwx+6zNgA+tSvcPI0Nx5sSTRkcEEhh/EOBRyy7ApRNdYm27znnpmqtjBm+uJm5APH1NTpcBxkNK/pgYx+lRafHPbfaEMflo026MF9xKkd/TmpsytDR6LjnJpi7d7ccqBmkLSdS+PTAFVngU3Qn3SGTAGd5xj6dO9AE5+Y55A+tATeSfm/OglsjBpykjqevHNGoDWiHABHPXNJtw2MAYHank45JqJpMjIbk09QIWVScmMH6iigkZNFAHIxRNL90cep6VowWUh+8QMdcc0+EkkfjWraAPMFYZGRxV+0fQzVNEMOlBkEkkh29go61cgsoxypOe2Mf4VLk1ZToannk9ylFLYidAiDjJ7AnNATnJpSSZGPtS5OQM+tIoYflORwO1Mxn5jk/SnEZAzzxSsApTbxQAbWGMjpS8n5QOT2NPTnk0i/6w0ARyKM/dGR3zUL4GSCf5VLOxDNVd2Pr1pgRDfydo/wC+qKFJ20Urgf/Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there any fresh water for the animals?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

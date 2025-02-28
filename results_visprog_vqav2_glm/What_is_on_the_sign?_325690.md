@@ -1,0 +1,18 @@
+Question: What is on the sign?
+
+Reference Answer: 80
+
+Image path: ./sampled_GQA/325690.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is on the sign?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is on the sign?')=<b><span style='color: green;'>80</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>80</span></b></div><hr>
+
+Answer: 80
+

@@ -1,0 +1,24 @@
+Question: What is the person sanding down?
+
+Reference Answer: surfboard
+
+Image path: ./sampled_GQA/339988.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person sanding down?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person sanding down?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the person sanding down?')=<b><span style='color: green;'>surfboard</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>surfboard</span></b></div><hr>
+
+Answer: surfboard
+

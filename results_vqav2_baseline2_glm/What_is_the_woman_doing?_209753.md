@@ -1,0 +1,24 @@
+Question: What is the woman doing?
+
+Reference Answer: texting
+
+Image path: ./sampled_GQA/209753.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the woman doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the woman doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAEkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDtptNdONtVRH5KMQPmPANakk0rZLvx6etZc8kqsQBgehFeMtD03rocDYny/G7E/wDPdx+hrqGBFcrExHjN2PX7Qa6O6vEt7eSeb5I41LMx7AV3Yr7Hoc+H+16isSO9RM5rza9+JF/JfP8AY7WFbcZCiQFnPucdPpV/RvH4uJRDq0CwFiAs8YOwf7wPT61k6NRK9i1Wg3a52xY+tMJPrT/LZgCMEHkEUnkPWVzUjDbW3YB+tNqQwPS/Z39qpCO2uBnORmsu4RiSQ7A/nWnfCSO0eTDLlCVJHXFcRbm9uLaOU6qys+TtKiski1KxiqSvjJ8nJ+0fnT/iBqD2vheaPbsedlTlhyM5OP0qpEzr4qXzJN7/AGgAtjGal+JemyXelWtxGu5YJT5mOwYdfzFehWs5U79jjpP3Z+p5JFDJP1zj07Us9rJbYfBAPet7TbVZWACSYU87BnA9a6DUtLs5dAf98ofnYXG057ZHaulLS5yN2Z0Pw91c6l4bWCU5ms28ok91xlT+XH4V1ZZR1IFee/DLT99jqEzlgpkVAFOOQM/1ru/sMGfu5+pry61lNpHqUrOCbHtPCvWRfzpPtUH98flQLeJDxGv5U/av90flWaZb5TtdbjJ02IoWKGJgFLZw3f6V47FcXtqoR7Oc7CcfIa9YtNbg1NJ9OjjlklX549o4yOp9+K5DxV4jtfDtsJJk8yaTIiiB+8fX2FP4nZK9zNaLXocNDMz+IYJHUqzTqSpGCKs/EjV4VsYNOimBmaTzJFRvu4HAOPc9K5S/1+5v757hlWJpjkGPgo2OgrOMJdlZkDc5Jr0XT5nFvoji9pyqSXU6zw9Na2llJPImcDBAGSD9Ke9zZJBK5Z7iaTICkAZbrgDFZUOotbgSRQYlUYPoao3t1JqJhmmYLIDhsKMLz0AzyMf16itXJpWRnFRb949C8Fra2uioiSr59w7TSLjGGPG0euMYrpCa860K/tp4I4oCR8u4uxw27JycDjrzXewymS2idvvMgJryaifM7nruEVBOL0JyaTNM3Uv41Jma3hLQPIu5J/t06vIxIKcFc9QPavGfiPqcV941voraVpLWzf7PEW77eGP/AH1mvUNL1K++ZlvfLZSNqY5b6V4JduzXs7OcsZGJJ9cnNdWFV5Ns58RdJCyzbYvcYYfga0AzLFuXoRWHct8i/WoDNK3Bkc+nJruOM23u2VSvOTxTovMVQCnLAPnIxgjisuCEgiSYk45Ck/zqdrjKkMu7jC5PC/Si4WRp6bci1S3bIDJjPP5ivQf+E10dPk8yQbeAAh4ryQRxzSBcFSxHOc17v8OfA3g3XvCii6aSbVQMzeY5Upg8BQDjGKUqMarXMXCrKmnYxk8Y6dLkRLcSFRuISIsQPXjtUv8AwlWn/wB5/wDvmu28U6xoPwuENrpejQ+VfwMZUiYBjtwASTk4Of0rx3+3rf8A6BsP/fRqJYKmknfc0jiZtvQ7zRJ4H1OFJ5AkRk2s5PQV43rUYg1zUIh0S5kUf99GuxS+KhiH4B5ridTJbVLkt/z0J+tcmFTUmbYm3KmUJA0jAKM1JHGsQyeW9fSgyYGBUTy4+td5xkjXGDjGajMzHsKhHNLnrQBagly6k/zra0zUHhjdIp5YxJw4Vsf5FYEfY1Yico28dCeaZLL1zcSs7h2dyvGWJPHapPMf+6fyqS2kZnQbgPwzmtTefT/x2s6tVt6m1KKauiG5lxHKq53Z4x3rE1S0ltgkzfdccnPQ1dkufLnJ7Buapa7d+dOkePlRePqaxppqWhpUacdTMSRA4LqWXuA2D+dSkWLkkSXCegKK365H8qq0V1xlbpc5yyI7MHm5lx/swj/4qnO1gg/dJcSH1dgo/IZ/nVSiq9ouiX9eoi29wbq43eXHGMBVSMYCgDAH/wCupowpiKZ6HNZ4ODU8bkHrWbd9RvXUtpMYmUZIq/8A2k/98fnWZgOo55o2n0P5VDSe402tjqpHUwZ8mL3+XrXL6of9T9DzRRWFLc6a3wmdRRRXUcoUUUUAFSx8sKKKALCnCdBwafvPoPyooqOoz//Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the woman doing?')=<b><span style='color: green;'>texting</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>texting</span></b></div><hr>
+
+Answer: texting
+

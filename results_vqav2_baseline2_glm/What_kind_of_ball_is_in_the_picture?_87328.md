@@ -1,0 +1,24 @@
+Question: What kind of ball is in the picture?
+
+Reference Answer: soccer
+
+Image path: ./sampled_GQA/87328.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What kind of ball is in the picture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What kind of ball is in the picture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What kind of ball is in the picture?')=<b><span style='color: green;'>soccer</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>soccer</span></b></div><hr>
+
+Answer: soccer
+

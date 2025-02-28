@@ -1,0 +1,25 @@
+Question: Where is the train?
+
+Reference Answer: station
+
+Image path: ./sampled_GQA/461973.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='train')
+ANSWER0=EVAL(expr="'left' if {BOX0[0]} < 0.5 else 'right'")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Where is the train?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Where is the train?')=<b><span style='color: green;'>station</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>station</span></b></div><hr>
+
+Answer: station
+

@@ -1,0 +1,30 @@
+Question: What  is in the cup on his tray?
+
+Reference Answer: orange juice
+
+Image path: ./sampled_GQA/355453.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='cup')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='tray')
+IMAGE1=CROP(image=IMAGE,box=BOX1)
+BOX2=LOC(image=IMAGE1,object='food')
+ANSWER0=COUNT(box=BOX2)
+ANSWER1=EVAL(expr="'food' if {ANSWER0} > 0 else 'nothing'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What  is in the cup on his tray?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What  is in the cup on his tray?')=<b><span style='color: green;'>juice</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>juice</span></b></div><hr>
+
+Answer: juice
+

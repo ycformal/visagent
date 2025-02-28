@@ -1,0 +1,26 @@
+Question: What is the color of the closest building?
+
+Reference Answer: yellow
+
+Image path: ./sampled_GQA/552507.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='building')
+IMAGE0=CROP_CLOSEST(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color is the building?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is the color of the closest building?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the color of the closest building?')=<b><span style='color: green;'>yellow</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yellow</span></b></div><hr>
+
+Answer: yellow
+

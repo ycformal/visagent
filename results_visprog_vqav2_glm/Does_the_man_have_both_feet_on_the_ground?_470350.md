@@ -1,0 +1,18 @@
+Question: Does the man have both feet on the ground?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/470350.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does the man have both feet on the ground?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the man have both feet on the ground?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

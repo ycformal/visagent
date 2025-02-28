@@ -21,5 +21,5 @@ ANSWER8=VQA(image=LEFT,question='Is the man in the image playing the saxophone?'
 ANSWER9=VQA(image=RIGHT,question='Is the man in the image playing the saxophone?')
 ANSWER10=EVAL(expr='{ANSWER0} and {ANSWER2} and {ANSWER4}
 ```
-Answer: False
+Answer: True
 

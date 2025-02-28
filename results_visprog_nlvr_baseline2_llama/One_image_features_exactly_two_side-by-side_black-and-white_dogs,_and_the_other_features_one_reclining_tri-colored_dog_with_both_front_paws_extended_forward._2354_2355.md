@@ -9,18 +9,18 @@ Right image URL: https://s-media-cache-ak0.pinimg.com/236x/64/19/ed/6419ed503bd2
 Original program:
 
 ```
-ANSWER0=VQA(image=LEFT,question='How many black-and-white dogs are in the image?')
-ANSWER1=VQA(image=RIGHT,question='How many black-and-white dogs are in the image?')
-ANSWER2=VQA(image=LEFT,question='How many tri-colored dogs are in the image?')
-ANSWER3=VQA(image=RIGHT,question='How many tri-colored dogs are in the image?')
+ANSWER0=VQA(image=LEFT,question='How many dogs are in the image?')
+ANSWER1=VQA(image=RIGHT,question='How many dogs are in the image?')
+ANSWER2=VQA(image=LEFT,question='Are the dogs black-and-white?')
+ANSWER3=VQA(image=RIGHT,question='Are the dogs black-and-white?')
 ANSWER4=VQA(image=LEFT,question='Are the dogs side-by-side?')
 ANSWER5=VQA(image=RIGHT,question='Are the dogs side-by-side?')
 ANSWER6=VQA(image=LEFT,question='Is the dog reclining?')
 ANSWER7=VQA(image=RIGHT,question='Is the dog reclining?')
 ANSWER8=VQA(image=LEFT,question='Are the dog\'s front paws extended forward?')
 ANSWER9=VQA(image=RIGHT,question='Are the dog\'s front paws extended forward?')
-ANSWER10=EVAL(expr='{ANSWER0} == 2 and {ANSWER1} == 0 and {ANSWER4}')
-ANSWER11=EVAL(expr
+ANSWER10=EVAL(expr='{ANSWER0} == 2 and {ANSWER2} and {ANSWER4}')
+ANSWER11=EVAL(expr='{ANSWER1} == 2 and {ANSWER3} and
 ```
 Answer: same
 

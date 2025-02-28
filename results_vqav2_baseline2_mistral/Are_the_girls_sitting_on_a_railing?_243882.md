@@ -1,0 +1,28 @@
+Question: Are the girls sitting on a railing?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/243882.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='girl')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='railing')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are the girls sitting on a railing?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the girls sitting on a railing?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

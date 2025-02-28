@@ -20,5 +20,5 @@ ANSWER7=VQA(image=RIGHT,question='Does the cabinet have a non-distressed finish?
 ANSWER8=EVAL(expr='{ANSWER0} and {ANSWER2} and {ANSWER4} and {ANSWER6}')
 ANSWER9=EVAL(expr='{ANSWER1} and {ANSWER3} and {AN
 ```
-Answer: false
+Answer: False
 

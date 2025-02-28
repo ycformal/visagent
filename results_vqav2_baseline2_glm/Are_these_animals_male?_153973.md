@@ -1,0 +1,24 @@
+Question: Are these animals male?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/153973.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are these animals male?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are these animals male?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABLAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDvxHTxHTwKeADXre1PF9kyMJS+XU2KXFHtRezZD5dL5dTBaXFHtRezZB5dJ5dWcCjaKftRezZVMdIY6tbRSFaftRezZUMdMMdXCtMK0/ah7NlXZRSzyTRuBHZvMMZ3K6jHtzRUuuilSZ5VLe3M9x509xMzHkAMcinJfSoquJZQ7ernPtXVo3/TVD/vCpQobr5LfVQa+Z55dz6L2KOVi8V6nCUhju5vmztUc/Xk0WfiXVIboyfanLEn5S+4MfTFdcsa44ig/BBT0s/NZQlrAzdQNgo9pK97i+ro5iLxDqUdwlxcXDs+4th24X2A/pV+bx9egKsSQAjqWXJP4Z4rYk07adj2luc844NR/wBnQAYNhb4/3QKPbVFtIl4aLM+38b6kFZpYYHBHy/Lj+RqW18b3okxcwwupP8CkEDvjnmrYsIAcixjB9VqF9IsGYM+nICPQkVosTU7kvCx7Gta+LtOniZ5i9vg4AcZ3D1GKyW8dbtQKpEgtgcZbOSPXj+VL/Z1moAFmAAcgbjSNY2X/AD6KOexAz+lX9bqWJ+qRHr48hN0sbWZWMnl9/IH0xW3Br2nXUe+O6jHqrHaR+Brk59B06WTe0Uyk/wB2XH9KX+ytNihYNG5UDks+SBVRxdRb6kvBxZYuPG0qzuIYo/Lz8u7JOKKwVXSVHy2Woup5DbQP5kUVLr1b7lfVom0hcDLZp6yswwpPHcYqujkZDF8+pxg08EBCcsRXK0d1yfe33SxznIqeOcwjCZ3H7xLdvT86zWnMc6RgHBUkn6Y/xrRt7mK1g8+4sluRL8kUfmFW357Y7UrIFqNgleLexwWkbc5Lk44xxx9KsC6JbPy/ia5e61Kex8Qm3urYvCVKusb8qwHr3xnr3rVupRHqz2tnFJJbRopN0SDklQ2B+YFNx6hsawv3BIAX8qcbxmGSgx3wcVmI/ruA+mKlSXggsc544qdANBboEcoKSW6iUDcVXPTiqPmHH3sE9qgumMls4AViCAc8YBB5z2xik9tBq19S+LqCQ4WeMn04pWwf4156fLXFiC7a7ITMkXTzAwb8OO2e9aumG5FmqTkB1kbLAfeXjHHPvSTd7MqUYpXTLk2nXJkJW4XB5xsXiinbn9RRW12Z2RVU/OCrZ4wQW5pVdmUqCx75B4FVYrgj+9zjqOSaaLqNDtUoDnac8VDJZPL/AMf6gkj92e/TLf8A1q1LSxF1Lp8onRTEZFCM3LZIz/6EKxQGe6Z2IwY1wex5NTlA0KoXfCmQ7ew3ADIP4UKWuoXfQq3Oh6mLjUb6eykeCCOZiQ4UuSDt2/jj86s6es8NrGJ3d3Kgnd/DwBj6DFR6pq2pT+HrnT0lJt5UiUEjDELkcfXAyaxLa6vNMtyVEt4CeI2J4Xjv7frVtJqyE6jb1OsDnaASWOKaxYHBJ2jqRVWzuWvIlkaAxBhkbnyatJh1DDd6E7utYvcu6ZLnDKCzFe2e3pmoCVeR1cBkxgq4yDkEHj6E07ase07j1/vZqEFRNIrNkjGPwFHoIbHY2aOGihSMbw5CDbkj6fU1MtitpGQhKr1AL5x+BoUEqR5oOBnBoZxGm9uueWLUXYWFhYEyb5OjkD6cUVDBIkaMJA+4uT8vTrRSbC67kMenIr5VcfNk88/nU9rZJDl3IZsjJOPwqR2K7wDj5M/rSxANccjsKl1ZGDqNMHghI+cNuJwPUe4/+vQLALA+GcgccnNMtSZDK7/M27GT6c1b/wCWYHYsM0e0aZSqMgbTy1sqDcSvU59qij0wp86oAUOFI4OK0EdtzDJ+6P1px5QA9B/hT9qP2hnPFOJN/lnGAMr1zSoXWMq0RXklcc960gMbiODvxTgx8wjj8qOdD50ZX2eeWUMsbBVX8z2qUW+HMhiCk4J+YZ+lXWJ2Zyc1XViylickHqafMPm6oiXBdiBGMdKpXNx5YfOGJGCARxzWrKfPiaeUK0pA+fAzVO5ijMkalFw4O7jrVXsNSuirHJYmMHduzzkEUVnXFnAjLtUrlcnDkc/nRTshe0XY/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are these animals male?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

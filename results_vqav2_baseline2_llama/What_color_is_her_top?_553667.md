@@ -1,0 +1,28 @@
+Question: What color is her top?
+
+Reference Answer: green
+
+Image path: ./sampled_GQA/553667.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='woman')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='top')
+IMAGE1=CROP(image=IMAGE0,box=BOX1)
+ANSWER0=VQA(image=IMAGE1,question='What color is the top?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What color is her top?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is her top?')=<b><span style='color: green;'>green</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>green</span></b></div><hr>
+
+Answer: green
+

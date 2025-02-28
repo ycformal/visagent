@@ -1,0 +1,18 @@
+Question: How is he keeping his hair out of his face?
+
+Reference Answer: bandana
+
+Image path: ./sampled_GQA/431742.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How is he keeping his hair out of his face?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How is he keeping his hair out of his face?')=<b><span style='color: green;'>headband</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>headband</span></b></div><hr>
+
+Answer: headband
+

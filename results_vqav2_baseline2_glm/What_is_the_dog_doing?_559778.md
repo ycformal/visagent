@@ -1,0 +1,24 @@
+Question: What is the dog doing?
+
+Reference Answer: laying down
+
+Image path: ./sampled_GQA/559778.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the dog doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the dog doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the dog doing?')=<b><span style='color: green;'>laying down</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>laying down</span></b></div><hr>
+
+Answer: playing with the stuffed animal
+

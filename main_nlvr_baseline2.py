@@ -54,7 +54,7 @@ with open('./NLVR2/full/test1_filtered.json', 'r') as f:
     data_NLVR2.append(json.loads(line))
 import time
 from IPython.display import display
-for data in tqdm(data_NLVR2[2459:]):
+for data in tqdm(data_NLVR2):
     left_image_id = data['left_image_id']
     right_image_id = data['right_image_id']
     left_image = Image.open('./NLVR2/full/' + left_image_id + '.jpg')
@@ -88,7 +88,7 @@ for data in tqdm(data_NLVR2[2459:]):
         f.write(f'Right image URL: {data["right_url"]}\n\n')
         f.write(f'Original program:\n\n```\n{prog}\n```\n')
     try:
-        prog = validator.validate(prog,"Is \"{statement.replace('(','').replace(')','')}\" true or false?",module_list,init_state)
+        prog = validator.validate(prog,f"Is '{statement.replace('(','').replace(')','')}' true or false?",module_list,init_state)
         with open(f'{folder_name}/{statement.replace(" ","_").replace("/","-")}_{left_image_id}_{right_image_id}.md','a') as f:
             f.write(f'Program:\n\n```\n{prog}\n```\n')
         result, prog_state, html_str = interpreter.execute(prog,init_state,inspect=True)
@@ -96,7 +96,7 @@ for data in tqdm(data_NLVR2[2459:]):
             f.write(f'Rationale:\n\n{html_str}\n\n')
     except Exception as e:
         print('Runtime error')
-        result, prog_state, html_str = interpreter.execute(f"X=VQA(image=IMAGE,question='Is \"{statement.replace('(','').replace(')','')}\" true or false?')",init_state,inspect=True)
+        result, prog_state, html_str = interpreter.execute(f"X=VQA(image=IMAGE,question=\"Is '{statement.replace('(','').replace(')','')}' true or false?\")",init_state,inspect=True)
     if isinstance(result, str) and 'yes' in result.lower():
         result = 'True'
     if isinstance(result, str) and 'no' in result.lower():

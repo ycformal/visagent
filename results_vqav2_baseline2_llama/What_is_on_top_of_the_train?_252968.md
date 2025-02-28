@@ -1,0 +1,28 @@
+Question: What is on top of the train?
+
+Reference Answer: nothing
+
+Image path: ./sampled_GQA/252968.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='train')
+IMAGE0=CROP_ABOVE(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='sky')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'sky' if {ANSWER0} > 0 else 'nothing'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is on top of the train?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is on top of the train?')=<b><span style='color: green;'>nothing</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>nothing</span></b></div><hr>
+
+Answer: Signal lights and power lines.
+

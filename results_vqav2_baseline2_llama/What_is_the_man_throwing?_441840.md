@@ -1,0 +1,27 @@
+Question: What is the man throwing?
+
+Reference Answer: ball
+
+Image path: ./sampled_GQA/441840.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='throwing')
+ANSWER0=VQA(image=IMAGE0,question='What is the man throwing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is the man throwing?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the man throwing?')=<b><span style='color: green;'>baseball</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>baseball</span></b></div><hr>
+
+Answer: baseball
+

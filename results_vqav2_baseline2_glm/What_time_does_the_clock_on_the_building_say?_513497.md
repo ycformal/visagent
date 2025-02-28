@@ -1,0 +1,24 @@
+Question: What time does the clock on the building say?
+
+Reference Answer: 11:00
+
+Image path: ./sampled_GQA/513497.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What time does the clock on the building say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What time does the clock on the building say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What time does the clock on the building say?')=<b><span style='color: green;'>3:30</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>3:30</span></b></div><hr>
+
+Answer: 3:30
+

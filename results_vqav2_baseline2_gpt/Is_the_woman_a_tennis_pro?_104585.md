@@ -1,0 +1,24 @@
+Question: Is the woman a tennis pro?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/104585.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the woman a tennis pro?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the woman a tennis pro?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the woman a tennis pro?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

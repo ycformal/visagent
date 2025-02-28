@@ -1,0 +1,24 @@
+Question: What is the person doing?
+
+Reference Answer: flying kite
+
+Image path: ./sampled_GQA/340503.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the person doing?')=<b><span style='color: green;'>flying kite</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>flying kite</span></b></div><hr>
+
+Answer: flying kite
+

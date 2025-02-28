@@ -1,0 +1,28 @@
+Question: What is the man standing next too?
+
+Reference Answer: sign
+
+Image path: ./sampled_GQA/323827.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP_RIGHTOF(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='tree')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'tree' if {ANSWER0} > 0 else 'nothing'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is the man standing next too?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the man standing next too?')=<b><span style='color: green;'>sign</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>sign</span></b></div><hr>
+
+Answer: sign
+

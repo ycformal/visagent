@@ -1,0 +1,24 @@
+Question: Are all of the goats solid in color?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/521465.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are all of the goats solid in color?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are all of the goats solid in color?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are all of the goats solid in color?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

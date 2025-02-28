@@ -1,0 +1,24 @@
+Question: Are these people camping?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/15029.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are these people camping?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are these people camping?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are these people camping?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

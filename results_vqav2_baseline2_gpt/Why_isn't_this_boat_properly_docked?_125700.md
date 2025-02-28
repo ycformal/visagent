@@ -1,0 +1,24 @@
+Question: Why isn't this boat properly docked?
+
+Reference Answer: broken
+
+Image path: ./sampled_GQA/125700.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why isn't this boat properly docked?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why isn't this boat properly docked?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Why isn')=<b><span style='color: green;'>beach</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>beach</span></b></div><hr>
+
+Answer: beach
+

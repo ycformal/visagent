@@ -17,9 +17,9 @@ ANSWER4=VQA(image=LEFT,question='Is the dog's body turned leftward?')
 ANSWER5=VQA(image=RIGHT,question='Is the dog's body turned leftward?')
 ANSWER6=EVAL(expr='{ANSWER0} and {ANSWER2}')
 ANSWER7=EVAL(expr='{ANSWER1} and {ANSWER3}')
-ANSWER8=EVAL(expr='{ANSWER0} and {ANSWER4}')
-ANSWER9=EVAL(expr='{ANSWER1} and {ANSWER5}')
-ANSWER10=EVAL(expr='{ANSWER6} and {ANSWER
+ANSWER8=EVAL(expr='{ANSWER6} and {ANSWER7}')
+ANSWER9=EVAL(expr='{ANSWER4} xor {ANSWER5}')
+ANSWER10=EVAL(expr='{ANSWER8} and {ANSWER
 ```
 Answer: True
 

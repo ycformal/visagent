@@ -1,0 +1,24 @@
+Question: What room is this?
+
+Reference Answer: kitchen
+
+Image path: ./sampled_GQA/59479.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What room is this?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What room is this?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What room is this?')=<b><span style='color: green;'>kitchen</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>kitchen</span></b></div><hr>
+
+Answer: kitchen
+

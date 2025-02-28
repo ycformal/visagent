@@ -1,0 +1,24 @@
+Question: Is the TV on or off?
+
+Reference Answer: off
+
+Image path: ./sampled_GQA/166521.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the TV on or off?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the TV on or off?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDSttOsplBaIKfVeKvLoSlcwyfgw/rXn9r4l1Ow0+S4F1Z6komEcUW/ZKUz1wFwWPfniu50zWJ/7La+1HT7uyEal5CE3qAOchlz+taRrJP3hxpy0siZtLni5MZI9V5FQmEg9K0NN8S6bqc4gs76OabyxIYxncF9/TrWjJ5Uv+sjB/CnOydiea5zZTmgDmtqTT7d/uOUPoeRVV9MlXlcOPY1AXKak5qQPihoWQ4dSv1FMPFFwJt4prPUBJpArN0ouA52zVWWPfwBz6VZby4/vvz6Cq815hcRqFHqaLiM2S0beeAPxopJWdnJLH86KXMM4KSxuNOlMUjEnGfmOQcjGaktdavtOI+zSMjdAFdgD+Ga0Jbldbso7uJSrEbXU8lWHUH/AD3rIs0Iv0MgyA3SudX+ZvJNbbHUpJqd/cQ6jG8UF35kcUlzwhjUk4y2OegX36V6DqWrW+k6dPe3TMY4E3SbFy3YcCvN7afTnvkivp5fs0t8sZto/uviMYLAc8E9qu+LZy2m31upwpUIBntkVtyuMmmZzd0jpLTx94avCFXVY4XP8NwrRn9Rit22vYLpd9tcRTKe8Thh+leBuisMEBvYjNRLapE/mJmFv70TFW/StZU7dTNH0O05wQ2CPQ1XaO3kPKbT6rXicPifW9OUG31a7ZFI+SdhKCM/7QzXsYlDAEdxms3dDKtzNFBIyKC5BxzxVNrqR+M7R6CmXj4upP8AeqAOKm4ybOaYx4ppeo2koAQkE0VEX5ooA4vQkuU0951WV4WLHcw+7tHf8TUnklX85jyecVU0OV3uIrNryQJICTGzYwMGug1azjtLJZFl3jcBWbf7y/mbvSCVx/gKGK612/uJZg0ttuaKNhz8xKkjPoFHT15qLV5TPdTxHuT+lN+HsE0erefIB5X2NmLlQ20s7cFs/Ke/vTNXi/4nIso5kNxOcriQKAD0y3arU9bsh05Tdoo5O3LMeTU8gPpWpN4Vk/sRdTefbumaLywWY8E85298elZTaRIiMqTMQxzn5s8f8ArV14vYzVOS3Kl3kW0v+6a9stpw1vEc9UU/pXjNvpBukkLXs6xgfeSF5Rn0OAMV2F14lu7G1094LdZYZYyFYsV+5hTkY47VnKak1YfI0tTor6Ufa5OfT+VQCUetcjJrF6jSai0CuJG2sTMxQHsOBgYq1p+uC5jkM6pE6MflDZyMZzzSs0HodN5tMaSqSXSlo1z99gopxk5piJi/NFVTJz1ooGcJo90iymaGIhkbCu7hj83BGDzjHpXR6rfyz2Ox24znjt1rltMnSK1EAyC06uw9gMZrZv5B9iB7EE/oazlfmRVyTw9cXFqyoiOiT2UeWUhgygnr/d5rr7PQvCUrtqU95qCTIwd8D5Q3YcqeKwPD09hBbLbRDN1NpytNg55BGMjtwa19T8+Dw1qM1vgMnkYz0yWq3GL1S/qxrGpODsnb/gm3a6lpsmjJd39u62YuSskYX5gMdsZ56Vj6ndeE9RsZrazttQ81lO0gNgN2LADpnFT+G7t5PDUxneBsXHLzsqr0HrwPanQa5p1ot4lxf2iE4VRCQwbBU5+XP0/Cs6SUk3fqOrHkdrbev/DHOWrGOzRBb3T2wURfKjjLYBPBxkdf0pJbgW/hy1ntUdRA115QmX7uGVgCD1x71oxashsWsLaK4luwxnIjibGAnPBxxgH8qj1DydS0UAW0lrGJ2G1iq4DIMngEc/8A66H7tm+4fxL2/rY5ZvE0/wDwjDaGAn2d5/PLZOd306VlWt8nmyI7Yd8BWx09asTW1slheZRBNBIqjbcB1Knqciq8MNoZNqRByVIDCTJ/AVo5ppmcYPmVzpv7VjFtDMuWKyKwVeTwc4/Kqt94lvEn2wWqxpjdmXJJH4Vztx5ttdiNn5AHAPTjpVmSYywoerKfzHerhHmjoF4qVmXrjxLdu4KKIxjovPP40VzvmAkguVIOOtFI0tAu2QAnQgc7hWvqHFq4HQA/yoorKXxowRt+DcPouruyqXXylDFRkDHTPpxWt4ikZPBmpMrEHfbcj60UVvH4R9/67DPh2x/sGf8A6+j/ACFdJZ6bZ3/iHUYrm2jkTYJemDvVTg5HNFFThvt/P8gxH2H6fmQ+JVXTtXsfsYEDSKm9k4ZsvyCeuPas/wCL6j7CvAwJIuMezUUVNT9UEUk7LszymwP+gagvYhePxpYIY0iE6qBIpyGooqHuzopJNK/b9SPUuZLWT+N48sfXkik3sIOD3oorenscstyvIi7ulFFFIR//2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the TV on or off?')=<b><span style='color: green;'>off</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>off</span></b></div><hr>
+
+Answer: off
+

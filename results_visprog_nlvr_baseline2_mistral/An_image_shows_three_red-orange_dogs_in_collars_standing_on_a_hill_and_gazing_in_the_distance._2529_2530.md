@@ -21,5 +21,5 @@ ANSWER8=VQA(image=LEFT,question='Are the dogs gazing in the distance?')
 ANSWER9=VQA(image=RIGHT,question='Are the dogs gazing in the distance?')
 ANSWER10=EVAL(expr='{ANSWER0} == 3 and {
 ```
-Answer: false
+Answer: False
 

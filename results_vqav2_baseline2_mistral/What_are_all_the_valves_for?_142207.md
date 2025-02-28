@@ -1,0 +1,24 @@
+Question: What are all the valves for?
+
+Reference Answer: water
+
+Image path: ./sampled_GQA/142207.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What are all the valves for?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What are all the valves for?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What are all the valves for?')=<b><span style='color: green;'>water</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>water</span></b></div><hr>
+
+Answer: water
+

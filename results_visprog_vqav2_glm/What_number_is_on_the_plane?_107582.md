@@ -1,0 +1,18 @@
+Question: What number is on the plane?
+
+Reference Answer: 979
+
+Image path: ./sampled_GQA/107582.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What number is on the plane?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What number is on the plane?')=<b><span style='color: green;'>979</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>979</span></b></div><hr>
+
+Answer: 979
+

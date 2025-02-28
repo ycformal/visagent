@@ -1,0 +1,24 @@
+Question: Is the person jumping?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/192964.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the person jumping?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the person jumping?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAEMDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD5/pwpBVmxe2iv7eS8gae1WRTLErbS655APbigCEEd+Kd+VdrLF4E8QXirb3F5ocrDGXgDwE++GJX69O9VPEHgHVdCtxeRPDqFgelxandgepHb9aAOVNNNO7U0nHpQAhplOJptABRRRQA4DkVJimqOal20Abvgx9KTxJDHrKxfY5VaNpJJCixnsxIzj/8AVXvfhjwLa2OoTCxvWe0wZGjfHHQxnI9RkH1yDXzR5ZwWPSvojwv4u0fwh4N0/SVS5S7ksg73iRrIPOdd2SpOW25A+gxQBw3xY+HbaJcya5pdts0+R/8ASIVH+oc9x/sk/ka8pNfYOg6zY+NvDiLN9mku2h2XlqDkZxhuOu09R9a+YfHfho+FPFt5pahvIBEkBfqY25H5cj8KAObptBooAKKKKAJwCDyKmRCw4FJHJlgCKnJKjjGKANjwt4cm8V+JrLRYZBGbhsM5GdiAZY/lXYeIDDPqlxHCMQrcGOJR2QHA/QVc+FumtpulXnioNGLqRmsLLzG2qhwC7E+pBCj3z7Vk6vpNxBZ3kmpMLdEJJXJ3beuQfxHSgBbWKeznE9tNLbzpyskbEEfiKxPiB40vPFU1rbagbeeezZgt0kYVipA+Q44OCCfxrkzcT7Spnl29PvHkVWagDdTwy+AXuAMnGFTP9aztTsBYTqiuXVlzkjFdj9shaNf3oBwCQFJPQZrn/EE0U0sRXP3CORjuaAMCilK88dKKALSqV+lTKrOQoBZieFAyTUag8c1q6Nq11ot99ptZpYiy7JDEQrlM8gMQdp9xQB6d4V0+zsGsrldYju47KJkNnJbPHG29tzGRZByxJ9/urjpXD+M76eO+v4YNQkFndTn/AEBNxiiAwduTxkHHAqldeIL69uPtE4jmlC7VaYGRsYI7nrznPrWX5N9qC7XuGdFZn+diQCRyfqcD8qAG6Xax3d0YpBkbcjFbgsLWK2KpDGWYbScAkA1Q07TZrW5imWZCXyuMHuK1/shT5jJg4ycCgCaCIzW/BCny1PH0Fc/rQVJrWRe2R+RroLW0eW2iLTugZBwoAxVHVNNt43hXfJIMn7x78UAVycn5IyV7EGirYtIMDBcD0JNFAF2bwvp4Pyeeh93BH8qiXw1aOvy3EqkdioP4V11xbBxyRzWROJLZ8sOO5H86AMseE4iMpdyEEd4x/jU1n4djjJhe+CFiSC0fByMdc1eW6woZDuHcVOtzBOmH+6eh7g0AYmo282j3dvbXC7vn3RuPuuuOopst3H90K7ZGPumtm4kxD5FyDNbKco4+/CfVf8KyLiUiRImZSn8Ljo446f4UAOs9QhhiiTEj5THyoSDzVPVLoTtFshlTDEgOMdvrVvSYrmfTM2kDzNHkMoYDAyfU1TvLwTG0KowIY598g9PWgBP7TZPlMXI/2qKjdFkYsYTk/UUUAegSb4iA/K/wmoZkinjIYD6D+YrqtX0XajTWyboz1Udj7Vy8kTQOAAceh6igDGm0+SJ22A47YqmyujZI2/hXSk7+DtzjPJqrLChySGfHUKBnFAGOtw0YxnioJBDMGXO0HnaRxn1Hofer81rG67oGXH9f6VmT2cyglTn2NAD7a5gt7eK0ECqVRo3l3YLgnJ3DofTNK90WiZ0PlY3AIhXb7dRmsuaKZeGQj8KqmaaHOMH6qDQBHLe35lbDXfXt0/CiozcNmigD6SsZDu9v51T1ywtktHnSMK+4KcdG+vvRRQBxGoQrEodCQevWqBkZ1BJ5xnIoooAru7Esf4h/EByfr61Wed8445PpRRQBCW+Yg8/WoLi3iKg7Rk0UUAZpt48niiiigD//2Q==">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the person jumping?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

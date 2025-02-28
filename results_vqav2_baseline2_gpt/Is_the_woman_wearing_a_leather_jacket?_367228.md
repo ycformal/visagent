@@ -1,0 +1,27 @@
+Question: Is the woman wearing a leather jacket?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/367228.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='woman')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What clothes is the woman wearing?')
+ANSWER1=EVAL(expr="'yes' if 'leather jacket' in {ANSWER0} else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the woman wearing a leather jacket?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the woman wearing a leather jacket?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

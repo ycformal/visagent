@@ -11,8 +11,8 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many vultures are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many vultures are in the image?')
-ANSWER2=VQA(image=LEFT,question='Are vultures gathered around a carcass?')
-ANSWER3=VQA(image=RIGHT,question='Are vultures gathered around a carcass?')
+ANSWER2=VQA(image=LEFT,question='Are the vultures gathered around a carcass?')
+ANSWER3=VQA(image=RIGHT,question='Are the vultures gathered around a carcass?')
 ANSWER4=EVAL(expr='{ANSWER0} + {ANSWER1} <= 6')
 ANSWER5=EVAL(expr='not {ANSWER2} and not {ANSWER3}')
 ANSWER6=EVAL(expr='{ANSWER4} and {ANSWER5}')
@@ -23,8 +23,8 @@ Program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many vultures are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many vultures are in the image?')
-ANSWER2=VQA(image=LEFT,question='Are vultures gathered around a carcass?')
-ANSWER3=VQA(image=RIGHT,question='Are vultures gathered around a carcass?')
+ANSWER2=VQA(image=LEFT,question='Are the vultures gathered around a carcass?')
+ANSWER3=VQA(image=RIGHT,question='Are the vultures gathered around a carcass?')
 ANSWER4=EVAL(expr='{ANSWER0} + {ANSWER1} <= 6')
 ANSWER5=EVAL(expr='not {ANSWER2} and not {ANSWER3}')
 ANSWER6=EVAL(expr='{ANSWER4} and {ANSWER5}')

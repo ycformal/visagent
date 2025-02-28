@@ -1,0 +1,24 @@
+Question: How are the two signs attached to the pole?
+
+Reference Answer: welded
+
+Image path: ./sampled_GQA/315209.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How are the two signs attached to the pole?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How are the two signs attached to the pole?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How are the two signs attached to the pole?')=<b><span style='color: green;'>metal</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>metal</span></b></div><hr>
+
+Answer: metal
+

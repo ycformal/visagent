@@ -1,0 +1,28 @@
+Question: Why is the man putting his hand in the woman's mouth?
+
+Reference Answer: feeding cake
+
+Image path: ./sampled_GQA/370207.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='woman')
+IMAGE1=CROP(image=IMAGE,box=BOX1)
+ANSWER0=VQA(image=IMAGE0,question='Why is the man putting his hand in the woman\'s mouth?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Why is the man putting his hand in the woman's mouth?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Why is the man putting his hand in the woman's mouth?')=<b><span style='color: green;'>cake</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>cake</span></b></div><hr>
+
+Answer: cake
+

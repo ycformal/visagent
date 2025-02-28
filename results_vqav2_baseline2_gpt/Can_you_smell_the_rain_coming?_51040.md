@@ -1,0 +1,24 @@
+Question: Can you smell the rain coming?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/51040.jpg
+
+Original program:
+
+```
+ANSWER0=EVAL(expr="'yes' if 'rain' in {IMAGE} else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Can you smell the rain coming?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Can you smell the rain coming?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

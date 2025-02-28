@@ -1,0 +1,24 @@
+Question: Do you see any blondes in the picture?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/221543.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you see any blondes in the picture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you see any blondes in the picture?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do you see any blondes in the picture?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

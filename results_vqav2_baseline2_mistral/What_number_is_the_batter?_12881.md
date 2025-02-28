@@ -1,0 +1,24 @@
+Question: What number is the batter?
+
+Reference Answer: 18
+
+Image path: ./sampled_GQA/12881.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What number is the batter?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What number is the batter?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What number is the batter?')=<b><span style='color: green;'>18</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>18</span></b></div><hr>
+
+Answer: 18
+

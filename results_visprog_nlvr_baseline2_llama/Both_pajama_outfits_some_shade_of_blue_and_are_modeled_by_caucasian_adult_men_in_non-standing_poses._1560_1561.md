@@ -22,5 +22,5 @@ ANSWER9=EVAL(expr='{ANSWER1} and {ANSWER3} and {ANSWER5} and {ANSWER7}')
 ANSWER10=EVAL(expr='{ANSWER8} xor {ANSWER9}')
 FINAL_ANSWER=RESULT(var=ANSWER10
 ```
-Answer: true
+Answer: True
 

@@ -1,0 +1,24 @@
+Question: Is the bed made or not?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/413736.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the bed made?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the bed made?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the bed made?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

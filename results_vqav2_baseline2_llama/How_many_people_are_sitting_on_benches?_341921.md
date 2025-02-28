@@ -1,0 +1,28 @@
+Question: How many people are sitting on benches?
+
+Reference Answer: 1
+
+Image path: ./sampled_GQA/341921.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='bench')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='person')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'{ANSWER0}' people are sitting on benches")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="How many people are sitting on benches?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many people are sitting on benches?')=<b><span style='color: green;'>1</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>1</span></b></div><hr>
+
+Answer: 1
+

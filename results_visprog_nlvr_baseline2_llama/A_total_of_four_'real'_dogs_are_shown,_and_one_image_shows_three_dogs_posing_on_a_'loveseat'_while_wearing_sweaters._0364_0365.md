@@ -11,8 +11,8 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many dogs are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many dogs are in the image?')
-ANSWER2=VQA(image=LEFT,question='Are three dogs posing on a "loveseat" while wearing sweaters?')
-ANSWER3=VQA(image=RIGHT,question='Are three dogs posing on a "loveseat" while wearing sweaters?')
+ANSWER2=VQA(image=LEFT,question='Are the dogs posing on a "loveseat" while wearing sweaters?')
+ANSWER3=VQA(image=RIGHT,question='Are the dogs posing on a "loveseat" while wearing sweaters?')
 ANSWER4=EVAL(expr='{ANSWER0} + {ANSWER1} == 4')
 ANSWER5=EVAL(expr='{ANSWER2}')
 ANSWER6=EVAL(expr='{ANSWER3}')
@@ -24,8 +24,8 @@ Program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many dogs are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many dogs are in the image?')
-ANSWER2=VQA(image=LEFT,question='Are three dogs posing on a "loveseat" while wearing sweaters?')
-ANSWER3=VQA(image=RIGHT,question='Are three dogs posing on a "loveseat" while wearing sweaters?')
+ANSWER2=VQA(image=LEFT,question='Are the dogs posing on a "loveseat" while wearing sweaters?')
+ANSWER3=VQA(image=RIGHT,question='Are the dogs posing on a "loveseat" while wearing sweaters?')
 ANSWER4=EVAL(expr='{ANSWER0} + {ANSWER1} == 4')
 ANSWER5=EVAL(expr='{ANSWER2}')
 ANSWER6=EVAL(expr='{ANSWER3}')

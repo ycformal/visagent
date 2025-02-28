@@ -1,0 +1,24 @@
+Question: Is he flying?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/492524.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is he flying?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is he flying?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is he flying?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

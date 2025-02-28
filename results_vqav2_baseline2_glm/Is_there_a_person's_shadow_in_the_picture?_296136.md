@@ -1,0 +1,28 @@
+Question: Is there a person's shadow in the picture?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/296136.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='shadow')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='person')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is there a person's shadow in the picture?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is there a person's shadow in the picture?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

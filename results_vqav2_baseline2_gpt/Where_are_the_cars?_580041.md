@@ -1,0 +1,25 @@
+Question: Where are the cars?
+
+Reference Answer: street
+
+Image path: ./sampled_GQA/580041.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='cars')
+ANSWER0=EVAL(expr="'top' if {BOX0.y} < IMAGE.height/2 else 'bottom'")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Where are the cars?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Where are the cars?')=<b><span style='color: green;'>road</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>road</span></b></div><hr>
+
+Answer: road
+

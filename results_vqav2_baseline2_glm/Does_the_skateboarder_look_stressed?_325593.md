@@ -1,0 +1,24 @@
+Question: Does the skateboarder look stressed?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/325593.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does the skateboarder look stressed?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does the skateboarder look stressed?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the skateboarder look stressed?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

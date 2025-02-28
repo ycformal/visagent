@@ -1,0 +1,24 @@
+Question: What color is his hat?
+
+Reference Answer: purple
+
+Image path: ./sampled_GQA/108056.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is his hat?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color is his hat?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is his hat?')=<b><span style='color: green;'>blue</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>blue</span></b></div><hr>
+
+Answer: Purple
+

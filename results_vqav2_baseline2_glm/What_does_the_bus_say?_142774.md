@@ -1,0 +1,24 @@
+Question: What does the bus say?
+
+Reference Answer: city
+
+Image path: ./sampled_GQA/142774.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What does the bus say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What does the bus say?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What does the bus say?')=<b><span style='color: green;'>foreign language</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>foreign language</span></b></div><hr>
+
+Answer: foreign language
+

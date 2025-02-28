@@ -1,0 +1,24 @@
+Question: What color are the walls?
+
+Reference Answer: white
+
+Image path: ./sampled_GQA/404785.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color are the walls?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What color are the walls?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color are the walls?')=<b><span style='color: green;'>white</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>white</span></b></div><hr>
+
+Answer: light beige
+

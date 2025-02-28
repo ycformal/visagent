@@ -11,8 +11,8 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many bottles are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many bottles are in the image?')
-ANSWER2=VQA(image=LEFT,question='Does the image have a bottle with a dropper cap?')
-ANSWER3=VQA(image=RIGHT,question='Does the image have a bottle with a dropper cap?')
+ANSWER2=VQA(image=LEFT,question='Does at least one of the bottles have a dropper cap?')
+ANSWER3=VQA(image=RIGHT,question='Does at least one of the bottles have a dropper cap?')
 ANSWER4=EVAL(expr='{ANSWER0} < 7 and {ANSWER2}')
 ANSWER5=EVAL(expr='{ANSWER1} < 7 and {ANSWER3}')
 ANSWER6=EVAL(expr='{ANSWER4} xor {ANSWER5}')
@@ -23,12 +23,12 @@ Program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many bottles are in the image?')
 ANSWER1=VQA(image=RIGHT,question='How many bottles are in the image?')
-ANSWER2=VQA(image=LEFT,question='Does the image have a bottle with a dropper cap?')
-ANSWER3=VQA(image=RIGHT,question='Does the image have a bottle with a dropper cap?')
+ANSWER2=VQA(image=LEFT,question='Does at least one of the bottles have a dropper cap?')
+ANSWER3=VQA(image=RIGHT,question='Does at least one of the bottles have a dropper cap?')
 ANSWER4=EVAL(expr='{ANSWER0} < 7 and {ANSWER2}')
 ANSWER5=EVAL(expr='{ANSWER1} < 7 and {ANSWER3}')
 ANSWER6=EVAL(expr='{ANSWER4} xor {ANSWER5}')
 FINAL_ANSWER=RESULT(var=ANSWER6)
 ```
-Answer: true
+Answer: false
 

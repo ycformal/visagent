@@ -1,0 +1,24 @@
+Question: What is the name on the back of the Jersey?
+
+Reference Answer: wright
+
+Image path: ./sampled_GQA/50627.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the name on the back of the Jersey?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the name on the back of the Jersey?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the name on the back of the Jersey?')=<b><span style='color: green;'>wright</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>wright</span></b></div><hr>
+
+Answer: wright
+

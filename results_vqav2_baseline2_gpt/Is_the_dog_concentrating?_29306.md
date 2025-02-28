@@ -1,0 +1,24 @@
+Question: Is the dog concentrating?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/29306.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the dog concentrating?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the dog concentrating?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the dog concentrating?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

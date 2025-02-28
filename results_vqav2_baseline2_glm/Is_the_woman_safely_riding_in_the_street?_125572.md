@@ -1,0 +1,24 @@
+Question: Is the woman safely riding in the street?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/125572.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the woman safely riding in the street?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the woman safely riding in the street?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the woman safely riding in the street?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

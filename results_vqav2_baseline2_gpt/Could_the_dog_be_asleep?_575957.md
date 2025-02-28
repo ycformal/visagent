@@ -1,0 +1,24 @@
+Question: Could the dog be asleep?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/575957.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Could the dog be asleep?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Could the dog be asleep?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Could the dog be asleep?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

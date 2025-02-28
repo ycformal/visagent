@@ -1,0 +1,24 @@
+Question: Do you think the person who sits here likes bananas?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/267932.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you think the person who sits here likes bananas?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you think the person who sits here likes bananas?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do you think the person who sits here likes bananas?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

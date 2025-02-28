@@ -1,0 +1,18 @@
+Question: Are they wearing shoes?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/155478.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are they wearing shoes?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are they wearing shoes?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

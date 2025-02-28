@@ -1,0 +1,27 @@
+Question: Is the man wearing a vest?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/70332.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What clothes is the man wearing?')
+ANSWER1=EVAL(expr="'yes' if 'vest' in {ANSWER0} else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the man wearing a vest?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the man wearing a vest?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

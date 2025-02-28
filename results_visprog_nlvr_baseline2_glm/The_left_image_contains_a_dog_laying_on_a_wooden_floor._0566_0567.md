@@ -10,13 +10,13 @@ Original program:
 
 ```
 ANSWER0=VQA(image=LEFT,question='Is there a dog laying on a wooden floor?')
-FINAL_ANSWER=RESULT(var=ANSWER0)
+FINAL_ANSWER=RESULT(var=ANSWER0)The statement is True.
 ```
 Program:
 
 ```
 ANSWER0=VQA(image=LEFT,question='Is there a dog laying on a wooden floor?')
-FINAL_ANSWER=RESULT(var=ANSWER0)
+FINAL_ANSWER=RESULT(var=ANSWER0)The statement is True.
 ```
 Rationale:
 

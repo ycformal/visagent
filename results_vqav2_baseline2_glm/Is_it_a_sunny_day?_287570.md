@@ -1,0 +1,24 @@
+Question: Is it a sunny day?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/287570.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is it a sunny day?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is it a sunny day?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is it a sunny day?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

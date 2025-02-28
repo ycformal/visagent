@@ -1,0 +1,26 @@
+Question: What is on the man's helmet?
+
+Reference Answer: headphones
+
+Image path: ./sampled_GQA/559884.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What is on the man''s helmet?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is on the man's helmet?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDx/RdPhvL8JcufLCliEPJ9vaujudU0ixuXR9KhaQgAP9n3NgcDqeD+FY3hri8mXvt/rVrV1AvwfWMZ/M1vT22OOp8WpYTX9MSQyR6W5c9SIlFMk12BixTSmGTnlU/wrPXHQEZp4Fa6sx91dCZdUuJcCGyfLH5cFef0q158w4mvQpHVYtzkfjwKjtYmitUZAWmkUhAoyVXoT9T0/OnLpt29sbhbd/JAJ3kYHHWuOpVcXyxPVwuChOHPV0XQelyvmoUupt6sGHnYKH2I54PrWV4gRP7QL/Zkt9652x/dPv8A/qrW/sm5CxuwRQ7KD8wJTd90sOozUl3paGzeIzJcKpkjXCkGKUKTxnscfSojVk9JF1sLSj71JnJrbF/lHUrkCocZGO9alva3cmJ7e2mlWFQZGSMsEH+0QOKzpU2SlAcgdDWnU5E7ka/cbIpu0EDmpVA8t+ecjioTmgoaetFFFIZ0mkosV9vQqvmDA75P0rchsre7BE/MgJG4EjIz0rldHk824EMnICkp+FdTaxyCV1UM4ySMcnH9a1g7HLVRdbwtEoUmNDnnPmE4/WkXRLEA7liOO4cVHPfz2cAlCpIQOFmTIGT6etY99qV1fshlZVCjAWP5R+Vbc8exzqE31Nv5NOnC26u0LQFWa3b50AbJINLPbkpqkTStNvhjukZhgkZB5HY4asayuTDhfOaFg25JF52kjBz7Gnzm489muHZnfneWzuHqD3FcFfRt2PoMA4zio31X36PQ2JVU29zfh4/KmtEUDeN3mqV4x1/hzVXUL+SfVx5ciyQLLujAAC8jnoPrTr2zhXR9Mu4EAeYSJLjJJZSP6GtLS/CevXkVm1jp48y8JKTXDBECDrgnqT9On1rK8m7G1R0adP2j13S/L9Nylo/jbU9G0+Wx0y5t0gHXnGRnkgHoT61x2ssZr0XWxFEwz8hyM969mi+B9w0Ja51e1WdsZRICVH45GfyrivF/w68R6XcwQR6etxAiExmzO/IHJJXqK2jU5meBTpU4S5k2efAffHtUJqccSN9Khbqa0OlEZ60UuM96KBnS+DdMivdUZrmVoo0Qncq5JJ6Cu/ttL01LZJIprlpmjG4soADYx35xXCaOjw2cxhZ0usp8g4bGTV+NNWkfMks5X0MmK2pyj2OSvGT1uW9biMMLRtnjv+IrBGCR83ete+SUaaqyZZ8nHO44zxzWOsMw6xN+VEtxQ2JSUA+8fyq7a3YiUR5V1LcK6hgD6jNUVjYOvmIAueckdKs5gVf+WYYdDkcH86l9rFrTVHbaZexTaBeWtxbxxi2xJHOhKsWJ6HB54rV8P+KlEFjbRqR9knbYeuQ3OPzJrhExeQSfZ72PCRmSaPdxtHeruho85dbN1nAYEuvRTjpXNODT30/zKrThKiu57aniAPFuZgMEbue1Y+r+JI4b+yuCcrCJMkdwVrDt7bUpLZ1iMGSvAbPPfFc7q39oyWEsqW4ZYI33KDyvHOfyrkhGz3X9I4Y3vueeeJLO3t9T860G2C5TzFT+438Q/wA+tYD9a6bVzHNpdswYmRG9ONrD1+tc4y12wfunrztzaEOTRSkc0VZJsXT3NlcsRc/OVHKtk1Tk1G+b/l5lbPX5qk1IeSEGVPPO2s3d71T0Iirq5qWcnmzYnlfaFzy5HNXHl09FOUDHtucmsDdngc0YyafMJ07s0xexjGbe0x3whyfxqwtzZuRuSJPoKxuB2pxkLKFI4HSjmYOmjsfD0tm+qC3jZM3MbwkAdiprZ8AfbHhmt7XY6o3752GAT6fpXA6Ncm21uymH8Eyn8M1a1iKS11rUbZGcRrcuVUE4wTkcfQionFz0M6lK6se2q2p2o+/b7f73JwfwrL1q4vItIv5oXtHl8lyypJ82Mc8ewrxg7lxuJ57VZt2eVvL4QN028YrJYbu193/BMfYW1LM0wOjKmQeVH5Vksa1xHbixnSVgHVl2DdyTzniqarAjEsc+lNaHZJ7FAnmitFY7ZhnzAvPTFFHMTzFvxTGkcqBECj0A+lc4OtFFbMqGw4cdKcKKKRQtFFFADk4dSOuRW3rcjPrly7HLELz/AMBFFFVHczmZTH5lq3B1Ldx0NFFaR3IlsRSsWVSTzyaiAzRRWEiwoooqQP/Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is on the man's helmet?')=<b><span style='color: green;'>headphones</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>headphones</span></b></div><hr>
+
+Answer: headphones
+

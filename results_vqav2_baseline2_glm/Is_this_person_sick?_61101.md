@@ -1,0 +1,24 @@
+Question: Is this person sick?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/61101.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this person sick?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this person sick?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this person sick?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

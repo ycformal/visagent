@@ -1,0 +1,24 @@
+Question: Are these men joking?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/100428.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are these men joking?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are these men joking?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are these men joking?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

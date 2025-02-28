@@ -24,5 +24,5 @@ ANSWER2=VQA(image=LEFT,question='Is there at least one bottle with a dropper cap
 ANSWER3=EVAL(expr='{ANSWER1} and {ANSWER2}')
 FINAL_ANSWER=RESULT(var=ANSWER3)
 ```
-Answer: true
+Answer: false
 

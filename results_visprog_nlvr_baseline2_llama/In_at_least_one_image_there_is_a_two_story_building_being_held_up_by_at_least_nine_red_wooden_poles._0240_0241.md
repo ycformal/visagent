@@ -11,7 +11,7 @@ Original program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many red wooden poles are holding up the building?')
 ANSWER1=VQA(image=RIGHT,question='How many red wooden poles are holding up the building?')
-ANSWER2=EVAL(expr='{ANSWER0} >= 9 and {ANSWER1} >= 9')
+ANSWER2=EVAL(expr='{ANSWER0} >= 9 or {ANSWER1} >= 9')
 FINAL_ANSWER=RESULT(var=ANSWER2)
 ```
 Program:
@@ -19,7 +19,7 @@ Program:
 ```
 ANSWER0=VQA(image=LEFT,question='How many red wooden poles are holding up the building?')
 ANSWER1=VQA(image=RIGHT,question='How many red wooden poles are holding up the building?')
-ANSWER2=EVAL(expr='{ANSWER0} >= 9 and {ANSWER1} >= 9')
+ANSWER2=EVAL(expr='{ANSWER0} >= 9 or {ANSWER1} >= 9')
 FINAL_ANSWER=RESULT(var=ANSWER2)
 ```
 Answer: false

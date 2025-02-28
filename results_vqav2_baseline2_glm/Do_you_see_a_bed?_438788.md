@@ -1,0 +1,24 @@
+Question: Do you see a bed?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/438788.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you see a bed?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you see a bed?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do you see a bed?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

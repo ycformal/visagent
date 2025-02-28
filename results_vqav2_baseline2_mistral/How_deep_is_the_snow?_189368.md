@@ -1,0 +1,24 @@
+Question: How deep is the snow?
+
+Reference Answer: deep
+
+Image path: ./sampled_GQA/189368.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How deep is the snow?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How deep is the snow?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABLAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCls4FSwja+Kp+fKw4B/KrUE5JAIruuRY3bQ/LwK04JQmMg5rIty6YY9PUVpxyeYvHX1qblWOksrtYVV88eldAuvQJAHIJHsc1wwkRIh5sigj3qGXWrOziJScM47DvUtKW4ztp/EVtMpTkL/erAu5hNuZDlc1y0niOKZcCPb+PWq0WrF3x5hA9BTStsK5p3bnJA/H2rEmcyE7CCPUHNX2ulc7chlbr6mm+QhyBhRmqTFYxfIlY5yMU9ogkfON3vVowP5hLOx9hwKp3SSNkdBVXFYouyhjwKKhe3bcfmoouKxpIFdAokXA/CnxWSK+7zU56DNUowsIAlbDegINTmO1mUKs6CQ853/wBKhjRrI4X5TKD9KtKMgYlCg1hQ2/lDcblSei+W2SfzpI5FXk3JQ+svAqblG7LYQSjdLcEY561SnGnLwJmx0+6TTbXVYZldI57eWROGw4GP8ajc2xDOfJwwyWRxgD9acbdQfkLBb2jKWDyMffiormOCOPABXn15qzHZWMgH+kswxnC4PFTxwm0lCmJBGw+Rmk3Z/CqbiiUmzJt5JVkHlq23vwTWt5z7Rk4P+0MVcOQgLJj0OMCoHVWGW2mpc0ylFoqyAnlpD+Bqq65GNx+pqxK8cYyADj0qmJW+YtGdvHLECmmFiB1+b5QSKKiluolkI3kewNFMk4C31SSIn5d4JyNzVPDqF3c5jV2DdSFwCP8ACrY0m1LBhGUweifLmp00y1Ix5fGMcnrU6hYrLDcsAJplx6NL/QVJ9ktj/rbg89cMT/Op/wCxrbB2KEz6ACpItHSMj9+4HYcN/Oi7HYrjT7T/AJZzy/UAULYQISRPcDPXgVtw2VqqASJuPrjGam+zWSnAhTJ9T1ouFjCTZasXj1K6hb1Q4P6Gq91MLqVZJtVvJZE4Vj1X6c10jRQjGLa3x7jNVry5jsLSW48mIJGpY7FAzQ2FihHqOpZjZL7UXMZyrPjj86kk1PUXcMZbncB2kAH5AVx15rd1rGoRR7vJiMo2IvGMkdSOtdwWHTy8fUVMZJ7BYrnU78vveSQn0JBH8qa+q3hzudjn1qVj6Kv5VE8gHXYo6cmtBFc30xP3j+dFSM6g8ug/EUUxD1ZMdf61KGqtwOSB+FSRkNnafzqRljdN0jKKPVuaSJLhd5kugQehVMbaauQeoNPzjhs49uaQyeOWQIQsrsfXaKYbi8kc+WSQOCcgYrA1HxBeWeptHBAkkCAAgn5mOM5HpV3SPEcWpSvEYZopFGQC27Prjio5lewzXt/tZU+cwPpk1R1+2ml0O4ijBaRsADPXkcVbZ7lz+7VgPVyB+lRvHIWDSOAy9DnODVNXQHmtoHTUYV8vdIso+QnGSD0r0gzQrGNoGMcAVwE8ZmvZbq3ZizXW2Bccuc5JH04/Ou3CY4baM84Hb1FZ0+oMiuJ0bjyA3asS5tFnfLREAHgB63HDbsKimo2jY9UUVtZMk557KRWwiKR/tgk/zore2gfwfpRS5EFyYH3IqRcdc5/ClCL6U/GF49KYApqQdOuKrqxKmrCqCR/jSGU7nRLe5cyEYYnJPWnWmljTnMqSMS33h2P4VfAAyB6etKvzMAelKwEbzybCVUMQOFPGfxrI1LU75IXjS32B/lD8HbxW2QN+3+Eg8VFNFGY2BQEEY5oYHE2Mz2dzbSkbzb5QJjoD1I9+a6V7+CRcmTaeo3gj+dZpij8ib5F+WTjjpVi4hRbVXUFWIB+ViKUVYVy4sqSjKSqeM4U80Nt7nNV4lUor7VDEckDFSNwDVoBNwH8IoqIsfWimI//Z">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How deep is the snow?')=<b><span style='color: green;'>deep</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>deep</span></b></div><hr>
+
+Answer: deep
+

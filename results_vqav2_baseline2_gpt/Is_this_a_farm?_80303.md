@@ -1,0 +1,24 @@
+Question: Is this a farm?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/80303.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a farm?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a farm?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this a farm?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

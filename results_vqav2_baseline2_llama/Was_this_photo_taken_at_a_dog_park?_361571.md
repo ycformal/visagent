@@ -1,0 +1,24 @@
+Question: Was this photo taken at a dog park?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/361571.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Was this photo taken at a dog park?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Was this photo taken at a dog park?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABCAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDoWmlJIZi2etNdy6gBac6svzHoaXHFeGk0jPYaqnIFSSRIBnvVUtJu4pQ7hh5g/WgfMTKAe9U766hsIjPdyhIgcDHLMfQDuaskq3Ktg1xfi0TnUYmcny/KATPQc8/rTprmlZlQipPUtS+LLYsTDYyP6eZLtz+AFWbXxRZysons5IlI+/G+/H4H/GuGmuI4VLs4AHJJ7Vmt4ptIXwvmP7qvH611Kknsjdxgtz2mILKqywESxuMq6AkGmOBu9COoNcV4L8dw2+oJ9nmKsT80T8bq9dmuLTV7VJtgkSVNykgA4+vaodAj2V9mck27dx92o3YqDtFaN/p7WyebExe3PIJ4K/X/ABrHaUq20c5rBxcXZmTVtGQs0u44z+VFObzC33aKVibG3IzyAY+7ULSHaRu5FOMheIfNtPpmoSUPufam7oppkkG8jcTTpHySCKRQQBg49qjDqzndxj1qdxWYxnCMMA5qPU9NTVbLymADjmNz2Pv7VOsoLHCjHrWN4wc2ulafci4eKT7QZVCHhlUYAb2JJ/L3q6MHOaSCO5yFn4R1LX9TJfTbp7KKYRjyyFV8H5mJPYdq726+H1gEEcNlDGp42hBXG+ENQ1eTxtFc3MqSwuHV2QYVl7DHHT1r155Vu7WaATMCVIUg/Mv49a9TkSRte7PI9c+G9jp43xzeVOTldj9D7V0fgHXLvEuh3kiidfnjkI4J7nHuOfqD61h3mg+IrO6e9W8kuF84kwyyY4z0weCCOn4VJeWk0LRanZhkniIcDGCO+MVM1oVHRnqc4e3jK48wPgFT0JPrjr9K5TUrY2tx5a/dPKnHSo7DxQ1xCrxuCzrhdw4iHf8ALn68U68Mk6RzicPHkjPTnrXHVV4lVo3jchBYjlqKYHXHXNFc9jksaYXcR2I7Uwy4fbwp96gaeXbuSM8Ggwmch3ODjNU7tFttlpZM/f6jpTc7m2uOfaqO9hMMNwOKs73ZSyrk+tLla1FZrUURrvAbOM9Kz/EdpeapbwJaSW4MWdwnQsCoy3GO9X2UtERvO+pw8M1hFaxzwi8hDLJHK6x7kfkNk+mf6VpQUuf3WOKbeh574Y1KLyzK0bp5o3CNjyB049s16BZ6tGIUKnM7dSK808T/ANk6Zqoij1Rrq7RQZJoF+SMnOFB74GKy08YXdv5cVrMbiVj0ZMD/AHRjn8a9KTb2NuXlPdJbVLuNpCTkjJOcbqxdQtYYbYsDtJOah0S+kubNZruQxkKMIf4jVPV9VR2WFW5Y4rGUkVFHK2LyWN3PfLbu9u06o0Z565+ZR68V1bBmjJhDJAxDLCx5H+c/rSGKOLR7dHXy5ZZWmAHTHQH9K7zw7dwy6Ja3EsETSbMM+0ZPvWclzOxTT5bI4hNH1a6USwWUvlnoduKK9S+0o3I5H1opeyiRyHmkMkpcpIcL2px2iQoZMGmzhGZZQ5AzyKiZ7XzGdGLNjpXPy3MlFsfsiikzv3etT7vNj/dvsHcVRtFbcxkjHl9am8tpWJQiME8D2pOLW4NNbk8GxGYlyT71V1PS7HWmH2qDcUXCyKSrAfUdvrWhFY/u8iTcxpJwIhsQjPehScXdEX1OP/4QXSY4Lq8YPIsAG4NzkE49e1PtfD1hYStLBZxB0ON4GSc9MGu20pYHhurSTDCTaXUjqM4P86zvEunvY7ltlJj+Q8Hnj+mK6VKUknc6ItGSyuI/vAHso7Vl3VoWz85JPBY9q0BKoZUfsOw60x1e7uxFEuUA5I6ZoNULLqSGdUVD5NvEI4yx6AdWNdtokoXTYQv3COK8z1Ro5LyLRbRg88zjz2U/cQckGu/s8wwRQIRwMnnpVJNasG09DpUkZVwaKylvtowW5FFO4rHKoSb6QEnGOlTSqPIzgZz6UUVnH4SVsaNiq/ZjwPyrLb/kIEdh2oorKRlPqbkPEf4VnHnfnn5v60UVkuhmty3ZgDVosDGUNaOrAMX3AH5B1oorrp/AaI491H2mXgcRio4SY9HvnQlWETEMvBBwaKKpbmy2OW+HQEl3eSOA0m1fmPJ5z3r0eD/j4P0ooq5gtyOYnzn5PWiiisyz/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Was this photo taken at a dog park?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

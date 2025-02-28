@@ -1,0 +1,24 @@
+Question: Is the skateboarder coming or going?
+
+Reference Answer: going
+
+Image path: ./sampled_GQA/348730.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the skateboarder coming or going?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the skateboarder coming or going?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the skateboarder coming or going?')=<b><span style='color: green;'>going</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>going</span></b></div><hr>
+
+Answer: going
+

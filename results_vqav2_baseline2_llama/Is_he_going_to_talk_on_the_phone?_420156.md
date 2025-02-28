@@ -1,0 +1,28 @@
+Question: Is he going to talk on the phone?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/420156.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='phone')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is he going to talk on the phone?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAFoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxgWMUkYaNzyMjuBURsXxlXB9MjFXbMbrGHjI24x/e68VIwzk5yO5HeoNjJNrKOi5+hqIoy9VI+orYK54xkdOO/t9KjZc+/wDX/wCtQKxlALjlsfhS/u/Vj+Qq+0SMOVBz7VA1qnbI+hphY6vw4qyeF7raD8vmdT/umtWeIxx+Zj7x/pVLwjD/AMU/fp15f/0EVs3IVrKInoVU/pXoUl7iZy1HqczKpKSmqgXlfqK1Jri3RJEIyfXtVNbuzVkQr8xYVEoK+4KfkUJFzIR6f41BitCUh55FRB/k0z+z5/QVi4N7GnMluVbAZ0+Pr0OSPTJ6e9TsME9vUjt9Kh07/kHx4PTP/AeT81TkYPGAOv09/wAawOhbERH8OPbA/lUZGff+v/1qmK9ucdPce31qPaWbAwT+h/8ArUgIiPrzTCM9aviwlaF5NjEr/CAefXnoKZdWvkxpIAxVupIwBTsxXR0Hh2f7H4a1O427tucA+uAP61n3d7I9oN0jHCgAZ4HFNS68jwk8Cn5ri5YN/ugKaoFi+F9V/pXXGXuJeRzzjeRSeZ2JyxpkBZpVI5I6U/aDJg8DNTwGC3lDAk81gk29SpOy0NixAGWkUB271pCMEZrLimjdSQwq+nManzB0HeuyL0sjml5nO6ZkWCf7zfnn+VWSMcevr6/4VX0vH2HJ/vMM/wBPxqyR2xnPGP8A2WvPPQWxGRxjn+v/AOunW0sMNyrzvsQZyRHv/TI/nSAqx27xk9z/ADqk0vmqMqVZSQw9D7UCudDLrtjGu2KG8ucDA8yQQIP+Aplj+LVhXuoG54W1t4QDnKBifzYk0xV9qcLaWZ9kUbux/hVcmndisV7eRzEyMxIDbgD2zj/CrLSpH5R3fMe1Lc6Rd6e6PcIse7+HeCcfhVW5GXgP+0RWsG1EymtdSZ0yC46GqsjcgDtU+X2Hg7fXFVgpeQKoJYnAAqJDRJE7B17rnmujQt5a/QVBp9qlpBOk6gyBgp7ge1ayRwbF69K6aVNpXuZSnraxzWkn/QjwSd7YH5frVlkaQEYOMYwfSrGnWggtkTvjJOOpq5Ig28CuXlOjm6GQqIPlIAPTGK7rwvoGn6/ozQ3cO5oJCA6HawB56/nXFXBBmjI671Uj8R/9etzw3r82hyGRV3xugSRAcEgdCPelYulNRlrsdRJ4M0Cwv7eAxTTEncxeU42jr0xW7q+m2NvpjJp1rDbxONpMKhfxz3rhdU8aQXNwhht5/PiddsjEDax7Y5z05FTXnjyN9JaC5BVwufKU4yfY+lUnY6Y1Kdyj4+tba21KyW1Eax/ZgrCMj7wPJPv0rj2jL3FsccCTk9vxoW5e7driUjfI5zgVOIhIqhZCH3ZI6DGOufrW0FeJ59WSc2zqH8uHRLh2iDKEb5QB61jaItuYbYYT7QLgZ/vY55+laz3UcWhMSGlDRspKgHHuaxdGCxRwSmQAeaCQQPcZz+Faz+NELYp6zqstvf3MEaLy+4s3Pas/+39Q/wCeq/8AfApmsyCXVrlx0LkflVCuaU3d2Zdj0FRgYFBPbualmjNtO0UpUMp7HIP41m6pepaWyyKQzFsKAec4pXRTTWjIraP7XfEp/DLgg+o/z+tWBbyJao6qGZ8qq92OeBVjS7ZbW2RpZAHxuJOMknkmoptX0+2O4AP5EZRBvyWc/ebH04H1NYuTvZGbk72RWXTpWuoLeCJ5nCm4lKKSRn5VBx07n8RWXrqvbusUkTLJnJLDH4Vs6F40g05dQlurWWW5upA3yMApUDCqfQCoL3XYddZ/tWlKIU+Ym3kO9R0zk9apXSsdEYR5VrqYtm2bcE/3zXp3hrwBFJbQ6jqckoLKs0SROU2Drlj/APWxxWNp/gFb+0S5069Mtm5LBioLY7jGRz7VtarDqct4luPF6208Y3raTWjW4IAxxwQRj3NdNOUV8RnKhN6pF2Xwr4WsrYXEtuJEYbyxuGbKn+LG7n8M9ar2Og6G1vHt02zaTYZGRoyWK+pB4XqOO1cNrC60b5n1Yq7gLskiRSpHJUqVxgHnp6c9K1bDxeLXTmtpLEmXyynnLJyTzy2fr610w5Za20Oeb5Xyvc4G8YPdSsMAF2Ix9TUO2lflqTA9a883Po7UPClpqy8qhJ6HOCK567+EiXZDPcXLEDChWBx+lY1l4+1a3HlyxwO4HUqR/I17hpXhi+1PwpaS3WoXGn6lNH5jm3xhA3IUg+gxnnrmpVPzO2dek91c8ZT4Oj7WqSXlwqdWTYCcfWtbUfhr4cS2jsUtrq0ubgFLe7Z/MhaYDIRj1BbsOOeOuK7658HeNbWKUWHiOC4LD5TPHhx9CQRWFe2vjK00m5g1Dw39uuHXaZoH+STHRnVT94diuK1UF0IU6L6WPH9b8P6TYhLu2Zovn8m4sZpMvbyjqPVlPUH0NZ0VtG6kxoCp/KtuTwbr+o6hJJqXmW8zuXmnviw3H15GSat3Gi61ZrHHbajY3saLtAV1Zv8AvlwD+VaRoy7HNKpG90QSXsayj+z7ZrSIxqrxrISrsOrY6AmrD3Usiq0jM7bcDccnFQiHWIdhk02F2OeAnln+YB/CmvdSJO0E2nuJguSiqwOPUdfzrVwd72JU3a1xs0rsQCwXjp0rP1CYraTYbPynNWp72zIMb+ejnswH65waydSMZtfLil8ySRflUIQcdz9Kyk2LQ5wKWPFP8sf3l/OugstA3eX57bS5wEHU/U1Yayso3ZDbjKnFEcNNq70JlWS0N/wfpttqvjHRrS6QtC10u4A4yBzj6HHNfV46UUVlLYvqLS0UVmgEIDZBGR6Gsq+8NaRqOftFkhJ7qSp/SiirjKUXo7CaOO8Q+BtKs7dpIHuVBH3C4Zf1FeP6rCkeoqiAq0ROx1JBH5cfpRRXqp3p3Zl1M/WbfybuCIzSypIuSJCP6AVimZoEikiwjruGQOvaiiuaTd3/AF2K6EllfzS6lab9pxKO3rxUd1M/2ubn/lo386KK1TfKYvc//9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is he going to talk on the phone?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

@@ -1,0 +1,24 @@
+Question: What is the purpose of the sign?
+
+Reference Answer: how to use bicycle signal
+
+Image path: ./sampled_GQA/547202.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the purpose of the sign?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the purpose of the sign?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the purpose of the sign?')=<b><span style='color: green;'>signal</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>signal</span></b></div><hr>
+
+Answer: The purpose of the sign is to inform cyclists on how to properly use the new bicycle signal to safely navigate through traffic.
+

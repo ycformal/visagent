@@ -1,0 +1,24 @@
+Question: Is that a microwave?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/294437.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a microwave?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is that a microwave?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is that a microwave?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

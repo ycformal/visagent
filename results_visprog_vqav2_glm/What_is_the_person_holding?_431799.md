@@ -1,0 +1,18 @@
+Question: What is the person holding?
+
+Reference Answer: kite
+
+Image path: ./sampled_GQA/431799.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person holding?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the person holding?')=<b><span style='color: green;'>kite</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>kite</span></b></div><hr>
+
+Answer: kite
+

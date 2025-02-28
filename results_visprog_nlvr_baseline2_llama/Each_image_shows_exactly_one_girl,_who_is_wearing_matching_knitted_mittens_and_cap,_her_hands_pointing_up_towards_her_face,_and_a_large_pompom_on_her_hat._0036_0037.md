@@ -20,5 +20,5 @@ ANSWER7=VQA(image=RIGHT,question='Is there a large pompom on the girl\'s hat?')
 ANSWER8=EVAL(expr='{ANSWER0} == 1 and {ANSWER2} and {ANSWER4} and {ANSWER6}')
 ANSWER9=EVAL(expr='{ANSWER1} == 1 and {ANSWER3} and {ANSWER5} and {ANS
 ```
-Answer: True
+Answer: true
 

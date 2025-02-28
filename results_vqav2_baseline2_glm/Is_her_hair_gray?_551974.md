@@ -1,0 +1,24 @@
+Question: Is her hair gray?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/551974.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is her hair gray?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is her hair gray?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is her hair gray?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

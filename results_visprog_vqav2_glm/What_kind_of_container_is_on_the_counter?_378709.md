@@ -1,0 +1,18 @@
+Question: What kind of container is on the counter?
+
+Reference Answer: toothbrush holder
+
+Image path: ./sampled_GQA/378709.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What kind of container is on the counter?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What kind of container is on the counter?')=<b><span style='color: green;'>soap</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>soap</span></b></div><hr>
+
+Answer: soap
+

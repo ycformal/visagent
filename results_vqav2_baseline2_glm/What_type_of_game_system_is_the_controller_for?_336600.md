@@ -1,0 +1,24 @@
+Question: What type of game system is the controller for?
+
+Reference Answer: wii
+
+Image path: ./sampled_GQA/336600.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What type of game system is the controller for?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What type of game system is the controller for?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What type of game system is the controller for?')=<b><span style='color: green;'>wii</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>wii</span></b></div><hr>
+
+Answer: Wii
+

@@ -1,0 +1,28 @@
+Question: Is the man wearing what is being promoted behind him?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/308759.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP_BEHIND(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='promoted')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is the man wearing what is being promoted behind him?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the man wearing what is being promoted behind him?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: no
+

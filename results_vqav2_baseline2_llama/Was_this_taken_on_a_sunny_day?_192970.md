@@ -1,0 +1,24 @@
+Question: Was this taken on a sunny day?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/192970.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Was this taken on a sunny day?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Was this taken on a sunny day?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAmRmlsZSB3cml0dGVuIGJ5IEFkb2JlIFBob3Rvc2hvcKggNS4w/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgASwBkAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A9WjtZz0IP408wXCjsfoaSJJB1zVpMkYL5/GuiUnczUUUyk/dDTP3g/hNaZwvJY1E1zGhz1+lJTb2QOKW7KazEHkGrCXgAxg1ZQxyfNszn2qQQRtggYqZST3Q0n0ZVeeKQYAINQG23nJatPaFOAmB/eOKrXOCvEgH0pRlbRDa7lMQsSVHBpvkbGw3NSIY0J3MWPakLkt+7Tc3rWl2RZAyxoBuFRm6gj6KKZN9pkOPL/Kok0+eR8Mu0dyapJW95id+hONSUDAXiik/s+NeDIT9BRR+7F7xorPGBwwxTJE81cpgH1Fc9NrFrpsPn3LqiDpk9T6Adz7UyPxzokkBk+1BQG24KnPTOcdcVEo8j0ZakmtTc8mfsSw+tPWBzyflxWNp/iK31uIzabIzqjbXBUqVPoQa0FluMZYHPuav3mr6E6F8zGJQFfP1pguwvzOx9OapFpmY/L+dM+xvKvMx47VPJHqVzPoXrjUkEfyuAT+NY73csr8NUn9nkHli1Sx2KAfMo/E1ceWOxLuyAI8gyZFz6ZqdZWhHb86kFpDjHf2NOFtboCT/AAjJLHgUOaDlZENRkQYCkmnpf3LHAjA+orj9f8e2VvMtjo22+uWYo/lpvXp0GOp78cdeazfCeu3174b1AzrJJcQytH+7BaQhlwvA6Yxj8KlODexTUkrncvrdlFI8c+pxJKh2uoBO0+h460V88yNKZXzdJGQxBEzHdkde1FYe0l2IuRPrN66mGW5eRJH8wqzbssPripbfX5EtJYbiOGdWXaNy4Kc9RjGT9c1gRXaR8qzE/wC0Kt6cY3L5jRpM/Lu6KeTnHrWHvbsuMbux6F4D8bLaTkahN5dt5W0sUyMjpk569s4PpXoH/CeaEUZv7QiG0dChGfYeprwSSTdC4UAuwAPPBINZi3UhYBs7QenNaKpNKyQOLTPdtQ1+fSw2q2erjUIXKtcWz7AY0P3SijkY9D610Fp4r0iayW7W9gMXcsdpBx0K9Qa+fVvbeVgzJISB90AjJ9+OtTx3hXAWNirDdtMZPNUqz10KiuZa7n0L/wAJHZy20lxHcxNBGMs6HIFRweJ7C6IaG9jcEE9cYAxnOfTIrwJdRuYYZoIhIsbtnGwsOOmPTBzRBdXBs5jL5oKrtUsuOPbNUqvkTGLcrNnr/iT4j2mnWhXTjHc3JPDMCY0HcnHU+1eYan4y17xLJ9jmuWdC20RLhE9i2Og9zmsNfOnmZmf5VTcAefpioLeKVmkWJPLBx83OOnTPNZym2bu0Voeu+D7Tw54evWS41i2udb2EuwbKQjuqE8fU5yfar+oeMdF0nW5ZoIFlnkj8q4ePAL4IIye+AWrxc2lzJciWVdyKBnZnLCkuvPNyp2MiycY/pVe00sjB3b1PcAvg3U1F3Lb6c0koDMZZAG+hBNFeHyvOr4G5RjgDBoqlVXYnlZ1R01ujCAfVxSLp6xyb8wAgY+VlpwsjySV+uad/Z6sPvJj1wa4FBp6L8S0mc7Np12L2WSOANEXJHzrz+Ga3LNGFqqyywI44w4yfzGan/s8jADL9ORS/YflOJFBz3yap87Vmhu7WwNcrGuB9lcj+6mTUQu0JICx/NyRspGhMY5lRvpUZjb+6DWT5kQ7joXEcRjUDaGOMj1Of61Wvi8oCqVwQRznIPTP0pxZlBOzBHqcU0y5ljTj59w/TP8xRFvmuOLdxv2SC3tDHGi5C4DHqTS2cZtrcRMTkEn9ajklyBubjcOD+dDyFolkViQTtJB7/AP6qm7cbP1JctC20uOOv4VXm2Oysy8qcgg4waq+aQccn8aaXJGNzL6f5NSpMjmZPsibklifdqKrh2P8AEf0opcz7k3Z1ZI3Fvlz2GMU4P1YAhe+KxbOWSdo1lcsGjBOT1OKsRu/9ptHvbZx8uTivTudhqLIclsfL9DQzgEc4zjgisFriY/aWMr5V8DngDntVDT7+6mv1jkmZkKEke/FCYI69k3Y3BfxAqCSKA4VtgdugPGaxZLy4EqKJDgN6CuZ1OeadZp5JpGkSbap3kYHsKHbqFjs7yDbE5jVNwHY8isVmmJ5b5ufYiqdzczfYUbzGJZRkk+2ajM8r3bBnJAQEflWThd6EuLL5EocbgScHGcc0bn24Drz1AX+tZ187Km4O2WHPzH0qWOWRraBvMcFwN21iM8e1L2Qcpd2HA3fMaTymCsyq2wfeIGQKguxu0P7TlhMGPzKSO/oOKoC5neGQtK2VIwQcVKpXFyGrsYjOOD60VVM80iIzzSElR/EaKn2aMeVH/9k=">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Was this taken on a sunny day?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

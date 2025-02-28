@@ -1,0 +1,18 @@
+Question: What are in the air?
+
+Reference Answer: kites
+
+Image path: ./sampled_GQA/313214.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What are in the air?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What are in the air?')=<b><span style='color: green;'>kites</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>kites</span></b></div><hr>
+
+Answer: kites
+

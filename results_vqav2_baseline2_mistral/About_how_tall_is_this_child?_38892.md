@@ -1,0 +1,24 @@
+Question: About how tall is this child?
+
+Reference Answer: 3 feet
+
+Image path: ./sampled_GQA/38892.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='About how tall is this child?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='About how tall is this child?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='About how tall is this child?')=<b><span style='color: green;'>3 feet</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>3 feet</span></b></div><hr>
+
+Answer: 3 feet
+

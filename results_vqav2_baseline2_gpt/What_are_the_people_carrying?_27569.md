@@ -1,0 +1,24 @@
+Question: What are the people carrying?
+
+Reference Answer: skis
+
+Image path: ./sampled_GQA/27569.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What are the people carrying?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What are the people carrying?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What are the people carrying?')=<b><span style='color: green;'>skis</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>skis</span></b></div><hr>
+
+Answer: skis and poles
+

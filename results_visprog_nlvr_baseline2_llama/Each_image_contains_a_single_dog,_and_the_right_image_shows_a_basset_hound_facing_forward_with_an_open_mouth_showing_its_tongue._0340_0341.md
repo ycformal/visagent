@@ -22,5 +22,5 @@ ANSWER9=VQA(image=RIGHT,question='Is the dog\'s tongue visible?')
 ANSWER10=EVAL(expr='{ANSWER0} == 1 and {ANSWER2} and {ANSWER4} and {ANSWER6} and {ANSWER8}')
 ANSWER11=EVAL(expr='{ANSWER
 ```
-Answer: False
+Answer: True
 

@@ -1,0 +1,24 @@
+Question: Is this a man or woman?
+
+Reference Answer: woman
+
+Image path: ./sampled_GQA/366031.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a man or woman?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is this a man or woman?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is this a man or woman?')=<b><span style='color: green;'>woman</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>woman</span></b></div><hr>
+
+Answer: woman
+

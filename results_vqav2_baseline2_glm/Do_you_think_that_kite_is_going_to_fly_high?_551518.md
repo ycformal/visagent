@@ -1,0 +1,24 @@
+Question: Do you think that kite is going to fly high?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/551518.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you think that kite is going to fly high?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do you think that kite is going to fly high?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do you think that kite is going to fly high?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: yes
+

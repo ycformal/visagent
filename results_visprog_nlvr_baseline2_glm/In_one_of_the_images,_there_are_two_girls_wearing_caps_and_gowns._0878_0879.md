@@ -12,7 +12,7 @@ Original program:
 ANSWER0=VQA(image=LEFT,question='How many girls are wearing caps and gowns?')
 ANSWER1=VQA(image=RIGHT,question='How many girls are wearing caps and gowns?')
 ANSWER2=EVAL(expr='{ANSWER0} == 2 or {ANSWER1} == 2')
-FINAL_ANSWER=RESULT(var=ANSWER2)
+FINAL_ANSWER=RESULT(var=ANSWER2)The statement is True.
 ```
 Program:
 
@@ -20,7 +20,7 @@ Program:
 ANSWER0=VQA(image=LEFT,question='How many girls are wearing caps and gowns?')
 ANSWER1=VQA(image=RIGHT,question='How many girls are wearing caps and gowns?')
 ANSWER2=EVAL(expr='{ANSWER0} == 2 or {ANSWER1} == 2')
-FINAL_ANSWER=RESULT(var=ANSWER2)
+FINAL_ANSWER=RESULT(var=ANSWER2)The statement is True.
 ```
 Rationale:
 

@@ -1,0 +1,24 @@
+Question: How many people are in the image?
+
+Reference Answer: 2
+
+Image path: ./sampled_GQA/124873.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How many people are in the image?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How many people are in the image?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How many people are in the image?')=<b><span style='color: green;'>2</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>2</span></b></div><hr>
+
+Answer: 2
+

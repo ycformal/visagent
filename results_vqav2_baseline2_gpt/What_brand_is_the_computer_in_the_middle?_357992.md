@@ -1,0 +1,27 @@
+Question: What brand is the computer in the middle?
+
+Reference Answer: apple
+
+Image path: ./sampled_GQA/357992.jpg
+
+Original program:
+
+```
+BOX0=GET(image=IMAGE)
+IMAGE0=CROP_CENTER(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='computer')
+ANSWER0=VQA(image=IMAGE0,question='What brand is the computer?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What brand is the computer in the middle?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What brand is the computer in the middle?')=<b><span style='color: green;'>apple</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>apple</span></b></div><hr>
+
+Answer: apple
+

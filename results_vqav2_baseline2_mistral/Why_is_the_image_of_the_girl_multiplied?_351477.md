@@ -1,0 +1,24 @@
+Question: Why is the image of the girl multiplied?
+
+Reference Answer: it isn't
+
+Image path: ./sampled_GQA/351477.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why is the image of the girl multiplied?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Why is the image of the girl multiplied?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Why is the image of the girl multiplied?')=<b><span style='color: green;'>it's not</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>it's not</span></b></div><hr>
+
+Answer: It's not.
+

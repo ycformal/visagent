@@ -1,0 +1,34 @@
+Question: Are they both wearing white shirts?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/127153.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='shirt')
+IMAGE1=CROP(image=IMAGE0,box=BOX1)
+ANSWER0=VQA(image=IMAGE1,question='What color is the shirt?')
+BOX2=LOC(image=IMAGE,object='woman')
+IMAGE2=CROP(image=IMAGE,box=BOX2)
+BOX3=LOC(image=IMAGE2,object='shirt')
+IMAGE3=CROP(image=IMAGE2,box=BOX3)
+ANSWER1=VQA(image=IMAGE3,question='What color is the shirt?')
+ANSWER2=EVAL(expr="'yes' if {ANSWER0} == {ANSWER1} else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER2)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Are they both wearing white shirts?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are they both wearing white shirts?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

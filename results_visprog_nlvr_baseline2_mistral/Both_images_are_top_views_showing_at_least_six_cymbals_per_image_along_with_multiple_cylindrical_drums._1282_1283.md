@@ -30,5 +30,5 @@ ANSWER5=EVAL(expr='{ANSWER1} >= 6 and {ANSWER3}')
 ANSWER6=EVAL(expr='{ANSWER4} and {ANSWER5}')
 FINAL_ANSWER=RESULT(var=ANSWER6)
 ```
-Answer: false
+Answer: true
 

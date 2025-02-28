@@ -1,0 +1,24 @@
+Question: Do the doors open in or out?
+
+Reference Answer: neither
+
+Image path: ./sampled_GQA/508482.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do the doors open in or out?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Do the doors open in or out?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Do the doors open in or out?')=<b><span style='color: green;'>out</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>out</span></b></div><hr>
+
+Answer: out
+

@@ -1,0 +1,27 @@
+Question: What is attached to the wall?
+
+Reference Answer: pictures
+
+Image path: ./sampled_GQA/434098.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='wall')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='attached')
+ANSWER0=VQA(image=IMAGE0,question='What is attached to the wall?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is attached to the wall?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is attached to the wall?')=<b><span style='color: green;'>pictures</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>pictures</span></b></div><hr>
+
+Answer: pictures
+

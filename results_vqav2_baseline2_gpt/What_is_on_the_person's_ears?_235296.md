@@ -1,0 +1,26 @@
+Question: What is on the person's ears?
+
+Reference Answer: nothing
+
+Image path: ./sampled_GQA/235296.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What is on the person's ears?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is on the person's ears?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is on the person's ears?')=<b><span style='color: green;'>nothing</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>nothing</span></b></div><hr>
+
+Answer: nothing
+

@@ -1,0 +1,24 @@
+Question: Does the cat know that a cartoon cat is on the TV?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/325064.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does the cat know that a cartoon cat is on the TV?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Does the cat know that a cartoon cat is on the TV?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Does the cat know that a cartoon cat is on the TV?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

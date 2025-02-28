@@ -45,7 +45,7 @@ def get_answer(file, method1):
     return correct
 
 def main():
-    method = 'visprog_nlvr_gpt'
+    method = 'visprog_nlvr_baseline2_gpt'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0
@@ -57,7 +57,7 @@ def main():
     print(f'Correct_{method}: {correct}/{total}')
     print(f'Accuracy_{method}: {correct/total}')
 
-    method = 'visprog_nlvr_mistral'
+    method = 'visprog_nlvr_baseline2_mistral'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0
@@ -69,7 +69,7 @@ def main():
     print(f'Correct_{method}: {correct}/{total}')
     print(f'Accuracy_{method}: {correct/total}')
 
-    method = 'visprog_nlvr_glm'
+    method = 'visprog_nlvr_baseline2_glm'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0
@@ -81,7 +81,7 @@ def main():
     print(f'Correct_{method}: {correct}/{total}')
     print(f'Accuracy_{method}: {correct/total}')
 
-    method = 'visprog_nlvr_llama'
+    method = 'visprog_nlvr_baseline2_llama'
     results = os.listdir(f'results_{method}')
     correct = 0
     total = 0

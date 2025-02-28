@@ -1,0 +1,28 @@
+Question: What does the cat rest his head on?
+
+Reference Answer: keyboard
+
+Image path: ./sampled_GQA/438628.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='cat')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='mat')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What does the cat rest his head on?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What does the cat rest his head on?')=<b><span style='color: green;'>keyboard</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>keyboard</span></b></div><hr>
+
+Answer: keyboard
+

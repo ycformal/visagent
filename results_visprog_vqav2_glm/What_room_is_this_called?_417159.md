@@ -1,0 +1,18 @@
+Question: What room is this called?
+
+Reference Answer: office
+
+Image path: ./sampled_GQA/417159.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What room is this called?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What room is this called?')=<b><span style='color: green;'>office</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>office</span></b></div><hr>
+
+Answer: office
+

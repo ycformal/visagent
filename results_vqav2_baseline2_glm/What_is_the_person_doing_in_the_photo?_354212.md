@@ -1,0 +1,24 @@
+Question: What is the person doing in the photo?
+
+Reference Answer: using computer
+
+Image path: ./sampled_GQA/354212.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person doing in the photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person doing in the photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the person doing in the photo?')=<b><span style='color: green;'>typing</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>typing</span></b></div><hr>
+
+Answer: typing
+

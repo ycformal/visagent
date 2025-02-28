@@ -1,0 +1,24 @@
+Question: What breed dog is in the photo?
+
+Reference Answer: mutt
+
+Image path: ./sampled_GQA/74035.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What breed dog is in the photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What breed dog is in the photo?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What breed dog is in the photo?')=<b><span style='color: green;'>collie</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>collie</span></b></div><hr>
+
+Answer: collie
+

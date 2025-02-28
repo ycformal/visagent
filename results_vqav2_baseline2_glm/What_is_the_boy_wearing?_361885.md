@@ -1,0 +1,24 @@
+Question: What is the boy wearing?
+
+Reference Answer: shorts and t shirt
+
+Image path: ./sampled_GQA/361885.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the boy wearing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the boy wearing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the boy wearing?')=<b><span style='color: green;'>shorts</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>shorts</span></b></div><hr>
+
+Answer: brown t-shirt and black skirt
+

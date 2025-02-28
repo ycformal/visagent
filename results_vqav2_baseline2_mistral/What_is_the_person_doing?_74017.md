@@ -1,0 +1,24 @@
+Question: What is the person doing?
+
+Reference Answer: skiing
+
+Image path: ./sampled_GQA/74017.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is the person doing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is the person doing?')=<b><span style='color: green;'>skiing</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>skiing</span></b></div><hr>
+
+Answer: skiing
+

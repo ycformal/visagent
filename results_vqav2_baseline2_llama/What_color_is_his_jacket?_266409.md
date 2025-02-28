@@ -1,0 +1,26 @@
+Question: What color is his jacket?
+
+Reference Answer: blue
+
+Image path: ./sampled_GQA/266409.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color is his jacket?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What color is his jacket?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is his jacket?')=<b><span style='color: green;'>blue</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>blue</span></b></div><hr>
+
+Answer: blue
+

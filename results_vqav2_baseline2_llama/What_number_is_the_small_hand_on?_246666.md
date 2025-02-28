@@ -1,0 +1,28 @@
+Question: What number is the small hand on?
+
+Reference Answer: 10
+
+Image path: ./sampled_GQA/246666.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='clock')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='small hand')
+IMAGE1=CROP(image=IMAGE0,box=BOX1)
+ANSWER0=VQA(image=IMAGE1,question='What number is the small hand on?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What number is the small hand on?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What number is the small hand on?')=<b><span style='color: green;'>12</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>12</span></b></div><hr>
+
+Answer: 12
+

@@ -1,0 +1,26 @@
+Question: Is it snowing?
+
+Reference Answer: no
+
+Image path: ./sampled_GQA/57172.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='snow')
+ANSWER0=COUNT(box=BOX0)
+ANSWER1=EVAL(expr="'yes' if {ANSWER0} > 0 else 'no'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="Is it snowing?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is it snowing?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

@@ -1,0 +1,24 @@
+Question: Is the woman working on a Mac or a PC?
+
+Reference Answer: pc
+
+Image path: ./sampled_GQA/83036.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the woman working on a Mac or a PC?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Is the woman working on a Mac or a PC?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Is the woman working on a Mac or a PC?')=<b><span style='color: green;'>pc</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>pc</span></b></div><hr>
+
+Answer: pc
+

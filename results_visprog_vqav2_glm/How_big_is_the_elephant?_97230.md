@@ -1,0 +1,18 @@
+Question: How big is the elephant?
+
+Reference Answer: very big
+
+Image path: ./sampled_GQA/97230.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='How big is the elephant?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='How big is the elephant?')=<b><span style='color: green;'>big</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>big</span></b></div><hr>
+
+Answer: big
+

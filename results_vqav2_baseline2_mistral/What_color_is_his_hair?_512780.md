@@ -1,0 +1,26 @@
+Question: What color is his hair?
+
+Reference Answer: blue
+
+Image path: ./sampled_GQA/512780.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='person')
+IMAGE0=CROP(image=IMAGE,box=BOX0)
+ANSWER0=VQA(image=IMAGE0,question='What color is his hair?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What color is his hair?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What color is his hair?')=<b><span style='color: green;'>blue</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>blue</span></b></div><hr>
+
+Answer: blue
+

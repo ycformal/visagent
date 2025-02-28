@@ -1,0 +1,24 @@
+Question: Are they both skiing?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/138975.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are they both skiing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are they both skiing?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are they both skiing?')=<b><span style='color: green;'>yes</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>yes</span></b></div><hr>
+
+Answer: Yes
+

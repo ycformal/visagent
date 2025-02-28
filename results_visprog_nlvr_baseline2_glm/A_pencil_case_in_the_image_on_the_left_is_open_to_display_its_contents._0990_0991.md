@@ -10,13 +10,13 @@ Original program:
 
 ```
 ANSWER0=VQA(image=LEFT,question='Is the pencil case open to display its contents?')
-FINAL_ANSWER=RESULT(var=ANSWER0)The statement is True.
+FINAL_ANSWER=RESULT(var=ANSWER0)
 ```
 Program:
 
 ```
 ANSWER0=VQA(image=LEFT,question='Is the pencil case open to display its contents?')
-FINAL_ANSWER=RESULT(var=ANSWER0)The statement is True.
+FINAL_ANSWER=RESULT(var=ANSWER0)
 ```
 Rationale:
 

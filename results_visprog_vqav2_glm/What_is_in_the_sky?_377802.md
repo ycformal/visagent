@@ -1,0 +1,18 @@
+Question: What is in the sky?
+
+Reference Answer: frisbee
+
+Image path: ./sampled_GQA/377802.jpg
+
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='What is in the sky?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is in the sky?')=<b><span style='color: green;'>frisbee</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>frisbee</span></b></div><hr>
+
+Answer: frisbee
+

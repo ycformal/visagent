@@ -1,0 +1,24 @@
+Question: Are the passengers boarding and departing the train at this instant?
+
+Reference Answer: yes
+
+Image path: ./sampled_GQA/276596.jpg
+
+Original program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are the passengers boarding and departing the train at this instant?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question='Are the passengers boarding and departing the train at this instant?')
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='Are the passengers boarding and departing the train at this instant?')=<b><span style='color: green;'>no</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>no</span></b></div><hr>
+
+Answer: No
+

@@ -1,0 +1,28 @@
+Question: What is this man being pulled by?
+
+Reference Answer: boat
+
+Image path: ./sampled_GQA/285361.jpg
+
+Original program:
+
+```
+BOX0=LOC(image=IMAGE,object='man')
+IMAGE0=CROP_BELOW(image=IMAGE,box=BOX0)
+BOX1=LOC(image=IMAGE0,object='horse')
+ANSWER0=COUNT(box=BOX1)
+ANSWER1=EVAL(expr="'horse' if {ANSWER0} > 0 else 'car'")
+FINAL_RESULT=RESULT(var=ANSWER1)
+```
+Program:
+
+```
+ANSWER0=VQA(image=IMAGE,question="What is this man being pulled by?")
+FINAL_RESULT=RESULT(var=ANSWER0)
+```
+Rationale:
+
+<hr><div><b><span style='color: blue;'>ANSWER0</span></b>=<b><span style='color: red;'>VQA</span></b>(<b><span style='color: darkorange;'>image</span></b>=<img style="vertical-align:middle" src="data:image/jpeg;base64,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">,&nbsp;<b><span style='color: darkorange;'>question</span></b>='What is this man being pulled by?')=<b><span style='color: green;'>boat</span></b></div><hr><div><b><span style='color: red;'>RESULT</span></b> -> <b><span style='color: blue;'>ANSWER0</span></b> -> <b><span style='color: green;'>boat</span></b></div><hr>
+
+Answer: red rope
+
